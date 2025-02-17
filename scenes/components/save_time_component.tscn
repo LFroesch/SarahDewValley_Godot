@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgxthwhj24cqr"]
+
+[sub_resource type="GDScript" id="GDScript_j616e"]
+script/source = "class_name SaveTimeComponent
+extends SaveDataComponent
+
+func _ready() -> void:
+	super._ready()
+	if save_data_resource == null:
+		save_data_resource = TimeDataResource.new()
+
+func _save_data() -> Resource:
+	var time_resource := save_data_resource as TimeDataResource
+	time_resource.saved_time = DayAndNightCycleManager.time
+	time_resource.saved_game_speed = DayAndNightCycleManager.game_speed
+	time_resource.saved_current_day = DayAndNightCycleManager.current_day
+	time_resource.saved_current_minute = DayAndNightCycleManager.current_minute
+	return super._save_data()
+
+func _load_data(window: Window) -> void:
+	var time_resource := save_data_resource as TimeDataResource
+	if time_resource != null:
+		print(\"Loaded Time: \", time_resource.saved_time)
+		print(\"Loaded Game Speed: \", time_resource.saved_game_speed)
+		print(\"Loaded Current Day: \", time_resource.saved_current_day)
+		print(\"Loaded Current Minute: \", time_resource.saved_current_minute)
+		
+		DayAndNightCycleManager.set_saved_time(
+			time_resource.saved_time,
+			time_resource.saved_current_day,
+			time_resource.saved_current_minute,
+			time_resource.saved_game_speed
+		)
+	else:
+		print(\"Failed to cast save_data_resource to TimeDataResource.\")
+"
+
+[sub_resource type="GDScript" id="GDScript_ay2gj"]
+script/source = "class_name TimeDataResource
+extends NodeDataResource
+
+@export var saved_time: float
+@export var saved_game_speed: float
+@export var saved_current_day: int
+@export var saved_current_minute: int
+
+func _save_data(node: Node) -> void:
+	super._save_data(node)
+	if node is DayAndNightCycleManager:
+		saved_time = node.time
+		saved_game_speed = node.game_speed
+		saved_current_day = node.current_day
+		saved_current_minute = node.current_minute
+
+func _load_data(window: Window) -> void:
+	var manager = window.get_node_or_null(node_path) as DayAndNightCycleManager
+	if manager != null:
+		manager.time = saved_time
+		manager.game_speed = saved_game_speed
+		manager.current_day = saved_current_day
+		manager.current_minute = saved_current_minute
+		# Force recalculation with new time
+		manager.recalculate_time()
+"
+
+[sub_resource type="Resource" id="Resource_byq7p"]
+script = SubResource("GDScript_ay2gj")
+saved_time = 0.0
+saved_game_speed = 0.0
+saved_current_day = 0
+saved_current_minute = 0
+global_position = Vector2(0, 0)
+node_path = NodePath("")
+parent_node_path = NodePath("")
+
+[node name="SaveTimeComponent" type="Node"]
+script = SubResource("GDScript_j616e")
+save_data_resource = SubResource("Resource_byq7p")

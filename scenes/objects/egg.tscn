@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcxvdusoqeif8"]
+
+[ext_resource type="Texture2D" uid="uid://b46v86rr34qa0" path="res://assets/game/objects/items/egg_items.png" id="1_h2e7r"]
+[ext_resource type="Script" path="res://scenes/objects/egg.gd" id="2_07r2f"]
+[ext_resource type="PackedScene" uid="uid://bxhjxqi72fxxc" path="res://scenes/components/collectible_component.tscn" id="2_aqnbi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3otxb"]
+atlas = ExtResource("1_h2e7r")
+region = Rect2(1, 1, 14, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ljark"]
+radius = 7.0
+
+[node name="Egg" type="Sprite2D"]
+y_sort_enabled = true
+texture = SubResource("AtlasTexture_3otxb")
+script = ExtResource("2_07r2f")
+
+[node name="CollectibleComponent" parent="." instance=ExtResource("2_aqnbi")]
+collectible_name = "egg"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleComponent"]
+shape = SubResource("CircleShape2D_ljark")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+one_shot = true

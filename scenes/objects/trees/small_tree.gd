@@ -3,7 +3,7 @@ extends Sprite2D
 @onready var hurt_component: HurtComponent = $HurtComponent
 @onready var damage_component: Node2D = $DamageComponent
 
-var log_scene = preload("res://scenes/objects/trees/log.tscn")
+var log_scene = preload("res://scenes/objects/log.tscn")
 
 func _ready() -> void:
 	hurt_component.hurt.connect(on_hurt)
@@ -12,10 +12,8 @@ func _ready() -> void:
 func on_hurt(hit_damage: int) -> void:
 	damage_component.apply_damage(hit_damage)
 	material.set_shader_parameter("shake_intensity", 1.0)
-	#print("Current shader intensity: ", material.get_shader_parameter("shake_intensity"))
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(0.5).timeout
 	material.set_shader_parameter("shake_intensity", 0.0)
-	#print("Current shader intensity: ", material.get_shader_parameter("shake_intensity"))
 
 func on_max_damage_reached() -> void:
 	print("max damaged reached")

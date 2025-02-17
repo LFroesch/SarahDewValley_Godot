@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsv2fuwt4kboe"]
+
+[ext_resource type="Script" path="res://scenes/components/save_crop_data_component.gd" id="1_qw6g4"]
+
+[node name="SaveCropDataComponent" type="Node"]
+script = ExtResource("1_qw6g4")
