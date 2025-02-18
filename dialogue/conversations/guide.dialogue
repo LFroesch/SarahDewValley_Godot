@@ -1,0 +1,14 @@
+~ start
+
+Marlow: [[Hi|Hello|Howdy]], nice to meet you.
+Marlow: Welcome to SarahDewValley!
+Marlow: As you can see the cows and chickens are hungry.
+Marlow: You need to grow some crops to feed them!
+Marlow: Here are some seeds and tools to grow some crops.
+
+- Take crop seeds
+	Player: Yeah I can grow crops!
+	do GameDialogueManager.action_give_crop_seeds()
+- No, I don't want them
+	Player: No, I'm not ready to grow my farm yet.
+=> END

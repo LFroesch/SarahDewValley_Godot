@@ -16,9 +16,13 @@ func _save_data(node: Node2D) -> void:
 		starting_day = growth_component.starting_day
 	
 func _load_data(window: Window) -> void:
-	super._load_data(window)
+
+	await super._load_data(window)
 	
 	if node_path != null:
+		
+		await window.get_tree().process_frame
+		
 		var existing_node = window.get_node_or_null(node_path)
 		if existing_node:
 			var growth_component = existing_node.get_node_or_null("GrowthCycleComponent")

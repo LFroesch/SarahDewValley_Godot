@@ -408,7 +408,7 @@ script = ExtResource("1_hqsp1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_mt0pj")
-animation = &"idle_back"
+animation = &"idle_front"
 autoplay = "idle_front"
 offset = Vector2(0, -5)
 

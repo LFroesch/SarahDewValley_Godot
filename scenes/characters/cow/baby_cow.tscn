@@ -102,3 +102,6 @@ script = ExtResource("5_8sw6g")
 character = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 navigation_agent_2d = NodePath("../../NavigationAgent2D")
+
+[node name="MilkTimer" type="Timer" parent="."]
+one_shot = true

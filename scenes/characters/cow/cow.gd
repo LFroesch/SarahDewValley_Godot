@@ -14,12 +14,10 @@ func _ready() -> void:
 
 func _start_milk_timer() -> void:
 	milk_timer.start(randf_range(180.0, 300.0))
-	var milk_instance = milk_scene.instantiate() as Node2D
-	milk_instance.global_position = global_position
-	get_parent().add_child(milk_instance)
+	
 	
 func _spawn_milk() -> void:
 	var milk_instance = milk_scene.instantiate() as Node2D
 	milk_instance.global_position = global_position
-	get_parent().add_child(milk_instance)
+	get_parent().call_deferred("add_child", milk_instance)
 	_start_milk_timer()

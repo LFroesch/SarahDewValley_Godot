@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://blk0ecg27ru5w"]
+[gd_scene load_steps=28 format=4 uid="uid://blk0ecg27ru5w"]
 
 [ext_resource type="PackedScene" uid="uid://335kuu1ed1xx" path="res://scenes/ui/game_screen.tscn" id="1_2cqtg"]
 [ext_resource type="PackedScene" uid="uid://hvfteo7nkvok" path="res://scenes/components/test_scene_save_data_manager_component.tscn" id="1_6b6ai"]
@@ -14,9 +14,15 @@
 [ext_resource type="PackedScene" uid="uid://bf00334i0tqxh" path="res://scenes/components/save_data_component.tscn" id="7_oe04h"]
 [ext_resource type="Script" path="res://scenes/components/crops_cursor_component.gd" id="7_qk352"]
 [ext_resource type="Resource" uid="uid://mx3pshmhd6ov" path="res://resources/tilemap_layer_resource.tres" id="8_cu8a8"]
+[ext_resource type="PackedScene" uid="uid://dx4wh0fbqvl68" path="res://scenes/objects/chest/chest.tscn" id="9_w3exm"]
 [ext_resource type="Resource" uid="uid://dw6rurk3ht3qo" path="res://resources/scene_data_resource.tres" id="14_po8j7"]
+[ext_resource type="PackedScene" uid="uid://bowtbua0rig86" path="res://scenes/characters/guide/guide.tscn" id="16_q8sk4"]
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="18_fqjt2"]
 [ext_resource type="Script" path="res://scenes/components/save_level_data_component.gd" id="19_ywbwb"]
+[ext_resource type="PackedScene" uid="uid://dqs3fibgc11xv" path="res://scenes/objects/plants/corn_harvest.tscn" id="20_eihut"]
+[ext_resource type="PackedScene" uid="uid://bcxvdusoqeif8" path="res://scenes/objects/egg.tscn" id="20_vpnpf"]
+[ext_resource type="PackedScene" uid="uid://bcra8th58gda2" path="res://scenes/objects/plants/tomato_harvest.tscn" id="21_3npxx"]
+[ext_resource type="PackedScene" uid="uid://bquhx8xcj0a26" path="res://scenes/objects/milk.tscn" id="21_62g4f"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vjkpn"]
 vertices = PackedVector2Array(171.93, 211.547, 229.523, 197.563, 214.227, 262.383, 132.219, 256.141, 133.156, 193.313, 80.1016, 236.156, 80.8672, 187.102, 118.781, 178.922)
@@ -74,11 +80,11 @@ tile_map_data = PackedByteArray("AAAGAAoABgAAAAAAAQAaAAgABgAAAAAAAgARAAgABgAAAAA
 tile_set = ExtResource("1_co0kt")
 
 [node name="Bridges" type="TileMapLayer" parent="GameTileMap"]
-tile_map_data = PackedByteArray("AAARAAwACAAAAAEAAAARAA0ACAAAAAEAAAARAA4ACAAAAAIAAAARAAsACAAAAAEAAAATAAoACAACAAMAAAAUAAoACAACAAMAAAAVAAoACAACAAMAAAAWAAoACAACAAMAAAAXAAoACAACAAMAAAAYAAoACAACAAMAAAAZAAoACAACAAMAAAAaAAoACAACAAMAAAAbAAoACAACAAMAAAAcAAoACAACAAMAAAAdAAoACAACAAMAAAAeAAoACAACAAMAAAAfAAoACAACAAMAAAAgAAoACAACAAMAAAAhAAoACQAAAAAAAAASAAoACAACAAMAAAARAAoACAABAAEAAAAiAAoACQAAAAIAAAAjAAoACQAAAAIAAAAkAAoACQAAAAIAAAAlAAoACQAAAAIAAAAmAAoACQAAAAIAAAAnAAoACQAAAAIAAAAoAAoACQABAAAAAAAyABQACQAAAAAAAAAzABQACQAAAAIAAAA0ABQACQAAAAIAAAA1ABQACQAAAAIAAAA2ABQACQAAAAIAAAA3ABQACQAAAAIAAAA4ABQACQAAAAIAAAA5ABQACQAAAAIAAAA6ABQACQAAAAIAAAA7ABQACQABAAAAAAAQABIACQACAAAAAAAQABMACQACAAIAAAAQABQACQACAAIAAAAQABUACQACAAIAAAAQABYACQACAAIAAAAQABcACQACAAIAAAAQABgACQACAAIAAAAQABkACQACAAIAAAAQABoACQACAAIAAAAQABsACQACAAEAAAAdACgACQAAAAAAAAAiACgACQABAAAAAAA0ACgACQABAAAAAAAwACgACQAAAAAAAAAeACgACQAAAAIAAAAfACgACQAAAAIAAAAgACgACQAAAAIAAAAhACgACQAAAAIAAAAxACgACQAAAAIAAAAyACgACQAAAAIAAAAzACgACQAAAAIAAAAwABYACQACAAAAAAAwABcACQACAAIAAAAwABgACQACAAIAAAAwABkACQACAAIAAAAwABoACQACAAIAAAAwABsACQACAAEAAAA=")
+tile_map_data = PackedByteArray("AAATAAoACAACAAMAAAAUAAoACAACAAMAAAAVAAoACAACAAMAAAAWAAoACAACAAMAAAAXAAoACAACAAMAAAAYAAoACAACAAMAAAAZAAoACAACAAMAAAAaAAoACAACAAMAAAAbAAoACAACAAMAAAAcAAoACAACAAMAAAAdAAoACAACAAMAAAAeAAoACAACAAMAAAAhAAoACQAAAAAAAAASAAoACAACAAMAAAAiAAoACQAAAAIAAAAjAAoACQAAAAIAAAAkAAoACQAAAAIAAAAlAAoACQAAAAIAAAAmAAoACQAAAAIAAAAnAAoACQAAAAIAAAAoAAoACQABAAAAAAAyABQACQAAAAAAAAAzABQACQAAAAIAAAA0ABQACQAAAAIAAAA1ABQACQAAAAIAAAA2ABQACQAAAAIAAAA3ABQACQAAAAIAAAA4ABQACQAAAAIAAAA5ABQACQAAAAIAAAA6ABQACQAAAAIAAAA7ABQACQABAAAAAAAQABIACQACAAAAAAAQABMACQACAAIAAAAQABQACQACAAIAAAAQABUACQACAAIAAAAQABYACQACAAIAAAAQABcACQACAAIAAAAQABgACQACAAIAAAAQABkACQACAAIAAAAQABoACQACAAIAAAAQABsACQACAAEAAAAdACgACQAAAAAAAAAiACgACQABAAAAAAA0ACgACQABAAAAAAAwACgACQAAAAAAAAAeACgACQAAAAIAAAAfACgACQAAAAIAAAAgACgACQAAAAIAAAAhACgACQAAAAIAAAAxACgACQAAAAIAAAAyACgACQAAAAIAAAAzACgACQAAAAIAAAAwABYACQACAAAAAAAwABcACQACAAIAAAAwABgACQACAAIAAAAwABkACQACAAIAAAAwABoACQACAAIAAAAwABsACQACAAEAAAAfAAoACAADAAMAAAARAAoACAACAAMAAAAQAAoACAABAAEAAAAQAAsACAAAAAEAAAAQAAwACAAAAAEAAAAQAA0ACAAAAAEAAAAQAA4ACAAAAAEAAAAQAA8ACAAAAAEAAAAQABAACAAAAAIAAAAQAB0ACAAAAAAAAAAQAB4ACAAAAAEAAAAQAB8ACAAAAAEAAAAQACAACAAAAAEAAAAQACEACAAAAAEAAAAQACIACAAAAAEAAAAQACMACAAAAAEAAAAQACQACAAAAAEAAAAQACUACAAAAAEAAAAQACYACAAAAAEAAAAbACgACAADAAMAAAAaACgACAACAAMAAAAZACgACAACAAMAAAAYACgACAACAAMAAAAXACgACAACAAMAAAAWACgACAACAAMAAAAVACgACAACAAMAAAAUACgACAACAAMAAAATACgACAACAAMAAAASACgACAACAAMAAAARACgACAACAAMAAAAQACgACAABAAIAAAAQACcACAAAAAEAAAA=")
 tile_set = ExtResource("1_co0kt")
 
 [node name="Undergrowth" type="TileMapLayer" parent="GameTileMap"]
-tile_map_data = PackedByteArray("AAAMABQABAADAAIAAAAKABQABAADAAIAAAAeABQABAAAAAAAAAAgABMABAACAAMAAAAfABMABAADAAIAAAAhABQABAACAAIAAAAgABcABQAEAAAAAAAnABYABQAEAAAAAAAhABYABQAIAAAAAAAgABYABQAHAAAAAAAdABYABQADAAAAAAAbABYABQAGAAAAAAAbABUABQAIAAAAAAAaABUABQAAAAAAAAAlABMABQADAAAAAAAlABQABQAGAAAAAAAlABUABQAHAAAAAAA=")
+tile_map_data = PackedByteArray("AAAMABQABAADAAIAAAAKABQABAADAAIAAAAeABQABAAAAAAAAAAgABMABAACAAMAAAAfABMABAADAAIAAAAhABQABAACAAIAAAAgABcABQAEAAAAAAAnABYABQAEAAAAAAAhABYABQAIAAAAAAAgABYABQAHAAAAAAAdABYABQADAAAAAAAbABYABQAGAAAAAAAbABUABQAIAAAAAAAaABUABQAAAAAAAAAlABMABQADAAAAAAAlABQABQAGAAAAAAAlABUABQAHAAAAAAAwACcABwADAAsAAAAvACcABwAHAAUAAAAsACgAEAAAAAQAAAAsACkAEAAAAAUAAAAtACgAEAABAAQAAAAtACkAEAABAAUAAAAuACgAEAAEAAQAAAAuACkAEAAEAAUAAAAxACcAEAAFAAQAAAAyACcAEAAGAAQAAAAzACcAEAAHAAQAAAA=")
 tile_set = ExtResource("1_co0kt")
 
 [node name="Overgrowth" type="TileMapLayer" parent="GameTileMap"]
@@ -142,6 +148,9 @@ position = Vector2(207, 227)
 
 [node name="Chicken12" parent="Animals/ChickensAtSpawn" instance=ExtResource("3_7pxkq")]
 position = Vector2(93, 191)
+
+[node name="Guide" parent="Animals/ChickensAtSpawn" instance=ExtResource("16_q8sk4")]
+position = Vector2(256, 222)
 
 [node name="CowsatCropIsland" type="Node2D" parent="Animals"]
 y_sort_enabled = true
@@ -227,3 +236,29 @@ position = Vector2(358, 525)
 
 [node name="BabyCow2" parent="Animals/NavIsland/CowsAtNaviIsland" instance=ExtResource("6_y282j")]
 position = Vector2(373, 484)
+
+[node name="Chests" type="Node2D" parent="."]
+position = Vector2(295, 289)
+
+[node name="ChickenPastureBox" parent="Chests" instance=ExtResource("9_w3exm")]
+dialogue_start_command = "start_chicken_pasture_box"
+output_reward_scenes = Array[PackedScene]([ExtResource("20_vpnpf")])
+
+[node name="CowPastureBox" parent="Chests" instance=ExtResource("9_w3exm")]
+position = Vector2(-68, 1)
+dialogue_start_command = "start_cow_pasture_box"
+output_reward_scenes = Array[PackedScene]([ExtResource("21_62g4f")])
+
+[node name="HarvestCollectibles" type="Node2D" parent="."]
+
+[node name="CornHarvest" parent="HarvestCollectibles" instance=ExtResource("20_eihut")]
+position = Vector2(289, 232)
+
+[node name="CornHarvest2" parent="HarvestCollectibles" instance=ExtResource("20_eihut")]
+position = Vector2(307, 247)
+
+[node name="TomatoHarvest" parent="HarvestCollectibles" instance=ExtResource("21_3npxx")]
+position = Vector2(235, 246)
+
+[node name="TomatoHarvest2" parent="HarvestCollectibles" instance=ExtResource("21_3npxx")]
+position = Vector2(208, 242)

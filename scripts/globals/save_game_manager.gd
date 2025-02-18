@@ -1,5 +1,7 @@
 extends Node
 
+var allow_save_game: bool
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("save_game"):
 		save_game()
@@ -7,6 +9,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func save_game() -> void:
 	DayAndNightCycleManager.save_time_state()
 	InventoryManager.save_inventory()
+	ToolManager.save_tools()
 
 	var save_level_data_component: SaveLevelDataComponent = get_tree().get_first_node_in_group("save_level_data_component")
 	
@@ -14,8 +17,12 @@ func save_game() -> void:
 		save_level_data_component.save_game()
 		
 func load_game() -> void:
+	
+	await get_tree().process_frame 
+	
 	DayAndNightCycleManager.load_time_state()
 	InventoryManager.load_inventory()
+	ToolManager.load_tools() 
 	var save_level_data_component: SaveLevelDataComponent = get_tree().get_first_node_in_group("save_level_data_component")
 	
 	if save_level_data_component != null:

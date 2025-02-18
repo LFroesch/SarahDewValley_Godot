@@ -29,3 +29,13 @@ func load_inventory() -> void:
 	if save_resource and save_resource.has_meta("inventory_data"):
 		inventory = save_resource.get_meta("inventory_data")
 		inventory_changed.emit()  # Update any UI listening for changes
+
+func remove_collectible(collectible_name: String) -> void:
+	inventory.get_or_add(collectible_name)
+	
+	if inventory[collectible_name] == null:
+		inventory[collectible_name] = 0
+	else:
+		if inventory[collectible_name] > 0:
+			inventory[collectible_name] -= 1
+	inventory_changed.emit()

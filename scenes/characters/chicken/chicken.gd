@@ -13,12 +13,9 @@ func _ready() -> void:
 
 func _start_egg_timer() -> void:
 	egg_timer.start(randf_range(180.0, 300.0))
-	var egg_instance = egg_scene.instantiate() as Node2D
-	egg_instance.global_position = global_position
-	get_parent().add_child(egg_instance)
 	
 func _spawn_egg() -> void:
 	var egg_instance = egg_scene.instantiate() as Node2D
 	egg_instance.global_position = global_position
-	get_parent().add_child(egg_instance)
+	get_parent().call_deferred("add_child", egg_instance)
 	_start_egg_timer()

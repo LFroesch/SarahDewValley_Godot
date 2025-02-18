@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://8u32haifvhto"]
+[gd_scene load_steps=10 format=3 uid="uid://8u32haifvhto"]
 
 [ext_resource type="Script" path="res://scenes/objects/plants/corn.gd" id="1_pnkrq"]
 [ext_resource type="PackedScene" uid="uid://b3pkl0ckb6fb1" path="res://scenes/objects/plants/flowering_particles.tscn" id="1_xiu8c"]
@@ -6,8 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cltipf7rtxhpo" path="res://assets/game/objects/basic_plants.png" id="2_yfrrw"]
 [ext_resource type="PackedScene" uid="uid://cl6o2b5o2k630" path="res://scenes/objects/plants/watering_particles.tscn" id="3_7ff2i"]
 [ext_resource type="PackedScene" uid="uid://dl4k8ebnxppym" path="res://scenes/objects/plants/growth_cycle_component.tscn" id="5_yvg18"]
-[ext_resource type="PackedScene" uid="uid://bf00334i0tqxh" path="res://scenes/components/save_data_component.tscn" id="7_8o2fb"]
-[ext_resource type="Resource" uid="uid://dw6rurk3ht3qo" path="res://resources/scene_data_resource.tres" id="8_plj5d"]
 [ext_resource type="PackedScene" uid="uid://dsv2fuwt4kboe" path="res://scenes/components/save_crop_data_component.tscn" id="9_hyyrn"]
 [ext_resource type="Resource" uid="uid://bns47d4q0anub" path="res://resources/crop_scene_data_resource.tres" id="10_2vkih"]
 
@@ -38,9 +36,6 @@ tool = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
 position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_h508x")
-
-[node name="SaveDataComponent" parent="." instance=ExtResource("7_8o2fb")]
-save_data_resource = ExtResource("8_plj5d")
 
 [node name="SaveCropDataComponent" parent="." instance=ExtResource("9_hyyrn")]
 save_data_resource = ExtResource("10_2vkih")

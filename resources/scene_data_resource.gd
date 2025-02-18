@@ -27,6 +27,8 @@ func _load_data(window: Window) -> void:
 		
 		var scene_file_resource: Resource = load(scene_file_path)
 		scene_node = scene_file_resource.instantiate() as Node2D
+		if node_name:
+			scene_node.name = node_name
 		
 	if parent_node != null and scene_node != null:
 		scene_node.global_position = global_position
