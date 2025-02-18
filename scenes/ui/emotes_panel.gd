@@ -8,7 +8,8 @@ var idle_emotes: Array = ["emote_1_idle", "emote_2_smile", "emote_3_ear_wave", "
 func _ready() -> void:
 	animated_sprite_2d.play("emote_1_idle")
 	InventoryManager.inventory_changed.connect(on_inventory_changed)
-	GameDialogueManager.feed_the_animals.connect(on_feed_the_animals)
+	GameDialogueManager.feed_the_chickens.connect(on_feed_the_chickens)
+	GameDialogueManager.feed_the_cows.connect(on_feed_the_cows)
 	
 func play_emote(animation: String) -> void:
 	animated_sprite_2d.play(animation)
@@ -23,5 +24,8 @@ func _on_emote_idle_timer_timeout() -> void:
 func on_inventory_changed() -> void:
 	animated_sprite_2d.play("emote_7_excited")
 
-func on_feed_the_animals() -> void:
+func on_feed_the_chickens() -> void:
+	animated_sprite_2d.play("emote_6_love_kiss")
+	
+func on_feed_the_cows() -> void:
 	animated_sprite_2d.play("emote_6_love_kiss")

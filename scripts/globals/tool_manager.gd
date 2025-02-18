@@ -33,3 +33,6 @@ func load_tools() -> void:
 		# Re-enable all saved tools
 		for tool in enabled_tools:
 			enable_tool.emit(tool)
+			
+func has_farming_tools() -> bool:
+	return enabled_tools.has(DataTypes.Tools.TillGround) and enabled_tools.has(DataTypes.Tools.WaterCrops)

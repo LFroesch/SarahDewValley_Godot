@@ -1,56 +1,57 @@
-[gd_scene load_steps=21 format=3 uid="uid://dx4wh0fbqvl68"]
+[gd_scene load_steps=22 format=3 uid="uid://dx4wh0fbqvl68"]
 
-[ext_resource type="Texture2D" uid="uid://c37crt7rnjl4u" path="res://assets/game/tilesets/building_parts/chest.png" id="1_0mxff"]
-[ext_resource type="Script" path="res://scenes/objects/chest/chest.gd" id="1_eudj7"]
-[ext_resource type="PackedScene" uid="uid://ou413sd7e4wr" path="res://scenes/components/interactable_component.tscn" id="2_mkd3n"]
-[ext_resource type="PackedScene" uid="uid://df1xd2ip40rk7" path="res://scenes/components/interactable_label_component.tscn" id="3_ixeub"]
-[ext_resource type="PackedScene" uid="uid://byxf2kou6e542" path="res://scenes/components/feed_component.tscn" id="5_g4od6"]
+[ext_resource type="Script" path="res://scenes/objects/chest/cow_chest.gd" id="1_otank"]
+[ext_resource type="Texture2D" uid="uid://c37crt7rnjl4u" path="res://assets/game/tilesets/building_parts/chest.png" id="2_6w4uk"]
+[ext_resource type="PackedScene" uid="uid://bquhx8xcj0a26" path="res://scenes/objects/milk.tscn" id="2_44umx"]
+[ext_resource type="PackedScene" uid="uid://ou413sd7e4wr" path="res://scenes/components/interactable_component.tscn" id="3_1ixh2"]
+[ext_resource type="PackedScene" uid="uid://df1xd2ip40rk7" path="res://scenes/components/interactable_label_component.tscn" id="4_mmf2a"]
+[ext_resource type="PackedScene" uid="uid://byxf2kou6e542" path="res://scenes/components/feed_component.tscn" id="5_cfehq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eu4vk"]
 size = Vector2(16, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1x8wj"]
-atlas = ExtResource("1_0mxff")
+atlas = ExtResource("2_6w4uk")
 region = Rect2(192, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w7ra2"]
-atlas = ExtResource("1_0mxff")
+atlas = ExtResource("2_6w4uk")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nstph"]
-atlas = ExtResource("1_0mxff")
+atlas = ExtResource("2_6w4uk")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pljh3"]
-atlas = ExtResource("1_0mxff")
+atlas = ExtResource("2_6w4uk")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vvyhr"]
-atlas = ExtResource("1_0mxff")
+atlas = ExtResource("2_6w4uk")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d11dg"]
-atlas = ExtResource("1_0mxff")
+atlas = ExtResource("2_6w4uk")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jlbqs"]
-atlas = ExtResource("1_0mxff")
+atlas = ExtResource("2_6w4uk")
 region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_we38p"]
-atlas = ExtResource("1_0mxff")
+atlas = ExtResource("2_6w4uk")
 region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yv4d1"]
-atlas = ExtResource("1_0mxff")
+atlas = ExtResource("2_6w4uk")
 region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_omjmj"]
-atlas = ExtResource("1_0mxff")
+atlas = ExtResource("2_6w4uk")
 region = Rect2(192, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5bm3p"]
-atlas = ExtResource("1_0mxff")
+atlas = ExtResource("2_6w4uk")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2rcja"]
@@ -109,8 +110,9 @@ radius = 19.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xvda1"]
 
-[node name="Chest" type="StaticBody2D"]
-script = ExtResource("1_eudj7")
+[node name="CowChest" type="StaticBody2D"]
+script = ExtResource("1_otank")
+output_reward_scenes = Array[PackedScene]([ExtResource("2_44umx")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
@@ -121,14 +123,14 @@ position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_2rcja")
 autoplay = "default"
 
-[node name="InteractableComponent" parent="." instance=ExtResource("2_mkd3n")]
+[node name="InteractableComponent" parent="." instance=ExtResource("3_1ixh2")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
 visible = false
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_j411h")
 
-[node name="InteractableLabelComponent" parent="." instance=ExtResource("3_ixeub")]
+[node name="InteractableLabelComponent" parent="." instance=ExtResource("4_mmf2a")]
 offset_left = -23.0
 offset_top = -37.0
 offset_right = -5.0
@@ -137,7 +139,7 @@ offset_bottom = -19.0
 [node name="RewardMarker" type="Marker2D" parent="."]
 position = Vector2(15, 7)
 
-[node name="FeedComponent" parent="." instance=ExtResource("5_g4od6")]
+[node name="FeedComponent" parent="." instance=ExtResource("5_cfehq")]
 collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FeedComponent"]

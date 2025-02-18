@@ -22,7 +22,7 @@ func _ready() -> void:
 	interactable_component.interactable_activated.connect(on_interactable_activated)
 	interactable_component.interactable_deactivated.connect(on_interactable_deactivated)
 	interactable_label_component.hide()
-	GameDialogueManager.feed_the_animals.connect(on_feed_the_animals)
+	GameDialogueManager.feed_the_cows.connect(on_feed_the_cows)
 	feed_component.food_received.connect(on_food_recieved)
 	
 func on_interactable_activated() -> void:
@@ -48,10 +48,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			
 			balloon.start(load("res://dialogue/conversations/chest.dialogue"), dialogue_start_command)
 
-func on_feed_the_animals() -> void:
+func on_feed_the_cows() -> void:
 	if in_range:
 		trigger_feed_harvest("corn", corn_harvest_scene)
-		trigger_feed_harvest("tomato", tomato_harvest_scene)
 		
 		
 func trigger_feed_harvest(inventory_item: String, scene: Resource) -> void:
@@ -61,8 +60,9 @@ func trigger_feed_harvest(inventory_item: String, scene: Resource) -> void:
 		return
 		
 	var inventory_item_count = inventory[inventory_item]
+	var crops_to_use = mini(inventory_item_count, 5)
 	
-	for index in inventory_item_count:
+	for index in crops_to_use:
 		var harvest_instance = scene.instantiate() as Node2D
 		harvest_instance.global_position = Vector2(global_position.x, global_position.y - food_drop_height)
 		get_tree().root.add_child(harvest_instance)

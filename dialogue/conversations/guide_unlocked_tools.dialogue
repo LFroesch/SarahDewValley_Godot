@@ -1,0 +1,12 @@
+~ start
+
+Marlow: [[Hi|Hello|Howdy]]! How are you?
+Marlow: Have you taken a look around?
+Marlow: Let me know if you have any questions!
+
+- Ask about farming
+	
+- No, I don't want them
+	Player: No, I'm not ready to grow my farm yet.
+
+=> END

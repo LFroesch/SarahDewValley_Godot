@@ -1,14 +1,35 @@
 ~ start
+if ToolManager.has_farming_tools()
+	Guide: [[Hi|Hello|Howdy]], nice to see you again.
+	Guide: Is there anything I can help you with?
+	- Ask about Farming
+		Guide: You can till the ground with your hoe and then plant Corn & Tomatoes.
+		Guide: You then need to water it once, and they each grow over 4 days.
+	- Ask about Gathering
+		Guide: You can chop down trees and mine rocks for extra resources.
+		Guide: They are not currently used in this patch. More to come soon!
+	- Ask about Animals
+		Guide: You can feed the animals with the crates near their pastures.
+		Guide: Feeding them will give you Milk & Eggs (and make them happy)
+	- Ask about Controls
+		Guide: Escape takes you to main menu. WASD for character movement.
+		Guide: Left Mouse Click to select tools, or put away your current tool.
+		Guide: P will quick save. E will interact with chests, like this guide.
+		Guide: Right Click with a tool will use it in the direction you are facing.
+		Guide: CTRL+Right Click with the hoe will clear a tilled soil patch / crop patch.
+	- Ask about Objectives
+		Guide: Currently the game is in a farming sim state.
+		Guide: Later on there will be cooking, combat, fishing & more!
+else
+	Guide: [[Hi|Hello|Howdy]], nice to meet you.
+	Guide: Welcome to SarahDewValley!
+	Guide: As you can see the cows and chickens are hungry.
+	Guide: You need to grow some crops to feed them!
+	Guide: Here are some seeds and tools to grow some crops.
 
-Marlow: [[Hi|Hello|Howdy]], nice to meet you.
-Marlow: Welcome to SarahDewValley!
-Marlow: As you can see the cows and chickens are hungry.
-Marlow: You need to grow some crops to feed them!
-Marlow: Here are some seeds and tools to grow some crops.
-
-- Take crop seeds
-	Player: Yeah I can grow crops!
-	do GameDialogueManager.action_give_crop_seeds()
-- No, I don't want them
-	Player: No, I'm not ready to grow my farm yet.
+	- Take crop seeds
+		Player: Yeah I can grow crops!
+		do GameDialogueManager.action_give_crop_seeds()
+	- No, I don't want them
+		Player: No, I'm not ready to grow my farm yet.
 => END

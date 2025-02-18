@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://dmehta2qqogco"
+path="res://.godot/imported/guide_unlocked_tools.dialogue-08aeb245df3f5b148ae21d6e095e8834.tres"
+
+[deps]
+
+source_file="res://dialogue/conversations/guide_unlocked_tools.dialogue"
+dest_files=["res://.godot/imported/guide_unlocked_tools.dialogue-08aeb245df3f5b148ae21d6e095e8834.tres"]
+
+[params]
+
+defaults=true

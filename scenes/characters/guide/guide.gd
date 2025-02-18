@@ -34,7 +34,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			if is_instance_valid(active_balloon):
 				active_balloon.queue_free()
 			active_balloon = balloon_scene.instantiate()
-			get_tree().root.add_child(active_balloon)
+			get_tree().root.add_child(active_balloon) 
 			active_balloon.start(load("res://dialogue/conversations/guide.dialogue"), "start")
 
 func on_give_crop_seeds() -> void:

@@ -1,20 +1,20 @@
 ~ start_cow_pasture_box
-Pasture Box: [[Hi|Hello|Howdy]], your animals are hungry.
+Pasture Box: [[Hi|Hello|Howdy]], your cows are hungry. You can feed them corn!
 Pasture Box: Would you like to feed your cows?
 - Yes
 	Player: Yeah! Lets feed my cows.
-	do GameDialogueManager.action_feed_animals()
+	do GameDialogueManager.action_feed_cows()
 - No
 	Player: No, I don't need to feed them. I have enough milk.
 	
 => END
 
 ~ start_chicken_pasture_box
-Pasture Box: [[Hi|Hello|Howdy]], your animals are hungry.
+Pasture Box: [[Hi|Hello|Howdy]], your chickens are hungry. You can feed them tomatoes!
 Pasture Box: Would you like to feed your chickens?
 - Yes
 	Player: Yeah! Lets feed my chickens.
-	do GameDialogueManager.action_feed_animals()
+	do GameDialogueManager.action_feed_chickens()
 
 - No
 	Player: No, I don't need to feed them. I have enough eggs.
