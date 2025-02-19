@@ -37,13 +37,7 @@ func _on_tool_tomato_pressed() -> void:
 	ToolManager.select_tool(DataTypes.Tools.PlantTomato)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("release_tool"):
-		ToolManager.select_tool(DataTypes.Tools.None)
-		tool_axe.release_focus()
-		tool_tilling.release_focus()
-		tool_watering_can.release_focus()
-		tool_corn.release_focus()
-		tool_tomato.release_focus()
+	pass
 	
 func on_enable_tool_button(tool: DataTypes.Tools) -> void:
 	if tool == DataTypes.Tools.TillGround:

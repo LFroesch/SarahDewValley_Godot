@@ -468,3 +468,13 @@ position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_fb66j")
 
 [node name="DamageBar" parent="." instance=ExtResource("12_4gfi7")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FadeOverlay" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

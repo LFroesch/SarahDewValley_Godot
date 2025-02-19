@@ -7,6 +7,7 @@ extends NonPlayableCharacter
 var loot_scene = preload("res://scenes/objects/egg.tscn")
 @onready var state_machine: NodeStateMachine = $StateMachine  # Adjust path as needed
 @onready var damage_bar: Node2D = $DamageBar
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
 var can_deal_damage = true
 @export var health: float = 50
@@ -48,12 +49,16 @@ func take_damage(amount: float):
 	if health <= 0:
 		damage_bar.hide()
 		is_dying = true
+		collision_shape.set_deferred("disabled", true)  # Disable main collision
+		detection_area.monitoring = false  # Disable detection area
+		detection_area.monitorable = false
+		
 		if loot_scene:
 			var loot = loot_scene.instantiate()
 			loot.global_position = global_position + Vector2(4,4)
 			get_parent().add_child(loot)
 		died.emit()
-		state_machine.set_process(false)  # Disable state machine
+		state_machine.set_process(false)
 		state_machine.set_physics_process(false)
 		animated_sprite.animation_finished.connect(_on_death_animation_finished)
 		animated_sprite.play("death")
