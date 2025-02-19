@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ch3fyk2h3p4ag"]
+[gd_scene load_steps=28 format=3 uid="uid://ch3fyk2h3p4ag"]
 
 [ext_resource type="Script" path="res://scenes/characters/enemies/goblins/goblin_barbarian.gd" id="1_6yw35"]
 [ext_resource type="Texture2D" uid="uid://68865m0gt0i2" path="res://assets/game/characters/Goblin_Barbarian.png" id="2_fdf2t"]
@@ -33,6 +33,22 @@ region = Rect2(64, 384, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ym7r7"]
 atlas = ExtResource("2_fdf2t")
 region = Rect2(96, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13o0x"]
+atlas = ExtResource("2_fdf2t")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt10d"]
+atlas = ExtResource("2_fdf2t")
+region = Rect2(0, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42hb3"]
+atlas = ExtResource("2_fdf2t")
+region = Rect2(32, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvo6y"]
+atlas = ExtResource("2_fdf2t")
+region = Rect2(64, 320, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q75tc"]
 atlas = ExtResource("2_fdf2t")
@@ -75,7 +91,24 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 5.0
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13o0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qt10d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42hb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvo6y")
+}],
+"loop": false,
+"name": &"death",
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -103,7 +136,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3r12b"]
@@ -129,8 +162,10 @@ y_sort_enabled = true
 material = SubResource("ShaderMaterial_0mkhr")
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_8g42y")
-animation = &"attack"
+animation = &"death"
 autoplay = "idle"
+frame = 2
+frame_progress = 0.298178
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
