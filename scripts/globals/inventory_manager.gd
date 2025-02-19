@@ -7,9 +7,9 @@ signal inventory_changed
 
 var food_healing_values = {
 	"egg": 15,
-	"milk": 10,
-	"corn": 8,
-	"tomato": 5
+	"milk": 20,
+	"corn": 10,
+	"tomato": 10
 	}
 
 signal health_recovered(amount: int)
