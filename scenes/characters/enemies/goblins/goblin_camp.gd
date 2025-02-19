@@ -2,7 +2,7 @@ extends Node2D
 
 @export var respawn_time: float = 5.0
 @export var max_goblins: int = 3
-@export var initial_spawn_delay: float = 7.5  # Delsay between initial spawns
+@export var initial_spawn_delay: float = 3.0
 
 
 var goblin_scene = preload("res://scenes/characters/enemies/goblins/goblin_barbarian.tscn") 

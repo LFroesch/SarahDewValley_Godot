@@ -4,8 +4,8 @@ extends NonPlayableCharacter
 @onready var damage_timer: Timer = $DamageTimer
 @onready var hurt_component: HurtComponent = $HurtComponent
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-
 var loot_scene = preload("res://scenes/objects/egg.tscn")
+@onready var state_machine: NodeStateMachine = $StateMachine  # Adjust path as needed
 
 var can_deal_damage = true
 @export var health: float = 50
@@ -13,6 +13,8 @@ var can_deal_damage = true
 signal died
 
 func _ready():
+	walk_cycles = randi_range(min_walk_cycle, max_walk_cycle)
+
 	detection_area.body_entered.connect(_on_body_entered)
 	detection_area.body_exited.connect(_on_body_exited)
 	
@@ -20,20 +22,19 @@ func _ready():
 	damage_timer.timeout.connect(_on_damage_timer_timeout)
 	hurt_component.hurt.connect(take_damage)
 	hurt_component.is_enemy = true
-
-# Fixed function name syntax
+	
 func _on_body_entered(body):
 	if body.is_in_group("player") and can_deal_damage:
-		print("Do damage to player!")
-		animated_sprite.play("attack")
+		state_machine.transition_to("attack")
+
+		if body.has_node("HurtComponent"):
+			body.get_node("HurtComponent").hurt.emit(10.0)
 		can_deal_damage = false
 		damage_timer.start()
 		
-# Fixed function name syntax
 func _on_body_exited(body):
-	animated_sprite.play("idle")
+	pass
 
-# Fixed function name syntax
 func _on_damage_timer_timeout():
 	can_deal_damage = true
 		

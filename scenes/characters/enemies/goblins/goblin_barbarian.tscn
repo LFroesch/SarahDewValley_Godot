@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ch3fyk2h3p4ag"]
+[gd_scene load_steps=24 format=3 uid="uid://ch3fyk2h3p4ag"]
 
 [ext_resource type="Script" path="res://scenes/characters/enemies/goblins/goblin_barbarian.gd" id="1_6yw35"]
 [ext_resource type="Texture2D" uid="uid://68865m0gt0i2" path="res://assets/game/characters/Goblin_Barbarian.png" id="2_fdf2t"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/state_machine/node_state_machine.gd" id="3_lisox"]
 [ext_resource type="Script" path="res://scenes/characters/npc_states/idle_state.gd" id="4_8rwgi"]
 [ext_resource type="Script" path="res://scenes/characters/npc_states/walk_state.gd" id="5_4gvjp"]
+[ext_resource type="Script" path="res://scenes/characters/npc_states/attack_state.gd" id="8_g043o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vnh7"]
 
@@ -72,7 +73,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ym7r7")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 5.0
 }, {
@@ -128,7 +129,7 @@ y_sort_enabled = true
 material = SubResource("ShaderMaterial_0mkhr")
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_8g42y")
-animation = &"walk"
+animation = &"attack"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -150,13 +151,20 @@ script = ExtResource("5_4gvjp")
 character = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 navigation_agent_2d = NodePath("../../NavigationAgent2D")
+max_speed = 15.0
+
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "animated_sprite_2d")]
+script = ExtResource("8_g043o")
+character = NodePath("../..")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 10.0
-navigation_layers = 5
+navigation_layers = 4
 path_postprocessing = 1
 avoidance_enabled = true
 radius = 5.0
+debug_enabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 64
