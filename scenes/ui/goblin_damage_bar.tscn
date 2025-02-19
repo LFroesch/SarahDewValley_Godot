@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://7ovrta2wmxi4"]
+
+[ext_resource type="Script" path="res://scenes/ui/goblin_damage_bar.gd" id="1_42gvp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3joqh"]
+bg_color = Color(0.968493, 0.000902861, 0.000495362, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lqry6"]
+bg_color = Color(0, 0.929412, 0.207843, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[node name="DamageBar" type="Node2D"]
+script = ExtResource("1_42gvp")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(20, 6)
+offset_right = 20.0
+offset_bottom = 6.0
+theme_override_styles/background = SubResource("StyleBoxFlat_3joqh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_lqry6")
+show_percentage = false

@@ -6,9 +6,29 @@ extends PanelContainer
 @onready var egg_label: Label = $MarginContainer/VBoxContainer/Egg/EggLabel
 @onready var milk_label: Label = $MarginContainer/VBoxContainer/Milk/MilkLabel
 @onready var corn_label: Label = $MarginContainer/VBoxContainer/Corn/CornLabel
+@onready var egg_texture = $MarginContainer/VBoxContainer/Egg/TextureRect
+@onready var milk_texture = $MarginContainer/VBoxContainer/Milk/TextureRect
+@onready var corn_texture = $MarginContainer/VBoxContainer/Corn/TextureRect
+@onready var tomato_texture = $MarginContainer/VBoxContainer/Tomato/TextureRect
 
 func _ready() -> void:
 	InventoryManager.inventory_changed.connect(on_inventory_changed)
+	
+	# Make textures clickable
+	egg_texture.mouse_filter = Control.MOUSE_FILTER_STOP
+	milk_texture.mouse_filter = Control.MOUSE_FILTER_STOP
+	corn_texture.mouse_filter = Control.MOUSE_FILTER_STOP
+	tomato_texture.mouse_filter = Control.MOUSE_FILTER_STOP
+
+	# Connect gui input signals
+	egg_texture.gui_input.connect(func(event): _on_food_input(event, "egg"))
+	milk_texture.gui_input.connect(func(event): _on_food_input(event, "milk"))
+	corn_texture.gui_input.connect(func(event): _on_food_input(event, "corn"))
+	tomato_texture.gui_input.connect(func(event): _on_food_input(event, "tomato"))
+
+func _on_food_input(event: InputEvent, food_name: String) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		InventoryManager.consume_food(food_name)
 	
 func on_inventory_changed() -> void:
 	var inventory: Dictionary = InventoryManager.inventory

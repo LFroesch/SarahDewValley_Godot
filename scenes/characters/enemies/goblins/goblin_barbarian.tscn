@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ch3fyk2h3p4ag"]
+[gd_scene load_steps=29 format=3 uid="uid://ch3fyk2h3p4ag"]
 
 [ext_resource type="Script" path="res://scenes/characters/enemies/goblins/goblin_barbarian.gd" id="1_6yw35"]
 [ext_resource type="Texture2D" uid="uid://68865m0gt0i2" path="res://assets/game/characters/Goblin_Barbarian.png" id="2_fdf2t"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/characters/npc_states/idle_state.gd" id="4_8rwgi"]
 [ext_resource type="Script" path="res://scenes/characters/npc_states/walk_state.gd" id="5_4gvjp"]
 [ext_resource type="Script" path="res://scenes/characters/npc_states/attack_state.gd" id="8_g043o"]
+[ext_resource type="PackedScene" uid="uid://7ovrta2wmxi4" path="res://scenes/ui/goblin_damage_bar.tscn" id="9_1og8x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vnh7"]
 
@@ -211,3 +212,5 @@ shape = SubResource("RectangleShape2D_fh18b")
 
 [node name="DamageTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="DamageBar" parent="." instance=ExtResource("9_1og8x")]

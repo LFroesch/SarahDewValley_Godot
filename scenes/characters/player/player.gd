@@ -12,6 +12,7 @@ var player_direction: Vector2
 
 func _ready() -> void:
 	ToolManager.tool_selected.connect(on_tool_selected)
+	InventoryManager.health_recovered.connect(_on_health_recovered)
 	hurt_component.hurt.connect(_on_hurt)
 
 	
@@ -27,3 +28,7 @@ func _on_hurt(amount: float) -> void:
 	print(amount, " damage taken, ", current_health, " player health remaining")
 	if current_health <= 0:
 		_on_max_damage_reached()
+
+func _on_health_recovered(amount: int) -> void:
+	current_health = min(current_health + amount, max_health)
+	print("Healed for ", amount, " HP. Current health: ", current_health)	
