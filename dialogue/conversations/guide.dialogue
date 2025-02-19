@@ -11,15 +11,19 @@ if ToolManager.has_farming_tools()
 	- Ask about Animals
 		Guide: You can feed the animals with the crates near their pastures.
 		Guide: Feeding them will give you Milk & Eggs (and make them happy)
+	- Ask about Combat
+		Guide: To fight monsters like Goblins, use your axe tool the same way you would chop a tree!
+		Guide: Keep your health above 0 by eating food and hit them enough times to kill them.
+		Guide: Monsters can drop different loot depending on their type!
 	- Ask about Controls
 		Guide: Escape takes you to main menu. WASD for character movement.
-		Guide: Left Mouse Click to select tools, or put away your current tool.
+		Guide: Left Mouse Click to select tools, or eat food in your inventory.
 		Guide: P will quick save. E will interact with chests, like this guide.
 		Guide: Right Click with a tool will use it in the direction you are facing.
 		Guide: CTRL+Right Click with the hoe will clear a tilled soil patch / crop patch.
 	- Ask about Objectives
-		Guide: Currently the game is in a farming sim state.
-		Guide: Later on there will be cooking, combat, fishing & more!
+		Guide: You can farm crops and animal products to use as food.
+		Guide: Take your food into battle to fight enemies! (More to come!)
 else
 	Guide: [[Hi|Hello|Howdy]], nice to meet you.
 	Guide: Welcome to SarahDewValley!

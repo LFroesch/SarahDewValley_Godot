@@ -1,5 +1,5 @@
 ~ start_cow_pasture_box
-Pasture Box: [[Hi|Hello|Howdy]], your cows are hungry. You can feed them corn!
+Pasture Box: [[Hi|Hello|Howdy]], your cows are hungry. You can feed them up to 5x corn!
 Pasture Box: Would you like to feed your cows?
 - Yes
 	Player: Yeah! Lets feed my cows.
@@ -10,7 +10,7 @@ Pasture Box: Would you like to feed your cows?
 => END
 
 ~ start_chicken_pasture_box
-Pasture Box: [[Hi|Hello|Howdy]], your chickens are hungry. You can feed them tomatoes!
+Pasture Box: [[Hi|Hello|Howdy]], your chickens are hungry. You can feed them up to 5x tomatoes!
 Pasture Box: Would you like to feed your chickens?
 - Yes
 	Player: Yeah! Lets feed my chickens.
