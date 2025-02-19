@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://6aaf7agcl7se"]
+[gd_scene load_steps=22 format=4 uid="uid://6aaf7agcl7se"]
 
 [ext_resource type="TileSet" uid="uid://bmlpnsyieusmk" path="res://tilesets/game_tile_set.tres" id="1_2ojy1"]
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_ludhu"]
@@ -14,12 +14,14 @@
 [ext_resource type="PackedScene" uid="uid://djketpxhxd8qe" path="res://scenes/characters/cow/cow.tscn" id="6_ai8wf"]
 [ext_resource type="PackedScene" uid="uid://cksuucjl74u7n" path="res://scenes/characters/cow/baby_cow.tscn" id="7_4rlpg"]
 [ext_resource type="PackedScene" uid="uid://dx4wh0fbqvl68" path="res://scenes/objects/chest/cow_chest.tscn" id="10_udbt5"]
+[ext_resource type="PackedScene" uid="uid://bc3r3htvo5h4c" path="res://scenes/characters/enemies/goblins/goblin_camp.tscn" id="15_6grri"]
+[ext_resource type="PackedScene" uid="uid://0jray3ndncg3" path="res://scenes/Points/spawn_point.tscn" id="15_hs7bb"]
 [ext_resource type="PackedScene" uid="uid://dcq44nd1tybfl" path="res://scenes/objects/chest/chicken_chest.tscn" id="16_vxhf0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_c5e07"]
-vertices = PackedVector2Array(171.93, 211.547, 229.523, 197.563, 214.227, 262.383, 132.219, 256.141, 133.156, 193.313, 80.1016, 236.156, 80.8672, 187.102, 118.781, 178.922)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5, 6), PackedInt32Array(7, 4, 6)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(71, 179, 122, 168, 139, 185, 173, 201, 243, 184, 222, 273, 130, 266, 70, 243)])
+vertices = PackedVector2Array(1303.41, 163.711, 1303.4, 163.703, 1355.07, 151.969, 1354.07, 31.3281, 1421.95, 26.7109, 1421.04, 238.844, 1176.69, 235.117, 1171.17, 196.531)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 2), PackedInt32Array(0, 2, 5, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1160, 189, 1301, 154, 1345, 144, 1344, 22, 1432, 16, 1431, 249, 1168, 245)])
 source_geometry_mode = 2
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_xjf4i"]
@@ -214,6 +216,27 @@ position = Vector2(373, 484)
 
 [node name="Guide" parent="Animals" instance=ExtResource("5_o4b8e")]
 position = Vector2(256, 222)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="GoblinCamp" parent="Enemies" instance=ExtResource("15_6grri")]
+
+[node name="SpawnPoint" parent="Enemies/GoblinCamp" instance=ExtResource("15_hs7bb")]
+position = Vector2(1402, 53)
+
+[node name="SpawnPoint2" parent="Enemies/GoblinCamp" instance=ExtResource("15_hs7bb")]
+position = Vector2(1374, 218)
+
+[node name="SpawnPoint3" parent="Enemies/GoblinCamp" instance=ExtResource("15_hs7bb")]
+position = Vector2(1367, 119)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Enemies/GoblinCamp"]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_c5e07")
+navigation_layers = 4
+
+[node name="RespawnTimer" type="Timer" parent="Enemies/GoblinCamp"]
+one_shot = true
 
 [node name="Chests" type="Node2D" parent="."]
 position = Vector2(295, 289)

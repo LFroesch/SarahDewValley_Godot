@@ -26,6 +26,7 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 GameDialogueManager="*res://scripts/globals/game_dialogue_manager.gd"
 GameManager="*res://scripts/globals/game_manager.gd"
 SceneManager="*res://scripts/globals/scene_manager.gd"
+SpawnManager="*res://scripts/globals/spawn_manager.gd"
 
 [display]
 
@@ -128,6 +129,7 @@ locale/translations_pot_files=PackedStringArray("res://dialogue/conversations/gu
 2d_physics/layer_2="Player"
 2d_navigation/layer_2="Cow Navigation"
 2d_physics/layer_3="Interactable"
+2d_navigation/layer_3="Goblin Navigation"
 2d_physics/layer_4="Tool"
 2d_physics/layer_5="Object"
 2d_physics/layer_6="Collectible"

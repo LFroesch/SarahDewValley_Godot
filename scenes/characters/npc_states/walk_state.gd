@@ -29,7 +29,8 @@ func _on_process(_delta : float) -> void:
 func _on_physics_process(_delta : float) -> void:
 	if navigation_agent_2d.is_navigation_finished():
 		character.current_walk_cycle += 1
-		set_movement_target()
+		if character.current_walk_cycle < character.walk_cycles:
+			set_movement_target()
 		return
 		
 	var target_position: Vector2 = navigation_agent_2d.get_next_path_position()
