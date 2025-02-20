@@ -45,7 +45,7 @@ func _ready():
 	detection_area.body_entered.connect(_on_body_entered)
 	detection_area.body_exited.connect(_on_body_exited)
 	
-	damage_timer.wait_time = 2.0
+	damage_timer.wait_time = 2.5
 	damage_timer.timeout.connect(_on_damage_timer_timeout)
 	hurt_component.hurt.connect(take_damage)
 	hurt_component.is_enemy = true
@@ -93,30 +93,21 @@ func select_drops() -> Array:
 func get_random_position(existing_positions: Array) -> Vector2:
 	var max_attempts = 10
 	var attempt = 0
-
 	while attempt < max_attempts:
-		# Generate random angle and distance within scatter radius
-		var angle = randf() * PI * 2  # Random angle in radians
-		var distance = randf() * SCATTER_RADIUS  # Random distance within radius
-
-		# Convert to cartesian coordinates
+		var angle = randf() * PI * 2
+		var distance = randf() * SCATTER_RADIUS
 		var offset = Vector2(
 			cos(angle) * distance,
 			sin(angle) * distance
 		)
-
-		# Check if this position is far enough from existing drops
 		var is_valid = true
 		for pos in existing_positions:
 			if pos.distance_to(offset) < MIN_DISTANCE:
 				is_valid = false
 				break
-
 		if is_valid:
 			return offset
-
 		attempt += 1
-
 	var angle = randf() * PI * 2
 	var distance = randf() * SCATTER_RADIUS
 	return Vector2(cos(angle) * distance, sin(angle) * distance)

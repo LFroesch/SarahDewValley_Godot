@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://7ovrta2wmxi4" path="res://scenes/ui/goblin_damage_bar.tscn" id="9_x6vlc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vnh7"]
+size = Vector2(24, 24)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0mkhr"]
 shader = ExtResource("3_vth66")
@@ -158,6 +159,7 @@ animations = [{
 radius = 7.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fh18b"]
+size = Vector2(24, 24)
 
 [node name="SkeletonWarrior" type="CharacterBody2D"]
 y_sort_enabled = true
