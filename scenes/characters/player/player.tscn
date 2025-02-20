@@ -397,11 +397,11 @@ animations = [{
 "speed": 3.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_btals"]
-radius = 3.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvste"]
+size = Vector2(6, 13)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_22fc6"]
-radius = 4.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7ne6"]
+size = Vector2(12, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fb66j"]
 size = Vector2(10, 16)
@@ -419,8 +419,9 @@ autoplay = "idle_front"
 offset = Vector2(0, -5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
-shape = SubResource("CircleShape2D_btals")
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_yvste")
+debug_color = Color(0.857636, 0.146653, 0.81142, 0.42)
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
 script = ExtResource("3_h2x31")
@@ -456,8 +457,8 @@ animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 [node name="HitComponent" parent="." instance=ExtResource("10_en3ff")]
 
 [node name="HitComponentCollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
-position = Vector2(0, -4)
-shape = SubResource("CircleShape2D_22fc6")
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_p7ne6")
 debug_color = Color(0.928375, 0.195355, 0.465125, 0.42)
 
 [node name="HurtComponent" parent="." instance=ExtResource("11_w26ef")]
