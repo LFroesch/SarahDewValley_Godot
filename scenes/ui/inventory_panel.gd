@@ -6,6 +6,8 @@ extends PanelContainer
 @onready var egg_label: Label = $MarginContainer/VBoxContainer/Egg/EggLabel
 @onready var milk_label: Label = $MarginContainer/VBoxContainer/Milk/MilkLabel
 @onready var corn_label: Label = $MarginContainer/VBoxContainer/Corn/CornLabel
+@onready var coin_label: Label = $MarginContainer/VBoxContainer/Coins/CoinLabel
+
 @onready var egg_texture = $MarginContainer/VBoxContainer/Egg/TextureRect
 @onready var milk_texture = $MarginContainer/VBoxContainer/Milk/TextureRect
 @onready var corn_texture = $MarginContainer/VBoxContainer/Corn/TextureRect
@@ -50,4 +52,7 @@ func on_inventory_changed() -> void:
 		
 	if inventory.has("tomato"):
 		tomato_label.text = str(inventory["tomato"])
+	
+	if inventory.has("coin"):
+		coin_label.text = str(inventory["coin"])
 		

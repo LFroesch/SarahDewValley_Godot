@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dis3sax7rmby3" path="res://scenes/houses/large_house.tscn" id="7_ljqqo"]
 [ext_resource type="PackedScene" uid="uid://bahoxidov1ykw" path="res://scenes/houses/small_house.tscn" id="8_cro16"]
 [ext_resource type="Texture2D" uid="uid://bldfvd3xqxxsa" path="res://assets/game/tilesets/city_and_dungeon_tiles/Tiles/CityExtra.png" id="8_x263o"]
-[ext_resource type="Texture2D" uid="uid://blf8jobfjjxea" path="res://assets/game/tilesets/city_and_dungeon_tiles/Background/Tilesets/TilesetProps02.png" id="9_brc2a"]
+[ext_resource type="Texture2D" uid="uid://blf8jobfjjxea" path="res://assets/game/tilesets/city_and_dungeon_tiles/Background/Tilesets/CityProps2.png" id="9_8ru6a"]
 [ext_resource type="PackedScene" uid="uid://dr5d7axouugau" path="res://scenes/houses/medium_house.tscn" id="9_scgtj"]
 [ext_resource type="PackedScene" uid="uid://dxcgdlbpvkrb2" path="res://scenes/objects/trees/small_tree.tscn" id="10_x4qy3"]
 [ext_resource type="PackedScene" uid="uid://b4fgsmx255flw" path="res://scenes/objects/trees/large_tree.tscn" id="11_1l0b8"]
@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://bccg6wyai5lnp" path="res://assets/game/tilesets/building_parts/stone_path.png" id="15_mfe0u"]
 [ext_resource type="PackedScene" uid="uid://cfygqohjl68n8" path="res://scenes/houses/quest_house.tscn" id="15_sdov8"]
 [ext_resource type="Texture2D" uid="uid://bw2k6uv4mu0ci" path="res://assets/game/tilesets/building_parts/wooden_bridge_2.png" id="16_61gek"]
-[ext_resource type="Texture2D" uid="uid://da7qcrewt5wby" path="res://assets/game/tilesets/city_and_dungeon_tiles/Background/Tilesets/TilesetProps.png" id="22_xmvep"]
+[ext_resource type="Texture2D" uid="uid://da7qcrewt5wby" path="res://assets/game/tilesets/city_and_dungeon_tiles/Background/Tilesets/CityProps.png" id="22_3iuhb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hxy5e"]
 texture = ExtResource("1_xbwv4")
@@ -1393,7 +1393,7 @@ texture = ExtResource("8_x263o")
 27:33/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x7em7"]
-texture = ExtResource("9_brc2a")
+texture = ExtResource("9_8ru6a")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1780,7 +1780,7 @@ scenes/7/scene = ExtResource("13_qsp6u")
 scenes/8/scene = ExtResource("15_sdov8")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_geg6t"]
-texture = ExtResource("22_xmvep")
+texture = ExtResource("22_3iuhb")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0

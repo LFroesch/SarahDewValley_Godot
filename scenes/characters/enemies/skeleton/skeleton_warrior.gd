@@ -9,6 +9,8 @@ var loot_scene = preload("res://scenes/objects/egg.tscn")
 @onready var damage_bar: Node2D = $DamageBar
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
+
+
 var can_deal_damage = true
 var player_in_range = false
 var current_player = null

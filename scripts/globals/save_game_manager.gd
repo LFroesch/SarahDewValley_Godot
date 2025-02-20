@@ -10,7 +10,7 @@ func save_game() -> void:
 	DayAndNightCycleManager.save_time_state()
 	InventoryManager.save_inventory()
 	ToolManager.save_tools()
-
+	
 	var save_level_data_component: SaveLevelDataComponent = get_tree().get_first_node_in_group("save_level_data_component")
 	
 	if save_level_data_component != null:
