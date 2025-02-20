@@ -5,8 +5,8 @@ extends CharacterBody2D
 @export var current_tool: DataTypes.Tools = DataTypes.Tools.None
 @onready var hurt_component: HurtComponent = $HurtComponent
 @export var respawn_position: Vector2 = Vector2(250, 250)
-@export var max_health: float = 10
-@export var current_health: float = 10
+@export var max_health: float = 100
+@export var current_health: float = 100
 @onready var fade_overlay: ColorRect = $CanvasLayer/FadeOverlay if has_node("CanvasLayer/FadeOverlay") else null
 
 var player_direction: Vector2
