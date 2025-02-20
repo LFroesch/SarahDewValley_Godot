@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5q4e3xg0ck85"]
+
+[ext_resource type="Script" path="res://scenes/characters/enemies/skeleton/skeleton_camp.gd" id="1_jgk3p"]
+
+[node name="SkeletonCamp" type="Node2D"]
+script = ExtResource("1_jgk3p")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://6aaf7agcl7se"]
+[gd_scene load_steps=28 format=4 uid="uid://6aaf7agcl7se"]
 
 [ext_resource type="TileSet" uid="uid://bmlpnsyieusmk" path="res://tilesets/game_tile_set.tres" id="1_2ojy1"]
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_ludhu"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dx4wh0fbqvl68" path="res://scenes/objects/chest/cow_chest.tscn" id="10_udbt5"]
 [ext_resource type="PackedScene" uid="uid://bc3r3htvo5h4c" path="res://scenes/characters/enemies/goblins/goblin_camp.tscn" id="15_6grri"]
 [ext_resource type="PackedScene" uid="uid://0jray3ndncg3" path="res://scenes/Points/spawn_point.tscn" id="15_hs7bb"]
+[ext_resource type="PackedScene" uid="uid://b5q4e3xg0ck85" path="res://scenes/characters/enemies/skeleton/skeleton_camp.tscn" id="16_i0diq"]
 [ext_resource type="PackedScene" uid="uid://dcq44nd1tybfl" path="res://scenes/objects/chest/chicken_chest.tscn" id="16_vxhf0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_iy3c7"]
@@ -60,16 +61,16 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32
 outlines = Array[PackedVector2Array]([PackedVector2Array(1106, 122, 1091, 19, 1110, -52, 1163, -25, 1333, -7, 1383, 8, 1410, 38, 1412, 65, 1384, 98, 1322, 112, 1279, 151, 1167, 151)])
 source_geometry_mode = 2
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_7qpr1"]
-vertices = PackedVector2Array(1114.08, 114.773, 1081.72, 21.5, 1067.24, -62.9531, 1157.26, -16.7109, 1374.79, 180.242, 1173.97, 143.242, 1297.31, 252.383, 1214.09, 208.43, 1372.35, 234.063)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 5, 4, 8)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1106, 122, 1072, 24, 1054, -81, 1163, -25, 1385, 176, 1382, 242, 1296, 263, 1207, 216, 1167, 151)])
-source_geometry_mode = 2
-
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_c5e07"]
 vertices = PackedVector2Array(1369.37, 199.883, 1403.58, 213.773, 1415.52, 239.438, 1366.48, 240.883, 1327.57, 208.461, 1318, 98.7031, 1363.57, 97.2891, 1318, 109.773, 1310.54, 157.758, 1295.25, 180.281)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 0, 7), PackedInt32Array(8, 7, 0, 4), PackedInt32Array(8, 4, 9)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(1282, 182, 1301, 154, 1308, 109, 1308, 89, 1373, 87, 1379, 193, 1411, 206, 1431, 249, 1363, 251, 1321, 216)])
+source_geometry_mode = 2
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_871c1"]
+vertices = PackedVector2Array(1208.55, 49.5313, 1408.71, 226.406, 1281.15, 262.977, 1098.26, 119.773, 1063.51, 33.8594, 1049.72, -20.5625)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1090, 126, 1054, 37, 1035, -38, 1214, 41, 1429, 231, 1279, 274)])
 source_geometry_mode = 2
 
 [node name="Level1" type="Node2D"]
@@ -95,7 +96,7 @@ tile_set = ExtResource("1_2ojy1")
 
 [node name="CityTestAdded" type="TileMapLayer" parent="GameTileMap"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAA5ACYADwAFAA8AAAA5ACUADwAFAA4AAAA5ACQADwAFAA4AAAA=")
+tile_map_data = PackedByteArray("AAA5ACYADwAFAA8AAAA5ACUADwAFAA4AAAA5ACQADwAFAA4AAAA7ACAADwAIABAAAAA7ACEADwAIABEAAAA8ACAADwAJABAAAAA8ACEADwAJABEAAAA=")
 tile_set = ExtResource("1_2ojy1")
 
 [node name="CityTest" type="TileMapLayer" parent="GameTileMap"]
@@ -314,25 +315,6 @@ navigation_layers = 4
 [node name="RespawnTimer" type="Timer" parent="Enemies/GoblinCamp4"]
 one_shot = true
 
-[node name="GoblinCamp5" parent="Enemies" instance=ExtResource("15_6grri")]
-
-[node name="SpawnPoint" parent="Enemies/GoblinCamp5" instance=ExtResource("15_hs7bb")]
-position = Vector2(102, 1128)
-
-[node name="SpawnPoint2" parent="Enemies/GoblinCamp5" instance=ExtResource("15_hs7bb")]
-position = Vector2(273, 1256)
-
-[node name="SpawnPoint3" parent="Enemies/GoblinCamp5" instance=ExtResource("15_hs7bb")]
-position = Vector2(78, 1015)
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Enemies/GoblinCamp5"]
-position = Vector2(-1030, 1030)
-navigation_polygon = SubResource("NavigationPolygon_7qpr1")
-navigation_layers = 4
-
-[node name="RespawnTimer" type="Timer" parent="Enemies/GoblinCamp5"]
-one_shot = true
-
 [node name="GoblinCamp2" parent="Enemies" instance=ExtResource("15_6grri")]
 
 [node name="SpawnPoint" parent="Enemies/GoblinCamp2" instance=ExtResource("15_hs7bb")]
@@ -350,6 +332,25 @@ navigation_polygon = SubResource("NavigationPolygon_c5e07")
 navigation_layers = 4
 
 [node name="RespawnTimer" type="Timer" parent="Enemies/GoblinCamp2"]
+one_shot = true
+
+[node name="SkeletonCamp" parent="Enemies" instance=ExtResource("16_i0diq")]
+
+[node name="SpawnPoint" parent="Enemies/SkeletonCamp" instance=ExtResource("15_hs7bb")]
+position = Vector2(126, 1076)
+
+[node name="SpawnPoint2" parent="Enemies/SkeletonCamp" instance=ExtResource("15_hs7bb")]
+position = Vector2(177, 1139)
+
+[node name="SpawnPoint3" parent="Enemies/SkeletonCamp" instance=ExtResource("15_hs7bb")]
+position = Vector2(238, 1208)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Enemies/SkeletonCamp"]
+position = Vector2(-1012, 1015)
+navigation_polygon = SubResource("NavigationPolygon_871c1")
+navigation_layers = 8
+
+[node name="RespawnTimer" type="Timer" parent="Enemies/SkeletonCamp"]
 one_shot = true
 
 [node name="Chests" type="Node2D" parent="."]

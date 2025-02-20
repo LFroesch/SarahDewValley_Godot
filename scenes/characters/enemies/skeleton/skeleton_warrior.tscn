@@ -1,9 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://uy3d1h5c5xel"]
+[gd_scene load_steps=31 format=3 uid="uid://uy3d1h5c5xel"]
 
-[ext_resource type="Script" path="res://scenes/characters/enemies/goblins/goblin_barbarian.gd" id="1_0swhq"]
+[ext_resource type="Script" path="res://scenes/characters/enemies/skeleton/skeleton_warrior.gd" id="1_fh8n5"]
 [ext_resource type="PackedScene" uid="uid://cfa3kum8dxcon" path="res://scenes/components/hurt_component.tscn" id="2_olr46"]
 [ext_resource type="Shader" path="res://scenes/characters/enemies/goblins/goblin_barbarian.gdshader" id="3_vth66"]
-[ext_resource type="Texture2D" uid="uid://68865m0gt0i2" path="res://assets/game/characters/Goblin_Barbarian.png" id="4_lmvew"]
+[ext_resource type="Texture2D" uid="uid://bruobppbx52x1" path="res://assets/game/characters/Skeleton_Warrior.png" id="4_d2u7d"]
 [ext_resource type="Script" path="res://scripts/state_machine/node_state_machine.gd" id="5_iulr0"]
 [ext_resource type="Script" path="res://scenes/characters/npc_states/idle_state.gd" id="6_x0awh"]
 [ext_resource type="Script" path="res://scenes/characters/npc_states/walk_state.gd" id="7_7gchv"]
@@ -19,125 +19,139 @@ shader_parameter/original_1 = Color(0.345098, 0.521569, 0.356863, 1)
 shader_parameter/replace_0 = Color(0.58138, 0.786982, 0.592458, 1)
 shader_parameter/replace_1 = Color(0.421733, 0.618943, 0.434308, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l2ko8"]
-atlas = ExtResource("4_lmvew")
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wfa3"]
+atlas = ExtResource("4_d2u7d")
 region = Rect2(0, 384, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gwt3r"]
-atlas = ExtResource("4_lmvew")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8o7rp"]
+atlas = ExtResource("4_d2u7d")
 region = Rect2(32, 384, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cmiks"]
-atlas = ExtResource("4_lmvew")
+[sub_resource type="AtlasTexture" id="AtlasTexture_7c8aw"]
+atlas = ExtResource("4_d2u7d")
 region = Rect2(64, 384, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ym7r7"]
-atlas = ExtResource("4_lmvew")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ba44a"]
+atlas = ExtResource("4_d2u7d")
 region = Rect2(96, 384, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_13o0x"]
-atlas = ExtResource("4_lmvew")
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2y3n"]
+atlas = ExtResource("4_d2u7d")
 region = Rect2(0, 192, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qt10d"]
-atlas = ExtResource("4_lmvew")
-region = Rect2(0, 320, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_42hb3"]
-atlas = ExtResource("4_lmvew")
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lc58"]
+atlas = ExtResource("4_d2u7d")
 region = Rect2(32, 320, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cvo6y"]
-atlas = ExtResource("4_lmvew")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptq0n"]
+atlas = ExtResource("4_d2u7d")
 region = Rect2(64, 320, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q75tc"]
-atlas = ExtResource("4_lmvew")
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxne7"]
+atlas = ExtResource("4_d2u7d")
+region = Rect2(96, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ko4tr"]
+atlas = ExtResource("4_d2u7d")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yal4k"]
-atlas = ExtResource("4_lmvew")
+[sub_resource type="AtlasTexture" id="AtlasTexture_wt07k"]
+atlas = ExtResource("4_d2u7d")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t3x1h"]
-atlas = ExtResource("4_lmvew")
-region = Rect2(0, 96, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xq36"]
+atlas = ExtResource("4_d2u7d")
+region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gmc6g"]
-atlas = ExtResource("4_lmvew")
-region = Rect2(32, 96, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bb2k"]
+atlas = ExtResource("4_d2u7d")
+region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n5sxx"]
-atlas = ExtResource("4_lmvew")
-region = Rect2(64, 96, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhhn5"]
+atlas = ExtResource("4_d2u7d")
+region = Rect2(0, 128, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bfp0b"]
-atlas = ExtResource("4_lmvew")
-region = Rect2(96, 96, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fi2gt"]
+atlas = ExtResource("4_d2u7d")
+region = Rect2(32, 128, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_8g42y"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_af8i8"]
+atlas = ExtResource("4_d2u7d")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lalut"]
+atlas = ExtResource("4_d2u7d")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0twun"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l2ko8")
+"texture": SubResource("AtlasTexture_1wfa3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gwt3r")
+"texture": SubResource("AtlasTexture_8o7rp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cmiks")
+"texture": SubResource("AtlasTexture_7c8aw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ym7r7")
+"texture": SubResource("AtlasTexture_ba44a")
 }],
 "loop": false,
 "name": &"attack",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_13o0x")
+"texture": SubResource("AtlasTexture_b2y3n")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qt10d")
+"texture": SubResource("AtlasTexture_5lc58")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_42hb3")
+"texture": SubResource("AtlasTexture_ptq0n")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cvo6y")
+"texture": SubResource("AtlasTexture_oxne7")
 }],
 "loop": false,
 "name": &"death",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q75tc")
+"texture": SubResource("AtlasTexture_ko4tr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yal4k")
+"texture": SubResource("AtlasTexture_wt07k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xq36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bb2k")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t3x1h")
+"texture": SubResource("AtlasTexture_vhhn5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gmc6g")
+"texture": SubResource("AtlasTexture_fi2gt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_n5sxx")
+"texture": SubResource("AtlasTexture_af8i8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bfp0b")
+"texture": SubResource("AtlasTexture_lalut")
 }],
 "loop": true,
 "name": &"walk",
-"speed": 3.0
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3r12b"]
@@ -145,11 +159,11 @@ radius = 7.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fh18b"]
 
-[node name="GoblinBarbarian" type="CharacterBody2D"]
+[node name="SkeletonWarrior" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_layer = 65
 collision_mask = 9
-script = ExtResource("1_0swhq")
+script = ExtResource("1_fh8n5")
 
 [node name="HurtComponent" parent="." instance=ExtResource("2_olr46")]
 tool = 1
@@ -162,14 +176,11 @@ shape = SubResource("RectangleShape2D_3vnh7")
 y_sort_enabled = true
 material = SubResource("ShaderMaterial_0mkhr")
 position = Vector2(0, -7)
-sprite_frames = SubResource("SpriteFrames_8g42y")
-animation = &"death"
+sprite_frames = SubResource("SpriteFrames_0twun")
+animation = &"walk"
 autoplay = "idle"
-frame = 2
-frame_progress = 0.298178
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_3r12b")
 
@@ -196,7 +207,7 @@ animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 10.0
-navigation_layers = 4
+navigation_layers = 8
 path_postprocessing = 1
 avoidance_enabled = true
 radius = 5.0
