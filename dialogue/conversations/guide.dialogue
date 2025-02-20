@@ -21,9 +21,12 @@ if ToolManager.has_farming_tools()
 		Guide: P will quick save. E will interact with chests, like this guide.
 		Guide: Right Click with a tool will use it in the direction you are facing.
 		Guide: CTRL+Right Click with the hoe will clear a tilled soil patch / crop patch.
+		Guide: R will quick eat eggs for 15 health, T will quick eat milk for 20 health, if you have it.
 	- Ask about Objectives
 		Guide: You can farm crops and animal products to use as food.
 		Guide: Take your food into battle to fight enemies! (More to come!)
+		Guide: Get gold to purchase different farming seeds & various products (More to come!)
+		Guide: Quests are another way to get rewards (Coming Soon)
 else
 	Guide: [[Hi|Hello|Howdy]], nice to meet you.
 	Guide: Welcome to SarahDewValley!

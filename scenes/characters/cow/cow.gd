@@ -13,7 +13,7 @@ func _ready() -> void:
 		return
 
 func _start_milk_timer() -> void:
-	milk_timer.start(randf_range(180.0, 300.0))
+	milk_timer.start(randf_range(30.0, 180.0))
 	
 	
 func _spawn_milk() -> void:

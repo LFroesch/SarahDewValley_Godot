@@ -12,7 +12,7 @@ func _ready() -> void:
 		return
 
 func _start_egg_timer() -> void:
-	egg_timer.start(randf_range(180.0, 300.0))
+	egg_timer.start(randf_range(30.0, 180.0))
 	
 func _spawn_egg() -> void:
 	var egg_instance = egg_scene.instantiate() as Node2D

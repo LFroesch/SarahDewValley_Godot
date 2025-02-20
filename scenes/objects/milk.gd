@@ -5,7 +5,7 @@ extends Sprite2D
 func _ready() -> void:
 	if despawn_timer:
 		despawn_timer.timeout.connect(_on_despawn)
-		despawn_timer.start(randf_range(240.0, 300.0))  # Despawn after 4-5 minutes
+		despawn_timer.start(randf_range(60.0, 150.0))
 
 func _on_despawn() -> void:
-	queue_free()  # Remove the milk from the scene
+	queue_free()
