@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://p0j5nj5031yw"]
+[gd_scene load_steps=58 format=3 uid="uid://p0j5nj5031yw"]
 
 [ext_resource type="Script" path="res://scenes/characters/player/player.gd" id="1_hqsp1"]
 [ext_resource type="Texture2D" uid="uid://cee675mw48md8" path="res://assets/game/characters/basic_character_actions.png" id="1_se2ky"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dciquc2srwjyi" path="res://scenes/components/hit_component.tscn" id="10_en3ff"]
 [ext_resource type="PackedScene" uid="uid://cfa3kum8dxcon" path="res://scenes/components/hurt_component.tscn" id="11_w26ef"]
 [ext_resource type="PackedScene" uid="uid://cm1p71ghrn34f" path="res://scenes/ui/damage_bar.tscn" id="12_4gfi7"]
+[ext_resource type="Script" path="res://scenes/characters/fade_overlay.gd" id="13_in1ef"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5gis"]
 atlas = ExtResource("1_se2ky")
@@ -477,4 +478,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0)
+script = ExtResource("13_in1ef")

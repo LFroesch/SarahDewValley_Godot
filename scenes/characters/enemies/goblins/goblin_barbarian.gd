@@ -62,13 +62,13 @@ func take_damage(amount: float):
 		damage_bar.hide()
 		is_dying = true
 		collision_shape.set_deferred("disabled", true)
-		detection_area.monitoring = false
-		detection_area.monitorable = false
+		detection_area.set_deferred("monitoring", false)
+		detection_area.set_deferred("monitorable", false)
 		
 		if loot_scene:
 			var loot = loot_scene.instantiate()
 			loot.global_position = global_position + Vector2(4,4)
-			get_parent().add_child(loot)
+			get_parent().call_deferred("add_child", loot)
 		died.emit()
 		state_machine.set_process(false)
 		state_machine.set_physics_process(false)
