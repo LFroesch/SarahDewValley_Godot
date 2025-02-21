@@ -12,6 +12,8 @@ func _on_area_entered(area: Area2D) -> void:
 	
 	if tool == hit_component.current_tool:
 		if is_enemy:
-			hurt.emit(hit_component.enemy_damage)
+			var crit_modifier = randi_range(1.0, 1.5)
+			var random_damage = crit_modifier * randi_range(hit_component.enemy_damage_min, hit_component.enemy_damage_max)
+			hurt.emit(random_damage)
 		else:
 			hurt.emit(hit_component.hit_damage)

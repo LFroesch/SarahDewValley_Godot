@@ -27,7 +27,7 @@ y_sort_enabled = true
 visible = false
 
 [node name="Player" parent="GameRoot" instance=ExtResource("3_6qn1u")]
-position = Vector2(236, 286)
+position = Vector2(680, 656)
 
 [node name="Camera2D" type="Camera2D" parent="GameRoot/Player"]
 

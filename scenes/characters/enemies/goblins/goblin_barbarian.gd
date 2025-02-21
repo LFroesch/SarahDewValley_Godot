@@ -36,7 +36,7 @@ const DROP_CHANCE = 100
 var can_deal_damage = true
 var player_in_range = false
 var current_player = null
-@export var health: float = 75
+@export var health: float = 80
 var is_dying = false
 signal died
 

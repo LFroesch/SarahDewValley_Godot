@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ccauubjygerd7" path="res://scenes/characters/chicken/chicken.tscn" id="10_hwtho"]
 [ext_resource type="PackedScene" uid="uid://djketpxhxd8qe" path="res://scenes/characters/cow/cow.tscn" id="11_lg21b"]
 [ext_resource type="PackedScene" uid="uid://cksuucjl74u7n" path="res://scenes/characters/cow/baby_cow.tscn" id="12_t28mk"]
-[ext_resource type="PackedScene" uid="uid://bowtbua0rig86" path="res://scenes/characters/guide/guide.tscn" id="13_dxcy1"]
+[ext_resource type="PackedScene" uid="uid://bowtbua0rig86" path="res://scenes/characters/interactable_characters/guide/guide.tscn" id="13_dxcy1"]
 [ext_resource type="PackedScene" uid="uid://bc3r3htvo5h4c" path="res://scenes/characters/enemies/goblins/goblin_camp.tscn" id="14_qabxq"]
 [ext_resource type="PackedScene" uid="uid://0jray3ndncg3" path="res://scenes/Points/spawn_point.tscn" id="15_kvy7e"]
 [ext_resource type="PackedScene" uid="uid://b5q4e3xg0ck85" path="res://scenes/characters/enemies/skeleton/skeleton_camp.tscn" id="16_4p4qw"]

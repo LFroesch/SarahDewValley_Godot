@@ -1,0 +1,67 @@
+[gd_scene load_steps=12 format=3 uid="uid://dys1y527eipiw"]
+
+[ext_resource type="Script" path="res://scenes/characters/interactable_characters/stone_and_log_buyer/stone_and_log_buyer.gd" id="1_y0hh2"]
+[ext_resource type="Shader" path="res://scenes/characters/interactable_characters/stone_and_log_buyer/stone_and_log_buyer.gdshader" id="2_e8omv"]
+[ext_resource type="Texture2D" uid="uid://dsww2cl3aemdf" path="res://assets/game/characters/Human_Merchant.png" id="2_rs5xc"]
+[ext_resource type="PackedScene" uid="uid://ou413sd7e4wr" path="res://scenes/components/interactable_component.tscn" id="3_pxvym"]
+[ext_resource type="PackedScene" uid="uid://df1xd2ip40rk7" path="res://scenes/components/interactable_label_component.tscn" id="4_xq1q1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8fb1r"]
+radius = 6.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1jm7s"]
+shader = ExtResource("2_e8omv")
+shader_parameter/original_0 = Color(0.768627, 0.54902, 0.431373, 1)
+shader_parameter/original_1 = Color(0.678431, 0.454902, 0.368627, 1)
+shader_parameter/replace_0 = Color(0.475391, 0.691973, 0.841927, 1)
+shader_parameter/replace_1 = Color(0.866667, 0.4, 0.207843, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_haos3"]
+atlas = ExtResource("2_rs5xc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqonh"]
+atlas = ExtResource("2_rs5xc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bpe1s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_haos3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqonh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vblyh"]
+radius = 17.0294
+
+[node name="StoneAndLogBuyer" type="StaticBody2D"]
+position = Vector2(0, -8)
+script = ExtResource("1_y0hh2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8fb1r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_1jm7s")
+sprite_frames = SubResource("SpriteFrames_bpe1s")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="InteractableComponent" parent="." instance=ExtResource("3_pxvym")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
+visible = false
+shape = SubResource("CircleShape2D_vblyh")
+
+[node name="InteractableLabelComponent" parent="." instance=ExtResource("4_xq1q1")]
+offset_left = -27.0
+offset_top = -26.0
+offset_right = -9.0
+offset_bottom = -8.0

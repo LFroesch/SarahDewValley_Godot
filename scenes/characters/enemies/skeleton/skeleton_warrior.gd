@@ -31,12 +31,12 @@ const DROP_TABLE = [
 ]
 const MIN_DISTANCE = 7.0
 const SCATTER_RADIUS = 20.0
-const DROP_CHANCE = 100
+const DROP_CHANCE = 80
 
 var can_deal_damage = true
 var player_in_range = false
 var current_player = null
-@export var health: float = 75
+@export var health: float = 100
 var is_dying = false
 
 signal died

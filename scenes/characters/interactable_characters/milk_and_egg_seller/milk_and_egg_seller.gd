@@ -36,7 +36,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				active_balloon.queue_free()
 			active_balloon = balloon_scene.instantiate()
 			get_tree().root.add_child(active_balloon) 
-			active_balloon.start(load("res://dialogue/conversations/shop_starter_zone.dialogue"), "start")
+			active_balloon.start(load("res://dialogue/conversations/shop_starter_zone.dialogue"), "start_milk_and_egg_seller")
 			
 const ITEM_PRICES = {
 	"egg": 3,

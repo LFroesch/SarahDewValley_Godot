@@ -16,7 +16,7 @@
 [ext_resource type="Resource" uid="uid://mx3pshmhd6ov" path="res://resources/tilemap_layer_resource.tres" id="8_cu8a8"]
 [ext_resource type="PackedScene" uid="uid://dx4wh0fbqvl68" path="res://scenes/objects/chest/cow_chest.tscn" id="9_w3exm"]
 [ext_resource type="Resource" uid="uid://dw6rurk3ht3qo" path="res://resources/scene_data_resource.tres" id="14_po8j7"]
-[ext_resource type="PackedScene" uid="uid://bowtbua0rig86" path="res://scenes/characters/guide/guide.tscn" id="16_q8sk4"]
+[ext_resource type="PackedScene" uid="uid://bowtbua0rig86" path="res://scenes/characters/interactable_characters/guide/guide.tscn" id="16_q8sk4"]
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="18_fqjt2"]
 [ext_resource type="Script" path="res://scenes/components/save_level_data_component.gd" id="19_ywbwb"]
 [ext_resource type="PackedScene" uid="uid://dqs3fibgc11xv" path="res://scenes/objects/plants/corn_harvest.tscn" id="20_eihut"]

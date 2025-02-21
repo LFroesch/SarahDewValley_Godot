@@ -1,19 +1,19 @@
 [gd_scene load_steps=10 format=3 uid="uid://djkj5hhph4fws"]
 
-[ext_resource type="Script" path="res://scenes/characters/guide/starter_zone_merchant.gd" id="1_53yxj"]
-[ext_resource type="Texture2D" uid="uid://dsww2cl3aemdf" path="res://assets/game/characters/Human_Merchant.png" id="3_8m0ox"]
-[ext_resource type="PackedScene" uid="uid://ou413sd7e4wr" path="res://scenes/components/interactable_component.tscn" id="4_cq8je"]
-[ext_resource type="PackedScene" uid="uid://df1xd2ip40rk7" path="res://scenes/components/interactable_label_component.tscn" id="5_nbaqq"]
+[ext_resource type="Script" path="res://scenes/characters/interactable_characters/milk_and_egg_seller/milk_and_egg_seller.gd" id="1_2n50h"]
+[ext_resource type="Texture2D" uid="uid://dsww2cl3aemdf" path="res://assets/game/characters/Human_Merchant.png" id="2_73d11"]
+[ext_resource type="PackedScene" uid="uid://ou413sd7e4wr" path="res://scenes/components/interactable_component.tscn" id="3_dpx2a"]
+[ext_resource type="PackedScene" uid="uid://df1xd2ip40rk7" path="res://scenes/components/interactable_label_component.tscn" id="4_uh678"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8fb1r"]
 radius = 6.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_haos3"]
-atlas = ExtResource("3_8m0ox")
+atlas = ExtResource("2_73d11")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vqonh"]
-atlas = ExtResource("3_8m0ox")
+atlas = ExtResource("2_73d11")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_his7u"]
@@ -35,7 +35,7 @@ radius = 17.0294
 
 [node name="StarterZoneMerchant" type="StaticBody2D"]
 position = Vector2(0, -8)
-script = ExtResource("1_53yxj")
+script = ExtResource("1_2n50h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_8fb1r")
@@ -46,12 +46,12 @@ animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.379541
 
-[node name="InteractableComponent" parent="." instance=ExtResource("4_cq8je")]
+[node name="InteractableComponent" parent="." instance=ExtResource("3_dpx2a")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
 shape = SubResource("CircleShape2D_vblyh")
 
-[node name="InteractableLabelComponent" parent="." instance=ExtResource("5_nbaqq")]
+[node name="InteractableLabelComponent" parent="." instance=ExtResource("4_uh678")]
 offset_left = -27.0
 offset_top = -26.0
 offset_right = -9.0

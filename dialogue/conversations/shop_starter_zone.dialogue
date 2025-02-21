@@ -1,10 +1,21 @@
-~ start
-Guide: [[Hi|Hello|Howdy]], welcome to my food shop!
+~ start_milk_and_egg_seller
+Vendor: [[Hi|Hello|Howdy]], welcome to my food shop!
 - Eggs - 3g per
-	Guide: One fresh laid egg coming right up, that'll be 3 gold please.
+	Vendor: One fresh laid egg coming right up, that'll be 3 gold please.
 	do GameDialogueManager.action_buy_egg()
 - Milk - 5g per
-	Guide: Mmm a jar of cold milk, that'll be 5 gold please.
+	Vendor: Mmm a jar of cold milk, that'll be 5 gold please.
 	do GameDialogueManager.action_buy_milk()
+- No Thanks => END
+=> END
+
+~ start_stone_and_log_buyer
+Vendor: [[Hi|Hello|Howdy]], I'd love to buy your logs and stone!
+- Logs - 3g per
+	Vendor: I'll give you 3g per log, up to 5 logs at a time, Thanks!
+	do GameDialogueManager.action_sell_logs()
+- Stone - 5g per
+	Vendor: I'll give you 5g per stone, up to 5 stones at a time, Thanks!
+	do GameDialogueManager.action_sell_stones()
 - No Thanks => END
 => END

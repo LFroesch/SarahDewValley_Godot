@@ -5,6 +5,8 @@ signal feed_the_chickens
 signal feed_the_cows
 signal buy_egg
 signal buy_milk
+signal sell_logs
+signal sell_stones
 
 func action_give_crop_seeds() -> void:
 	give_crop_seeds.emit()
@@ -20,3 +22,9 @@ func action_buy_egg() -> void:
 
 func action_buy_milk() -> void:
 	buy_milk.emit()
+
+func action_sell_logs() -> void:
+	sell_logs.emit()
+
+func action_sell_stones() -> void:
+	sell_stones.emit()
