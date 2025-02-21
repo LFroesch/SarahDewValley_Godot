@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://6aaf7agcl7se"]
+[gd_scene load_steps=33 format=4 uid="uid://6aaf7agcl7se"]
 
 [ext_resource type="TileSet" uid="uid://bmlpnsyieusmk" path="res://tilesets/game_tile_set.tres" id="1_2ojy1"]
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_ludhu"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://b5q4e3xg0ck85" path="res://scenes/characters/enemies/skeleton/skeleton_camp.tscn" id="16_i0diq"]
 [ext_resource type="PackedScene" uid="uid://dcq44nd1tybfl" path="res://scenes/objects/chest/chicken_chest.tscn" id="16_vxhf0"]
 [ext_resource type="Script" path="res://scenes/levels/level_transitions/LevelTransitionArea.gd" id="21_8jo7l"]
+[ext_resource type="PackedScene" uid="uid://ddbh5oc61wqd0" path="res://scenes/objects/healing_crystal/healing_crystal.tscn" id="21_o8vma"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_iy3c7"]
 vertices = PackedVector2Array(213.781, 199.781, 212.242, 271.383, 122.641, 257.602, 176.633, 198.992, 135.742, 196.844, 81.7109, 218.406, 112.961, 181.656, 86.7734, 187.32)
@@ -367,13 +368,24 @@ dialogue_start_command = "start_cow_pasture_box"
 position = Vector2(-55, 302)
 dialogue_start_command = "start_chicken_pasture_box"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Zones" type="Node2D" parent="."]
+
+[node name="HealingCrystal" parent="Zones" instance=ExtResource("21_o8vma")]
+position = Vector2(676, 676)
+
+[node name="HealingCrystal2" parent="Zones" instance=ExtResource("21_o8vma")]
+position = Vector2(348, 1042)
+
+[node name="HealingCrystal3" parent="Zones" instance=ExtResource("21_o8vma")]
+position = Vector2(1392, 255)
+
+[node name="LevelTransitionArea" type="Area2D" parent="Zones"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("21_8jo7l")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/LevelTransitionArea"]
 position = Vector2(787.5, 648.5)
 shape = SubResource("RectangleShape2D_b0mga")
 
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Zones/LevelTransitionArea" to="Zones/LevelTransitionArea" method="_on_body_entered"]
