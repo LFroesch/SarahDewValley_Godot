@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=42 format=3 uid="uid://bmlpnsyieusmk"]
+[gd_resource type="TileSet" load_steps=44 format=3 uid="uid://bmlpnsyieusmk"]
 
 [ext_resource type="Texture2D" uid="uid://0vmng842ncxm" path="res://assets/game/tilesets/ground_tiles/water_frames/water.png" id="1_xbwv4"]
 [ext_resource type="Texture2D" uid="uid://c24k2r5gb75if" path="res://assets/game/tilesets/ground_tiles/old_tiles/grass.png" id="2_afc7x"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bldfvd3xqxxsa" path="res://assets/game/tilesets/city_and_dungeon_tiles/Tiles/CityExtra.png" id="8_x263o"]
 [ext_resource type="Texture2D" uid="uid://blf8jobfjjxea" path="res://assets/game/tilesets/city_and_dungeon_tiles/Background/Tilesets/CityProps2.png" id="9_8ru6a"]
 [ext_resource type="PackedScene" uid="uid://dr5d7axouugau" path="res://scenes/houses/medium_house.tscn" id="9_scgtj"]
+[ext_resource type="Texture2D" uid="uid://bt2onooix1338" path="res://assets/game/tilesets/ground_tiles/fountain_frames/Fountain.png" id="10_ui2m0"]
 [ext_resource type="PackedScene" uid="uid://dxcgdlbpvkrb2" path="res://scenes/objects/trees/small_tree.tscn" id="10_x4qy3"]
 [ext_resource type="PackedScene" uid="uid://b4fgsmx255flw" path="res://scenes/objects/trees/large_tree.tscn" id="11_1l0b8"]
 [ext_resource type="PackedScene" uid="uid://beecyuwolf1ob" path="res://scenes/objects/trees/huge_tree.tscn" id="12_2c1ry"]
@@ -1454,6 +1455,17 @@ texture = ExtResource("9_8ru6a")
 6:6/0 = 0
 7:6/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrnsc"]
+texture = ExtResource("10_ui2m0")
+0:0/size_in_atlas = Vector2i(3, 3)
+0:0/animation_columns = 4
+0:0/animation_frame_0/duration = 0.2
+0:0/animation_frame_1/duration = 0.2
+0:0/animation_frame_2/duration = 0.2
+0:0/animation_frame_3/duration = 0.2
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 0, -14.5, 13, -9.5, 17, 0.5, 13, 11.5, 0.5, 19, -11, 13.5, -16, 0)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bdk4r"]
 texture = ExtResource("3_pd52o")
 0:0/0 = 0
@@ -1945,3 +1957,4 @@ sources/14 = SubResource("TileSetAtlasSource_npoln")
 sources/15 = SubResource("TileSetAtlasSource_vhpho")
 sources/7 = SubResource("TileSetAtlasSource_geg6t")
 sources/16 = SubResource("TileSetAtlasSource_x7em7")
+sources/17 = SubResource("TileSetAtlasSource_wrnsc")
