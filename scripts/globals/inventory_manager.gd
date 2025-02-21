@@ -15,6 +15,7 @@ var food_healing_values = {
 signal health_recovered(amount: int)
 
 func consume_food(food_name: String) -> bool:
+		
 	if not inventory.has(food_name) or inventory[food_name] <= 0:
 		return false
 

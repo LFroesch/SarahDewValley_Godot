@@ -62,7 +62,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o8ucp"]
-radius = 4.0
+radius = 1.41421
 
 [node name="BabyCow" type="CharacterBody2D"]
 y_sort_enabled = true

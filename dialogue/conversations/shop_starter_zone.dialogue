@@ -1,0 +1,10 @@
+~ start
+Guide: [[Hi|Hello|Howdy]], welcome to my food shop!
+- Eggs - 3g per
+	Guide: One fresh laid egg coming right up, that'll be 3 gold please.
+	do GameDialogueManager.action_buy_egg()
+- Milk - 5g per
+	Guide: Mmm a jar of cold milk, that'll be 5 gold please.
+	do GameDialogueManager.action_buy_milk()
+- No Thanks => END
+=> END

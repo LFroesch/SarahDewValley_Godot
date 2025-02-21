@@ -4,7 +4,7 @@ extends NodeState
 @export var animated_sprite_2d: AnimatedSprite2D
 @export var navigation_agent_2d: NavigationAgent2D
 @export var min_speed: float = 5.0
-@export var max_speed: float = 10.0
+@export var max_speed: float = 15.0
 
 
 var speed: float
@@ -18,6 +18,8 @@ func character_setup() -> void:
 	set_movement_target()
 	
 func set_movement_target() -> void:
+	await get_tree().create_timer(randf_range(0.1, 0.3)).timeout
+	
 	var target_position: Vector2 = NavigationServer2D.map_get_random_point(navigation_agent_2d.get_navigation_map(), navigation_agent_2d.navigation_layers, false)
 	navigation_agent_2d.target_position = target_position
 	speed = randf_range(min_speed, max_speed)

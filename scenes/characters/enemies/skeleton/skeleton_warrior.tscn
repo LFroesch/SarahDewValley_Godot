@@ -200,7 +200,6 @@ script = ExtResource("7_7gchv")
 character = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 navigation_agent_2d = NodePath("../../NavigationAgent2D")
-max_speed = 15.0
 
 [node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "animated_sprite_2d")]
 script = ExtResource("8_7us8c")

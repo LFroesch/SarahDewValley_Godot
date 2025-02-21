@@ -55,7 +55,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o8ucp"]
-radius = 6.0
+radius = 1.0
 
 [node name="Cow" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -75,11 +75,15 @@ position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_o8ucp")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 10.0
+path_desired_distance = 15.0
+target_desired_distance = 20.0
 navigation_layers = 2
 path_postprocessing = 1
+simplify_path = true
+simplify_epsilon = 3.0
 avoidance_enabled = true
 radius = 5.0
+neighbor_distance = 100.0
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
 script = ExtResource("3_0fm8v")
