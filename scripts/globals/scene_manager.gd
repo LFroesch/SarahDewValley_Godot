@@ -20,6 +20,7 @@ func load_main_scene_container() -> void:
 		get_tree().root.add_child(node)
 		
 func load_level(level: String) -> void:
+	current_level = level
 	var scene_path: String = level_scenes.get(level)
 	if scene_path == null:
 		return
@@ -32,3 +33,17 @@ func load_level(level: String) -> void:
 				node.queue_free()
 		await get_tree().process_frame
 		level_root.add_child(level_scene)
+
+# Save current level state to config file
+func save_level_state() -> void:
+	var config = ConfigFile.new()
+	config.set_value("game", "current_level", current_level)
+	config.save("user://game_data/game_state.cfg")
+
+# Load level state from config file
+func load_level_state() -> String:
+	var config = ConfigFile.new()
+	var err = config.load("user://game_data/game_state.cfg")
+	if err == OK:
+		return config.get_value("game", "current_level", "Level1")
+	return "Level1"  # Default to Level1 if no save exists
