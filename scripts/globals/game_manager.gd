@@ -8,6 +8,9 @@ func _unhandled_input(event: InputEvent) -> void:
 func start_game() -> void:
 	SceneManager.load_main_scene_container()
 	var saved_state = SceneManager.load_level_state()
+	
+	if saved_state.level == "Level1" and saved_state.position == Vector2.ZERO:
+		saved_state.position = Vector2(250,250)
 	await SceneManager.load_level(saved_state.level, saved_state.position)
 	await get_tree().process_frame
 	SaveGameManager.load_game()

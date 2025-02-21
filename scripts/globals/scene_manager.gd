@@ -10,21 +10,21 @@ var last_position: Vector2 = Vector2.ZERO
 
 var level_scenes : Dictionary = {
 	"Level1" : "res://scenes/levels/level_1.tscn",
-	"Level2" : "res://scenes/levels/level_2.tscn", #Dummy Level atm
-	"city_test" : "res://scenes/levels/city_test.tscn" #Test for City Level
+	"Level2" : "res://scenes/levels/level_2.tscn",
+	"city_test" : "res://scenes/levels/city_test.tscn"
 }
 
 var level_transitions : Dictionary = {
 	"Level1": {
 		"to_city": {
 			"target_level": "city_test",
-			"entry_point": Vector2(840, 650)  # Where to spawn in city_test
+			"entry_point": Vector2(840, 652)
 		}
 	},
 	"city_test": {
 		"to_main": {
 			"target_level": "Level1",
-			"entry_point": Vector2(760, 650)  # Where to spawn back in Level1
+			"entry_point": Vector2(760, 652)
 		}
 	}
 }
@@ -57,7 +57,6 @@ func load_level(level: String, spawn_position: Vector2 = Vector2.ZERO) -> void:
 		if player and spawn_position != Vector2.ZERO:
 			player.global_position = spawn_position
 
-# Save current level state to config file
 func save_level_state() -> void:
 	var config = ConfigFile.new()
 	var player = get_tree().get_first_node_in_group("player")
@@ -71,17 +70,25 @@ func save_level_state() -> void:
 	})
 	config.save("user://game_data/game_state.cfg")
 	
-# Load level state from config file
 func load_level_state() -> Dictionary:
 	var config = ConfigFile.new()
 	var err = config.load("user://game_data/game_state.cfg")
-	if err == OK:
-		var pos_dict = config.get_value("game", "player_position", {"x": 0, "y": 0})
+	
+	if err != OK:
+		current_level = "Level1"
+		last_position = Vector2.ZERO
 		return {
-			"level": config.get_value("game", "current_level", "Level1"),
-			"position": Vector2(pos_dict.x, pos_dict.y)
+			"level": "Level1",
+			"position": Vector2(250, 250)
 		}
+	var pos_dict = config.get_value("game", "player_position", {"x": 0, "y": 0})
+	var saved_level = config.get_value("game", "current_level", "Level1")
+	
+	if not level_scenes.has(saved_level):
+		saved_level = "Level1"
+		pos_dict = {"x": 250, "y": 250}
+		
 	return {
-		"level": "Level1",
-		"position": Vector2.ZERO
+		"level": saved_level,
+		"position": Vector2(pos_dict.x, pos_dict.y)
 	}
