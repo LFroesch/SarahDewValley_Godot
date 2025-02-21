@@ -26,11 +26,9 @@ func save_tools() -> void:
 func load_tools() -> void:
 	if not FileAccess.file_exists(save_data_path):
 		return
-		
 	var save_data = ResourceLoader.load(save_data_path)
 	if save_data:
 		enabled_tools = save_data.enabled_tools
-		# Re-enable all saved tools
 		for tool in enabled_tools:
 			enable_tool.emit(tool)
 			

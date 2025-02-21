@@ -4,7 +4,7 @@ var game_menu_screen = preload("res://scenes/ui/game_menu_screen.tscn")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("game_menu"):
-		#SaveGameManager.save_game()
+		SaveGameManager.save_game()
 		show_game_menu_screen()
 
 func start_game() -> void:
