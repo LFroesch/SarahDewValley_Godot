@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://6aaf7agcl7se"]
+[gd_scene load_steps=32 format=4 uid="uid://6aaf7agcl7se"]
 
 [ext_resource type="TileSet" uid="uid://bmlpnsyieusmk" path="res://tilesets/game_tile_set.tres" id="1_2ojy1"]
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_ludhu"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://0jray3ndncg3" path="res://scenes/Points/spawn_point.tscn" id="15_hs7bb"]
 [ext_resource type="PackedScene" uid="uid://b5q4e3xg0ck85" path="res://scenes/characters/enemies/skeleton/skeleton_camp.tscn" id="16_i0diq"]
 [ext_resource type="PackedScene" uid="uid://dcq44nd1tybfl" path="res://scenes/objects/chest/chicken_chest.tscn" id="16_vxhf0"]
+[ext_resource type="Script" path="res://scenes/levels/level_transitions/LevelTransitionArea.gd" id="21_8jo7l"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_iy3c7"]
 vertices = PackedVector2Array(213.781, 199.781, 212.242, 271.383, 122.641, 257.602, 176.633, 198.992, 135.742, 196.844, 81.7109, 218.406, 112.961, 181.656, 86.7734, 187.32)
@@ -74,6 +75,8 @@ vertices = PackedVector2Array(1208.55, 49.5313, 1408.71, 226.406, 1281.15, 262.9
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(1090, 126, 1054, 37, 1035, -38, 1214, 41, 1429, 231, 1279, 274)])
 source_geometry_mode = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0mga"]
 
 [node name="Level1" type="Node2D"]
 y_sort_enabled = true
@@ -362,3 +365,14 @@ dialogue_start_command = "start_cow_pasture_box"
 [node name="ChickenPastureBox" parent="Chests" instance=ExtResource("16_vxhf0")]
 position = Vector2(-55, 302)
 dialogue_start_command = "start_chicken_pasture_box"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("21_8jo7l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(794, 648)
+shape = SubResource("RectangleShape2D_b0mga")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

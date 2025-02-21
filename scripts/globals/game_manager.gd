@@ -1,5 +1,4 @@
 extends Node
-
 var game_menu_screen = preload("res://scenes/ui/game_menu_screen.tscn")
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -8,8 +7,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func start_game() -> void:
 	SceneManager.load_main_scene_container()
-	var saved_level = SceneManager.load_level_state()
-	await SceneManager.load_level(saved_level)
+	var saved_state = SceneManager.load_level_state()
+	await SceneManager.load_level(saved_state.level, saved_state.position)
 	await get_tree().process_frame
 	SaveGameManager.load_game()
 	SaveGameManager.allow_save_game = true
