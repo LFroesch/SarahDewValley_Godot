@@ -25,7 +25,7 @@ const DROP_TABLE = [
 	 "max_count": 5
 	},
 	{"item": preload("res://scenes/objects/milk.tscn"),
-	 "weight": 10,
+	 "weight": 20,
 	 "count": 1
 	}
 ]

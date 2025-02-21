@@ -403,8 +403,8 @@ size = Vector2(6, 13)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p7ne6"]
 size = Vector2(12, 11)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fb66j"]
-size = Vector2(10, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_jjw30"]
+radius = 3.04138
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
@@ -466,8 +466,8 @@ collision_layer = 64
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
-position = Vector2(0, -8)
-shape = SubResource("RectangleShape2D_fb66j")
+position = Vector2(0, -6.5)
+shape = SubResource("CircleShape2D_jjw30")
 
 [node name="DamageBar" parent="." instance=ExtResource("12_4gfi7")]
 
