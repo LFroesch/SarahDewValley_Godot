@@ -31,7 +31,6 @@ func consume_food(food_name: String) -> bool:
 
 func add_collectible(collectible_name: String) -> void:
 	inventory.get_or_add(collectible_name)
-	
 	if inventory[collectible_name] == null:
 		inventory[collectible_name] = 1
 	else:
@@ -41,9 +40,7 @@ func add_collectible(collectible_name: String) -> void:
 func save_inventory() -> void:
 	var save_resource = Resource.new()
 	save_resource.set_meta("inventory_data", inventory)
-	
 	var result = ResourceSaver.save(save_resource, save_data_path)
-	print("Inventory save result: ", result)
 
 func load_inventory() -> void:
 	if not FileAccess.file_exists(save_data_path):
@@ -52,11 +49,10 @@ func load_inventory() -> void:
 	var save_resource = ResourceLoader.load(save_data_path)
 	if save_resource and save_resource.has_meta("inventory_data"):
 		inventory = save_resource.get_meta("inventory_data")
-		inventory_changed.emit()  # Update any UI listening for changes
+		inventory_changed.emit()
 
 func remove_collectible(collectible_name: String) -> void:
 	inventory.get_or_add(collectible_name)
-	
 	if inventory[collectible_name] == null:
 		inventory[collectible_name] = 0
 	else:
