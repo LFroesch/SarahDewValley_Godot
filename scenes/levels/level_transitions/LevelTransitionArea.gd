@@ -4,11 +4,9 @@ extends Area2D
 var is_transitioning := false
 
 func _ready():
-	print("Area2D ready, transition_id: ", transition_id)
-
-func _on_body_entered(body: Node2D) -> void:
-	print("Body entered: ", body.name, " is_transitioning: ", is_transitioning)
+	pass
 	
+func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and not is_transitioning:
 		is_transitioning = true
 		var transitions = SceneManager.level_transitions.get(SceneManager.current_level)

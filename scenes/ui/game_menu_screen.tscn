@@ -74,8 +74,16 @@ theme_type_variation = &"GameMenuButton"
 theme_override_font_sizes/font_size = 18
 text = "Delete Save"
 
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+title = "Delete Game Save?"
+position = Vector2i(0, 36)
+min_size = Vector2i(150, 50)
+ok_button_text = "Delete"
+dialog_autowrap = true
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/SaveGameButton" to="." method="_on_save_game_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ExitGameButton" to="." method="_on_exit_game_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/UpdateGameButton" to="." method="_on_update_game_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/DeleteSaveButton" to="." method="_on_delete_save_button_pressed"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]
