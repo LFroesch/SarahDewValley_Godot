@@ -41,7 +41,7 @@ func respawn() -> void:
 	await fade_out()
 	await get_tree().create_timer(1.0).timeout
 	current_health = max_health
-	global_position = respawn_position
+	await SceneManager.load_level("Level1", respawn_position)
 	await fade_in()
 	
 func _on_hurt(amount: float) -> void:

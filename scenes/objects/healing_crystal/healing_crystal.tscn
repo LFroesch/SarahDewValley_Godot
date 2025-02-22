@@ -55,6 +55,7 @@ size = Vector2(33, 35)
 [node name="HealingCrystal" type="AnimatedSprite2D"]
 position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_svpa7")
+autoplay = "default"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_mask = 2

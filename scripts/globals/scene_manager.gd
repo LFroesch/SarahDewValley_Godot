@@ -11,18 +11,18 @@ var last_position: Vector2 = Vector2.ZERO
 var level_scenes : Dictionary = {
 	"Level1" : "res://scenes/levels/level_1.tscn",
 	"Level2" : "res://scenes/levels/level_2.tscn",
-	"city_test" : "res://scenes/levels/city_test.tscn"
+	"brady_city" : "res://scenes/levels/brady_city.tscn"
 }
 
 var level_transitions : Dictionary = {
 	"Level1": {
-		"to_city": {
-			"target_level": "city_test",
+		"to_brady_city": {
+			"target_level": "brady_city",
 			"entry_point": Vector2(840, 652)
 		}
 	},
-	"city_test": {
-		"to_main": {
+	"brady_city": {
+		"to_starter_zone": {
 			"target_level": "Level1",
 			"entry_point": Vector2(760, 652)
 		}

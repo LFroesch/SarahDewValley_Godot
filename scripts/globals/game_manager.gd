@@ -30,7 +30,6 @@ func new_game() -> void:
 	start_game()
 
 func exit_game() -> void:
-	SaveGameManager.save_game()
 	get_tree().quit()
 	
 func save_game() -> void:

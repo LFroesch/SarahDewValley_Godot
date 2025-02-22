@@ -138,16 +138,18 @@ tile_set = ExtResource("1_2ojy1")
 [node name="SaveDataComponent" parent="GameTileMap/TilledSoil" instance=ExtResource("2_j7y6a")]
 save_data_resource = ExtResource("3_hrbc2")
 
-[node name="CropFields" type="Node2D" parent="."]
+[node name="Crops" type="Node2D" parent="."]
 
-[node name="FieldCursorComponent" parent="." node_paths=PackedStringArray("grass_tilemap_layer", "tilled_soil_tilemap_layer") instance=ExtResource("2_28abv")]
-script = ExtResource("3_nf2k4")
-grass_tilemap_layer = NodePath("../GameTileMap/Grass")
-tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
-
-[node name="CropsCursorComponent" parent="." node_paths=PackedStringArray("tilled_soil_tilemap_layer") instance=ExtResource("4_oo0gn")]
+[node name="CropsCursorComponent" parent="Crops" node_paths=PackedStringArray("tilled_soil_tilemap_layer") instance=ExtResource("4_oo0gn")]
 script = ExtResource("5_vwmls")
-tilled_soil_tilemap_layer = NodePath("../GameTileMap/TilledSoil")
+tilled_soil_tilemap_layer = NodePath("../../GameTileMap/TilledSoil")
+
+[node name="FieldCursorComponent" parent="Crops" node_paths=PackedStringArray("grass_tilemap_layer", "tilled_soil_tilemap_layer") instance=ExtResource("2_28abv")]
+script = ExtResource("3_nf2k4")
+grass_tilemap_layer = NodePath("../../GameTileMap/Grass")
+tilled_soil_tilemap_layer = NodePath("../../GameTileMap/TilledSoil")
+
+[node name="CropFields" type="Node2D" parent="Crops"]
 
 [node name="Animals" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -383,6 +385,7 @@ position = Vector2(1392, 255)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("21_8jo7l")
+transition_id = "to_brady_city"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/LevelTransitionArea"]
 position = Vector2(787.5, 648.5)
