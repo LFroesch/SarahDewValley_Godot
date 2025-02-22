@@ -15,7 +15,7 @@ func setup_bar() -> void:
 func _process(_delta: float) -> void:
 	if enemy_sprite:
 		progress_bar.value = enemy_sprite.health
-		position = Vector2(-10, 2)
+		position = Vector2(-35, 2)
 
 func show_bar() -> void:
 	show()

@@ -52,7 +52,7 @@ func _ready():
 	detection_area.body_entered.connect(_on_body_entered)
 	detection_area.body_exited.connect(_on_body_exited)
 	
-	damage_timer.wait_time = 2.0
+	damage_timer.wait_time = 2.5
 	damage_timer.timeout.connect(_on_damage_timer_timeout)
 	hurt_component.hurt.connect(take_damage)
 	hurt_component.is_enemy = true
@@ -64,8 +64,8 @@ func _physics_process(_delta):
 func attack_player(player):
 	state_machine.transition_to("attack")
 	if player.has_node("HurtComponent"):
-		var damage = randi_range(10, 30)
-		var crit = int(randf_range(1.0, 1.5))
+		var damage = randi_range(16, 20)
+		var crit = (randf_range(1.0, 2.0))
 		var mitigated = randi_range(1, 5)
 		var total_damage = int(damage * crit - mitigated)
 		player.get_node("HurtComponent").hurt.emit(total_damage)
