@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://dg6chuxxe63w2"]
+[gd_scene load_steps=8 format=4 uid="uid://dg6chuxxe63w2"]
 
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_h8bpg"]
 [ext_resource type="Script" path="res://scenes/components/save_level_data_component.gd" id="2_7wb1e"]
 [ext_resource type="TileSet" uid="uid://bmlpnsyieusmk" path="res://tilesets/game_tile_set.tres" id="3_j7op8"]
 [ext_resource type="Script" path="res://scenes/levels/level_transitions/LevelTransitionArea.gd" id="4_i222g"]
+[ext_resource type="PackedScene" uid="uid://ddbh5oc61wqd0" path="res://scenes/objects/healing_crystal/healing_crystal.tscn" id="5_vaf15"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4v836"]
 size = Vector2(13, 30)
@@ -57,6 +58,9 @@ transition_id = "to_floor_1"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionAreatoDungeonFloor1"]
 position = Vector2(864.25, 713)
 shape = SubResource("RectangleShape2D_0g8r1")
+
+[node name="HealingCrystal" parent="." instance=ExtResource("5_vaf15")]
+position = Vector2(934, 838)
 
 [connection signal="body_entered" from="TransitionAreatoBradyTown" to="TransitionAreatoBradyTown" method="_on_body_entered"]
 [connection signal="body_entered" from="TransitionAreatoDungeonFloor1" to="TransitionAreatoDungeonFloor1" method="_on_body_entered"]

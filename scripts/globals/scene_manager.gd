@@ -44,9 +44,9 @@ var level_transitions : Dictionary = {
 		},
 	},
 	"the_sewers_floor_1": {
-		"to_city": {
-			"target_level": "brady_city",
-			"entry_point": Vector2(1000, 750)
+		"to_sewers": {
+			"target_level": "the_sewers",
+			"entry_point": Vector2(940, 875)
 		}
 	}
 }
