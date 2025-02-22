@@ -118,7 +118,7 @@ func take_damage(amount: float):
 		return
 	
 	health -= amount
-	if health <= 0:
+	if health <= 2:
 		damage_bar.hide()
 		is_dying = true
 		collision_shape.set_deferred("disabled", true)

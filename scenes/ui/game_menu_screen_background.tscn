@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://scenes/ui/game_menu_screen_background.gd" id="1_m27hr"]
 [ext_resource type="TileSet" uid="uid://bmlpnsyieusmk" path="res://tilesets/game_tile_set.tres" id="1_x6vi8"]
-[ext_resource type="PackedScene" uid="uid://cksuucjl74u7n" path="res://scenes/characters/cow/baby_cow.tscn" id="3_bpyca"]
-[ext_resource type="PackedScene" uid="uid://djketpxhxd8qe" path="res://scenes/characters/cow/cow.tscn" id="4_s81gn"]
+[ext_resource type="PackedScene" uid="uid://cksuucjl74u7n" path="res://scenes/characters/animals/cow/baby_cow.tscn" id="3_bpyca"]
+[ext_resource type="PackedScene" uid="uid://djketpxhxd8qe" path="res://scenes/characters/animals/cow/cow.tscn" id="4_s81gn"]
 [ext_resource type="PackedScene" uid="uid://dx4wh0fbqvl68" path="res://scenes/objects/chest/cow_chest.tscn" id="5_ffjk4"]
-[ext_resource type="PackedScene" uid="uid://ccauubjygerd7" path="res://scenes/characters/chicken/chicken.tscn" id="6_a4lco"]
+[ext_resource type="PackedScene" uid="uid://ccauubjygerd7" path="res://scenes/characters/animals/chicken/chicken.tscn" id="6_a4lco"]
 [ext_resource type="PackedScene" uid="uid://bowtbua0rig86" path="res://scenes/characters/interactable_characters/guide/guide.tscn" id="7_ortuy"]
 [ext_resource type="PackedScene" uid="uid://dfwfk102ak30u" path="res://scenes/characters/player/player_title_screen.tscn" id="8_1vn0d"]
 

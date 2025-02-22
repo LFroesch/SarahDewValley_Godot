@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://djketpxhxd8qe"]
 
-[ext_resource type="Script" path="res://scenes/characters/cow/cow.gd" id="1_auvmx"]
+[ext_resource type="Script" path="res://scenes/characters/animals/cow/cow.gd" id="1_auvmx"]
 [ext_resource type="Texture2D" uid="uid://b8cde1si128gd" path="res://assets/game/animals/cow/Free Cow Sprites.png" id="1_r2gsl"]
 [ext_resource type="Script" path="res://scenes/characters/npc_states/idle_state.gd" id="2_3npvu"]
 [ext_resource type="Script" path="res://scripts/state_machine/node_state_machine.gd" id="3_0fm8v"]

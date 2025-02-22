@@ -11,7 +11,9 @@ var last_position: Vector2 = Vector2.ZERO
 var level_scenes : Dictionary = {
 	"Level1" : "res://scenes/levels/level_1.tscn",
 	"Level2" : "res://scenes/levels/level_2.tscn",
-	"brady_city" : "res://scenes/levels/brady_city.tscn"
+	"brady_city" : "res://scenes/levels/brady_city.tscn",
+	"the_sewers" : "res://scenes/levels/the_sewers.tscn",
+	"the_sewers_floor_1" : "res://scenes/levels/sewers_floor_1.tscn"
 }
 
 var level_transitions : Dictionary = {
@@ -25,6 +27,26 @@ var level_transitions : Dictionary = {
 		"to_starter_zone": {
 			"target_level": "Level1",
 			"entry_point": Vector2(760, 652)
+		},
+		"to_sewers": {
+			"target_level": "the_sewers",
+			"entry_point": Vector2(940, 875)
+		}
+	},
+	"the_sewers": {
+		"to_city": {
+			"target_level": "brady_city",
+			"entry_point": Vector2(1000, 750)
+		},
+		"to_floor_1": {
+			"target_level": "the_sewers_floor_1",
+			"entry_point": Vector2(865, 740)
+		},
+	},
+	"the_sewers_floor_1": {
+		"to_city": {
+			"target_level": "brady_city",
+			"entry_point": Vector2(1000, 750)
 		}
 	}
 }
@@ -79,14 +101,14 @@ func load_level_state() -> Dictionary:
 		last_position = Vector2.ZERO
 		return {
 			"level": "Level1",
-			"position": Vector2(250, 250)
+			"position": Vector2(700, 600)
 		}
 	var pos_dict = config.get_value("game", "player_position", {"x": 0, "y": 0})
 	var saved_level = config.get_value("game", "current_level", "Level1")
 	
 	if not level_scenes.has(saved_level):
 		saved_level = "Level1"
-		pos_dict = {"x": 250, "y": 250}
+		pos_dict = {"x": 700, "y": 600}
 		
 	return {
 		"level": saved_level,

@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://ccauubjygerd7"]
 
 [ext_resource type="Texture2D" uid="uid://detdqixro3bh1" path="res://assets/game/animals/chicken/Free Chicken Sprites.png" id="1_h4ij4"]
-[ext_resource type="Script" path="res://scenes/characters/chicken/chicken.gd" id="1_nxhgc"]
+[ext_resource type="Script" path="res://scenes/characters/animals/chicken/chicken.gd" id="1_nxhgc"]
 [ext_resource type="Script" path="res://scripts/state_machine/node_state_machine.gd" id="2_hmvva"]
 [ext_resource type="Script" path="res://scenes/characters/npc_states/idle_state.gd" id="3_14spt"]
 [ext_resource type="Script" path="res://scenes/characters/npc_states/walk_state.gd" id="4_un72n"]
