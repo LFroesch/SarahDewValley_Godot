@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://6aaf7agcl7se"]
+[gd_scene load_steps=37 format=4 uid="uid://6aaf7agcl7se"]
 
 [ext_resource type="TileSet" uid="uid://bmlpnsyieusmk" path="res://tilesets/game_tile_set.tres" id="1_2ojy1"]
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_ludhu"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://scenes/components/crops_cursor_component.gd" id="5_vwmls"]
 [ext_resource type="PackedScene" uid="uid://djketpxhxd8qe" path="res://scenes/characters/animals/cow/cow.tscn" id="6_ai8wf"]
 [ext_resource type="PackedScene" uid="uid://cksuucjl74u7n" path="res://scenes/characters/animals/cow/baby_cow.tscn" id="7_4rlpg"]
+[ext_resource type="PackedScene" uid="uid://f3es2c3cbna7" path="res://scenes/characters/animals/brady/brady.tscn" id="10_udajt"]
 [ext_resource type="PackedScene" uid="uid://dx4wh0fbqvl68" path="res://scenes/objects/chest/cow_chest.tscn" id="10_udbt5"]
 [ext_resource type="PackedScene" uid="uid://djkj5hhph4fws" path="res://scenes/characters/interactable_characters/milk_and_egg_seller/milk_and_egg_seller.tscn" id="13_x8dmv"]
 [ext_resource type="PackedScene" uid="uid://bc3r3htvo5h4c" path="res://scenes/characters/enemies/goblins/goblin_camp.tscn" id="15_6grri"]
@@ -25,6 +26,12 @@
 [ext_resource type="PackedScene" uid="uid://ddbh5oc61wqd0" path="res://scenes/objects/healing_crystal/healing_crystal.tscn" id="21_o8vma"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_iy3c7"]
+vertices = PackedVector2Array(200.477, 256.117, 129.719, 256.867, 135.547, 220, 195.328, 220)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(127, 210, 204, 210, 212, 266, 118, 267)])
+source_geometry_mode = 2
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_klv71"]
 vertices = PackedVector2Array(213.781, 199.781, 212.242, 271.383, 122.641, 257.602, 176.633, 198.992, 135.742, 196.844, 81.7109, 218.406, 112.961, 181.656, 86.7734, 187.32)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5), PackedInt32Array(6, 4, 5, 7)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(139, 187, 177, 189, 224, 190, 222, 283, 118, 267, 71, 222, 78, 179, 115, 171)])
@@ -161,11 +168,21 @@ tilled_soil_tilemap_layer = NodePath("../../GameTileMap/TilledSoil")
 [node name="Animals" type="Node2D" parent="."]
 y_sort_enabled = true
 
+[node name="BradyAtSpawn" type="Node2D" parent="Animals"]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Animals/BradyAtSpawn"]
+position = Vector2(95, 23)
+navigation_polygon = SubResource("NavigationPolygon_iy3c7")
+navigation_layers = 32
+
+[node name="Brady" parent="Animals/BradyAtSpawn" instance=ExtResource("10_udajt")]
+position = Vector2(237, 274)
+
 [node name="ChickensAtSpawn" type="Node2D" parent="Animals"]
 y_sort_enabled = true
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Animals/ChickensAtSpawn"]
-navigation_polygon = SubResource("NavigationPolygon_iy3c7")
+[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="Animals/ChickensAtSpawn"]
+navigation_polygon = SubResource("NavigationPolygon_klv71")
 
 [node name="Chicken" parent="Animals/ChickensAtSpawn" instance=ExtResource("4_dwkrf")]
 position = Vector2(98, 230)
