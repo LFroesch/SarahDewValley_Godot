@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://scenes/characters/npc_states/idle_state.gd" id="4_8rwgi"]
 [ext_resource type="Script" path="res://scenes/characters/npc_states/walk_state.gd" id="5_4gvjp"]
 [ext_resource type="Script" path="res://scenes/characters/npc_states/attack_state.gd" id="8_g043o"]
-[ext_resource type="PackedScene" uid="uid://7ovrta2wmxi4" path="res://scenes/ui/goblin_damage_bar.tscn" id="9_1og8x"]
+[ext_resource type="PackedScene" uid="uid://7ovrta2wmxi4" path="res://scenes/ui/enemy_damage_bar.tscn" id="9_1og8x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vnh7"]
 size = Vector2(22, 22)

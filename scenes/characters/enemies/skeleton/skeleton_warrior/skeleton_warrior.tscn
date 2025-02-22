@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://uy3d1h5c5xel"]
 
-[ext_resource type="Script" path="res://scenes/characters/enemies/skeleton/skeleton_warrior.gd" id="1_fh8n5"]
+[ext_resource type="Script" path="res://scenes/characters/enemies/skeleton/skeleton_warrior/skeleton_warrior.gd" id="1_fh8n5"]
 [ext_resource type="PackedScene" uid="uid://cfa3kum8dxcon" path="res://scenes/components/hurt_component.tscn" id="2_olr46"]
 [ext_resource type="Shader" path="res://scenes/characters/enemies/goblins/goblin_barbarian.gdshader" id="3_vth66"]
 [ext_resource type="Texture2D" uid="uid://bruobppbx52x1" path="res://assets/game/characters/Skeleton_Warrior.png" id="4_d2u7d"]
@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://scenes/characters/npc_states/idle_state.gd" id="6_x0awh"]
 [ext_resource type="Script" path="res://scenes/characters/npc_states/walk_state.gd" id="7_7gchv"]
 [ext_resource type="Script" path="res://scenes/characters/npc_states/attack_state.gd" id="8_7us8c"]
-[ext_resource type="PackedScene" uid="uid://7ovrta2wmxi4" path="res://scenes/ui/goblin_damage_bar.tscn" id="9_x6vlc"]
+[ext_resource type="PackedScene" uid="uid://7ovrta2wmxi4" path="res://scenes/ui/enemy_damage_bar.tscn" id="9_x6vlc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vnh7"]
 size = Vector2(24, 24)

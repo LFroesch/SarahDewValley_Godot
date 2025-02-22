@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/components/save_level_data_component.gd" id="2_wx4i6"]
 [ext_resource type="TileSet" uid="uid://bmlpnsyieusmk" path="res://tilesets/game_tile_set.tres" id="3_xkoce"]
 [ext_resource type="Script" path="res://scenes/levels/level_transitions/LevelTransitionArea.gd" id="4_76kn5"]
-[ext_resource type="PackedScene" uid="uid://b5q4e3xg0ck85" path="res://scenes/characters/enemies/skeleton/skeleton_camp.tscn" id="5_w46vn"]
+[ext_resource type="PackedScene" uid="uid://b5q4e3xg0ck85" path="res://scenes/characters/enemies/skeleton/skeleton_warrior/skeleton_camp.tscn" id="5_w46vn"]
 [ext_resource type="PackedScene" uid="uid://0jray3ndncg3" path="res://scenes/Points/spawn_point.tscn" id="6_pahvh"]
 [ext_resource type="PackedScene" uid="uid://bc3r3htvo5h4c" path="res://scenes/characters/enemies/goblins/goblin_camp.tscn" id="7_7mi60"]
 
@@ -54,7 +54,7 @@ tile_map_data = PackedByteArray("AAA1ACoADgAMAAYAAAA1ACsADgAMAAcAAAA1ACwADgAMAAg
 tile_set = ExtResource("3_xkoce")
 
 [node name="DungeonExtras" type="TileMapLayer" parent="GameTileMap"]
-tile_map_data = PackedByteArray("AAA+ACsADwAWABkAAAA+ACwADwAWABoAAAA+AC0ADwAWABsAAAA2ACwADwAVAB0AAAA1ACsADwAUABwAAAA2ACsADwAVABwAAAA1ACwADwAUAB0AAAA=")
+tile_map_data = PackedByteArray("AAA+ACsADwAWABkAAAA+ACwADwAWABoAAAA+AC0ADwAWABsAAAA2ACwADwAVAB0AAAA1ACsADwAUABwAAAA2ACsADwAVABwAAAA1ACwADwAUAB0AAABCADAADwAZAB4AAABCADEADwAZAB8AAAA8ADAADwAZABgAAAA3AC8ADwAaABgAAABKACsADwAcABYAAABKACwADwAcABcAAAA6ACsADwATABYAAAA5ACwADwAYABYAAAA5AC0ADwAYABcAAAA7ACwADwAZABYAAAA7AC0ADwAZABcAAAA8ACwADwAaABYAAAA8AC0ADwAaABcAAAA9ACwADwAbABYAAAA9AC0ADwAbABcAAAA=")
 tile_set = ExtResource("3_xkoce")
 
 [node name="TransitionAreatoBradyTown" type="Area2D" parent="."]

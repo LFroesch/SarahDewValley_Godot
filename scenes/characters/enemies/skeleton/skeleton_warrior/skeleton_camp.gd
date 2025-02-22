@@ -5,7 +5,7 @@ extends Node2D
 @export var initial_spawn_delay: float = 3.0
 
 
-var skeleton_scene = preload("res://scenes/characters/enemies/skeleton/skeleton_warrior.tscn") 
+var skeleton_scene = preload("res://scenes/characters/enemies/skeleton/skeleton_warrior/skeleton_warrior.tscn") 
 @onready var spawn_point1: Marker2D = $SpawnPoint
 @onready var spawn_point2: Marker2D = $SpawnPoint2
 @onready var spawn_point3: Marker2D = $SpawnPoint3

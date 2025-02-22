@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://6aaf7agcl7se"]
+[gd_scene load_steps=35 format=4 uid="uid://6aaf7agcl7se"]
 
 [ext_resource type="TileSet" uid="uid://bmlpnsyieusmk" path="res://tilesets/game_tile_set.tres" id="1_2ojy1"]
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_ludhu"]
@@ -18,7 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://bc3r3htvo5h4c" path="res://scenes/characters/enemies/goblins/goblin_camp.tscn" id="15_6grri"]
 [ext_resource type="PackedScene" uid="uid://dys1y527eipiw" path="res://scenes/characters/interactable_characters/stone_and_log_buyer/stone_and_log_buyer.tscn" id="15_a4g8m"]
 [ext_resource type="PackedScene" uid="uid://0jray3ndncg3" path="res://scenes/Points/spawn_point.tscn" id="15_hs7bb"]
-[ext_resource type="PackedScene" uid="uid://b5q4e3xg0ck85" path="res://scenes/characters/enemies/skeleton/skeleton_camp.tscn" id="16_i0diq"]
+[ext_resource type="PackedScene" uid="uid://e2f4sp0xrvir" path="res://scenes/characters/enemies/skeleton/skeleton_chief/skeleton_chief_spawner.tscn" id="16_23cy2"]
+[ext_resource type="PackedScene" uid="uid://b5q4e3xg0ck85" path="res://scenes/characters/enemies/skeleton/skeleton_warrior/skeleton_camp.tscn" id="16_i0diq"]
 [ext_resource type="PackedScene" uid="uid://dcq44nd1tybfl" path="res://scenes/objects/chest/chicken_chest.tscn" id="16_vxhf0"]
 [ext_resource type="Script" path="res://scenes/levels/level_transitions/LevelTransitionArea.gd" id="21_8jo7l"]
 [ext_resource type="PackedScene" uid="uid://ddbh5oc61wqd0" path="res://scenes/objects/healing_crystal/healing_crystal.tscn" id="21_o8vma"]
@@ -45,6 +46,12 @@ source_geometry_mode = 2
 vertices = PackedVector2Array(421.063, 476.844, 421.93, 597, 313.07, 597, 313.922, 475.148)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(431, 467, 304, 465, 303, 607, 432, 607)])
+source_geometry_mode = 2
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_iywel"]
+vertices = PackedVector2Array(1265.5, 92.3203, 1380.47, 218.344, 1284.92, 229.578, 1168.71, 138.547, 1094.42, 61.5078, 1200.34, -65.5938, 1272.58, 36.5938)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6, 0)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1081, 62, 1201, -82, 1283, 34, 1276, 89, 1401, 226, 1282, 240, 1162, 146)])
 source_geometry_mode = 2
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_dlil0"]
@@ -265,6 +272,22 @@ position = Vector2(738, 627)
 
 [node name="Enemies" type="Node2D" parent="."]
 
+[node name="SkeletonChiefSpawner" parent="Enemies" instance=ExtResource("16_23cy2")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Enemies/SkeletonChiefSpawner"]
+position = Vector2(-1012, 1015)
+navigation_polygon = SubResource("NavigationPolygon_iywel")
+navigation_layers = 16
+
+[node name="SpawnPoint" parent="Enemies/SkeletonChiefSpawner" instance=ExtResource("15_hs7bb")]
+position = Vector2(227, 1054)
+
+[node name="SpawnPoint2" parent="Enemies/SkeletonChiefSpawner" instance=ExtResource("15_hs7bb")]
+position = Vector2(193, 983)
+
+[node name="SpawnPoint3" parent="Enemies/SkeletonChiefSpawner" instance=ExtResource("15_hs7bb")]
+position = Vector2(276, 1146)
+
 [node name="GoblinCamp" parent="Enemies" instance=ExtResource("15_6grri")]
 
 [node name="SpawnPoint" parent="Enemies/GoblinCamp" instance=ExtResource("15_hs7bb")]
@@ -352,6 +375,7 @@ position = Vector2(177, 1139)
 position = Vector2(238, 1208)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Enemies/SkeletonCamp"]
+visible = false
 position = Vector2(-1012, 1015)
 navigation_polygon = SubResource("NavigationPolygon_871c1")
 navigation_layers = 8

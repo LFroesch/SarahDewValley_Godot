@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bc3r3htvo5h4c" path="res://scenes/characters/enemies/goblins/goblin_camp.tscn" id="14_qabxq"]
 [ext_resource type="PackedScene" uid="uid://0jray3ndncg3" path="res://scenes/Points/spawn_point.tscn" id="15_kvy7e"]
 [ext_resource type="PackedScene" uid="uid://dys1y527eipiw" path="res://scenes/characters/interactable_characters/stone_and_log_buyer/stone_and_log_buyer.tscn" id="15_ow1rx"]
-[ext_resource type="PackedScene" uid="uid://b5q4e3xg0ck85" path="res://scenes/characters/enemies/skeleton/skeleton_camp.tscn" id="16_4p4qw"]
+[ext_resource type="PackedScene" uid="uid://b5q4e3xg0ck85" path="res://scenes/characters/enemies/skeleton/skeleton_warrior/skeleton_camp.tscn" id="16_4p4qw"]
 [ext_resource type="PackedScene" uid="uid://dx4wh0fbqvl68" path="res://scenes/objects/chest/cow_chest.tscn" id="17_7einn"]
 [ext_resource type="PackedScene" uid="uid://dcq44nd1tybfl" path="res://scenes/objects/chest/chicken_chest.tscn" id="18_ps8kq"]
 [ext_resource type="PackedScene" uid="uid://ddbh5oc61wqd0" path="res://scenes/objects/healing_crystal/healing_crystal.tscn" id="21_obf4l"]
