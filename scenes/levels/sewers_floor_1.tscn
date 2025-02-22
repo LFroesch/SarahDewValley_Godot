@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://bmlpnsyieusmk" path="res://tilesets/game_tile_set.tres" id="3_xkoce"]
 [ext_resource type="Script" path="res://scenes/levels/level_transitions/LevelTransitionArea.gd" id="4_76kn5"]
 [ext_resource type="PackedScene" uid="uid://b5q4e3xg0ck85" path="res://scenes/characters/enemies/skeleton/skeleton_warrior/skeleton_camp.tscn" id="5_w46vn"]
-[ext_resource type="PackedScene" uid="uid://0jray3ndncg3" path="res://scenes/Points/spawn_point.tscn" id="6_pahvh"]
+[ext_resource type="PackedScene" uid="uid://0jray3ndncg3" path="res://scenes/points/spawn_point.tscn" id="6_pahvh"]
 [ext_resource type="PackedScene" uid="uid://bc3r3htvo5h4c" path="res://scenes/characters/enemies/goblins/goblin_camp.tscn" id="7_7mi60"]
 [ext_resource type="PackedScene" uid="uid://e2f4sp0xrvir" path="res://scenes/characters/enemies/skeleton/skeleton_chief/skeleton_chief_spawner.tscn" id="8_xh3yn"]
 

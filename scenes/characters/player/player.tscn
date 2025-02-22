@@ -397,8 +397,8 @@ animations = [{
 "speed": 3.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvste"]
-size = Vector2(6, 11)
+[sub_resource type="CircleShape2D" id="CircleShape2D_triis"]
+radius = 3.04138
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p7ne6"]
 size = Vector2(12, 11)
@@ -419,8 +419,9 @@ autoplay = "idle_front"
 offset = Vector2(0, -5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5.5)
-shape = SubResource("RectangleShape2D_yvste")
+top_level = true
+position = Vector2(0, -4.5)
+shape = SubResource("CircleShape2D_triis")
 debug_color = Color(0.857636, 0.146653, 0.81142, 0.42)
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]

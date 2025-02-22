@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bowtbua0rig86" path="res://scenes/characters/interactable_characters/guide/guide.tscn" id="13_dxcy1"]
 [ext_resource type="PackedScene" uid="uid://djkj5hhph4fws" path="res://scenes/characters/interactable_characters/milk_and_egg_seller/milk_and_egg_seller.tscn" id="13_u4en6"]
 [ext_resource type="PackedScene" uid="uid://bc3r3htvo5h4c" path="res://scenes/characters/enemies/goblins/goblin_camp.tscn" id="14_qabxq"]
-[ext_resource type="PackedScene" uid="uid://0jray3ndncg3" path="res://scenes/Points/spawn_point.tscn" id="15_kvy7e"]
+[ext_resource type="PackedScene" uid="uid://0jray3ndncg3" path="res://scenes/points/spawn_point.tscn" id="15_kvy7e"]
 [ext_resource type="PackedScene" uid="uid://dys1y527eipiw" path="res://scenes/characters/interactable_characters/stone_and_log_buyer/stone_and_log_buyer.tscn" id="15_ow1rx"]
 [ext_resource type="PackedScene" uid="uid://b5q4e3xg0ck85" path="res://scenes/characters/enemies/skeleton/skeleton_warrior/skeleton_camp.tscn" id="16_4p4qw"]
 [ext_resource type="PackedScene" uid="uid://dx4wh0fbqvl68" path="res://scenes/objects/chest/cow_chest.tscn" id="17_7einn"]

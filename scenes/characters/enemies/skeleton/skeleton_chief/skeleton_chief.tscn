@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://1pvpl5tevcxw" path="res://scenes/ui/boss_damage_bar.tscn" id="9_gfpav"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vnh7"]
-size = Vector2(26, 34)
+size = Vector2(23, 35)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0mkhr"]
 shader = ExtResource("3_0p7fm")
@@ -264,7 +264,7 @@ animations = [{
 radius = 7.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fh18b"]
-size = Vector2(46, 34)
+size = Vector2(40, 35)
 
 [node name="SkeletonChief" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -276,14 +276,14 @@ script = ExtResource("1_4b40w")
 tool = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
-position = Vector2(5, -10)
+position = Vector2(4.5, -10.5)
 shape = SubResource("RectangleShape2D_3vnh7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 material = SubResource("ShaderMaterial_0mkhr")
 position = Vector2(0, -7)
-scale = Vector2(2, 2)
+scale = Vector2(1.7, 1.7)
 sprite_frames = SubResource("SpriteFrames_p7l2k")
 animation = &"attack"
 autoplay = "idle"
@@ -324,7 +324,7 @@ collision_layer = 64
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(5, -10)
+position = Vector2(4, -10.5)
 shape = SubResource("RectangleShape2D_fh18b")
 
 [node name="DamageTimer" type="Timer" parent="."]
