@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://6aaf7agcl7se"]
+[gd_scene load_steps=38 format=4 uid="uid://6aaf7agcl7se"]
 
 [ext_resource type="TileSet" uid="uid://bmlpnsyieusmk" path="res://tilesets/game_tile_set.tres" id="1_2ojy1"]
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_ludhu"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dcq44nd1tybfl" path="res://scenes/objects/chest/chicken_chest.tscn" id="16_vxhf0"]
 [ext_resource type="Script" path="res://scenes/levels/level_transitions/LevelTransitionArea.gd" id="21_8jo7l"]
 [ext_resource type="PackedScene" uid="uid://ddbh5oc61wqd0" path="res://scenes/objects/healing_crystal/healing_crystal.tscn" id="21_o8vma"]
+[ext_resource type="PackedScene" uid="uid://ddwpftwv80x7r" path="res://scenes/items/healing_potion.tscn" id="25_5bbra"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_iy3c7"]
 vertices = PackedVector2Array(200.477, 256.117, 129.719, 256.867, 135.547, 220, 195.328, 220)
@@ -454,6 +455,12 @@ transition_id = "to_starter_island"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/BoatToStarterIsland"]
 position = Vector2(646, 465)
 shape = SubResource("RectangleShape2D_b0mga")
+
+[node name="HealingPotion" parent="." instance=ExtResource("25_5bbra")]
+position = Vector2(624, 637)
+
+[node name="HealingPotion2" parent="." instance=ExtResource("25_5bbra")]
+position = Vector2(605, 657)
 
 [connection signal="body_entered" from="Zones/TransitionToBradyCity" to="Zones/TransitionToBradyCity" method="_on_body_entered"]
 [connection signal="body_entered" from="Zones/BoatToCenterIsland" to="Zones/BoatToCenterIsland" method="_on_body_entered"]

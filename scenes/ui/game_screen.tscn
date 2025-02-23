@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://335kuu1ed1xx"]
+[gd_scene load_steps=8 format=3 uid="uid://335kuu1ed1xx"]
 
 [ext_resource type="Theme" uid="uid://d12h0sdtb6bla" path="res://scenes/ui/game_ui_theme.tres" id="1_3oi1c"]
+[ext_resource type="Script" path="res://scenes/ui/game_screen.gd" id="1_nevtp"]
 [ext_resource type="PackedScene" uid="uid://dxwd58wbfmjhd" path="res://scenes/ui/tools_panel.tscn" id="2_6i2tu"]
 [ext_resource type="PackedScene" uid="uid://b5ks16sn12ttk" path="res://scenes/ui/emotes_panel.tscn" id="2_iif8i"]
 [ext_resource type="PackedScene" uid="uid://c7ocfo210s7xk" path="res://scenes/ui/inventory_panel.tscn" id="3_x6pj4"]
 [ext_resource type="PackedScene" uid="uid://coxr3chgyg0lq" path="res://scenes/ui/day_and_night_panel.tscn" id="4_j2k7u"]
+[ext_resource type="PackedScene" uid="uid://bqmsjte4blffe" path="res://scenes/ui/spillover_panel.tscn" id="7_krd5t"]
 
 [node name="GameScreen" type="CanvasLayer"]
+script = ExtResource("1_nevtp")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -40,3 +43,5 @@ size_flags_vertical = 8
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+
+[node name="SpilloverPanel" parent="." instance=ExtResource("7_krd5t")]

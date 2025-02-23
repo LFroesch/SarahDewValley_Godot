@@ -9,10 +9,16 @@ extends CharacterBody2D
 @export var current_health: float = 100
 @onready var fade_overlay: ColorRect = $CanvasLayer/FadeOverlay if has_node("CanvasLayer/FadeOverlay") else null
 @onready var fireball_scene = preload("res://scenes/objects/projectiles/fireball/fireball.tscn")
+@onready var fire_nova_scene = preload("res://scenes/objects/projectiles/fire_nova/fire_nova.tscn")
 @export var can_shoot: bool = true
 @export var shoot_cooldown: float = 3.0
 @onready var shoot_timer: Timer = $ShootTimer
 var player_direction: Vector2
+@export var fire_nova_cooldown: float = 5.0  # Cooldown in seconds
+var can_cast_nova: bool = true
+
+# Add to your _ready function or wherever you set up your timers
+@onready var fire_nova_timer: Timer = $FireNovaTimer
 
 func _ready() -> void:
 	ToolManager.tool_selected.connect(on_tool_selected)
@@ -21,16 +27,35 @@ func _ready() -> void:
 	await get_tree().process_frame
 	if fade_overlay:
 		fade_overlay.color = Color(0, 0, 0, 0)
+	fire_nova_timer = Timer.new()
+	fire_nova_timer.wait_time = fire_nova_cooldown
+	fire_nova_timer.one_shot = true
+	fire_nova_timer.timeout.connect(_on_nova_cooldown_timeout)
+	add_child(fire_nova_timer)
+	
 	shoot_timer = Timer.new()
 	shoot_timer.wait_time = shoot_cooldown
 	shoot_timer.one_shot = true
 	shoot_timer.timeout.connect(_on_shoot_timer_timeout)
 	add_child(shoot_timer)
 
+func cast_fire_nova() -> void:
+	var nova = fire_nova_scene.instantiate()
+	add_child(nova)
+	
+	# Start cooldown
+	can_cast_nova = false
+	fire_nova_timer.start()
+
+func _on_nova_cooldown_timeout() -> void:
+	can_cast_nova = true
+
 func _unhandled_input(event):
 	if event.is_action_pressed("shoot_fireball"):  # You'll need to add this input action
 		shoot_fireball()
-
+	if event.is_action_pressed("cast_fire_nova") and can_cast_nova:
+		cast_fire_nova()
+		
 func shoot_fireball():
 	if not can_shoot:
 		return

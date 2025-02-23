@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddwpftwv80x7r"]
+
+[ext_resource type="Texture2D" uid="uid://e142h1fwo8rs" path="res://assets/ui/basic_ui_sprites.png" id="1_dbwgr"]
+[ext_resource type="Script" path="res://scenes/items/healing_potion.gd" id="2_fjrw0"]
+[ext_resource type="PackedScene" uid="uid://bxhjxqi72fxxc" path="res://scenes/components/collectible_component.tscn" id="3_nwlgl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqag1"]
+atlas = ExtResource("1_dbwgr")
+region = Rect2(580, 83, 9, 9)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bdk80"]
+radius = 4.71405
+
+[node name="HealingPotion" type="Sprite2D"]
+y_sort_enabled = true
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_wqag1")
+script = ExtResource("2_fjrw0")
+
+[node name="CollectibleComponent" parent="." instance=ExtResource("3_nwlgl")]
+collectible_name = "healing_potion"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleComponent"]
+shape = SubResource("CircleShape2D_bdk80")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+one_shot = true

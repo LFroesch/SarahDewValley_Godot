@@ -17,12 +17,12 @@ func _on_body_entered(body: Node2D) -> void:
 				await get_tree().create_timer(0.2).timeout
 				var target_level = transition_data.target_level
 				var target_point = transition_data.entry_point
-				# Only reload the level if we're actually changing levels
+				
 				if target_level != SceneManager.current_level:
 					SceneManager.load_level(target_level, target_point)
 				else:
-					# Just move the player if we're staying in the same level
 					body.global_position = target_point
+					
 				var player = get_tree().get_first_node_in_group("player")
 				if player:
 					await player.fade_in()

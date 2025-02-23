@@ -18,3 +18,5 @@ func _on_area_entered(area: Area2D) -> void:
 				hurt.emit(hit_component.hit_damage)
 	if area.get("is_fireball") and is_enemy:
 		hurt.emit(area.damage)
+	if area.get("is_fire_nova") and is_enemy:
+		hurt.emit(area.damage)

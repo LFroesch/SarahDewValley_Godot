@@ -9,7 +9,8 @@ var food_healing_values = {
 	"egg": 15,
 	"milk": 20,
 	"corn": 10,
-	"tomato": 10
+	"tomato": 10,
+	"healing_potion": 50
 	}
 
 signal health_recovered(amount: int)
@@ -43,8 +44,21 @@ func save_inventory() -> void:
 	var result = ResourceSaver.save(save_resource, save_data_path)
 
 func reset_inventory() -> void:
+	var main_inventory_items = ["log", "egg", "milk", "stone", "corn", "tomato", "coin"]
+	
+	# Create a list of items to remove
+	var items_to_remove = []
 	for collectible_name in inventory:
-		inventory[collectible_name] = 0
+		if collectible_name in main_inventory_items:
+			inventory[collectible_name] = 0
+		else:
+			# Mark this item for removal
+			items_to_remove.append(collectible_name)
+	
+	# Remove the non-main inventory items
+	for item in items_to_remove:
+		inventory.erase(item)
+	
 	inventory_changed.emit()
 	save_inventory()
 
@@ -58,10 +72,16 @@ func load_inventory() -> void:
 		inventory_changed.emit()
 
 func remove_collectible(collectible_name: String) -> void:
+	var main_inventory_items = ["log", "egg", "milk", "stone", "corn", "tomato", "coin"]
+	
 	inventory.get_or_add(collectible_name)
 	if inventory[collectible_name] == null:
 		inventory[collectible_name] = 0
 	else:
 		if inventory[collectible_name] > 0:
 			inventory[collectible_name] -= 1
+			# If it's not a main item and count reaches 0, remove it completely
+			if inventory[collectible_name] == 0 and not (collectible_name in main_inventory_items):
+				inventory.erase(collectible_name)
+	
 	inventory_changed.emit()
