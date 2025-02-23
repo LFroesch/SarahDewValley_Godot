@@ -482,3 +482,5 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 script = ExtResource("13_in1ef")
+
+[node name="ShootTimer" type="Timer" parent="."]

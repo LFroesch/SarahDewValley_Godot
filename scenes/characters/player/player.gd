@@ -8,7 +8,10 @@ extends CharacterBody2D
 @export var max_health: float = 100
 @export var current_health: float = 100
 @onready var fade_overlay: ColorRect = $CanvasLayer/FadeOverlay if has_node("CanvasLayer/FadeOverlay") else null
-
+@onready var fireball_scene = preload("res://scenes/objects/projectiles/fireball/fireball.tscn")
+@export var can_shoot: bool = true
+@export var shoot_cooldown: float = 3.0
+@onready var shoot_timer: Timer = $ShootTimer
 var player_direction: Vector2
 
 func _ready() -> void:
@@ -18,6 +21,30 @@ func _ready() -> void:
 	await get_tree().process_frame
 	if fade_overlay:
 		fade_overlay.color = Color(0, 0, 0, 0)
+	shoot_timer = Timer.new()
+	shoot_timer.wait_time = shoot_cooldown
+	shoot_timer.one_shot = true
+	shoot_timer.timeout.connect(_on_shoot_timer_timeout)
+	add_child(shoot_timer)
+
+func _unhandled_input(event):
+	if event.is_action_pressed("shoot_fireball"):  # You'll need to add this input action
+		shoot_fireball()
+
+func shoot_fireball():
+	if not can_shoot:
+		return
+		
+	var fireball = fireball_scene.instantiate()
+	fireball.global_position = global_position
+	fireball.direction = player_direction.normalized()
+	get_parent().add_child(fireball)
+	
+	can_shoot = false
+	shoot_timer.start()
+
+func _on_shoot_timer_timeout():
+	can_shoot = true
 
 func on_tool_selected(tool: DataTypes.Tools) -> void:
 	current_tool = tool

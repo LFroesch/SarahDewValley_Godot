@@ -155,6 +155,7 @@ collision_mask = 9
 script = ExtResource("1_6yw35")
 
 [node name="HurtComponent" parent="." instance=ExtResource("2_gkl4o")]
+collision_mask = 264
 tool = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]

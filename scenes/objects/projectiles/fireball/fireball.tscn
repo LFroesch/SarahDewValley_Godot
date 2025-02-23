@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://duup04ep7nen2"]
+
+[ext_resource type="Script" path="res://scenes/objects/projectiles/fireball/fireball.gd" id="1_bbcrr"]
+[ext_resource type="Texture2D" uid="uid://dhmq3qs2jmqaj" path="res://assets/game/objects/Wizard-Attack02_Effect.png" id="2_f8xjt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m10e4"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av1y5"]
+atlas = ExtResource("2_f8xjt")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5knyj"]
+atlas = ExtResource("2_f8xjt")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27kyi"]
+atlas = ExtResource("2_f8xjt")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yh2ov"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_av1y5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5knyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27kyi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="Fireball" type="Area2D"]
+collision_layer = 256
+collision_mask = 64
+script = ExtResource("1_bbcrr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_m10e4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-5, -1)
+sprite_frames = SubResource("SpriteFrames_yh2ov")
+autoplay = "default"
+
+[node name="TimeoutTimer" type="Timer" parent="."]

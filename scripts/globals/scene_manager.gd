@@ -21,6 +21,14 @@ var level_transitions : Dictionary = {
 		"to_brady_city": {
 			"target_level": "brady_city",
 			"entry_point": Vector2(840, 652)
+		},
+		"to_center_island": {
+			"target_level": "Level1",
+			"entry_point": Vector2(650, 500)
+		},
+		"to_starter_island": {
+			"target_level": "Level1",
+			"entry_point": Vector2(375, 250)
 		}
 	},
 	"brady_city": {
