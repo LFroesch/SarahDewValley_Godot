@@ -50,7 +50,7 @@ animations = [{
 radius = 8.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kgaln"]
-size = Vector2(33, 35)
+size = Vector2(47, 47)
 
 [node name="HealingCrystal" type="AnimatedSprite2D"]
 position = Vector2(0, -10)

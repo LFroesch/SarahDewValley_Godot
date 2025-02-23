@@ -16,7 +16,6 @@ func _ready() -> void:
 	GameDialogueManager.buy_egg.connect(on_buy_egg)
 	GameDialogueManager.buy_milk.connect(on_buy_milk)
 	
-	
 func on_interactable_activated() -> void:
 	interactable_label_component.show()
 	in_range = true
@@ -42,17 +41,18 @@ const ITEM_PRICES = {
 	"egg": 3,
 	"milk": 5
 }
-func buy_item(item_name: String) -> bool:
-	var price = ITEM_PRICES[item_name]
+func buy_item(item_name: String, amount: int = 1) -> bool:
+	var price = ITEM_PRICES[item_name] * amount
 	if not InventoryManager.inventory.has("coin") or InventoryManager.inventory["coin"] < price:
 		return false
 	for i in price:
 		InventoryManager.remove_collectible("coin")
-	InventoryManager.add_collectible(item_name)
+	for i in amount:
+		InventoryManager.add_collectible(item_name)
 	return true
 
-func on_buy_egg() -> void:
-	buy_item("egg")
+func on_buy_egg(amount: int = 1) -> void:
+	buy_item("egg", amount)
 
-func on_buy_milk() -> void:
-	buy_item("milk")
+func on_buy_milk(amount: int = 1) -> void:
+	buy_item("milk", amount)

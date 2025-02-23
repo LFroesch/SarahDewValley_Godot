@@ -42,6 +42,12 @@ func save_inventory() -> void:
 	save_resource.set_meta("inventory_data", inventory)
 	var result = ResourceSaver.save(save_resource, save_data_path)
 
+func reset_inventory() -> void:
+	for collectible_name in inventory:
+		inventory[collectible_name] = 0
+	inventory_changed.emit()
+	save_inventory()
+
 func load_inventory() -> void:
 	if not FileAccess.file_exists(save_data_path):
 		return

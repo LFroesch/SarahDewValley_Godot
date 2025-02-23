@@ -52,20 +52,22 @@ func _ready():
 	detection_area.body_entered.connect(_on_body_entered)
 	detection_area.body_exited.connect(_on_body_exited)
 	
-	damage_timer.wait_time = 2.5
+	damage_timer.wait_time = 3
 	damage_timer.timeout.connect(_on_damage_timer_timeout)
 	hurt_component.hurt.connect(take_damage)
 	hurt_component.is_enemy = true
 
 func _physics_process(_delta):
 	if player_in_range and can_deal_damage and not is_dying and current_player != null:
-		attack_player(current_player)
+		var distance = global_position.distance_to(current_player.global_position)
+		if distance <= 20.0:  # Attack range
+			attack_player(current_player)
 
 func attack_player(player):
 	state_machine.transition_to("attack")
 	if player.has_node("HurtComponent"):
 		var damage = randi_range(16, 20)
-		var crit = (randf_range(1.0, 2.0))
+		var crit = snappedf(randf_range(1.0, 2.0), 0.1)
 		var mitigated = randi_range(1, 5)
 		var total_damage = int(damage * crit - mitigated)
 		player.get_node("HurtComponent").hurt.emit(total_damage)
@@ -75,15 +77,15 @@ func attack_player(player):
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
-		player_in_range = true
 		current_player = body
-		if can_deal_damage and not is_dying:
-			attack_player(body)
+		player_in_range = true
+		state_machine.transition_to("pursue")
 
 func _on_body_exited(body):
 	if body.is_in_group("player"):
 		player_in_range = false
 		current_player = null
+		state_machine.transition_to("walk")
 
 func _on_damage_timer_timeout():
 	can_deal_damage = true
@@ -127,7 +129,6 @@ func get_random_position(existing_positions: Array) -> Vector2:
 func take_damage(amount: float):
 	if is_dying:
 		return
-	
 	health -= amount
 	if health <= 2:
 		damage_bar.hide()
@@ -135,7 +136,9 @@ func take_damage(amount: float):
 		collision_shape.set_deferred("disabled", true)
 		detection_area.set_deferred("monitoring", false)
 		detection_area.set_deferred("monitorable", false)
-		
+		velocity = Vector2.ZERO
+		current_player = null
+		player_in_range = false
 		var drops = select_drops()
 		var used_positions = []
 		for loot in drops:
@@ -144,8 +147,15 @@ func take_damage(amount: float):
 			loot.global_position = global_position + Vector2(0, 16) + offset
 			get_parent().call_deferred("add_child", loot)
 		died.emit()
+		animated_sprite.stop()
 		state_machine.set_process(false)
 		state_machine.set_physics_process(false)
+		if state_machine.current_node_state:
+			state_machine.current_node_state._on_exit()
+		if animated_sprite.animation_finished.is_connected(_on_death_animation_finished):
+			animated_sprite.animation_finished.disconnect(_on_death_animation_finished)
+		animated_sprite.stop()
+		await get_tree().create_timer(0.1).timeout
 		animated_sprite.animation_finished.connect(_on_death_animation_finished)
 		animated_sprite.play("death")
 

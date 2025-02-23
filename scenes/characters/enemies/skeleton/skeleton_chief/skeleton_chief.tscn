@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://ba2f28uq5u7eg"]
+[gd_scene load_steps=47 format=3 uid="uid://ba2f28uq5u7eg"]
 
 [ext_resource type="Script" path="res://scenes/characters/enemies/skeleton/skeleton_chief/skeleton_chief.gd" id="1_4b40w"]
 [ext_resource type="PackedScene" uid="uid://cfa3kum8dxcon" path="res://scenes/components/hurt_component.tscn" id="2_pfwah"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scenes/characters/npc_states/walk_state.gd" id="7_qouyx"]
 [ext_resource type="Script" path="res://scenes/characters/npc_states/attack_state.gd" id="8_8thgv"]
 [ext_resource type="PackedScene" uid="uid://1pvpl5tevcxw" path="res://scenes/ui/boss_damage_bar.tscn" id="9_gfpav"]
+[ext_resource type="Script" path="res://scenes/characters/npc_states/pursue_state.gd" id="9_s4bbb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vnh7"]
 size = Vector2(23, 35)
@@ -202,7 +203,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"death",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -263,8 +264,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_3r12b"]
 radius = 7.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fh18b"]
-size = Vector2(40, 35)
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ju47"]
+radius = 125.0
 
 [node name="SkeletonChief" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -285,7 +286,7 @@ material = SubResource("ShaderMaterial_0mkhr")
 position = Vector2(0, -7)
 scale = Vector2(1.7, 1.7)
 sprite_frames = SubResource("SpriteFrames_p7l2k")
-animation = &"attack"
+animation = &"walk"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -312,11 +313,18 @@ script = ExtResource("8_8thgv")
 character = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 
+[node name="Pursue" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "animated_sprite_2d", "navigation_agent_2d")]
+script = ExtResource("9_s4bbb")
+character = NodePath("../..")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+navigation_agent_2d = NodePath("../../NavigationAgent2D")
+
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 10.0
+target_desired_distance = 15.0
+path_max_distance = 300.0
 navigation_layers = 16
 path_postprocessing = 1
-avoidance_enabled = true
 radius = 5.0
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -324,8 +332,7 @@ collision_layer = 64
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(4, -10.5)
-shape = SubResource("RectangleShape2D_fh18b")
+shape = SubResource("CircleShape2D_7ju47")
 
 [node name="DamageTimer" type="Timer" parent="."]
 one_shot = true

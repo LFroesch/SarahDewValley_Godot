@@ -11,7 +11,15 @@ func _on_enter() -> void:
 	animated_sprite_2d.play("attack")
 
 func _on_animation_finished():
-	transition.emit(previous_state)
+	# If player is still in range but not close enough, go back to pursuing
+	if character.current_player and not character.is_dying:
+		var distance = character.global_position.distance_to(character.current_player.global_position)
+		if distance > 15:
+			transition.emit("pursue")
+		else:
+			transition.emit(previous_state)
+	else:
+		transition.emit(previous_state)
 
 func _on_exit() -> void:
 	pass

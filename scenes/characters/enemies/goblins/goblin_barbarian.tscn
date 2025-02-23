@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ch3fyk2h3p4ag"]
+[gd_scene load_steps=30 format=3 uid="uid://ch3fyk2h3p4ag"]
 
 [ext_resource type="Script" path="res://scenes/characters/enemies/goblins/goblin_barbarian.gd" id="1_6yw35"]
 [ext_resource type="Texture2D" uid="uid://68865m0gt0i2" path="res://assets/game/characters/Goblin_Barbarian.png" id="2_fdf2t"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scenes/characters/npc_states/walk_state.gd" id="5_4gvjp"]
 [ext_resource type="Script" path="res://scenes/characters/npc_states/attack_state.gd" id="8_g043o"]
 [ext_resource type="PackedScene" uid="uid://7ovrta2wmxi4" path="res://scenes/ui/enemy_damage_bar.tscn" id="9_1og8x"]
+[ext_resource type="Script" path="res://scenes/characters/npc_states/pursue_state.gd" id="9_olp6h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vnh7"]
 size = Vector2(22, 22)
@@ -142,10 +143,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3r12b"]
-radius = 7.0
+radius = 3.16228
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fh18b"]
-size = Vector2(22, 22)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ffr4i"]
+radius = 80.0
 
 [node name="GoblinBarbarian" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -171,7 +172,7 @@ frame = 2
 frame_progress = 0.298178
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -7)
+position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_3r12b")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
@@ -194,12 +195,19 @@ script = ExtResource("8_g043o")
 character = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 
+[node name="Pursue" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "animated_sprite_2d", "navigation_agent_2d")]
+script = ExtResource("9_olp6h")
+character = NodePath("../..")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+navigation_agent_2d = NodePath("../../NavigationAgent2D")
+
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 10.0
+target_desired_distance = 15.0
 navigation_layers = 4
 path_postprocessing = 1
 avoidance_enabled = true
-radius = 5.0
+radius = 7.0
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 64
@@ -207,7 +215,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -7)
-shape = SubResource("RectangleShape2D_fh18b")
+shape = SubResource("CircleShape2D_ffr4i")
 
 [node name="DamageTimer" type="Timer" parent="."]
 one_shot = true

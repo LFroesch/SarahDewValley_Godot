@@ -3,8 +3,8 @@ extends Node
 signal give_crop_seeds
 signal feed_the_chickens
 signal feed_the_cows
-signal buy_egg
-signal buy_milk
+signal buy_egg(amount: int)
+signal buy_milk(amount: int)
 signal sell_logs
 signal sell_stones
 
@@ -17,11 +17,11 @@ func action_feed_cows() -> void:
 func action_feed_chickens() -> void:
 	feed_the_chickens.emit()
 
-func action_buy_egg() -> void:
-	buy_egg.emit()
+func action_buy_egg(amount: int = 1) -> void:
+	buy_egg.emit(amount)
 
-func action_buy_milk() -> void:
-	buy_milk.emit()
+func action_buy_milk(amount: int = 1) -> void:
+	buy_milk.emit(amount)
 
 func action_sell_logs() -> void:
 	sell_logs.emit()

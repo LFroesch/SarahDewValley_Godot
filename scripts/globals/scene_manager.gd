@@ -101,7 +101,7 @@ func load_level_state() -> Dictionary:
 		last_position = Vector2.ZERO
 		return {
 			"level": "Level1",
-			"position": Vector2(700, 600)
+			"position": Vector2(250, 250)
 		}
 	var pos_dict = config.get_value("game", "player_position", {"x": 0, "y": 0})
 	var saved_level = config.get_value("game", "current_level", "Level1")

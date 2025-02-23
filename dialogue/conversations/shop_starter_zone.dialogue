@@ -2,10 +2,16 @@
 Vendor: [[Hi|Hello|Howdy]], welcome to my food shop!
 - Eggs - 3g per
 	Vendor: One fresh laid egg coming right up, that'll be 3 gold please.
-	do GameDialogueManager.action_buy_egg()
+	do GameDialogueManager.action_buy_egg(1)
 - Milk - 5g per
 	Vendor: Mmm a jar of cold milk, that'll be 5 gold please.
-	do GameDialogueManager.action_buy_milk()
+	do GameDialogueManager.action_buy_milk(1)
+- 5x Egg - 3g per (15g)
+	Vendor: Five fresh laid eggs coming right up, that'll be 15 gold please.
+	do GameDialogueManager.action_buy_egg(5)
+- 5x Milk - 5g per (25g)
+	Vendor: Mmm five jars of cold milk, that'll be 25 gold please.
+	do GameDialogueManager.action_buy_milk(5)
 - No Thanks => END
 => END
 

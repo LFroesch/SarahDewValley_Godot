@@ -1,5 +1,5 @@
 extends Area2D
-@export var heal_amount: float = 5.0
+@export var heal_amount: float = 7.0
 @export var heal_interval: float = 1.0
 var player_in_range: Node2D = null
 @onready var heal_timer: Timer = $HealTimer

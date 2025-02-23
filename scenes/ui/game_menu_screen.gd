@@ -42,13 +42,13 @@ func _on_confirmation_dialog_confirmed() -> void:
 			file_name = dir.get_next()
 			
 		dir.list_dir_end()
-	# Reset time to initial state
+		
 	DayAndNightCycleManager.time = 0.0
 	DayAndNightCycleManager.current_minute = -1
 	DayAndNightCycleManager.current_day = 0
 	DayAndNightCycleManager.set_initial_time()
-	DayAndNightCycleManager.game_speed = 2.5  # Reset to default game speed
+	DayAndNightCycleManager.game_speed = 2.5
 	
-	# Force an immediate time update
 	DayAndNightCycleManager.game_time.emit(DayAndNightCycleManager.time)
 	DayAndNightCycleManager.recalculate_time()
+	InventoryManager.reset_inventory()
