@@ -12,6 +12,12 @@ Vendor: [[Hi|Hello|Howdy]], welcome to my food shop!
 - 5x Milk - 5g per (25g)
 	Vendor: Mmm five jars of cold milk, that'll be 25 gold please.
 	do GameDialogueManager.action_buy_milk(5)
+- 10x Egg - 3g per (30g)
+	Vendor: Ten fresh laid eggs coming right up, that'll be 30 gold please.
+	do GameDialogueManager.action_buy_egg(10)
+- 10x Milk - 5g per (50g)
+	Vendor: Mmm ten jars of cold milk, that'll be 50 gold please.
+	do GameDialogueManager.action_buy_milk(10)
 - No Thanks => END
 => END
 

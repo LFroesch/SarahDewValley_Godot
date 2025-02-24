@@ -38,6 +38,7 @@ var player_in_range = false
 var current_player = null
 @export var health: float = 80
 var is_dying = false
+
 signal died
 
 func _ready():
@@ -59,12 +60,12 @@ func _physics_process(_delta):
 func attack_player(player):
 	state_machine.transition_to("attack")
 	if player.has_node("HurtComponent"):
-		var damage = randi_range(5, 12)
+		var damage = randi_range(5, 10)
 		var crit = snappedf(randf_range(1.0, 2.0), 0.1)
 		var mitigated = randi_range(1, 5)
-		var total_damage = int(damage * crit - mitigated)
+		var total_damage = min(int(damage * crit - mitigated), 15)
 		player.get_node("HurtComponent").hurt.emit(total_damage)
-		print("Player takes ", total_damage, " damage | Damage: ", damage, "| Crit %: ", crit, "| Mitigated: ", mitigated)
+		print("Player takes ", total_damage, " damage | Damage: ", damage, " | Crit %: ", crit, " | Mitigated: ", mitigated)
 	can_deal_damage = false
 	damage_timer.start()
 

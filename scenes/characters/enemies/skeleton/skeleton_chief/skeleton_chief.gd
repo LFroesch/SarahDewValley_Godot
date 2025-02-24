@@ -60,7 +60,7 @@ func _ready():
 func _physics_process(_delta):
 	if player_in_range and can_deal_damage and not is_dying and current_player != null:
 		var distance = global_position.distance_to(current_player.global_position)
-		if distance <= 20.0:  # Attack range
+		if distance <= 20.0:
 			attack_player(current_player)
 
 func attack_player(player):
@@ -71,7 +71,7 @@ func attack_player(player):
 		var mitigated = randi_range(1, 5)
 		var total_damage = int(damage * crit - mitigated)
 		player.get_node("HurtComponent").hurt.emit(total_damage)
-		print("Player takes ", total_damage, " damage | Damage: ", damage, "| Crit %: ", crit, "| Mitigated: ", mitigated)
+		print("Player takes ", total_damage, " damage | Damage: ", damage, " | Crit %: ", crit, " | Mitigated: ", mitigated)
 	can_deal_damage = false
 	damage_timer.start()
 

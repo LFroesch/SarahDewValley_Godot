@@ -2,7 +2,7 @@ extends NodeState
 @export var character: NonPlayableCharacter
 @export var animated_sprite_2d: AnimatedSprite2D
 @export var navigation_agent_2d: NavigationAgent2D
-@export var pursuit_speed: float = 15.0
+@export var pursuit_speed: float = 20.0
 @export var attack_range: float = 20.0
 @export var stop_distance: float = 17.0
 

@@ -19,15 +19,15 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(1051, 50, 1049, -26, 12
 source_geometry_mode = 2
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_8clhe"]
-vertices = PackedVector2Array(1323, 234.313, 1323, 106, 1447.38, 106)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1313, 96, 1471, 96, 1313, 259)])
+vertices = PackedVector2Array(1461, 249, 1323, 249, 1323, 106, 1461, 106)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1313, 96, 1471, 96, 1471, 259, 1313, 259)])
 source_geometry_mode = 2
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2utki"]
-vertices = PackedVector2Array(1405.06, 174.117, 1285.34, 175.68, 1405.84, 54.4063)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1415, 184, 1416, 30, 1261, 186)])
+vertices = PackedVector2Array(1405.06, 174.117, 1271.13, 175.859, 1272.87, 40.9297, 1405.93, 40.0625)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1415, 184, 1416, 30, 1263, 31, 1261, 186)])
 source_geometry_mode = 2
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_xaa4n"]
@@ -61,7 +61,7 @@ tile_map_data = PackedByteArray("AAA1ACoADgAMAAYAAAA1ACsADgAMAAcAAAA1ACwADgAMAAg
 tile_set = ExtResource("3_xkoce")
 
 [node name="DungeonExtras" type="TileMapLayer" parent="GameTileMap"]
-tile_map_data = PackedByteArray("AAA2ACwADwAVAB0AAAA1ACsADwAUABwAAAA2ACsADwAVABwAAAA1ACwADwAUAB0AAABCADAADwAZAB4AAABCADEADwAZAB8AAAA8ADAADwAZABgAAAA3AC8ADwAaABgAAABKACsADwAcABYAAABKACwADwAcABcAAAA6ACsADwATABYAAAA5ACwADwAYABYAAAA5AC0ADwAYABcAAAA7ACwADwAZABYAAAA7AC0ADwAZABcAAAA8ACwADwAaABYAAAA8AC0ADwAaABcAAAA9ACwADwAbABYAAAA9AC0ADwAbABcAAABGACsADwAWABkAAABGACwADwAWABoAAABGAC0ADwAWABsAAAA=")
+tile_map_data = PackedByteArray("AAA2ACwADwAVAB0AAAA1ACsADwAUABwAAAA2ACsADwAVABwAAAA1ACwADwAUAB0AAABCADAADwAZAB4AAABCADEADwAZAB8AAAA8ADAADwAZABgAAAA3AC8ADwAaABgAAABKACsADwAcABYAAABKACwADwAcABcAAAA6ACsADwATABYAAAA5ACwADwAYABYAAAA5AC0ADwAYABcAAAA7ACwADwAZABYAAAA7AC0ADwAZABcAAAA8ACwADwAaABYAAAA8AC0ADwAaABcAAAA9ACwADwAbABYAAAA9AC0ADwAbABcAAAA+ACsADwAWABkAAAA+ACwADwAWABoAAAA+AC0ADwAWABsAAAA=")
 tile_set = ExtResource("3_xkoce")
 
 [node name="TransitionAreatoSewers" type="Area2D" parent="."]
@@ -71,7 +71,7 @@ script = ExtResource("4_76kn5")
 transition_id = "to_sewers"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionAreatoSewers"]
-position = Vector2(1128, 720)
+position = Vector2(1000, 712)
 shape = SubResource("RectangleShape2D_4v836")
 
 [node name="SkeletonCamp" parent="." instance=ExtResource("5_w46vn")]

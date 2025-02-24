@@ -32,7 +32,6 @@ func _ready() -> void:
 	fire_nova_timer.one_shot = true
 	fire_nova_timer.timeout.connect(_on_nova_cooldown_timeout)
 	add_child(fire_nova_timer)
-	
 	shoot_timer = Timer.new()
 	shoot_timer.wait_time = shoot_cooldown
 	shoot_timer.one_shot = true
@@ -98,10 +97,8 @@ func respawn() -> void:
 	
 func _on_hurt(amount: float) -> void:
 	current_health -= amount
-	print(amount, " damage taken, ", current_health, " player health remaining")
 	if current_health <= 0:
 		_on_max_damage_reached()
 
 func _on_health_recovered(amount: int) -> void:
-	current_health = min(current_health + amount, max_health)
-	print("Healed for ", amount, " HP. Current health: ", current_health)	
+	current_health = min(current_health + amount, max_health)	

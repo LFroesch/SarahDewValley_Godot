@@ -13,18 +13,22 @@ if ToolManager.has_farming_tools()
 		Guide: Feeding them will give you Milk & Eggs (and make them happy)
 	- Ask about Combat
 		Guide: To fight monsters like Goblins, use your axe tool the same way you would chop a tree!
+		Guide: You can also use G to cast a Fireball in the direction you are facing, or V for a circular Fire Nova AoE attack.
+		Guide: Magic abilities like those currently have a cooldown, but later youll use mana on them.
 		Guide: Keep your health above 0 by eating food and hit them enough times to kill them.
 		Guide: Monsters can drop different loot depending on their type!
 	- Ask about Controls
 		Guide: Escape takes you to main menu. WASD for character movement.
 		Guide: Left Mouse Click to select tools, or eat food in your inventory.
-		Guide: P will quick save. E will interact with chests, like this guide.
-		Guide: Right Click with a tool will use it in the direction you are facing.
+		Guide: P will quick save. E will interact with chests, like this guide. B will pull up your Inventory.
+		Guide: Right Click with a tool will use it or attack with the axe in the direction you are facing.
+		Guide: You can also use G to cast a Fireball in the direction you are facing, or V for a circular Fire Nova AoE attack.
+		Guide: Magic abilities like those currently have a cooldown, but later youll use mana on them.
 		Guide: CTRL+Right Click with the hoe will clear a tilled soil patch / crop patch.
 		Guide: R will quick eat eggs for 15 health, T will quick eat milk for 20 health, if you have it.
 	- Ask about Objectives
 		Guide: You can farm crops and animal products to use as food.
-		Guide: Take your food into battle to fight enemies! (More to come!)
+		Guide: Take your food into battle to fight enemies!
 		Guide: Get gold to purchase different farming seeds & various products (More to come!)
 		Guide: Quests are another way to get rewards (Coming Soon)
 else

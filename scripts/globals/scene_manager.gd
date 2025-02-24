@@ -29,7 +29,12 @@ var level_transitions : Dictionary = {
 		"to_starter_island": {
 			"target_level": "Level1",
 			"entry_point": Vector2(375, 250)
-		}
+		},
+		"to_brady_market": {
+			"target_level": "brady_city",
+			"entry_point": Vector2(1050, 875)
+		},
+		
 	},
 	"brady_city": {
 		"to_starter_zone": {
@@ -39,6 +44,10 @@ var level_transitions : Dictionary = {
 		"to_sewers": {
 			"target_level": "the_sewers",
 			"entry_point": Vector2(940, 875)
+		},
+		"to_starter_island": {
+			"target_level": "Level1",
+			"entry_point": Vector2(200, 275)
 		}
 	},
 	"the_sewers": {

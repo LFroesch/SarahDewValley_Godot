@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://6aaf7agcl7se"]
+[gd_scene load_steps=39 format=4 uid="uid://6aaf7agcl7se"]
 
 [ext_resource type="TileSet" uid="uid://bmlpnsyieusmk" path="res://tilesets/game_tile_set.tres" id="1_2ojy1"]
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_ludhu"]
@@ -95,6 +95,9 @@ source_geometry_mode = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0mga"]
 size = Vector2(25.5, 15)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5u0by"]
+size = Vector2(30, 15)
+
 [node name="Level1" type="Node2D"]
 y_sort_enabled = true
 
@@ -118,7 +121,7 @@ tile_set = ExtResource("1_2ojy1")
 
 [node name="BradyCityTop" type="TileMapLayer" parent="GameTileMap"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAA5ACYADwAFAA8AAAA5ACUADwAFAA4AAAA5ACQADwAFAA4AAAA7ACAADwAIABAAAAA7ACEADwAIABEAAAA8ACAADwAJABAAAAA8ACEADwAJABEAAAA+ACQADwAGAA4AAAA+ACUADwAGAA4AAAA+ACYADwAGAA8AAAA5ACMADwAFAA4AAAA5ACIADwAFAA4AAAA5ACEADwAFAA4AAAA+ACIADwAGAA4AAAA+ACEADwAGAA4AAAA+ACAADwACAA8AAAA5ACAADwABAA8AAAA+ACMADwAGAA4AAABAACYADgABAAoAAAA3ACYADgABAAoAABA2AC4ADwAWABQAAAA2AC8ADwAWABUAAAA3AC4ADwAXABQAAAA3AC8ADwAXABUAAAA4AC4ADwAYABQAAAA4AC8ADwAYABUAAAA6ADIAEQAAAAAAAAAnABsAEgADAAIAAAAnABwAEgADAAMAAAAoABsAEgAEAAIAAAAoABwAEgAEAAMAAAApABsAEgAFAAIAAAApABwAEgAFAAMAAAAXABEAEgADAAIAABAWABEAEgAEAAIAABAVABEAEgAFAAIAABAXABIAEgADAAMAABAWABIAEgAEAAMAABAVABIAEgAFAAMAABA=")
+tile_map_data = PackedByteArray("AAA5ACYADwAFAA8AAAA5ACUADwAFAA4AAAA5ACQADwAFAA4AAAA7ACAADwAIABAAAAA7ACEADwAIABEAAAA8ACAADwAJABAAAAA8ACEADwAJABEAAAA+ACQADwAGAA4AAAA+ACUADwAGAA4AAAA+ACYADwAGAA8AAAA5ACMADwAFAA4AAAA5ACIADwAFAA4AAAA5ACEADwAFAA4AAAA+ACIADwAGAA4AAAA+ACEADwAGAA4AAAA+ACAADwACAA8AAAA5ACAADwABAA8AAAA+ACMADwAGAA4AAABAACYADgABAAoAAAA3ACYADgABAAoAABA2AC4ADwAWABQAAAA2AC8ADwAWABUAAAA3AC4ADwAXABQAAAA3AC8ADwAXABUAAAA4AC4ADwAYABQAAAA4AC8ADwAYABUAAAA6ADIAEQAAAAAAAAAnABsAEgADAAIAAAAnABwAEgADAAMAAAAoABsAEgAEAAIAAAAoABwAEgAEAAMAAAApABsAEgAFAAIAAAApABwAEgAFAAMAAAAXABEAEgADAAIAABAWABEAEgAEAAIAABAVABEAEgAFAAIAABAXABIAEgADAAMAABAWABIAEgAEAAMAABAVABIAEgAFAAMAABAJABUAEgAFAAIAABAJABYAEgAFAAMAABAKABUAEgAEAAIAABAKABYAEgAEAAMAABALABUAEgADAAIAABALABYAEgADAAMAABA=")
 tile_set = ExtResource("1_2ojy1")
 
 [node name="BradyCityFloor" type="TileMapLayer" parent="GameTileMap"]
@@ -456,6 +459,16 @@ transition_id = "to_starter_island"
 position = Vector2(646, 465)
 shape = SubResource("RectangleShape2D_b0mga")
 
+[node name="BoatToBradyMarket" type="Area2D" parent="Zones"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("21_8jo7l")
+transition_id = "to_brady_market"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/BoatToBradyMarket"]
+position = Vector2(170, 349)
+shape = SubResource("RectangleShape2D_5u0by")
+
 [node name="HealingPotion" parent="." instance=ExtResource("25_5bbra")]
 position = Vector2(624, 637)
 
@@ -465,3 +478,4 @@ position = Vector2(605, 657)
 [connection signal="body_entered" from="Zones/TransitionToBradyCity" to="Zones/TransitionToBradyCity" method="_on_body_entered"]
 [connection signal="body_entered" from="Zones/BoatToCenterIsland" to="Zones/BoatToCenterIsland" method="_on_body_entered"]
 [connection signal="body_entered" from="Zones/BoatToStarterIsland" to="Zones/BoatToStarterIsland" method="_on_body_entered"]
+[connection signal="body_entered" from="Zones/BoatToBradyMarket" to="Zones/BoatToBradyMarket" method="_on_body_entered"]

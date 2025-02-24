@@ -34,11 +34,9 @@ func _on_food_input(event: InputEvent, food_name: String) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("egg"):
-		print("eating egg")
 		InventoryManager.consume_food("egg")
 	elif event.is_action_pressed("milk"):
 		InventoryManager.consume_food("milk")
-		print("eating milk")
 		
 func on_inventory_changed() -> void:
 	var inventory: Dictionary = InventoryManager.inventory
