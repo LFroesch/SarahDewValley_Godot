@@ -2,14 +2,13 @@
 extends Area2D
 
 const SPEED = 100
-const MAX_DISTANCE = 200  # Distance in pixels before disappearing
+const MAX_DISTANCE = 300
 
 var direction: Vector2
 var start_position: Vector2
 var damage: float = randf_range(25, 40)
 var is_fireball: bool = true
 @onready var timeout_timer: Timer = $TimeoutTimer
-
 
 func _ready():
 	start_position = global_position
@@ -26,7 +25,6 @@ func _on_timeout_timer_timeout() -> void:
 func _physics_process(delta):
 	position += direction * SPEED * delta
 	
-	# Check if we've gone too far
 	if global_position.distance_to(start_position) > MAX_DISTANCE:
 		queue_free()
 

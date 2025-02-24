@@ -54,7 +54,7 @@ func _ready():
 func _physics_process(_delta):
 	if player_in_range and can_deal_damage and not is_dying and current_player != null:
 		var distance = global_position.distance_to(current_player.global_position)
-		if distance <= 20.0:  # Attack range
+		if distance <= 20.0:
 			attack_player(current_player)
 
 func attack_player(player):
@@ -154,4 +154,6 @@ func take_damage(amount: float):
 		animated_sprite.play("death")
 
 func _on_death_animation_finished():
+	StatisticsManager.record_kill("goblin barbarian")
+	StatisticsManager.add_experience(10)
 	queue_free()

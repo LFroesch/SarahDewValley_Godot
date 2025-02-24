@@ -14,6 +14,7 @@ func save_game() -> void:
 	InventoryManager.save_inventory()
 	ToolManager.save_tools()
 	SceneManager.save_level_state()
+	StatisticsManager.save_statistics()
 	
 	var save_level_data_component: SaveLevelDataComponent = get_tree().get_first_node_in_group("save_level_data_component")
 	if save_level_data_component != null:
@@ -24,7 +25,8 @@ func load_game() -> void:
 	
 	DayAndNightCycleManager.load_time_state()
 	InventoryManager.load_inventory()
-	ToolManager.load_tools() 
+	ToolManager.load_tools()
+	StatisticsManager.load_statistics()
 	var save_level_data_component: SaveLevelDataComponent = get_tree().get_first_node_in_group("save_level_data_component")
 	
 	if save_level_data_component != null:
