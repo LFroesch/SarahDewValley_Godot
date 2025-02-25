@@ -1,3 +1,4 @@
+#inventory_manager.gd
 extends Node
 
 var inventory: Dictionary = Dictionary()

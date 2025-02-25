@@ -1,3 +1,4 @@
+#tool_manager.gd
 extends Node
 
 var selected_tool: DataTypes.Tools = DataTypes.Tools.None

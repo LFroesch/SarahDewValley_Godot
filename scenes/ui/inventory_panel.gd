@@ -1,3 +1,4 @@
+#inventory_panel.gd
 extends PanelContainer
 
 @onready var log_label: Label = $MarginContainer/VBoxContainer/Logs/LogLabel
