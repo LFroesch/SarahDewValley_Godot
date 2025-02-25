@@ -29,6 +29,10 @@ SceneManager="*res://scripts/globals/scene_manager.gd"
 SpawnManager="*res://scripts/globals/spawn_manager.gd"
 StatisticsManager="*res://scripts/globals/statistics_manager.gd"
 
+[debug]
+
+gdscript/warnings/unused_parameter=0
+
 [display]
 
 window/size/viewport_width=640

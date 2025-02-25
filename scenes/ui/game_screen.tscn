@@ -50,5 +50,4 @@ size_flags_vertical = 0
 [node name="StatsPanel" parent="." instance=ExtResource("8_ja1bm")]
 offset_left = -20.0
 offset_right = 5.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0

@@ -4,6 +4,14 @@ signal experience_gained(amount: int)
 signal level_up(new_level: int)
 signal stat_updated(stat_name: String, new_value: int)
 
+var level_display_names: Dictionary = {
+	"Level1": "Starter Islands",
+	"Level2": "How tf did u get here",
+	"brady_city": "Brady Town",
+	"the_sewers": "The Sewers",
+	"the_sewers_floor_1": "Sewers Floor 1"
+}
+
 var stats: Dictionary = {
 	"kills": {
 		"total": 0,
@@ -13,10 +21,6 @@ var stats: Dictionary = {
 		"current": 0,
 		"total_gained": 0,
 		"level": 1
-	},
-	"talents": {
-		"available_points": 0,
-		"selected": {}
 	}
 }
 
@@ -31,6 +35,9 @@ var xp_to_next_level: Dictionary = {
 
 func _ready() -> void:
 	load_statistics()
+
+func get_level_name(level_id: String) -> String:
+	return level_display_names.get(level_id, level_id)
 
 func record_kill(enemy_type: String) -> void:
 	stats.kills.total += 1
@@ -53,25 +60,8 @@ func add_experience(amount: int) -> void:
 
 func level_up_character() -> void:
 	stats.experience.level += 1
-	stats.talents.available_points += 1
 	stats.experience.current -= xp_to_next_level[stats.experience.level - 1]
 	level_up.emit(stats.experience.level)
-
-func select_talent(talent_name: String) -> bool:
-	if stats.talents.available_points <= 0:
-		return false
-		
-	if not stats.talents.selected.has(talent_name):
-		stats.talents.selected[talent_name] = 0
-	
-	stats.talents.selected[talent_name] += 1
-	stats.talents.available_points -= 1
-	stat_updated.emit("talent_" + talent_name, stats.talents.selected[talent_name])
-	save_statistics()
-	return true
-
-func get_talent_level(talent_name: String) -> int:
-	return stats.talents.selected.get(talent_name, 0)
 
 func get_kill_count(enemy_type: String = "") -> int:
 	if enemy_type.is_empty():
@@ -111,10 +101,6 @@ func reset_statistics() -> void:
 			"current": 0,
 			"total_gained": 0,
 			"level": 1
-		},
-		"talents": {
-			"available_points": 0,
-			"selected": {}
 		}
 	}
 	save_statistics()
