@@ -26,11 +26,16 @@ var stats: Dictionary = {
 
 var save_data_path: String = "user://game_data/statistics_data.tres"
 var xp_to_next_level: Dictionary = {
-	1: 100,
-	2: 250,
-	3: 450,
-	4: 700,
-	5: 1000,
+	1: 250,
+	2: 500,
+	3: 750,
+	4: 1000,
+	5: 1500,
+	6: 2000,
+	7: 2500,
+	8: 3000,
+	9: 4000,
+	10: 5000
 }
 
 func _ready() -> void:

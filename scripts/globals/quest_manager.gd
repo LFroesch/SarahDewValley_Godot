@@ -11,11 +11,9 @@ var active_quests: Dictionary = {}
 var ready_for_turnin_quests: Array = []
 var save_data_path: String = "user://game_data/quest_data.tres"
 
-# Track quest-specific kill counts
 var quest_kill_counts: Dictionary = {}
 var quest_completion_counts: Dictionary = {}
 
-# Quest definitions - structure includes requirements, rewards, descriptions
 var quests: Dictionary = {
 	"banesword": {
 		"title": "The Giant Skeleton",
@@ -67,52 +65,57 @@ var quests: Dictionary = {
 		},
 		"requires_turnin": true,
 		"repeatable": true
+	},
+	"talk_to_steve": {
+		"title": "Talk to Steve",
+		"description": "Go to Brady Town and talk to Steve.",
+		"objectives": {
+			"talk_to": {
+				"target": "steve"
+			}
+		},
+		"rewards": {
+			"experience": 100,
+			"gold": 10
+		},
+		"requires_turnin": true,
+		"repeatable": false
 	}
 	# Add more quests as needed
 }
 
 func _ready() -> void:
-	# Connect to statistics manager to listen for relevant events
 	StatisticsManager.stat_updated.connect(on_stat_updated)
 	load_quest_data()
 
-# Modify start_quest to handle repeatable quests
 func start_quest(quest_id: String) -> void:
 	if not quests.has(quest_id):
 		printerr("Attempted to start nonexistent quest: ", quest_id)
 		return
 	
-	# Check if quest is completed but repeatable
 	if completed_quests.has(quest_id):
 		var quest = quests[quest_id]
 		
-		# If not repeatable, don't allow restart
 		if not quest.has("repeatable") or not quest.repeatable:
 			print("Quest already completed and not repeatable: ", quest_id)
 			return
 	
-	# If quest is currently in ready_for_turnin state, don't restart
 	if ready_for_turnin_quests.has(quest_id):
 		print("Quest ready for turnin: ", quest_id)
 		return
 	
-	# Remove from completed quests if it's repeatable
 	if completed_quests.has(quest_id):
 		completed_quests.erase(quest_id)
 	
-	# Rest of your existing start_quest code...
 	current_quest = quest_id
 	active_quests[quest_id] = quests[quest_id].duplicate(true)
 	
-	# Initialize quest-specific kill tracking for this quest
 	quest_kill_counts[quest_id] = {}
 	
-	# Reset objective progress when starting the quest
 	for objective_key in active_quests[quest_id].objectives:
 		var objective = active_quests[quest_id].objectives[objective_key]
 		if objective_key == "kill_enemy":
 			var enemy_type = objective.enemy_type
-			# Initialize the quest-specific kill count to zero
 			quest_kill_counts[quest_id][enemy_type] = 0
 			objective.current = 0
 	
@@ -122,21 +125,14 @@ func start_quest(quest_id: String) -> void:
 
 func on_stat_updated(stat_name: String, new_value: int) -> void:
 	if stat_name == "kills":
-		# We don't use this signal directly anymore for tracking quest kills
-		# Instead, we'll link to record_quest_kill
 		pass
 
-# New method to track kills specifically for quests
 func record_quest_kill(enemy_type: String) -> void:
-	# Update kill counts for all active quests that require this enemy type
 	for quest_id in active_quests:
 		var quest = active_quests[quest_id]
-		
 		for objective_key in quest.objectives:
 			var objective = quest.objectives[objective_key]
-			
 			if objective_key == "kill_enemy" and objective.enemy_type == enemy_type:
-				# Increment quest-specific kill count
 				if not quest_kill_counts.has(quest_id):
 					quest_kill_counts[quest_id] = {}
 				if not quest_kill_counts[quest_id].has(enemy_type):
@@ -177,26 +173,22 @@ func mark_quest_ready_for_turnin(quest_id: String) -> void:
 		
 	var quest = active_quests[quest_id]
 	
-	# If this quest doesn't require turnin, complete it immediately
 	if not quest.has("requires_turnin") or not quest.requires_turnin:
 		complete_quest(quest_id)
 		return
 	
-	# Otherwise, mark it as ready for turnin
 	if not ready_for_turnin_quests.has(quest_id):
 		ready_for_turnin_quests.append(quest_id)
 		print("Quest objectives completed: ", quest.title)
 		quest_objectives_completed.emit(quest_id)
 		save_quest_data()
 
-# Modify complete_quest to track repeatable quests
 func complete_quest(quest_id: String) -> void:
 	if not (active_quests.has(quest_id) or ready_for_turnin_quests.has(quest_id)):
 		return
 	
 	var quest = active_quests.get(quest_id, quests.get(quest_id))
 	
-	# Track completion count for this quest
 	if not quest_completion_counts.has(quest_id):
 		quest_completion_counts[quest_id] = 0
 	quest_completion_counts[quest_id] += 1
@@ -207,7 +199,6 @@ func complete_quest(quest_id: String) -> void:
 		# quest_last_completion[quest_id] = DayAndNightCycleManager.get_current_day()
 		pass
 	
-	# Award rewards
 	if quest.rewards.has("experience"):
 		var xp_reward = quest.rewards.experience
 		StatisticsManager.add_experience(xp_reward)
@@ -217,39 +208,29 @@ func complete_quest(quest_id: String) -> void:
 		for i in gold_amount:
 			InventoryManager.add_collectible("coin")
 	
-	# Rest of your existing complete_quest code...
 	active_quests.erase(quest_id)
 	if ready_for_turnin_quests.has(quest_id):
 		ready_for_turnin_quests.erase(quest_id)
 	
-	# Clean up kill tracking for this quest
 	quest_kill_counts.erase(quest_id)
-	
-	# Mark as completed
 	completed_quests.append(quest_id)
-	
 	active_quests.erase(quest_id)
 	
-	# IMPORTANT: Remove from ready_for_turnin quests
 	if ready_for_turnin_quests.has(quest_id):
 		ready_for_turnin_quests.erase(quest_id)
-	
-	# IMPORTANT: Add to completed quests (if not already there)
+
 	if not completed_quests.has(quest_id):
 		completed_quests.append(quest_id)
-	
-	# Clear the quest as current if it matches
+
 	if current_quest == quest_id:
 		current_quest = ""
-	
-	# Clean up kill tracking for this quest
+
 	quest_kill_counts.erase(quest_id)
 	
 	print("Completed quest: ", quest.title)
 	quest_completed.emit(quest_id)
 	save_quest_data()
-	
-	# Force update the stats panel if it's visible
+
 	var quest_panels = get_tree().get_nodes_in_group("quest_panels")
 	for panel in quest_panels:
 		if panel.visible and panel.has_method("update_quest_display"):
@@ -264,22 +245,18 @@ func is_quest_ready_for_turnin(quest_id: String) -> bool:
 func is_quest_completed(quest_id: String) -> bool:
 	return completed_quests.has(quest_id)
 
-# Add this helper function for checking availability of repeatable quests
 func can_repeat_quest(quest_id: String) -> bool:
 	if not quests.has(quest_id):
 		return false
 	
 	var quest = quests[quest_id]
 	
-	# Check if quest is repeatable
 	if not quest.has("repeatable") or not quest.repeatable:
 		return false
-	
-	# If quest is active or ready for turnin, it can't be repeated yet
+
 	if active_quests.has(quest_id) or ready_for_turnin_quests.has(quest_id):
 		return false
-	
-	# Check cooldown
+
 	if quest.has("repeat_cooldown") and quest.repeat_cooldown > 0:
 		# Implement cooldown check here with your game's time system
 		pass
@@ -358,7 +335,6 @@ func load_quest_data() -> void:
 		printerr("Failed to load quest data: Invalid or corrupted save file")
 
 func reset_quests() -> void:
-	# Clear all quest data
 	current_quest = ""
 	completed_quests = []
 	active_quests = {}

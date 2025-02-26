@@ -1,5 +1,4 @@
 # Enhanced dialogue file with multiple quest options - compatible with Dialogue Manager addon
-
 ~ check_quest_status
 if QuestManager.ready_for_turnin_quests.has("banesword")
 	=> banesword_ready_for_turnin

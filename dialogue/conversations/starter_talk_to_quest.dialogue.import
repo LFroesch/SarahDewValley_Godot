@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://djgnboxmovxy4"
+path="res://.godot/imported/starter_talk_to_quest.dialogue-9424168d2e60cc704153015deb62bfe0.tres"
+
+[deps]
+
+source_file="res://dialogue/conversations/starter_talk_to_quest.dialogue"
+dest_files=["res://.godot/imported/starter_talk_to_quest.dialogue-9424168d2e60cc704153015deb62bfe0.tres"]
+
+[params]
+
+defaults=true

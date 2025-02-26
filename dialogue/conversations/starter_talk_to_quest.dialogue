@@ -1,0 +1,8 @@
+~ start
+Quest Giver: [[Hi|Hello|Howdy]], I've got a quest for you!
+Quest Giver: My friend Steve in Brady Town needs a package delivered.
+Quest Giver: Can you go and help him out?
+- Yeah, sure
+	#do GameDialogueManager.actionstartquest("talk_to_steve")
+- No thanks, he can figure it out.
+=> END
