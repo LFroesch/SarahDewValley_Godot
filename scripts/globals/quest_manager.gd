@@ -228,12 +228,32 @@ func complete_quest(quest_id: String) -> void:
 	# Mark as completed
 	completed_quests.append(quest_id)
 	
+	active_quests.erase(quest_id)
+	
+	# IMPORTANT: Remove from ready_for_turnin quests
+	if ready_for_turnin_quests.has(quest_id):
+		ready_for_turnin_quests.erase(quest_id)
+	
+	# IMPORTANT: Add to completed quests (if not already there)
+	if not completed_quests.has(quest_id):
+		completed_quests.append(quest_id)
+	
+	# Clear the quest as current if it matches
 	if current_quest == quest_id:
 		current_quest = ""
+	
+	# Clean up kill tracking for this quest
+	quest_kill_counts.erase(quest_id)
 	
 	print("Completed quest: ", quest.title)
 	quest_completed.emit(quest_id)
 	save_quest_data()
+	
+	# Force update the stats panel if it's visible
+	var stats_panels = get_tree().get_nodes_in_group("stats_panels")
+	for panel in stats_panels:
+		if panel.visible and panel.has_method("update_quest_display"):
+			panel.update_quest_display()
 
 func is_quest_active(quest_id: String) -> bool:
 	return active_quests.has(quest_id)

@@ -46,47 +46,33 @@ func update_quest_display() -> void:
 	# Set the main quest label title
 	current_quest_label.text = "QUESTS:"
 	
-	# Track different quest categories
-	var active_quests = []
-	var turnin_quests = []
-	var completed_quests = []
+	# Track different quest categories and keep track of quest IDs we've already processed
+	var processed_quest_ids = []
+	var quest_info = []
 	
-	# Collect all ready-for-turnin quests (highest priority)
+	# First priority: quests ready for turnin
 	for quest_id in QuestManager.ready_for_turnin_quests:
-		if QuestManager.quests.has(quest_id):
-			turnin_quests.append({
+		if QuestManager.quests.has(quest_id) and not processed_quest_ids.has(quest_id):
+			quest_info.append({
 				"id": quest_id,
 				"title": QuestManager.quests[quest_id].title,
 				"status": "Return to Quest Giver"
 			})
+			processed_quest_ids.append(quest_id)
 	
-	# Collect all active quests
+	# Second priority: active quests
 	for quest_id in QuestManager.active_quests.keys():
-		var quest = QuestManager.active_quests[quest_id]
-		var progress = QuestManager.get_quest_progress(quest_id)
-		var progress_percent = int(progress * 100)
-		
-		active_quests.append({
-			"id": quest_id,
-			"title": quest.title,
-			"status": "%d%%" % progress_percent
-		})
-	
-	# Get most recent completed quest (if no active/turnin quests)
-	if active_quests.is_empty() and turnin_quests.is_empty() and not QuestManager.completed_quests.is_empty():
-		var last_quest_id = QuestManager.completed_quests[-1]
-		if QuestManager.quests.has(last_quest_id):
-			completed_quests.append({
-				"id": last_quest_id,
-				"title": QuestManager.quests[last_quest_id].title,
-				"status": "Completed"
+		if not processed_quest_ids.has(quest_id):
+			var quest = QuestManager.active_quests[quest_id]
+			var progress = QuestManager.get_quest_progress(quest_id)
+			var progress_percent = int(progress * 100)
+			
+			quest_info.append({
+				"id": quest_id,
+				"title": quest.title,
+				"status": "%d%%" % progress_percent
 			})
-	
-	# Create labels for different quest categories (in priority order)
-	var quest_info = []
-	quest_info.append_array(turnin_quests)
-	quest_info.append_array(active_quests)
-	quest_info.append_array(completed_quests)
+			processed_quest_ids.append(quest_id)
 	
 	# If no quests at all, show a message
 	if quest_info.is_empty():

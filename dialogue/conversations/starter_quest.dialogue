@@ -1,3 +1,5 @@
+# Enhanced dialogue file with multiple quest options - compatible with Dialogue Manager addon
+
 ~ check_quest_status
 if QuestManager.ready_for_turnin_quests.has("banesword")
 	=> banesword_ready_for_turnin
@@ -5,33 +7,11 @@ elif QuestManager.ready_for_turnin_quests.has("goblin_encroachment")
 	=> goblin_quest_ready_for_turnin
 elif QuestManager.ready_for_turnin_quests.has("skeleton_encroachment")
 	=> skeleton_quest_ready_for_turnin
-# If no ready-for-turnin quests, check if we need to offer quest options
-elif QuestManager.completed_quests.has("banesword")
+elif QuestManager.quest_completion_counts.has("banesword")
 	=> offer_available_quests
-# If this is the player's first visit, offer the intro quest
-elif not QuestManager.is_quest_active("banesword") and not QuestManager.is_quest_completed("banesword")
-	=> intro_quest_start
-# If we get here, the player has active quests but none ready for turnin
 else
-	=> check_active_quests
+	=> intro_quest_start
 
-# A node to check which quests are active
-~ check_active_quests
-Quest Giver: How are your quests going?
-- Check on Banesword
-	=> banesword_in_progress
-- Check on Goblin Encroachment
-	=> goblin_quest_in_progress
-- Check on Skeleton Encroachment
-	=> skeleton_quest_in_progress
-- I want to take on another quest.
-	=> offer_available_quests
-- Never mind, I'll be on my way.
-    Quest Giver: Good luck on your tasks! Come back when you've made progress.
-    => END
-=> END
-
-# Initial Banesword quest (only shown if player hasn't completed it)
 ~ intro_quest_start
 Quest Giver: [[Hi|Hello|Howdy]], welcome to the Quest System!
 Quest Giver: For your first quest, you need to kill Banesword the giant skeleton south of here.
@@ -39,46 +19,42 @@ Quest Giver: Return to me once you've killed him!
 do GameDialogueManager.action_start_quest("banesword")
 => END
 
-# Multiple quest offering after completing the intro quest
 ~ offer_available_quests
 Quest Giver: Welcome back, adventurer! I have several tasks that need handling.
 Quest Giver: What kind of work are you looking for today?
-- I heard Banesword is back?
+
+- I heard Banesword is back? [if QuestManager.can_repeat_quest("banesword")]
 	=> banesword_repeatable
-- Tell me about the goblin problem. 
+- Tell me about the goblin problem. [if !QuestManager.active_quests.has("goblin_encroachment") and !QuestManager.ready_for_turnin_quests.has("goblin_encroachment")]
 	=> goblin_quest_start
-- I'd like to help with the skeleton issue.
+- I'd like to help with the skeleton issue. [if !QuestManager.active_quests.has("skeleton_encroachment") and !QuestManager.ready_for_turnin_quests.has("skeleton_encroachment")]
 	=> skeleton_quest_start
 - Just passing by, no work for me right now.
     Quest Giver: Alright then. Come back when you're ready for more work!
     => END
 
-# Banesword quest in progress
 ~ banesword_in_progress
 Quest Giver: Have you defeated Banesword yet? He's still terrorizing the area south of town.
 Quest Giver: Please hurry and take care of that skeleton!
 => END
 
-# Banesword quest ready for turnin
 ~ banesword_ready_for_turnin
 Quest Giver: You've defeated Banesword! Well done, adventurer!
 Quest Giver: Here's your reward as promised.
 do QuestManager.complete_quest("banesword")
 => offer_available_quests
 
-# Banesword repeatable quest
 ~ banesword_repeatable
 Quest Giver: Those skeletons just don't stay dead, do they?
 Quest Giver: Looks like Banesword has returned. Can you defeat him again?
 - Yes, I'll handle it.
 	Quest Giver: Excellent! Same deal as before - defeat him and come back for your reward.
 	do GameDialogueManager.action_start_quest("banesword")
-    => END
+	=> END
 - Not right now.
-    Quest Giver: Let me know if you change your mind.
-    => offer_available_quests
+	Quest Giver: Let me know if you change your mind.
+	=> offer_available_quests
 
-# Goblin quest dialogue
 ~ goblin_quest_start
 Quest Giver: The local farmers have reported goblin raids on their livestock.
 Quest Giver: We need someone to thin their numbers - kill 20 goblins and I'll make it worth your while.
@@ -87,10 +63,10 @@ Quest Giver: They can be found in the wild or in the sewers beneath the town.
 - I'll take care of the goblins.
 	Quest Giver: Excellent! Return when you've culled their numbers.
 	do GameDialogueManager.action_start_quest("goblin_encroachment")
-    => END
+	=> END
 - I'll think about it.
-    Quest Giver: Fair enough. The offer stands when you're ready.
-    => offer_available_quests
+	Quest Giver: Fair enough. The offer stands when you're ready.
+	=> offer_available_quests
 
 ~ goblin_quest_in_progress
 Quest Giver: How's the goblin hunt going? We need to thin out their numbers - 20 of them should do it.
@@ -103,7 +79,6 @@ Quest Giver: Here's your payment as agreed.
 do QuestManager.complete_quest("goblin_encroachment")
 => offer_available_quests
 
-# Skeleton quest dialogue
 ~ skeleton_quest_start
 Quest Giver: We've had increasing reports of skeletal warriors roaming the countryside.
 Quest Giver: I need someone to eliminate at least 20 of them to keep travelers safe.
@@ -112,10 +87,10 @@ Quest Giver: They're most common near graveyards and in the sewers.
 - I'll deal with the skeletons.
 	Quest Giver: Thank you! Return when you've put them back in the ground.
 	do GameDialogueManager.action_start_quest("skeleton_encroachment")
-    => END
+	=> END
 - I'll pass for now.
-    Quest Giver: I understand. The task will be here when you're ready.
-    => offer_available_quests
+	Quest Giver: I understand. The task will be here when you're ready.
+	=> offer_available_quests
 
 ~ skeleton_quest_in_progress
 Quest Giver: How's the skeleton hunting? Remember, we need at least 20 of them eliminated.
