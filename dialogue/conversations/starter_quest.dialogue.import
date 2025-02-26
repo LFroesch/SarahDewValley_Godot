@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://6x5f6hkcd4m3"
+path="res://.godot/imported/starter_quest.dialogue-d97f8d97e8e91e6115f19cf1a542c318.tres"
+
+[deps]
+
+source_file="res://dialogue/conversations/starter_quest.dialogue"
+dest_files=["res://.godot/imported/starter_quest.dialogue-d97f8d97e8e91e6115f19cf1a542c318.tres"]
+
+[params]
+
+defaults=true
