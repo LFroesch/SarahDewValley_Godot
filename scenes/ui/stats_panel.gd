@@ -5,6 +5,7 @@ extends PanelContainer
 @onready var xp_label: Label = $MarginContainer/VBoxContainer/XPLabel
 @onready var kills_container: VBoxContainer = $MarginContainer/VBoxContainer/KillsContainer
 var kill_labels: Dictionary = {}
+var quest_labels: Dictionary = {}
 
 func _ready() -> void:
 	hide()
@@ -36,33 +37,78 @@ func update_stats() -> void:
 	update_kill_stats()
 
 func update_quest_display() -> void:
-	var quest_id = QuestManager.current_quest
+	# Clear any existing quest labels
+	for label in quest_labels.values():
+		if is_instance_valid(label):
+			label.queue_free()
+	quest_labels.clear()
 	
-	if quest_id.is_empty():
-		# Check if there are any active quests
-		if not QuestManager.active_quests.is_empty():
-			# Get the first active quest
-			quest_id = QuestManager.active_quests.keys()[0]
-		# Check for ready-for-turnin quests
-		elif not QuestManager.ready_for_turnin_quests.is_empty():
-			quest_id = QuestManager.ready_for_turnin_quests[0]
+	# Set the main quest label title
+	current_quest_label.text = "QUESTS:"
 	
-	if QuestManager.is_quest_ready_for_turnin(quest_id):
-		var quest = QuestManager.quests[quest_id]
-		current_quest_label.text = "Quest: %s (Return to Quest Giver)" % quest.title
-	elif QuestManager.is_quest_active(quest_id):
+	# Track different quest categories
+	var active_quests = []
+	var turnin_quests = []
+	var completed_quests = []
+	
+	# Collect all ready-for-turnin quests (highest priority)
+	for quest_id in QuestManager.ready_for_turnin_quests:
+		if QuestManager.quests.has(quest_id):
+			turnin_quests.append({
+				"id": quest_id,
+				"title": QuestManager.quests[quest_id].title,
+				"status": "Return to Quest Giver"
+			})
+	
+	# Collect all active quests
+	for quest_id in QuestManager.active_quests.keys():
 		var quest = QuestManager.active_quests[quest_id]
 		var progress = QuestManager.get_quest_progress(quest_id)
 		var progress_percent = int(progress * 100)
 		
-		current_quest_label.text = "Quest: %s (%d%%)" % [quest.title, progress_percent]
-	elif not QuestManager.completed_quests.is_empty():
-		# Show the last completed quest
+		active_quests.append({
+			"id": quest_id,
+			"title": quest.title,
+			"status": "%d%%" % progress_percent
+		})
+	
+	# Get most recent completed quest (if no active/turnin quests)
+	if active_quests.is_empty() and turnin_quests.is_empty() and not QuestManager.completed_quests.is_empty():
 		var last_quest_id = QuestManager.completed_quests[-1]
 		if QuestManager.quests.has(last_quest_id):
-			current_quest_label.text = "Quest: %s (Completed)" % QuestManager.quests[last_quest_id].title
-	else:
-		current_quest_label.text = "Quest: None"
+			completed_quests.append({
+				"id": last_quest_id,
+				"title": QuestManager.quests[last_quest_id].title,
+				"status": "Completed"
+			})
+	
+	# Create labels for different quest categories (in priority order)
+	var quest_info = []
+	quest_info.append_array(turnin_quests)
+	quest_info.append_array(active_quests)
+	quest_info.append_array(completed_quests)
+	
+	# If no quests at all, show a message
+	if quest_info.is_empty():
+		current_quest_label.text += "\nNo Active Quests"
+		return
+	
+	# Add a label for each quest
+	for i in range(quest_info.size()):
+		var quest = quest_info[i]
+		var label = Label.new()
+		label.text = "• %s (%s)" % [quest.title, quest.status]
+		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		
+		# Add the label as a child to the current_quest_label's parent
+		current_quest_label.get_parent().add_child(label)
+		
+		# Insert it right after the current_quest_label in the hierarchy
+		current_quest_label.get_parent().move_child(label, current_quest_label.get_index() + 1 + i)
+		
+		# Store the label for later cleanup
+		quest_labels[quest.id] = label
 
 func update_kill_stats() -> void:
 	for label in kill_labels.values():
@@ -73,7 +119,8 @@ func update_kill_stats() -> void:
 		var kill_count = enemy_kills[enemy_type]
 		var label = Label.new()
 		label.text = "%s Kills: %d" % [enemy_type.capitalize(), kill_count]
-
+		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		kills_container.add_child(label)
 		kill_labels[enemy_type] = label
 

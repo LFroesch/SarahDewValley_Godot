@@ -30,5 +30,5 @@ func action_sell_logs() -> void:
 func action_sell_stones() -> void:
 	sell_stones.emit()
 
-func action_start_quest(quest: String = "intro") -> void:
+func action_start_quest(quest: String = "default") -> void:
 	start_quest.emit(quest)

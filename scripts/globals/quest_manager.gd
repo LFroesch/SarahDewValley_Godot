@@ -17,7 +17,7 @@ var quest_completion_counts: Dictionary = {}
 
 # Quest definitions - structure includes requirements, rewards, descriptions
 var quests: Dictionary = {
-	"intro": {
+	"banesword": {
 		"title": "The Giant Skeleton",
 		"description": "Defeat Banesword the giant skeleton south of town.",
 		"objectives": {
@@ -28,7 +28,41 @@ var quests: Dictionary = {
 			}
 		},
 		"rewards": {
-			"experience": 150,
+			"experience": 200,
+			"gold": 50
+		},
+		"requires_turnin": true,
+		"repeatable": true
+	},
+	"goblin_encroachment": {
+		"title": "Goblin Encroachment",
+		"description": "Defeat 20 goblins in the world or the sewers.",
+		"objectives": {
+			"kill_enemy": {
+				"enemy_type": "goblin_barbarian",
+				"count": 20,
+				"current": 0
+			}
+		},
+		"rewards": {
+			"experience": 200,
+			"gold": 50
+		},
+		"requires_turnin": true,
+		"repeatable": true
+	},
+	"skeleton_encroachment": {
+		"title": "Skeleton Encroachment",
+		"description": "Defeat 20 skeletons in the world or the sewers.",
+		"objectives": {
+			"kill_enemy": {
+				"enemy_type": "skeleton_warrior",
+				"count": 20,
+				"current": 0
+			}
+		},
+		"rewards": {
+			"experience": 200,
 			"gold": 50
 		},
 		"requires_turnin": true,

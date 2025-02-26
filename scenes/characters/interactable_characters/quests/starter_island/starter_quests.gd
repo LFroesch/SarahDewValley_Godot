@@ -36,7 +36,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_tree().root.add_child(active_balloon)
 			
 			# Start with the appropriate dialogue based on quest status
-			if QuestManager.is_quest_active("intro") or QuestManager.is_quest_completed("intro"):
+			if QuestManager.is_quest_active("banesword") or QuestManager.is_quest_completed("banesword"):
 				active_balloon.start(load("res://dialogue/conversations/starter_quest.dialogue"), "check_quest_status")
 			else:
 				active_balloon.start(load("res://dialogue/conversations/starter_quest.dialogue"), "check_quest_status")
