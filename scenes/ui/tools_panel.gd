@@ -45,9 +45,6 @@ func _ready() -> void:
 	
 	# Make sure the toolbar is in the right state initially
 	update_toolbar_visibility()
-	await get_tree().process_frame
-	ToolManager.select_tool(DataTypes.Tools.AxeWood)
-	tool_axe.button_pressed = true
 	
 func create_timer_label(parent_texture: TextureRect) -> Label:
 	var label = Label.new()
