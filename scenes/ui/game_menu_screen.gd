@@ -42,7 +42,7 @@ func _on_confirmation_dialog_confirmed() -> void:
 			file_name = dir.get_next()
 			
 		dir.list_dir_end()
-		
+	ToolManager.reset_tools()
 	DayAndNightCycleManager.time = 0.0
 	DayAndNightCycleManager.current_minute = -1
 	DayAndNightCycleManager.current_day = 0

@@ -1,4 +1,3 @@
-#tools_panel.gd
 extends PanelContainer
 @onready var tool_axe: Button = $MarginContainer/HBoxContainer/ToolAxe
 @onready var tool_tilling: Button = $MarginContainer/HBoxContainer/ToolTilling
@@ -14,10 +13,13 @@ extends PanelContainer
 @onready var holy_nova_timer_label: Label = null
 
 var player: Player = null
+var is_combat_mode: bool = true  # Start in combat mode by default
 
 func _ready() -> void:
 	ToolManager.enable_tool.connect(on_enable_tool_button)
+	ToolManager.tools_reset.connect(on_tools_reset)
 	
+	# Initialize tools as disabled (except axe which works in both modes)
 	tool_tilling.disabled = true
 	tool_tilling.focus_mode = Control.FOCUS_NONE
 	
@@ -40,6 +42,12 @@ func _ready() -> void:
 	fireball_texture.gui_input.connect(_on_fireball_texture_input)
 	nova_texture.gui_input.connect(_on_nova_texture_input)
 	holy_nova_texture.gui_input.connect(_on_holy_nova_texture_input)
+	
+	# Make sure the toolbar is in the right state initially
+	update_toolbar_visibility()
+	await get_tree().process_frame
+	ToolManager.select_tool(DataTypes.Tools.AxeWood)
+	tool_axe.button_pressed = true
 	
 func create_timer_label(parent_texture: TextureRect) -> Label:
 	var label = Label.new()
@@ -116,7 +124,50 @@ func _on_tool_tomato_pressed() -> void:
 	ToolManager.select_tool(DataTypes.Tools.PlantTomato)
 
 func _unhandled_input(event: InputEvent) -> void:
-	pass
+	# Check for swap_toolbar input
+	if event.is_action_pressed("swap_toolbar"):
+		# Toggle between combat and farming mode
+		is_combat_mode = !is_combat_mode
+		update_toolbar_visibility()
+		
+		# When switching to farming mode, select the first available farming tool
+		if !is_combat_mode:
+			if !tool_tilling.disabled:
+				ToolManager.select_tool(DataTypes.Tools.TillGround)
+			elif !tool_watering_can.disabled:
+				ToolManager.select_tool(DataTypes.Tools.WaterCrops)
+			elif !tool_corn.disabled:
+				ToolManager.select_tool(DataTypes.Tools.PlantCorn)
+			elif !tool_tomato.disabled:
+				ToolManager.select_tool(DataTypes.Tools.PlantTomato)
+		else:
+			# When switching to combat mode, deselect any farming tools
+			ToolManager.select_tool(DataTypes.Tools.AxeWood)
+	
+func update_toolbar_visibility() -> void:
+	# Combat mode: Show combat abilities, hide farming tools (except axe)
+	if is_combat_mode:
+		# Show combat abilities
+		fireball_texture.visible = true
+		nova_texture.visible = true
+		holy_nova_texture.visible = true
+		
+		# Hide farming tools (except axe which works in both modes)
+		tool_tilling.visible = false
+		tool_watering_can.visible = false
+		tool_corn.visible = false
+		tool_tomato.visible = false
+	else:
+		# Farming mode: Hide combat abilities, show farming tools
+		fireball_texture.visible = false
+		nova_texture.visible = false
+		holy_nova_texture.visible = false
+		
+		# Show farming tools (they'll still be disabled until unlocked)
+		tool_tilling.visible = true
+		tool_watering_can.visible = true
+		tool_corn.visible = true
+		tool_tomato.visible = true
 	
 func on_enable_tool_button(tool: DataTypes.Tools) -> void:
 	if tool == DataTypes.Tools.TillGround:
@@ -131,3 +182,21 @@ func on_enable_tool_button(tool: DataTypes.Tools) -> void:
 	elif tool == DataTypes.Tools.PlantTomato:
 		tool_tomato.disabled = false
 		tool_tomato.focus_mode = Control.FOCUS_ALL
+
+func on_tools_reset() -> void:
+	# Disable all farming tools
+	tool_tilling.disabled = true
+	tool_tilling.focus_mode = Control.FOCUS_NONE
+	
+	tool_watering_can.disabled = true
+	tool_watering_can.focus_mode = Control.FOCUS_NONE
+	
+	tool_corn.disabled = true
+	tool_corn.focus_mode = Control.FOCUS_NONE
+	
+	tool_tomato.disabled = true
+	tool_tomato.focus_mode = Control.FOCUS_NONE
+	
+	# Switch to combat mode
+	is_combat_mode = true
+	update_toolbar_visibility()

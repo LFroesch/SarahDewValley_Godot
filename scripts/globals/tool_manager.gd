@@ -6,6 +6,7 @@ var enabled_tools: Array[DataTypes.Tools] = []
 
 signal tool_selected(tool: DataTypes.Tools)
 signal enable_tool(tool : DataTypes.Tools)
+signal tools_reset
 
 const save_data_path = "user://game_data/tools.tres"
 
@@ -35,3 +36,14 @@ func load_tools() -> void:
 			
 func has_farming_tools() -> bool:
 	return enabled_tools.has(DataTypes.Tools.TillGround) and enabled_tools.has(DataTypes.Tools.WaterCrops)
+
+func reset_tools() -> void:
+	# Clear the enabled tools array
+	enabled_tools = []
+	
+	# Emit a custom reset signal
+	# Add this signal declaration at the top of your script: signal tools_reset
+	tools_reset.emit()
+	
+	# Select the axe as the default tool
+	select_tool(DataTypes.Tools.AxeWood)
