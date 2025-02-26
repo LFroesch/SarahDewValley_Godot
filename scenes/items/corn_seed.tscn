@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://oe0muhr4vwrs"]
+
+[ext_resource type="Texture2D" uid="uid://cltipf7rtxhpo" path="res://assets/game/objects/basic_plants.png" id="1_f0fd3"]
+[ext_resource type="Script" path="res://scenes/items/corn_seed.gd" id="2_xoujj"]
+[ext_resource type="PackedScene" uid="uid://bxhjxqi72fxxc" path="res://scenes/components/collectible_component.tscn" id="3_ap8et"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4e50q"]
+atlas = ExtResource("1_f0fd3")
+region = Rect2(2, 2, 12, 13)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bdk80"]
+radius = 4.71405
+
+[node name="CornSeed" type="Sprite2D"]
+y_sort_enabled = true
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_4e50q")
+script = ExtResource("2_xoujj")
+
+[node name="CollectibleComponent" parent="." instance=ExtResource("3_ap8et")]
+collectible_name = "healing_potion"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleComponent"]
+shape = SubResource("CircleShape2D_bdk80")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+one_shot = true

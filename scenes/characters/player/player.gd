@@ -11,15 +11,21 @@ extends CharacterBody2D
 @onready var fade_overlay: ColorRect = $CanvasLayer/FadeOverlay if has_node("CanvasLayer/FadeOverlay") else null
 @onready var fireball_scene = preload("res://scenes/objects/projectiles/fireball/fireball.tscn")
 @onready var fire_nova_scene = preload("res://scenes/objects/projectiles/fire_nova/fire_nova.tscn")
+@onready var heal_scene = preload("res://scenes/objects/projectiles/heal/heal.tscn")
+
 @export var can_shoot: bool = true
 @export var shoot_cooldown: float = 3.0
 @onready var shoot_timer: Timer = $ShootTimer
-var player_direction: Vector2
-@export var fire_nova_cooldown: float = 5.0  # Cooldown in seconds
-var can_cast_nova: bool = true
 
-# Add to your _ready function or wherever you set up your timers
+@export var fire_nova_cooldown: float = 5.0
+var can_cast_nova: bool = true
 @onready var fire_nova_timer: Timer = $FireNovaTimer
+
+@export var heal_cooldown: float = 5.0
+var can_cast_heal: bool = true
+@onready var heal_timer: Timer = $HealTimer
+
+var player_direction: Vector2
 
 func _ready() -> void:
 	ToolManager.tool_selected.connect(on_tool_selected)
@@ -28,6 +34,11 @@ func _ready() -> void:
 	await get_tree().process_frame
 	if fade_overlay:
 		fade_overlay.color = Color(0, 0, 0, 0)
+	heal_timer = Timer.new()
+	heal_timer.wait_time = heal_cooldown
+	heal_timer.one_shot = true
+	heal_timer.timeout.connect(_on_heal_cooldown_timeout)
+	add_child(heal_timer)
 	fire_nova_timer = Timer.new()
 	fire_nova_timer.wait_time = fire_nova_cooldown
 	fire_nova_timer.one_shot = true
@@ -39,11 +50,23 @@ func _ready() -> void:
 	shoot_timer.timeout.connect(_on_shoot_timer_timeout)
 	add_child(shoot_timer)
 
+func cast_heal() -> void:
+	var heal_amount: float = 20.0
+	heal(heal_amount)
+	var heal = heal_scene.instantiate()
+	add_child(heal)
+	can_cast_heal = false
+	heal_timer.start()
+
+func _on_heal_cooldown_timeout() -> void:
+	can_cast_heal = true
+	
+func heal(amount: float) -> void: #Dedicated for the heal ability
+	current_health = min(current_health + amount, max_health)
+
 func cast_fire_nova() -> void:
 	var nova = fire_nova_scene.instantiate()
 	add_child(nova)
-	
-	# Start cooldown
 	can_cast_nova = false
 	fire_nova_timer.start()
 
@@ -51,10 +74,12 @@ func _on_nova_cooldown_timeout() -> void:
 	can_cast_nova = true
 
 func _unhandled_input(event):
-	if event.is_action_pressed("shoot_fireball"):  # You'll need to add this input action
+	if event.is_action_pressed("shoot_fireball") and can_shoot:
 		shoot_fireball()
 	if event.is_action_pressed("cast_fire_nova") and can_cast_nova:
 		cast_fire_nova()
+	if event.is_action_pressed("cast_heal") and can_cast_heal:
+		cast_heal()
 		
 func shoot_fireball():
 	if not can_shoot:

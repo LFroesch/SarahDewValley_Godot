@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://bwue1xbougqyo"]
+[gd_scene load_steps=9 format=4 uid="uid://bwue1xbougqyo"]
 
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_v4v0u"]
 [ext_resource type="Script" path="res://scenes/components/save_level_data_component.gd" id="2_37wj8"]
 [ext_resource type="TileSet" uid="uid://bmlpnsyieusmk" path="res://tilesets/game_tile_set.tres" id="3_uwgx8"]
 [ext_resource type="Script" path="res://scenes/levels/level_transitions/LevelTransitionArea.gd" id="4_dsg8f"]
+[ext_resource type="PackedScene" uid="uid://cx7i8n4vctneg" path="res://scenes/characters/interactable_characters/sign/sign.tscn" id="5_66bbk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4v836"]
 size = Vector2(11, 13)
@@ -85,6 +86,10 @@ transition_id = "to_starter_island"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoatToStarterIsland"]
 position = Vector2(1049, 841)
 shape = SubResource("RectangleShape2D_eehy6")
+
+[node name="Sign" parent="." instance=ExtResource("5_66bbk")]
+position = Vector2(1018, 852)
+start_dialogue = "start_sewer_boat_s"
 
 [connection signal="body_entered" from="TransitionAreatoStarterZone" to="TransitionAreatoStarterZone" method="_on_body_entered"]
 [connection signal="body_entered" from="TransitionAreatoSewers" to="TransitionAreatoSewers" method="_on_body_entered"]

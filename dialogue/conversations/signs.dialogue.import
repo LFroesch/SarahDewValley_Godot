@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://b7ackn81f58oj"
+path="res://.godot/imported/signs.dialogue-831eb1582dc4225ed397bb68cba3beae.tres"
+
+[deps]
+
+source_file="res://dialogue/conversations/signs.dialogue"
+dest_files=["res://.godot/imported/signs.dialogue-831eb1582dc4225ed397bb68cba3beae.tres"]
+
+[params]
+
+defaults=true

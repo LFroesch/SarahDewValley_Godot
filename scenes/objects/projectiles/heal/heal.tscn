@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://cjmdovc3xbrw6"]
+
+[ext_resource type="Script" path="res://scenes/objects/projectiles/heal/heal.gd" id="1_t4g7n"]
+[ext_resource type="Texture2D" uid="uid://fk3gxrt22tjf" path="res://assets/game/objects/Priest-Attack_effect.png" id="2_twl84"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m10e4"]
+radius = 26.0192
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bd8d5"]
+atlas = ExtResource("2_twl84")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqhko"]
+atlas = ExtResource("2_twl84")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cx4bv"]
+atlas = ExtResource("2_twl84")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lg2py"]
+atlas = ExtResource("2_twl84")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3wxc"]
+atlas = ExtResource("2_twl84")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ha8xh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bd8d5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqhko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cx4bv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lg2py")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3wxc")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Heal" type="Area2D"]
+y_sort_enabled = true
+collision_layer = 256
+collision_mask = 64
+script = ExtResource("1_t4g7n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_m10e4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-5, -11)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ha8xh")
+autoplay = "default"
+frame = 4
+frame_progress = 1.0
+
+[node name="TimeoutTimer" type="Timer" parent="."]

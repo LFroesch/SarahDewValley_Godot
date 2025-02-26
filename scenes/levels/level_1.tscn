@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://6aaf7agcl7se"]
+[gd_scene load_steps=40 format=4 uid="uid://6aaf7agcl7se"]
 
 [ext_resource type="TileSet" uid="uid://bmlpnsyieusmk" path="res://tilesets/game_tile_set.tres" id="1_2ojy1"]
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_ludhu"]
@@ -25,6 +25,7 @@
 [ext_resource type="Script" path="res://scenes/levels/level_transitions/LevelTransitionArea.gd" id="21_8jo7l"]
 [ext_resource type="PackedScene" uid="uid://ddbh5oc61wqd0" path="res://scenes/objects/healing_crystal/healing_crystal.tscn" id="21_o8vma"]
 [ext_resource type="PackedScene" uid="uid://ddwpftwv80x7r" path="res://scenes/items/healing_potion.tscn" id="25_5bbra"]
+[ext_resource type="PackedScene" uid="uid://cx7i8n4vctneg" path="res://scenes/characters/interactable_characters/sign/sign.tscn" id="26_f2pks"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_iy3c7"]
 vertices = PackedVector2Array(200.477, 256.117, 129.719, 256.867, 135.547, 220, 195.328, 220)
@@ -474,6 +475,21 @@ position = Vector2(624, 637)
 
 [node name="HealingPotion2" parent="." instance=ExtResource("25_5bbra")]
 position = Vector2(605, 657)
+
+[node name="Sign" parent="." instance=ExtResource("26_f2pks")]
+position = Vector2(292, 261)
+
+[node name="Sign2" parent="." instance=ExtResource("26_f2pks")]
+position = Vector2(387, 267)
+start_dialogue = "start_center_boat_n"
+
+[node name="Sign4" parent="." instance=ExtResource("26_f2pks")]
+position = Vector2(628, 483)
+start_dialogue = "start_center_boat_s"
+
+[node name="Sign3" parent="." instance=ExtResource("26_f2pks")]
+position = Vector2(157, 313)
+start_dialogue = "start_sewer_boat_n"
 
 [connection signal="body_entered" from="Zones/TransitionToBradyCity" to="Zones/TransitionToBradyCity" method="_on_body_entered"]
 [connection signal="body_entered" from="Zones/BoatToCenterIsland" to="Zones/BoatToCenterIsland" method="_on_body_entered"]

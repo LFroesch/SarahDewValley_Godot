@@ -14,6 +14,7 @@ if ToolManager.has_farming_tools()
 	- Ask about Combat
 		Guide: To fight monsters like Goblins, use your axe tool the same way you would chop a tree!
 		Guide: You can also use G to cast a Fireball in the direction you are facing, or V for a circular Fire Nova AoE attack.
+		Guide: You can also press R to cast heal, and it also does a small amount of damage to any enemies currently right next to you.
 		Guide: Magic abilities like those currently have a cooldown, but later youll use mana on them.
 		Guide: Keep your health above 0 by eating food and hit them enough times to kill them.
 		Guide: Monsters can drop different loot depending on their type!
@@ -25,7 +26,7 @@ if ToolManager.has_farming_tools()
 		Guide: You can also use G to cast a Fireball in the direction you are facing, or V for a circular Fire Nova AoE attack.
 		Guide: Magic abilities like those currently have a cooldown, but later youll use mana on them.
 		Guide: CTRL+Right Click with the hoe will clear a tilled soil patch / crop patch.
-		Guide: R will quick eat eggs for 15 health, T will quick eat milk for 20 health, if you have it.
+		Guide: Shift + R will quick eat eggs for 15 health, T will quick eat milk for 20 health, if you have it.
 	- Ask about Objectives
 		Guide: You can farm crops and animal products to use as food.
 		Guide: Take your food into battle to fight enemies!

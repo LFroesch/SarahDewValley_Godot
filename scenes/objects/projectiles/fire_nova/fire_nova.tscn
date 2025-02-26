@@ -78,6 +78,7 @@ animations = [{
 }]
 
 [node name="FireNova" type="Area2D"]
+y_sort_enabled = true
 collision_layer = 256
 collision_mask = 64
 script = ExtResource("1_xk5t2")
@@ -87,6 +88,7 @@ position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_m10e4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_1ebei")
 autoplay = "default"
