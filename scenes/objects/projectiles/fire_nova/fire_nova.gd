@@ -11,6 +11,7 @@ func _ready():
 	monitorable = true
 	
 	player = get_parent()
+	z_index = 0
 	
 	var timer = get_tree().create_timer(duration)
 	timer.timeout.connect(queue_free)

@@ -36,6 +36,7 @@ animations = [{
 }]
 
 [node name="Fireball" type="Area2D"]
+z_index = 2
 y_sort_enabled = true
 collision_layer = 256
 collision_mask = 64
@@ -45,6 +46,7 @@ script = ExtResource("1_bbcrr")
 shape = SubResource("CircleShape2D_m10e4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
 y_sort_enabled = true
 position = Vector2(-5, -1)
 sprite_frames = SubResource("SpriteFrames_yh2ov")
