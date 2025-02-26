@@ -250,8 +250,8 @@ func complete_quest(quest_id: String) -> void:
 	save_quest_data()
 	
 	# Force update the stats panel if it's visible
-	var stats_panels = get_tree().get_nodes_in_group("stats_panels")
-	for panel in stats_panels:
+	var quest_panels = get_tree().get_nodes_in_group("quest_panels")
+	for panel in quest_panels:
 		if panel.visible and panel.has_method("update_quest_display"):
 			panel.update_quest_display()
 
@@ -328,7 +328,7 @@ func save_quest_data() -> void:
 
 func load_quest_data() -> void:
 	if not FileAccess.file_exists(save_data_path):
-		print("No quest save data found. Starting fresh.")
+		print("No quest save data found. Starting freshsh.")
 		return
 	
 	var save_resource = ResourceLoader.load(save_data_path)

@@ -12,33 +12,33 @@ if ToolManager.has_farming_tools()
 		Guide: You can feed the animals with the crates near their pastures.
 		Guide: Feeding them will give you Milk & Eggs (and make them happy)
 	- Ask about Combat
-		Guide: To fight monsters like Goblins, use your axe tool the same way you would chop a tree!
-		Guide: You can also use G to cast a Fireball in the direction you are facing, or V for a circular Fire Nova AoE attack.
-		Guide: You can also press R to cast heal, and it also does a small amount of damage to any enemies currently right next to you.
+		Guide: To fight monsters like Goblins, use your axe tool the same way you would chop a tree.
+		Guide: Or cast magic spells! Hotkeys can be found in Ask About Controls.
 		Guide: Magic abilities like those currently have a cooldown, but later youll use mana on them.
 		Guide: Keep your health above 0 by eating food and hit them enough times to kill them.
 		Guide: Monsters can drop different loot depending on their type!
 	- Ask about Controls
 		Guide: Escape takes you to main menu. WASD for character movement.
+		Guide: Tab swaps between Farming or Combat Tool Bars, Combat shows your cooldowns for moves.
 		Guide: Left Mouse Click to select tools, or eat food in your inventory.
-		Guide: P will quick save. E will interact with chests, like this guide. B will pull up your Inventory.
 		Guide: Right Click with a tool will use it or attack with the axe in the direction you are facing.
-		Guide: You can also use G to cast a Fireball in the direction you are facing, or V for a circular Fire Nova AoE attack.
-		Guide: Magic abilities like those currently have a cooldown, but later youll use mana on them.
+		Guide: P will quick save. E will interact with chests, like this guide. 
+		Guide: B will pull up your Inventory. Q will pull up your quest log.
 		Guide: CTRL+Right Click with the hoe will clear a tilled soil patch / crop patch.
-		Guide: Shift + R will quick eat eggs for 15 health, T will quick eat milk for 20 health, if you have it.
+		Guide: Z will quick eat eggs for 15 health, X will quick eat milk for 20 health, if you have it.
+		Guide: F casts Fire Nova, an area of effect attack around the player. G casts fireball, a ranged cast attack. 
+		Guide: R casts Holy Nova, which heals you and deals a small amount of damage around the player.
 	- Ask about Objectives
 		Guide: You can farm crops and animal products to use as food.
-		Guide: Take your food into battle to fight enemies!
-		Guide: Get gold to purchase different farming seeds & various products (More to come!)
-		Guide: Quests are another way to get rewards (Coming Soon)
+		Guide: Take your food into battle to fight enemies with spells and melee!
+		Guide: Get gold to purchase different farming seeds & various products
+		Guide: Quests are another way to get rewards, talk to npcs to find if they have quests to give you!
 else
 	Guide: [[Hi|Hello|Howdy]], nice to meet you.
 	Guide: Welcome to SarahDewValley!
 	Guide: As you can see the cows and chickens are hungry.
 	Guide: You need to grow some crops to feed them!
 	Guide: Here are some seeds and tools to grow some crops.
-
 	- Take crop seeds
 		Player: Yeah I can grow crops!
 		do GameDialogueManager.action_give_crop_seeds()
