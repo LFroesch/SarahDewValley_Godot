@@ -26,7 +26,7 @@ func update_quest_display() -> void:
 	
 	# Set the main quest label title
 	current_quest_label.text = "QUESTS:"
-	
+	current_quest_label.add_theme_font_size_override("font_size", 18)
 	# Track different quest categories and keep track of quest IDs we've already processed
 	var processed_quest_ids = []
 	var quest_info = []
@@ -67,6 +67,7 @@ func update_quest_display() -> void:
 		label.text = "• %s\n     (%s)" % [quest.title, quest.status]
 		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		label.add_theme_font_size_override("font_size", 18)
 		
 		# Add the label as a child to the current_quest_label's parent
 		current_quest_label.get_parent().add_child(label)

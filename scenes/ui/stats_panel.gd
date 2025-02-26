@@ -27,6 +27,9 @@ func update_stats() -> void:
 	current_location_label.text = "Location: %s" % location_name
 	level_label.text = "Level: %d" % current_level
 	xp_label.text = "XP: %d / %d" % [current_xp, next_level_xp]
+	current_location_label.add_theme_font_size_override("font_size", 18)
+	level_label.add_theme_font_size_override("font_size", 18)
+	xp_label.add_theme_font_size_override("font_size", 18)
 	update_kill_stats()
 
 
@@ -41,6 +44,7 @@ func update_kill_stats() -> void:
 		label.text = "%s Kills: %d" % [enemy_type.capitalize(), kill_count]
 		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		label.add_theme_font_size_override("font_size", 18)
 		kills_container.add_child(label)
 		kill_labels[enemy_type] = label
 

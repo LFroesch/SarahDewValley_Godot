@@ -15,15 +15,15 @@ extends CharacterBody2D
 
 @export var can_shoot: bool = true
 @export var shoot_cooldown: float = 3.0
-@onready var shoot_timer: Timer = $ShootTimer
+@export var shoot_timer: Timer
 
 @export var fire_nova_cooldown: float = 5.0
 var can_cast_nova: bool = true
-@onready var fire_nova_timer: Timer = $FireNovaTimer
+@export var fire_nova_timer: Timer
 
 @export var heal_cooldown: float = 5.0
 var can_cast_heal: bool = true
-@onready var heal_timer: Timer = $HealTimer
+@export var heal_timer: Timer
 
 var player_direction: Vector2
 
