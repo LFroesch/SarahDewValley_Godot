@@ -32,6 +32,9 @@ layout_mode = 2
 [node name="CurrentLocationLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
+[node name="CurrentQuestLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
 [node name="LevelLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://6aaf7agcl7se"]
+[gd_scene load_steps=41 format=4 uid="uid://6aaf7agcl7se"]
 
 [ext_resource type="TileSet" uid="uid://bmlpnsyieusmk" path="res://tilesets/game_tile_set.tres" id="1_2ojy1"]
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_ludhu"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://scenes/components/crops_cursor_component.gd" id="5_vwmls"]
 [ext_resource type="PackedScene" uid="uid://djketpxhxd8qe" path="res://scenes/characters/animals/cow/cow.tscn" id="6_ai8wf"]
 [ext_resource type="PackedScene" uid="uid://cksuucjl74u7n" path="res://scenes/characters/animals/cow/baby_cow.tscn" id="7_4rlpg"]
+[ext_resource type="PackedScene" uid="uid://cgxf0v4bcen23" path="res://scenes/characters/interactable_characters/quests/starter_island/starter_quests.tscn" id="10_d2pac"]
 [ext_resource type="PackedScene" uid="uid://f3es2c3cbna7" path="res://scenes/characters/animals/brady/brady.tscn" id="10_udajt"]
 [ext_resource type="PackedScene" uid="uid://dx4wh0fbqvl68" path="res://scenes/objects/chest/cow_chest.tscn" id="10_udbt5"]
 [ext_resource type="PackedScene" uid="uid://djkj5hhph4fws" path="res://scenes/characters/interactable_characters/milk_and_egg_seller/milk_and_egg_seller.tscn" id="13_x8dmv"]
@@ -174,6 +175,20 @@ tilled_soil_tilemap_layer = NodePath("../../GameTileMap/TilledSoil")
 
 [node name="CropFields" type="Node2D" parent="Crops"]
 
+[node name="FriendlyNPCs" type="Node2D" parent="."]
+
+[node name="StarterQuestGiver" parent="FriendlyNPCs" instance=ExtResource("10_d2pac")]
+position = Vector2(284, 442)
+
+[node name="MilkAndEggSeller" parent="FriendlyNPCs" instance=ExtResource("13_x8dmv")]
+position = Vector2(568, 617)
+
+[node name="Guide" parent="FriendlyNPCs" instance=ExtResource("5_o4b8e")]
+position = Vector2(256, 222)
+
+[node name="StoneAndLogBuyer" parent="FriendlyNPCs" instance=ExtResource("15_a4g8m")]
+position = Vector2(738, 627)
+
 [node name="Animals" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -286,15 +301,6 @@ position = Vector2(373, 484)
 
 [node name="BabyCow3" parent="Animals/NavIsland/CowsAtNaviIsland" instance=ExtResource("7_4rlpg")]
 position = Vector2(400, 585)
-
-[node name="MilkAndEggSeller" parent="Animals" instance=ExtResource("13_x8dmv")]
-position = Vector2(568, 617)
-
-[node name="Guide" parent="Animals" instance=ExtResource("5_o4b8e")]
-position = Vector2(256, 222)
-
-[node name="StoneAndLogBuyer" parent="Animals" instance=ExtResource("15_a4g8m")]
-position = Vector2(738, 627)
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -419,6 +425,21 @@ dialogue_start_command = "start_cow_pasture_box"
 position = Vector2(-55, 302)
 dialogue_start_command = "start_chicken_pasture_box"
 
+[node name="Sign" parent="Chests" instance=ExtResource("26_f2pks")]
+position = Vector2(-3, -28)
+
+[node name="Sign2" parent="Chests" instance=ExtResource("26_f2pks")]
+position = Vector2(92, -22)
+start_dialogue = "start_center_boat_n"
+
+[node name="Sign4" parent="Chests" instance=ExtResource("26_f2pks")]
+position = Vector2(333, 194)
+start_dialogue = "start_center_boat_s"
+
+[node name="Sign3" parent="Chests" instance=ExtResource("26_f2pks")]
+position = Vector2(-138, 24)
+start_dialogue = "start_sewer_boat_n"
+
 [node name="Zones" type="Node2D" parent="."]
 
 [node name="HealingCrystal" parent="Zones" instance=ExtResource("21_o8vma")]
@@ -470,26 +491,12 @@ transition_id = "to_brady_market"
 position = Vector2(170, 349)
 shape = SubResource("RectangleShape2D_5u0by")
 
-[node name="HealingPotion" parent="." instance=ExtResource("25_5bbra")]
+[node name="Collectibles" type="Node2D" parent="."]
 position = Vector2(624, 637)
+scale = Vector2(1.5, 1.5)
 
-[node name="HealingPotion2" parent="." instance=ExtResource("25_5bbra")]
-position = Vector2(605, 657)
-
-[node name="Sign" parent="." instance=ExtResource("26_f2pks")]
-position = Vector2(292, 261)
-
-[node name="Sign2" parent="." instance=ExtResource("26_f2pks")]
-position = Vector2(387, 267)
-start_dialogue = "start_center_boat_n"
-
-[node name="Sign4" parent="." instance=ExtResource("26_f2pks")]
-position = Vector2(628, 483)
-start_dialogue = "start_center_boat_s"
-
-[node name="Sign3" parent="." instance=ExtResource("26_f2pks")]
-position = Vector2(157, 313)
-start_dialogue = "start_sewer_boat_n"
+[node name="HealingPotion" parent="Collectibles" instance=ExtResource("25_5bbra")]
+scale = Vector2(1, 1)
 
 [connection signal="body_entered" from="Zones/TransitionToBradyCity" to="Zones/TransitionToBradyCity" method="_on_body_entered"]
 [connection signal="body_entered" from="Zones/BoatToCenterIsland" to="Zones/BoatToCenterIsland" method="_on_body_entered"]

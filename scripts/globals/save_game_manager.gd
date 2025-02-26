@@ -15,7 +15,7 @@ func save_game() -> void:
 	ToolManager.save_tools()
 	SceneManager.save_level_state()
 	StatisticsManager.save_statistics()
-	
+	QuestManager.save_quest_data()
 	var save_level_data_component: SaveLevelDataComponent = get_tree().get_first_node_in_group("save_level_data_component")
 	if save_level_data_component != null:
 		save_level_data_component.save_game()
@@ -27,6 +27,7 @@ func load_game() -> void:
 	InventoryManager.load_inventory()
 	ToolManager.load_tools()
 	StatisticsManager.load_statistics()
+	QuestManager.load_quest_data()
 	var save_level_data_component: SaveLevelDataComponent = get_tree().get_first_node_in_group("save_level_data_component")
 	
 	if save_level_data_component != null:

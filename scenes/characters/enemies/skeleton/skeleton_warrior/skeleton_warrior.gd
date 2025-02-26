@@ -153,6 +153,6 @@ func take_damage(amount: float):
 		animated_sprite.play("death")
 
 func _on_death_animation_finished():
-	StatisticsManager.record_kill("skeleton warrior")
+	StatisticsManager.record_kill("skeleton_warrior")
 	StatisticsManager.add_experience(10)
 	queue_free()

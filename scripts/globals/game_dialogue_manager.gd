@@ -7,6 +7,7 @@ signal buy_egg(amount: int)
 signal buy_milk(amount: int)
 signal sell_logs
 signal sell_stones
+signal start_quest(quest: String)
 
 func action_give_crop_seeds() -> void:
 	give_crop_seeds.emit()
@@ -28,3 +29,6 @@ func action_sell_logs() -> void:
 
 func action_sell_stones() -> void:
 	sell_stones.emit()
+
+func action_start_quest(quest: String = "intro") -> void:
+	start_quest.emit(quest)

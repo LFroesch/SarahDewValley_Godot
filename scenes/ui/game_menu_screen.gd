@@ -52,3 +52,4 @@ func _on_confirmation_dialog_confirmed() -> void:
 	DayAndNightCycleManager.game_time.emit(DayAndNightCycleManager.time)
 	DayAndNightCycleManager.recalculate_time()
 	InventoryManager.reset_inventory()
+	QuestManager.reset_quests()

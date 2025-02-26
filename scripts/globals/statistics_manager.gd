@@ -45,6 +45,8 @@ func record_kill(enemy_type: String) -> void:
 		stats.kills.by_enemy_type[enemy_type] = 0
 	stats.kills.by_enemy_type[enemy_type] += 1
 	stat_updated.emit("kills", stats.kills.total)
+	if QuestManager:
+		QuestManager.record_quest_kill(enemy_type)
 	save_statistics()
 
 func add_experience(amount: int) -> void:
@@ -104,3 +106,9 @@ func reset_statistics() -> void:
 		}
 	}
 	save_statistics()
+func update_ui_after_reset() -> void:
+	# Find all stats panels and update them
+	var stats_panels = get_tree().get_nodes_in_group("stats_panels")
+	for panel in stats_panels:
+		if panel.has_method("update_stats"):
+			panel.update_stats()
