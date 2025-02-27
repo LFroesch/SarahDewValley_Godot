@@ -30,4 +30,21 @@ Vendor: [[Hi|Hello|Howdy]], I'd love to buy your logs and stone!
 	Vendor: I'll give you 5g per stone, up to 5 stones at a time, Thanks!
 	do GameDialogueManager.action_sell_stones()
 - No Thanks => END
+
+~ start_tomato_and_corn_buyer
+Vendor: [[Hi|Hello|Howdy]], I'd love to buy your tomatoes and corn!
+- 10x Tomatoes - 5g per
+	Vendor: I'll give you 5g per tomato, up to 10 tomatoes at a time, Thanks!
+	do GameDialogueManager.action_sell_tomato(10)
+- 50x Tomatoes - 5g per
+	Vendor: I'll give you 5g per tomato, up to 50 tomatoes at a time, Thanks!
+	do GameDialogueManager.action_sell_tomato(50)
+- 10x Corn - 5g per
+	Vendor: I'll give you 5g per corn, up to 10 corn at a time, Thanks!
+	do GameDialogueManager.action_sell_corn(10)
+- 50x Corn - 5g per
+	Vendor: I'll give you 5g per corn, up to 50 corn at a time, Thanks!
+	do GameDialogueManager.action_sell_corn(50)
+- No Thanks => END
+
 => END

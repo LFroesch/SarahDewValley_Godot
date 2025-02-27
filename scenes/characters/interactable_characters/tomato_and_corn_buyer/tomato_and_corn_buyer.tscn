@@ -1,0 +1,67 @@
+[gd_scene load_steps=12 format=3 uid="uid://c2t85jyokis16"]
+
+[ext_resource type="Script" path="res://scenes/characters/interactable_characters/tomato_and_corn_buyer/tomato_and_corn_buyer.gd" id="1_ybmk7"]
+[ext_resource type="Shader" path="res://scenes/characters/interactable_characters/tomato_and_corn_buyer/tomato_and_corn_buyer.gdshader" id="2_ls4mx"]
+[ext_resource type="Texture2D" uid="uid://dsww2cl3aemdf" path="res://assets/game/characters/Human_Merchant.png" id="3_1gnfq"]
+[ext_resource type="PackedScene" uid="uid://ou413sd7e4wr" path="res://scenes/components/interactable_component.tscn" id="4_cd014"]
+[ext_resource type="PackedScene" uid="uid://df1xd2ip40rk7" path="res://scenes/components/interactable_label_component.tscn" id="5_47uhw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8fb1r"]
+radius = 6.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f71os"]
+shader = ExtResource("2_ls4mx")
+shader_parameter/original_0 = Color(0.768627, 0.54902, 0.431373, 1)
+shader_parameter/original_1 = Color(0.678431, 0.454902, 0.368627, 1)
+shader_parameter/replace_0 = Color(0.880165, 0.721696, 0.335891, 1)
+shader_parameter/replace_1 = Color(0.778335, 0.312387, 0.360047, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_haos3"]
+atlas = ExtResource("3_1gnfq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqonh"]
+atlas = ExtResource("3_1gnfq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bpe1s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_haos3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqonh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vblyh"]
+radius = 17.0294
+
+[node name="TomatoAndCornBuyer" type="StaticBody2D"]
+position = Vector2(0, -8)
+script = ExtResource("1_ybmk7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8fb1r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_f71os")
+sprite_frames = SubResource("SpriteFrames_bpe1s")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="InteractableComponent" parent="." instance=ExtResource("4_cd014")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
+visible = false
+shape = SubResource("CircleShape2D_vblyh")
+
+[node name="InteractableLabelComponent" parent="." instance=ExtResource("5_47uhw")]
+offset_left = -27.0
+offset_top = -26.0
+offset_right = -9.0
+offset_bottom = -8.0

@@ -1,11 +1,20 @@
-[gd_scene load_steps=10 format=4 uid="uid://bwue1xbougqyo"]
+[gd_scene load_steps=15 format=4 uid="uid://bwue1xbougqyo"]
 
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_v4v0u"]
 [ext_resource type="Script" path="res://scenes/components/save_level_data_component.gd" id="2_37wj8"]
 [ext_resource type="TileSet" uid="uid://bmlpnsyieusmk" path="res://tilesets/game_tile_set.tres" id="3_uwgx8"]
 [ext_resource type="Script" path="res://scenes/levels/level_transitions/LevelTransitionArea.gd" id="4_dsg8f"]
+[ext_resource type="PackedScene" uid="uid://djkj5hhph4fws" path="res://scenes/characters/interactable_characters/milk_and_egg_seller/milk_and_egg_seller.tscn" id="5_8x71x"]
 [ext_resource type="PackedScene" uid="uid://cx7i8n4vctneg" path="res://scenes/characters/interactable_characters/sign/sign.tscn" id="5_66bbk"]
+[ext_resource type="PackedScene" uid="uid://dys1y527eipiw" path="res://scenes/characters/interactable_characters/stone_and_log_buyer/stone_and_log_buyer.tscn" id="6_ucnmq"]
 [ext_resource type="PackedScene" uid="uid://brqm5c22r3jqq" path="res://scenes/characters/interactable_characters/quests/talk_to_steve/steve.tscn" id="6_xpp4k"]
+[ext_resource type="PackedScene" uid="uid://c2t85jyokis16" path="res://scenes/characters/interactable_characters/tomato_and_corn_buyer/tomato_and_corn_buyer.tscn" id="7_18w1h"]
+[ext_resource type="PackedScene" uid="uid://f3es2c3cbna7" path="res://scenes/characters/animals/brady/brady.tscn" id="9_m61o1"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_kejat"]
+vertices = PackedVector2Array(902.148, 884, 846.781, 883.141, 846.258, 859.563, 902, 867.531, 986.891, 884, 903.273, 772, 900.758, 738.828, 1011.12, 737.148, 971, 772, 1011.88, 798, 1005.07, 798, 971, 844.148, 996.672, 872.148, 1070.54, 864.961, 1071.47, 883.102, 902, 843.141)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(8, 7, 9, 10), PackedInt32Array(11, 8, 10, 12, 4), PackedInt32Array(12, 13, 14, 4), PackedInt32Array(3, 15, 11, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(837, 893, 836, 848, 892, 855.998, 892, 833, 961, 834, 961, 782, 894, 782, 890, 729, 1021, 727, 1022, 808, 1014, 808, 1008, 861, 1080, 854, 1082, 893, 987, 894, 902, 894)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4v836"]
 size = Vector2(11, 13)
@@ -58,43 +67,65 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAA5ACYADwAFAA8AAAA5ACUADwAFAA4AAAA5ACQADwAFAA4AAAA+ACQADwAGAA4AAAA+ACUADwAGAA4AAAA+ACYADwAGAA8AAAA5ACMADwAFAA4AAAA5ACIADwAFAA4AAAA5ACEADwAFAA4AAAA+ACIADwAGAA4AAAA+ACEADwAGAA4AAAA+ACMADwAGAA4AAAA3ACYADgABAAoAAABAACYADgABAAoAABA4ACAADwAYAAwAAAA3ACUADwAWAAwAAABBACYADwAWAAsAAABCACYADwAXAAsAAAA6ADIAEQAAAAAAAABAADMAEgAFAAIAABBAADQAEgAFAAMAABBBADMAEgAEAAIAABBBADQAEgAEAAMAABBCADMAEgADAAIAABBCADQAEgADAAMAABBLADQADgABAAoAAABJADQADwAWAAwAAABNADQADwAWAAsAAABOADQADwAXAAsAAABMADQADwASABIAAABMADUADwASABMAAABLACwADwAOAAIAAABLAC0ADwAOAAMAAABLAC4ADwAOAAQAAABMACsADwAPAAEAAABMACwADwAPAAIAAABMAC0ADwAPAAMAAABMAC4ADwAPAAQAAABMAC8ADwAPAAUAAABMADAADwAPAAYAAABNACsADwAQAAEAAABNACwADwAQAAIAAABNAC0ADwAQAAMAAABNAC4ADwAQAAQAAABNAC8ADwAQAAUAAABNADAADwAQAAYAAABOACwADwARAAIAAABOAC0ADwARAAMAAABOAC4ADwARAAQAAABHADMADwAaAAgAAABHADQADwAUAAwAAABBAC4ADwAWABQAAABBADEADwAZABQAAAA2AC8ADwAWABEAAAA2ADMADwAaABEAAAA5ACAADwAFAA4AAAA5AB8ADwAFAA4AAAA5AB4ADwAFAA4AAAA5AB0ADwABAA8AAAA6AB0ADwADAA8AAAA7AB0ADwADAA8AAAA8AB0ADwADAA8AAAA9AB0ADwADAA8AAAA+AB0ADwADAA8AAAA/AB0ADwADAA8AAABAAB0ADwADAA8AAABBAB0ADwADAA8AAABCAB0ADwADAA8AAABDAB0ADwADAA8AAABEAB0ADwADAA8AAABFAB0ADwADAA8AAABGAB0ADwADAA8AAABHAB0ADwADAA8AAABIAB0ADwADAA8AAABJAB0ADwADAA8AAABKAB0ADwADAA8AAABLAB0ADwADAA8AAABMAB0ADwADAA8AAABNAB0ADwADAA8AAABOAB0ADwADAA8AAABPAB0ADwADAA8AAABQAB0ADwADAA8AAABRAB0ADwACAA8AAABRAB4ADwAGAA4AAABRAB8ADwAGAA4AAABRACAADwAGAA4AAABRACEADwAGAA4AAABRACIADwAGAA4AAABLACIADwAFAA4AAABLACEADwAFAA4AAAA=")
 tile_set = ExtResource("3_uwgx8")
 
-[node name="TransitionAreatoStarterZone" type="Area2D" parent="."]
+[node name="FriendlyNPCs" type="Node2D" parent="."]
+
+[node name="TalkToSteve" parent="FriendlyNPCs" instance=ExtResource("6_xpp4k")]
+position = Vector2(944, 735)
+
+[node name="MilkAndEggSeller" parent="FriendlyNPCs" instance=ExtResource("5_8x71x")]
+position = Vector2(1020, 790)
+
+[node name="StoneAndLogBuyer" parent="FriendlyNPCs" instance=ExtResource("6_ucnmq")]
+position = Vector2(853, 761)
+
+[node name="TomatoAndCornBuyer" parent="FriendlyNPCs" instance=ExtResource("7_18w1h")]
+position = Vector2(1019, 754)
+
+[node name="Sign" parent="FriendlyNPCs" instance=ExtResource("5_66bbk")]
+position = Vector2(1018, 852)
+start_dialogue = "start_sewer_boat_s"
+
+[node name="Node2D" type="Node2D" parent="FriendlyNPCs"]
+
+[node name="Brady" parent="FriendlyNPCs/Node2D" instance=ExtResource("9_m61o1")]
+position = Vector2(927, 870)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="FriendlyNPCs/Node2D"]
+navigation_polygon = SubResource("NavigationPolygon_kejat")
+navigation_layers = 32
+
+[node name="Zones" type="Node2D" parent="."]
+
+[node name="TransitionAreatoStarterZone" type="Area2D" parent="Zones"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_dsg8f")
 transition_id = "to_starter_zone"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionAreatoStarterZone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/TransitionAreatoStarterZone"]
 position = Vector2(823.5, 648.5)
 shape = SubResource("RectangleShape2D_4v836")
 
-[node name="TransitionAreatoSewers" type="Area2D" parent="."]
+[node name="TransitionAreatoSewers" type="Area2D" parent="Zones"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_dsg8f")
 transition_id = "to_sewers"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionAreatoSewers"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/TransitionAreatoSewers"]
 position = Vector2(936, 808.25)
 shape = SubResource("RectangleShape2D_8wsfc")
 
-[node name="BoatToStarterIsland" type="Area2D" parent="."]
+[node name="BoatToStarterIsland" type="Area2D" parent="Zones"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_dsg8f")
 transition_id = "to_starter_island"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BoatToStarterIsland"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/BoatToStarterIsland"]
 position = Vector2(1049, 841)
 shape = SubResource("RectangleShape2D_eehy6")
 
-[node name="Sign" parent="." instance=ExtResource("5_66bbk")]
-position = Vector2(1018, 852)
-start_dialogue = "start_sewer_boat_s"
-
-[node name="TalkToSteve" parent="." instance=ExtResource("6_xpp4k")]
-position = Vector2(855, 870)
-
-[connection signal="body_entered" from="TransitionAreatoStarterZone" to="TransitionAreatoStarterZone" method="_on_body_entered"]
-[connection signal="body_entered" from="TransitionAreatoSewers" to="TransitionAreatoSewers" method="_on_body_entered"]
-[connection signal="body_entered" from="BoatToStarterIsland" to="BoatToStarterIsland" method="_on_body_entered"]
+[connection signal="body_entered" from="Zones/TransitionAreatoStarterZone" to="Zones/TransitionAreatoStarterZone" method="_on_body_entered"]
+[connection signal="body_entered" from="Zones/TransitionAreatoSewers" to="Zones/TransitionAreatoSewers" method="_on_body_entered"]
+[connection signal="body_entered" from="Zones/BoatToStarterIsland" to="Zones/BoatToStarterIsland" method="_on_body_entered"]
