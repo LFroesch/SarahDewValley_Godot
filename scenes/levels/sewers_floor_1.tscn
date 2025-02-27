@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://5wre4ysdxbhb"]
+[gd_scene load_steps=16 format=4 uid="uid://5wre4ysdxbhb"]
 
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_l2hiu"]
 [ext_resource type="Script" path="res://scenes/components/save_level_data_component.gd" id="2_wx4i6"]
@@ -9,9 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://bc3r3htvo5h4c" path="res://scenes/characters/enemies/goblins/goblin_camp.tscn" id="7_7mi60"]
 [ext_resource type="PackedScene" uid="uid://e2f4sp0xrvir" path="res://scenes/characters/enemies/skeleton/skeleton_chief/skeleton_chief_spawner.tscn" id="8_xh3yn"]
 [ext_resource type="PackedScene" uid="uid://k6r5p2e4wl38" path="res://scenes/objects/obstacles/spikes/floor_spikes/spike_trap.tscn" id="9_fj20l"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4v836"]
-size = Vector2(13, 32)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mh4dm"]
 vertices = PackedVector2Array(1201.87, 40, 1060.74, 40, 1059.26, -16.0625, 1201.12, -16.9297)
@@ -36,6 +33,12 @@ vertices = PackedVector2Array(1230.93, 60.7891, 1100, 58.1875, 1100, -72, 1230.0
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(1090, 68, 1090, -82, 1240, -82, 1241, 71)])
 source_geometry_mode = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4v836"]
+size = Vector2(13, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6nd7v"]
+size = Vector2(29.5, 26)
 
 [node name="SewersFloor1" type="Node2D"]
 y_sort_enabled = true
@@ -62,91 +65,8 @@ tile_map_data = PackedByteArray("AAA1ACoADgAMAAYAAAA1ACsADgAMAAcAAAA1ACwADgAMAAg
 tile_set = ExtResource("3_xkoce")
 
 [node name="DungeonExtras" type="TileMapLayer" parent="GameTileMap"]
-tile_map_data = PackedByteArray("AAA2ACwADwAVAB0AAAA1ACsADwAUABwAAAA2ACsADwAVABwAAAA1ACwADwAUAB0AAABCADAADwAZAB4AAABCADEADwAZAB8AAAA8ADAADwAZABgAAAA3AC8ADwAaABgAAABKACsADwAcABYAAABKACwADwAcABcAAAA6ACsADwATABYAAAA5ACwADwAYABYAAAA5AC0ADwAYABcAAAA7ACwADwAZABYAAAA7AC0ADwAZABcAAAA8ACwADwAaABYAAAA8AC0ADwAaABcAAAA9ACwADwAbABYAAAA9AC0ADwAbABcAAAA+ACsADwAWABkAAAA+ACwADwAWABoAAAA+AC0ADwAWABsAAAA=")
+tile_map_data = PackedByteArray("AABCADAADwAZAB4AAABCADEADwAZAB8AAAA8ADAADwAZABgAAAA3AC8ADwAaABgAAABKACsADwAcABYAAABKACwADwAcABcAAAA6ACsADwATABYAAAA5ACwADwAYABYAAAA5AC0ADwAYABcAAAA7ACwADwAZABYAAAA7AC0ADwAZABcAAAA8ACwADwAaABYAAAA8AC0ADwAaABcAAAA9ACwADwAbABYAAAA9AC0ADwAbABcAAAA+ACsADwAWABkAAAA+ACwADwAWABoAAAA+AC0ADwAWABsAAABZACsADwAUABwAAABZACwADwAUAB0AAABaACsADwAVABwAAABaACwADwAVAB0AAAA1ACsADwASABwAAAA1ACwADwASAB0AAAA2ACsADwATABwAAAA2ACwADwATAB0AAAA=")
 tile_set = ExtResource("3_xkoce")
-
-[node name="TransitionAreatoSewers" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("4_76kn5")
-transition_id = "to_sewers"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionAreatoSewers"]
-position = Vector2(1000, 712)
-shape = SubResource("RectangleShape2D_4v836")
-
-[node name="SkeletonCamp" parent="." instance=ExtResource("5_w46vn")]
-
-[node name="SpawnPoint" parent="SkeletonCamp" instance=ExtResource("6_pahvh")]
-position = Vector2(882, 866)
-
-[node name="SpawnPoint2" parent="SkeletonCamp" instance=ExtResource("6_pahvh")]
-position = Vector2(931, 843)
-
-[node name="SpawnPoint3" parent="SkeletonCamp" instance=ExtResource("6_pahvh")]
-position = Vector2(984, 866)
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="SkeletonCamp"]
-position = Vector2(-194, 837)
-navigation_polygon = SubResource("NavigationPolygon_mh4dm")
-navigation_layers = 8
-
-[node name="RespawnTimer" type="Timer" parent="SkeletonCamp"]
-one_shot = true
-
-[node name="GoblinCamp1" parent="." instance=ExtResource("7_7mi60")]
-
-[node name="SpawnPoint" parent="GoblinCamp1" instance=ExtResource("6_pahvh")]
-position = Vector2(1138, 757)
-
-[node name="SpawnPoint2" parent="GoblinCamp1" instance=ExtResource("6_pahvh")]
-position = Vector2(1164, 790)
-
-[node name="SpawnPoint3" parent="GoblinCamp1" instance=ExtResource("6_pahvh")]
-position = Vector2(1175, 754)
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="GoblinCamp1"]
-position = Vector2(-202, 627)
-navigation_polygon = SubResource("NavigationPolygon_8clhe")
-navigation_layers = 4
-
-[node name="RespawnTimer" type="Timer" parent="GoblinCamp1"]
-one_shot = true
-
-[node name="GoblinCamp2" parent="." instance=ExtResource("7_7mi60")]
-
-[node name="SpawnPoint" parent="GoblinCamp2" instance=ExtResource("6_pahvh")]
-position = Vector2(1185, 863)
-
-[node name="SpawnPoint2" parent="GoblinCamp2" instance=ExtResource("6_pahvh")]
-position = Vector2(1239, 855)
-
-[node name="SpawnPoint3" parent="GoblinCamp2" instance=ExtResource("6_pahvh")]
-position = Vector2(1242, 813)
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="GoblinCamp2"]
-position = Vector2(-143, 701)
-navigation_polygon = SubResource("NavigationPolygon_2utki")
-navigation_layers = 4
-
-[node name="RespawnTimer" type="Timer" parent="GoblinCamp2"]
-one_shot = true
-
-[node name="SkeletonChiefSpawner" parent="." instance=ExtResource("8_xh3yn")]
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="SkeletonChiefSpawner"]
-position = Vector2(283, 813)
-navigation_polygon = SubResource("NavigationPolygon_xaa4n")
-navigation_layers = 16
-
-[node name="SpawnPoint" parent="SkeletonChiefSpawner" instance=ExtResource("6_pahvh")]
-position = Vector2(1424, 842)
-
-[node name="SpawnPoint2" parent="SkeletonChiefSpawner" instance=ExtResource("6_pahvh")]
-position = Vector2(1408, 775)
-
-[node name="SpawnPoint3" parent="SkeletonChiefSpawner" instance=ExtResource("6_pahvh")]
-position = Vector2(1473, 823)
 
 [node name="Traps" type="Node2D" parent="."]
 position = Vector2(1064, 813)
@@ -156,4 +76,102 @@ position = Vector2(1064, 813)
 [node name="SpikeTrap2" parent="Traps" instance=ExtResource("9_fj20l")]
 position = Vector2(256, 1)
 
-[connection signal="body_entered" from="TransitionAreatoSewers" to="TransitionAreatoSewers" method="_on_body_entered"]
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="SkeletonCamp" parent="Enemies" instance=ExtResource("5_w46vn")]
+
+[node name="SpawnPoint" parent="Enemies/SkeletonCamp" instance=ExtResource("6_pahvh")]
+position = Vector2(882, 866)
+
+[node name="SpawnPoint2" parent="Enemies/SkeletonCamp" instance=ExtResource("6_pahvh")]
+position = Vector2(931, 843)
+
+[node name="SpawnPoint3" parent="Enemies/SkeletonCamp" instance=ExtResource("6_pahvh")]
+position = Vector2(984, 866)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Enemies/SkeletonCamp"]
+position = Vector2(-194, 837)
+navigation_polygon = SubResource("NavigationPolygon_mh4dm")
+navigation_layers = 8
+
+[node name="RespawnTimer" type="Timer" parent="Enemies/SkeletonCamp"]
+one_shot = true
+
+[node name="GoblinCamp1" parent="Enemies" instance=ExtResource("7_7mi60")]
+
+[node name="SpawnPoint" parent="Enemies/GoblinCamp1" instance=ExtResource("6_pahvh")]
+position = Vector2(1138, 757)
+
+[node name="SpawnPoint2" parent="Enemies/GoblinCamp1" instance=ExtResource("6_pahvh")]
+position = Vector2(1164, 790)
+
+[node name="SpawnPoint3" parent="Enemies/GoblinCamp1" instance=ExtResource("6_pahvh")]
+position = Vector2(1175, 754)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Enemies/GoblinCamp1"]
+position = Vector2(-202, 627)
+navigation_polygon = SubResource("NavigationPolygon_8clhe")
+navigation_layers = 4
+
+[node name="RespawnTimer" type="Timer" parent="Enemies/GoblinCamp1"]
+one_shot = true
+
+[node name="GoblinCamp2" parent="Enemies" instance=ExtResource("7_7mi60")]
+
+[node name="SpawnPoint" parent="Enemies/GoblinCamp2" instance=ExtResource("6_pahvh")]
+position = Vector2(1185, 863)
+
+[node name="SpawnPoint2" parent="Enemies/GoblinCamp2" instance=ExtResource("6_pahvh")]
+position = Vector2(1239, 855)
+
+[node name="SpawnPoint3" parent="Enemies/GoblinCamp2" instance=ExtResource("6_pahvh")]
+position = Vector2(1242, 813)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Enemies/GoblinCamp2"]
+position = Vector2(-143, 701)
+navigation_polygon = SubResource("NavigationPolygon_2utki")
+navigation_layers = 4
+
+[node name="RespawnTimer" type="Timer" parent="Enemies/GoblinCamp2"]
+one_shot = true
+
+[node name="SkeletonChiefSpawner" parent="Enemies" instance=ExtResource("8_xh3yn")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Enemies/SkeletonChiefSpawner"]
+position = Vector2(283, 813)
+navigation_polygon = SubResource("NavigationPolygon_xaa4n")
+navigation_layers = 16
+
+[node name="SpawnPoint" parent="Enemies/SkeletonChiefSpawner" instance=ExtResource("6_pahvh")]
+position = Vector2(1424, 842)
+
+[node name="SpawnPoint2" parent="Enemies/SkeletonChiefSpawner" instance=ExtResource("6_pahvh")]
+position = Vector2(1408, 775)
+
+[node name="SpawnPoint3" parent="Enemies/SkeletonChiefSpawner" instance=ExtResource("6_pahvh")]
+position = Vector2(1473, 823)
+
+[node name="Zones" type="Node2D" parent="."]
+
+[node name="TransitionAreatoSewers" type="Area2D" parent="Zones"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_76kn5")
+transition_id = "to_sewers"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/TransitionAreatoSewers"]
+position = Vector2(1000, 712)
+shape = SubResource("RectangleShape2D_4v836")
+
+[node name="TransitionAreatoSewersFloor2" type="Area2D" parent="Zones"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_76kn5")
+transition_id = "to_sewers_floor_2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/TransitionAreatoSewersFloor2"]
+position = Vector2(1440.75, 711)
+shape = SubResource("RectangleShape2D_6nd7v")
+
+[connection signal="body_entered" from="Zones/TransitionAreatoSewers" to="Zones/TransitionAreatoSewers" method="_on_body_entered"]
+[connection signal="body_entered" from="Zones/TransitionAreatoSewersFloor2" to="Zones/TransitionAreatoSewersFloor2" method="_on_body_entered"]

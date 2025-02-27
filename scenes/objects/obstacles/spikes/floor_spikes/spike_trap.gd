@@ -9,13 +9,13 @@ class_name SpikeTrap
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var damage_area: Area2D = $DamageArea
 @onready var cooldown_timer: Timer = $CooldownTimer
+@export var initial_delay: float = 2.0
 
 var is_active: bool = false
 var has_dealt_damage: bool = false
 var is_first_ready: bool = true
 
 func _ready() -> void:
-	print("SpikeTrap: Initializing")
 	damage_area.monitoring = false
 	if animated_sprite == null:
 		push_error("SpikeTrap: AnimatedSprite2D node not found!")
@@ -36,11 +36,10 @@ func _ready() -> void:
 	play_idle_animation()
 
 	if auto_cycle:
-		print("SpikeTrap: Auto-cycling enabled, starting first cycle")
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(initial_delay).timeout
 		trigger_attack()
 	else:
-		print("SpikeTrap: Auto-cycling disabled, awaiting manual triggers")
+		pass
 
 func _process(_delta: float) -> void:
 	pass
@@ -99,5 +98,4 @@ func _on_body_entered(body: Node2D) -> void:
 func set_auto_cycle(value: bool) -> void:
 	auto_cycle = value
 	if auto_cycle and animated_sprite.animation == "idle" and cooldown_timer.is_stopped():
-		print("SpikeTrap: Starting auto-cycling")
 		trigger_attack()

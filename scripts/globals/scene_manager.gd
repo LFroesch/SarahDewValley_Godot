@@ -13,7 +13,8 @@ var level_scenes : Dictionary = {
 	"Level2" : "res://scenes/levels/level_2.tscn",
 	"brady_city" : "res://scenes/levels/brady_city.tscn",
 	"the_sewers" : "res://scenes/levels/the_sewers.tscn",
-	"the_sewers_floor_1" : "res://scenes/levels/sewers_floor_1.tscn"
+	"the_sewers_floor_1" : "res://scenes/levels/sewers_floor_1.tscn",
+	"the_sewers_floor_2" : "res://scenes/levels/sewers_floor_2.tscn"
 }
 
 var level_transitions : Dictionary = {
@@ -64,10 +65,19 @@ var level_transitions : Dictionary = {
 		"to_sewers": {
 			"target_level": "the_sewers",
 			"entry_point": Vector2(940, 875)
+		},
+		"to_sewers_floor_2": {
+			"target_level": "the_sewers_floor_2",
+			"entry_point": Vector2(865, 730)
+		}
+	},
+	"the_sewers_floor_2": {
+		"to_sewers": {
+			"target_level": "the_sewers",
+			"entry_point": Vector2(940, 875)
 		}
 	}
 }
-
 func load_main_scene_container() -> void:
 	if get_tree().root.has_node(main_scene_root_path):
 		return
