@@ -1,3 +1,89 @@
-[gd_scene format=3 uid="uid://k6r5p2e4wl38"]
+[gd_scene load_steps=12 format=3 uid="uid://k6r5p2e4wl38"]
+
+[ext_resource type="Script" path="res://scenes/objects/obstacles/spikes/floor_spikes/spike_trap.gd" id="1_ok6jp"]
+[ext_resource type="Texture2D" uid="uid://bc1asoskj6vq5" path="res://assets/game/obstacles/Spike_trap.png" id="2_lkg2m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jljte"]
+atlas = ExtResource("2_lkg2m")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r15sf"]
+atlas = ExtResource("2_lkg2m")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc6fc"]
+atlas = ExtResource("2_lkg2m")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ua6rr"]
+atlas = ExtResource("2_lkg2m")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_du6ve"]
+atlas = ExtResource("2_lkg2m")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsj6e"]
+atlas = ExtResource("2_lkg2m")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyj0u"]
+atlas = ExtResource("2_lkg2m")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c0nuf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jljte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r15sf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cc6fc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ua6rr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_du6ve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsj6e")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oyj0u")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k15cp"]
+size = Vector2(14, 14)
 
 [node name="SpikeTrap" type="Node2D"]
+script = ExtResource("1_ok6jp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -13.5)
+scale = Vector2(1, 0.96875)
+sprite_frames = SubResource("SpriteFrames_c0nuf")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="DamageArea" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(1, -7)
+shape = SubResource("RectangleShape2D_k15cp")
+
+[node name="CooldownTimer" type="Timer" parent="."]

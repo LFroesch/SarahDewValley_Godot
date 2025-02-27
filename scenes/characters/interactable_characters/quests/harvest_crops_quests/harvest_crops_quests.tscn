@@ -1,0 +1,68 @@
+[gd_scene load_steps=12 format=3 uid="uid://dhmo50rvq72w2"]
+
+[ext_resource type="Script" path="res://scenes/characters/interactable_characters/quests/harvest_crops_quests/harvest_crops_quests.gd" id="1_us76w"]
+[ext_resource type="Shader" path="res://scenes/characters/interactable_characters/guide/replace_color.gdshader" id="2_xl3hb"]
+[ext_resource type="Texture2D" uid="uid://y68nlbeisqrv" path="res://assets/game/characters/basic_character_spritesheet.png" id="3_euyig"]
+[ext_resource type="PackedScene" uid="uid://ou413sd7e4wr" path="res://scenes/components/interactable_component.tscn" id="4_ljh5t"]
+[ext_resource type="PackedScene" uid="uid://df1xd2ip40rk7" path="res://scenes/components/interactable_label_component.tscn" id="5_yvuty"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8fb1r"]
+radius = 6.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x1jt2"]
+shader = ExtResource("2_xl3hb")
+shader_parameter/original_0 = Color(0.360784, 0.305882, 0.572549, 1)
+shader_parameter/original_1 = Color(0.462745, 0.427451, 0.666667, 1)
+shader_parameter/replace_0 = Color(0, 0.618891, 0.251084, 1)
+shader_parameter/replace_1 = Color(0.997404, 0.537309, 0.373997, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0xcg"]
+atlas = ExtResource("3_euyig")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs7ba"]
+atlas = ExtResource("3_euyig")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_his7u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0xcg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs7ba")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vblyh"]
+radius = 17.0294
+
+[node name="HarvestCropsQuests" type="StaticBody2D"]
+position = Vector2(0, -8)
+script = ExtResource("1_us76w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8fb1r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_x1jt2")
+sprite_frames = SubResource("SpriteFrames_his7u")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.379541
+
+[node name="InteractableComponent" parent="." instance=ExtResource("4_ljh5t")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
+shape = SubResource("CircleShape2D_vblyh")
+
+[node name="InteractableLabelComponent" parent="." instance=ExtResource("5_yvuty")]
+offset_left = -27.0
+offset_top = -26.0
+offset_right = -9.0
+offset_bottom = -8.0
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://d2edbm354slxx"
+path="res://.godot/imported/sewer_steve.dialogue-b92e0ed4f4f981c3a418fc96f2974c0e.tres"
+
+[deps]
+
+source_file="res://dialogue/conversations/sewer_steve.dialogue"
+dest_files=["res://.godot/imported/sewer_steve.dialogue-b92e0ed4f4f981c3a418fc96f2974c0e.tres"]
+
+[params]
+
+defaults=true

@@ -1,8 +1,23 @@
+~ start_talk_to_quest
+if QuestManager.active_quests.has("my_friend_in_town")
+	=> talk_to_steve_in_progress
+elif !QuestManager.completed_quests.has("my_friend_in_town")
+	=> start
+else
+	=> already_completed
+
 ~ start
 Quest Giver: [[Hi|Hello|Howdy]], I've got a quest for you!
-Quest Giver: My friend Steve in Brady Town needs a package delivered.
-Quest Giver: Can you go and help him out?
+Quest Giver: Go talk to my friend Steve to the East in Brady Town.
+Quest Giver: He will tell you about the sewers!
 - Yeah, sure
-	#do GameDialogueManager.actionstartquest("talk_to_steve")
-- No thanks, he can figure it out.
+	do GameDialogueManager.action_start_quest("my_friend_in_town")
+- No thanks.
 => END
+
+~ talk_to_steve_in_progress
+Quest Giver: You need to head East to Brady Town to find Steve!
+=> END
+
+~ already_completed
+Quest Giver: I'm glad you talked to Steve, thats all I've got for now!

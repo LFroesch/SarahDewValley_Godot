@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://cnr1pl3h2tj5m"
+path="res://.godot/imported/starter_harvest_quest.dialogue-8027c33ac18ca14b43bf3fa559582272.tres"
+
+[deps]
+
+source_file="res://dialogue/conversations/starter_harvest_quest.dialogue"
+dest_files=["res://.godot/imported/starter_harvest_quest.dialogue-8027c33ac18ca14b43bf3fa559582272.tres"]
+
+[params]
+
+defaults=true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://6aaf7agcl7se"]
+[gd_scene load_steps=43 format=4 uid="uid://6aaf7agcl7se"]
 
 [ext_resource type="TileSet" uid="uid://bmlpnsyieusmk" path="res://tilesets/game_tile_set.tres" id="1_2ojy1"]
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_ludhu"]
@@ -17,9 +17,11 @@
 [ext_resource type="PackedScene" uid="uid://f3es2c3cbna7" path="res://scenes/characters/animals/brady/brady.tscn" id="10_udajt"]
 [ext_resource type="PackedScene" uid="uid://dx4wh0fbqvl68" path="res://scenes/objects/chest/cow_chest.tscn" id="10_udbt5"]
 [ext_resource type="PackedScene" uid="uid://djkj5hhph4fws" path="res://scenes/characters/interactable_characters/milk_and_egg_seller/milk_and_egg_seller.tscn" id="13_x8dmv"]
+[ext_resource type="PackedScene" uid="uid://dhmo50rvq72w2" path="res://scenes/characters/interactable_characters/quests/harvest_crops_quests/harvest_crops_quests.tscn" id="14_0pb2a"]
 [ext_resource type="PackedScene" uid="uid://bc3r3htvo5h4c" path="res://scenes/characters/enemies/goblins/goblin_camp.tscn" id="15_6grri"]
 [ext_resource type="PackedScene" uid="uid://dys1y527eipiw" path="res://scenes/characters/interactable_characters/stone_and_log_buyer/stone_and_log_buyer.tscn" id="15_a4g8m"]
 [ext_resource type="PackedScene" uid="uid://0jray3ndncg3" path="res://scenes/points/spawn_point.tscn" id="15_hs7bb"]
+[ext_resource type="PackedScene" uid="uid://dimy5fwmsi8ht" path="res://scenes/characters/interactable_characters/quests/talk_to_steve/talk_to_steve.tscn" id="15_mscah"]
 [ext_resource type="PackedScene" uid="uid://e2f4sp0xrvir" path="res://scenes/characters/enemies/skeleton/skeleton_chief/skeleton_chief_spawner.tscn" id="16_23cy2"]
 [ext_resource type="PackedScene" uid="uid://b5q4e3xg0ck85" path="res://scenes/characters/enemies/skeleton/skeleton_warrior/skeleton_camp.tscn" id="16_i0diq"]
 [ext_resource type="PackedScene" uid="uid://dcq44nd1tybfl" path="res://scenes/objects/chest/chicken_chest.tscn" id="16_vxhf0"]
@@ -177,17 +179,23 @@ tilled_soil_tilemap_layer = NodePath("../../GameTileMap/TilledSoil")
 
 [node name="FriendlyNPCs" type="Node2D" parent="."]
 
-[node name="StarterQuestGiver" parent="FriendlyNPCs" instance=ExtResource("10_d2pac")]
-position = Vector2(284, 442)
+[node name="CombatQuestGiver" parent="FriendlyNPCs" instance=ExtResource("10_d2pac")]
+position = Vector2(293, 681)
 
 [node name="MilkAndEggSeller" parent="FriendlyNPCs" instance=ExtResource("13_x8dmv")]
 position = Vector2(568, 617)
 
 [node name="Guide" parent="FriendlyNPCs" instance=ExtResource("5_o4b8e")]
-position = Vector2(256, 222)
+position = Vector2(307, 264)
 
 [node name="StoneAndLogBuyer" parent="FriendlyNPCs" instance=ExtResource("15_a4g8m")]
 position = Vector2(738, 627)
+
+[node name="CropHarvestQuestGiver" parent="FriendlyNPCs" instance=ExtResource("14_0pb2a")]
+position = Vector2(224, 229)
+
+[node name="TalktoSteveQuestGiver" parent="FriendlyNPCs" instance=ExtResource("15_mscah")]
+position = Vector2(751, 669)
 
 [node name="Animals" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -426,7 +434,7 @@ position = Vector2(-55, 302)
 dialogue_start_command = "start_chicken_pasture_box"
 
 [node name="Sign" parent="Chests" instance=ExtResource("26_f2pks")]
-position = Vector2(-3, -28)
+position = Vector2(-11, -4)
 
 [node name="Sign2" parent="Chests" instance=ExtResource("26_f2pks")]
 position = Vector2(92, -22)

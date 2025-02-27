@@ -41,7 +41,7 @@ Quest Giver: Please hurry and take care of that skeleton!
 Quest Giver: You've defeated Banesword! Well done, adventurer!
 Quest Giver: Here's your reward as promised.
 do QuestManager.complete_quest("banesword")
-=> offer_available_quests
+=> check_quest_status
 
 ~ banesword_repeatable
 Quest Giver: Those skeletons just don't stay dead, do they?
@@ -76,7 +76,7 @@ Quest Giver: Check the wilderness or the sewers if you're having trouble finding
 Quest Giver: You've dealt with those goblins admirably! The farmers will be relieved.
 Quest Giver: Here's your payment as agreed.
 do QuestManager.complete_quest("goblin_encroachment")
-=> offer_available_quests
+=> check_quest_status
 
 ~ skeleton_quest_start
 Quest Giver: We've had increasing reports of skeletal warriors roaming the countryside.
@@ -100,4 +100,4 @@ Quest Giver: They're typically found near graveyards or in the sewers beneath to
 Quest Giver: You've put those skeletons back where they belong! The roads are safer thanks to you.
 Quest Giver: Here's your reward as promised.
 do QuestManager.complete_quest("skeleton_encroachment")
-=> offer_available_quests
+=> check_quest_status

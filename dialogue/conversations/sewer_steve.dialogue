@@ -1,0 +1,14 @@
+~ steve_entrance
+if QuestManager.ready_for_turnin_quests.has("my_friend_in_town")
+	=> turnin_for_my_friend_in_town
+else
+	=> talk_to_steve
+	
+~ talk_to_steve
+Sewer Steve: [[Hi|Hello|Howdy]], welcome to the sewers!
+=> END
+
+~ turnin_for_my_friend_in_town
+Sewer Steve: Hey you found me! Here's your reward.
+do QuestManager.complete_quest("my_friend_in_town")
+=> talk_to_steve

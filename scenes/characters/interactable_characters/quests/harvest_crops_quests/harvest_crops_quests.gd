@@ -34,7 +34,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				
 			active_balloon = balloon_scene.instantiate()
 			get_tree().root.add_child(active_balloon)
-			active_balloon.start(load("res://dialogue/conversations/starter_talk_to_quest.dialogue"), "start_talk_to_quest")
+			active_balloon.start(load("res://dialogue/conversations/starter_harvest_quest.dialogue"), "start_harvest_quest")
 
 func on_start_quest(quest: String) -> void:
 	QuestManager.start_quest(quest)

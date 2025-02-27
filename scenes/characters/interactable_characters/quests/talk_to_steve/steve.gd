@@ -17,6 +17,8 @@ func _ready() -> void:
 func on_interactable_activated() -> void:
 	interactable_label_component.show()
 	in_range = true
+	var npc_id = "steve"
+	QuestManager.record_npc_interaction(npc_id)
 	
 func on_interactable_deactivated() -> void:
 	interactable_label_component.hide()
@@ -34,7 +36,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				
 			active_balloon = balloon_scene.instantiate()
 			get_tree().root.add_child(active_balloon)
-			active_balloon.start(load("res://dialogue/conversations/starter_talk_to_quest.dialogue"), "start_talk_to_quest")
+			active_balloon.start(load("res://dialogue/conversations/sewer_steve.dialogue"), "steve_entrance")
 
 func on_start_quest(quest: String) -> void:
 	QuestManager.start_quest(quest)

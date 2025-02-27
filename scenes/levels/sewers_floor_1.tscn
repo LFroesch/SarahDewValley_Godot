@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://5wre4ysdxbhb"]
+[gd_scene load_steps=15 format=4 uid="uid://5wre4ysdxbhb"]
 
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_l2hiu"]
 [ext_resource type="Script" path="res://scenes/components/save_level_data_component.gd" id="2_wx4i6"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://0jray3ndncg3" path="res://scenes/points/spawn_point.tscn" id="6_pahvh"]
 [ext_resource type="PackedScene" uid="uid://bc3r3htvo5h4c" path="res://scenes/characters/enemies/goblins/goblin_camp.tscn" id="7_7mi60"]
 [ext_resource type="PackedScene" uid="uid://e2f4sp0xrvir" path="res://scenes/characters/enemies/skeleton/skeleton_chief/skeleton_chief_spawner.tscn" id="8_xh3yn"]
+[ext_resource type="PackedScene" uid="uid://k6r5p2e4wl38" path="res://scenes/objects/obstacles/spikes/floor_spikes/spike_trap.tscn" id="9_fj20l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4v836"]
 size = Vector2(13, 32)
@@ -146,5 +147,13 @@ position = Vector2(1408, 775)
 
 [node name="SpawnPoint3" parent="SkeletonChiefSpawner" instance=ExtResource("6_pahvh")]
 position = Vector2(1473, 823)
+
+[node name="Traps" type="Node2D" parent="."]
+position = Vector2(1064, 813)
+
+[node name="SpikeTrap" parent="Traps" instance=ExtResource("9_fj20l")]
+
+[node name="SpikeTrap2" parent="Traps" instance=ExtResource("9_fj20l")]
+position = Vector2(256, 1)
 
 [connection signal="body_entered" from="TransitionAreatoSewers" to="TransitionAreatoSewers" method="_on_body_entered"]

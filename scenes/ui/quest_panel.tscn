@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/ui/quest_panel.gd" id="2_208qc"]
 
 [node name="QuestPanel" type="PanelContainer"]
-custom_minimum_size = Vector2(200, 80)
+custom_minimum_size = Vector2(250, 80)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

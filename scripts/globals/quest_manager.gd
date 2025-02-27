@@ -66,9 +66,9 @@ var quests: Dictionary = {
 		"requires_turnin": true,
 		"repeatable": true
 	},
-	"talk_to_steve": {
-		"title": "Talk to Steve",
-		"description": "Go to Brady Town and talk to Steve.",
+	"my_friend_in_town": {
+		"title": "My Friend In Town",
+		"description": "Go to Brady Town and talk to my friend by the fountain.",
 		"objectives": {
 			"talk_to": {
 				"target": "steve"
@@ -78,8 +78,49 @@ var quests: Dictionary = {
 			"experience": 100,
 			"gold": 10
 		},
+		"turnin_npc": "steve",
 		"requires_turnin": true,
 		"repeatable": false
+	},
+		"harvest_corn": {
+		"title": "Corn Harvest",
+		"description": "Plant and Harvest 10 corn.",
+		"objectives": {
+			"collect_item": {
+				"item_type": "corn",
+				"count": 10,
+				"current": 0
+			}
+		},
+		"rewards": {
+			"experience": 300,
+			"gold": 50,
+			"items": [
+				{"item_id": "healing_potion", "count": 2}
+			]
+		},
+		"requires_turnin": true,
+		"repeatable": true
+	},
+		"harvest_tomato": {
+		"title": "Tomato Harvest",
+		"description": "Plant and Harvest 10 tomato.",
+		"objectives": {
+			"collect_item": {
+				"item_type": "tomato",
+				"count": 10,
+				"current": 0
+			}
+		},
+		"rewards": {
+			"experience": 300,
+			"gold": 50,
+			"items": [
+				{"item_id": "healing_potion", "count": 2}
+			]
+		},
+		"requires_turnin": true,
+		"repeatable": true
 	}
 	# Add more quests as needed
 }
@@ -150,19 +191,49 @@ func record_quest_kill(enemy_type: String) -> void:
 				check_quest_objectives(quest_id)
 	
 	save_quest_data()
+	
+func record_item_collection(item_type: String, quantity: int = 1) -> void:
+	for quest_id in active_quests:
+		var quest = active_quests[quest_id]
+		for objective_key in quest.objectives:
+			var objective = quest.objectives[objective_key]
+			if objective_key == "collect_item" and objective.item_type == item_type:
+				objective.current += quantity
+				print("Item collected: %s for quest %s, count: %d/%d" % 
+					  [item_type, quest_id, objective.current, objective.count])
+				var progress = float(objective.current) / float(objective.count)
+				quest_updated.emit(quest_id, progress)
+				check_quest_objectives(quest_id)
+	
+	save_quest_data()
+
+func record_npc_interaction(npc_id: String) -> void:
+	for quest_id in active_quests:
+		var quest = active_quests[quest_id]
+		for objective_key in quest.objectives:
+			var objective = quest.objectives[objective_key]
+			if objective_key == "talk_to" and objective.target == npc_id:
+				print("Talked to NPC: %s for quest %s" % [npc_id, quest_id])
+				quest_updated.emit(quest_id, 1.0)
+				mark_quest_ready_for_turnin(quest_id)
+	
+	save_quest_data()
 
 func check_quest_objectives(quest_id: String) -> void:
 	if not active_quests.has(quest_id):
 		return
-		
 	var quest = active_quests[quest_id]
 	var all_complete = true
-	
 	for objective_key in quest.objectives:
 		var objective = quest.objectives[objective_key]
-		if objective.current < objective.count:
+		if objective_key == "kill_enemy" and objective.current < objective.count:
 			all_complete = false
 			break
+		elif objective_key == "collect_item" and objective.current < objective.count:
+			all_complete = false
+			break
+		elif objective_key == "talk_to":
+			pass
 	
 	if all_complete:
 		mark_quest_ready_for_turnin(quest_id)
@@ -207,7 +278,12 @@ func complete_quest(quest_id: String) -> void:
 		var gold_amount = quest.rewards.gold
 		for i in gold_amount:
 			InventoryManager.add_collectible("coin")
-	
+			
+	if quest.rewards.has("items"):
+		for item_data in quest.rewards.items:
+			for i in item_data.count:
+				InventoryManager.add_collectible(item_data.item_id)
+				
 	active_quests.erase(quest_id)
 	if ready_for_turnin_quests.has(quest_id):
 		ready_for_turnin_quests.erase(quest_id)
@@ -276,8 +352,14 @@ func get_quest_progress(quest_id: String) -> float:
 	
 	for objective_key in quest.objectives:
 		var objective = quest.objectives[objective_key]
-		var progress = float(objective.current) / float(objective.count)
-		completed_objectives += progress
+		
+		if objective_key == "talk_to":
+			completed_objectives += 0
+		elif objective.has("current") and objective.has("count"):
+			var progress = float(objective.current) / float(objective.count)
+			completed_objectives += progress
+		else:
+			completed_objectives += 0
 	
 	return completed_objectives / total_objectives
 
