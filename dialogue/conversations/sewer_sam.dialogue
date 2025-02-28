@@ -1,0 +1,17 @@
+~ sewer_sam_entrance
+if QuestManager.ready_for_turnin_quests.has("talk_to_sam_level_5")
+	=> turnin_for_talk_to_sam_level_5
+else
+	=> talk_to_sam
+	
+~ talk_to_sam
+Sewer Steve: [[Hi|Hello|Howdy]], I'm Sewer Sam, Sewer Steve's brother.
+Sewer Steve: Good job making it this far, if you want to head back up, hit the ladders.
+Sewer Steve: But keep going! Lets see how far you can make it! (Coming Soon)
+=> END
+
+~ turnin_for_talk_to_sam_level_5
+Sewer Steve: Hey you found me! Here's your reward.
+do QuestManager.complete_quest("talk_to_sam_level_5")
+Sewer Steve: If you want to go again, talk to Sewer Steve on the surface, hit the ladders.
+=> talk_to_sam

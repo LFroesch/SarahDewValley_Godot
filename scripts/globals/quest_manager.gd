@@ -131,6 +131,22 @@ var quests: Dictionary = {
 		"turnin_npc": "larry",
 		"requires_turnin": true,
 		"repeatable": false
+	}, #First Sewer Quest
+	"talk_to_sam_level_5": {
+		"title": "Talk to Sewer Sam",
+		"description": "Find your way to level 5 in the sewers and talk to Sewer Sam.",
+		"objectives": {
+			"talk_to": {
+				"target": "sam"
+			}
+		},
+		"rewards": {
+			"experience": 500,
+			"gold": 100
+		},
+		"turnin_npc": "sam",
+		"requires_turnin": true,
+		"repeatable": true
 	}, #HarvestCorn
 		"harvest_corn": {
 		"title": "Corn Harvest",

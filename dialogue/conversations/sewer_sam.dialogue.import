@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://cwornrburfad4"
+path="res://.godot/imported/sewer_sam.dialogue-3daf3f3d082b38b813e0dfd67392a6e2.tres"
+
+[deps]
+
+source_file="res://dialogue/conversations/sewer_sam.dialogue"
+dest_files=["res://.godot/imported/sewer_sam.dialogue-3daf3f3d082b38b813e0dfd67392a6e2.tres"]
+
+[params]
+
+defaults=true
