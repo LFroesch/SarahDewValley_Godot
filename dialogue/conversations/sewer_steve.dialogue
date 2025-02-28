@@ -10,6 +10,7 @@ Sewer Steve: If you want to exit, just use the ladder. To go deeper, find the do
 Sewer Steve: My brother Sewer Sam is down every 5 floors, want to go meet him?
 - Yes, I'll meet up with Sam!
 	do GameDialogueManager.action_start_quest("talk_to_sam_level_5")
+	Sewer Steve: Perfect, good luck!
 	=> END
 - No thanks, I'm gonna farm.
 	=> END

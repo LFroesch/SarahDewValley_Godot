@@ -114,6 +114,7 @@ y_sort_enabled = true
 script = ExtResource("2_lybpm")
 
 [node name="GameTileMap" type="Node2D" parent="."]
+z_index = -2
 y_sort_enabled = true
 
 [node name="WaterBarrier" type="TileMapLayer" parent="GameTileMap"]

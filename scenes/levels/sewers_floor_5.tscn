@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://1hl7ck0n40v4"]
+[gd_scene load_steps=9 format=4 uid="uid://1hl7ck0n40v4"]
 
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_ra5uh"]
 [ext_resource type="Script" path="res://scenes/components/save_level_data_component.gd" id="2_vrgk8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scenes/levels/level_transitions/LevelTransitionArea.gd" id="4_sqx0j"]
 [ext_resource type="PackedScene" uid="uid://ddbh5oc61wqd0" path="res://scenes/objects/healing_crystal/healing_crystal.tscn" id="5_8nj36"]
 [ext_resource type="PackedScene" uid="uid://cvh1aulhccviq" path="res://scenes/characters/interactable_characters/quests/sam/sam.tscn" id="6_f0mmc"]
+[ext_resource type="PackedScene" uid="uid://cx7i8n4vctneg" path="res://scenes/characters/interactable_characters/sign/sign.tscn" id="7_sirf6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4v836"]
 size = Vector2(13, 25)
@@ -17,6 +18,7 @@ y_sort_enabled = true
 script = ExtResource("2_vrgk8")
 
 [node name="GameTileMap" type="Node2D" parent="."]
+z_index = -2
 y_sort_enabled = true
 
 [node name="VoidZoneBarrier" type="TileMapLayer" parent="GameTileMap"]
@@ -53,5 +55,9 @@ position = Vector2(937, 803)
 
 [node name="Sam" parent="." instance=ExtResource("6_f0mmc")]
 position = Vector2(872, 834)
+
+[node name="Sign" parent="." instance=ExtResource("7_sirf6")]
+position = Vector2(890, 731)
+start_dialogue = "start_sewer_floor_5"
 
 [connection signal="body_entered" from="TransitionAreatoBradyTown" to="TransitionAreatoBradyTown" method="_on_body_entered"]

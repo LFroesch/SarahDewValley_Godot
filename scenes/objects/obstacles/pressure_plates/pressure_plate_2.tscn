@@ -34,6 +34,8 @@ animations = [{
 size = Vector2(15.2727, 15)
 
 [node name="PressurePlate2" type="Node2D"]
+z_index = -1
+y_sort_enabled = true
 script = ExtResource("1_u7nip")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

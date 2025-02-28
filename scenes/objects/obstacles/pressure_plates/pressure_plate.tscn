@@ -34,6 +34,8 @@ animations = [{
 size = Vector2(15.2727, 15)
 
 [node name="PressurePlate" type="Node2D"]
+z_index = -1
+y_sort_enabled = true
 scale = Vector2(1.1, 1.1)
 script = ExtResource("1_p44g3")
 

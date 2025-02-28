@@ -69,6 +69,8 @@ animations = [{
 size = Vector2(14, 14)
 
 [node name="SpikeTrap" type="Node2D"]
+z_index = -1
+y_sort_enabled = true
 script = ExtResource("1_ok6jp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

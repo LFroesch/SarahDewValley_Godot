@@ -9,7 +9,11 @@ var level_display_names: Dictionary = {
 	"Level2": "How tf did u get here",
 	"brady_city": "Brady Town",
 	"the_sewers": "The Sewers",
-	"the_sewers_floor_1": "Sewers Floor 1"
+	"the_sewers_floor_1": "Sewers Floor 1",
+	"the_sewers_floor_2": "Sewers Floor 2",
+	"the_sewers_floor_3": "Sewers Floor 3",
+	"the_sewers_floor_4": "Sewers Floor 4",
+	"the_sewers_floor_5": "Sewers Floor 5"
 }
 
 var stats: Dictionary = {
@@ -58,10 +62,20 @@ func add_experience(amount: int) -> void:
 	stats.experience.current += amount
 	stats.experience.total_gained += amount
 	experience_gained.emit(amount)
-	var current_level = stats.experience.level
-	if xp_to_next_level.has(current_level):
-		while stats.experience.current >= xp_to_next_level[current_level]:
-			level_up_character()
+	
+	# Check for level ups
+	while true:
+		var current_level = stats.experience.level
+		var xp_needed = xp_to_next_level.get(current_level, 999999)
+		
+		if stats.experience.current >= xp_needed:
+			# Level up
+			stats.experience.level += 1
+			stats.experience.current -= xp_needed
+			level_up.emit(stats.experience.level)
+		else:
+			# No more level ups to process
+			break
 	
 	save_statistics()
 

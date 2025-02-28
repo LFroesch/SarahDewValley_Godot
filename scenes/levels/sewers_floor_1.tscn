@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://5wre4ysdxbhb"]
+[gd_scene load_steps=17 format=4 uid="uid://5wre4ysdxbhb"]
 
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_l2hiu"]
 [ext_resource type="Script" path="res://scenes/components/save_level_data_component.gd" id="2_wx4i6"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bc3r3htvo5h4c" path="res://scenes/characters/enemies/goblins/goblin_camp.tscn" id="7_7mi60"]
 [ext_resource type="PackedScene" uid="uid://e2f4sp0xrvir" path="res://scenes/characters/enemies/skeleton/skeleton_chief/skeleton_chief_spawner.tscn" id="8_xh3yn"]
 [ext_resource type="PackedScene" uid="uid://k6r5p2e4wl38" path="res://scenes/objects/obstacles/spikes/floor_spikes/spike_trap.tscn" id="9_fj20l"]
+[ext_resource type="PackedScene" uid="uid://cx7i8n4vctneg" path="res://scenes/characters/interactable_characters/sign/sign.tscn" id="10_veyob"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mh4dm"]
 vertices = PackedVector2Array(1201.87, 40, 1060.74, 40, 1059.26, -16.0625, 1201.12, -16.9297)
@@ -47,6 +48,7 @@ y_sort_enabled = true
 script = ExtResource("2_wx4i6")
 
 [node name="GameTileMap" type="Node2D" parent="."]
+z_index = -2
 y_sort_enabled = true
 
 [node name="VoidZoneBarrier" type="TileMapLayer" parent="GameTileMap"]
@@ -69,12 +71,65 @@ tile_map_data = PackedByteArray("AABCADAADwAZAB4AAABCADEADwAZAB8AAAA8ADAADwAZABg
 tile_set = ExtResource("3_xkoce")
 
 [node name="Traps" type="Node2D" parent="."]
+y_sort_enabled = true
 position = Vector2(1064, 813)
 
 [node name="SpikeTrap" parent="Traps" instance=ExtResource("9_fj20l")]
 
+[node name="SpikeTrap3" parent="Traps" instance=ExtResource("9_fj20l")]
+position = Vector2(0, 16)
+initial_delay = 4.5
+
+[node name="SpikeTrap4" parent="Traps" instance=ExtResource("9_fj20l")]
+position = Vector2(15, -15)
+
+[node name="SpikeTrap5" parent="Traps" instance=ExtResource("9_fj20l")]
+position = Vector2(15, 0)
+initial_delay = 4.5
+
+[node name="SpikeTrap6" parent="Traps" instance=ExtResource("9_fj20l")]
+position = Vector2(-16, 0)
+initial_delay = 4.5
+
+[node name="SpikeTrap7" parent="Traps" instance=ExtResource("9_fj20l")]
+position = Vector2(-16, -16)
+
+[node name="SpikeTrap8" parent="Traps" instance=ExtResource("9_fj20l")]
+position = Vector2(-16, 16)
+
+[node name="SpikeTrap9" parent="Traps" instance=ExtResource("9_fj20l")]
+position = Vector2(15, 16)
+
 [node name="SpikeTrap2" parent="Traps" instance=ExtResource("9_fj20l")]
 position = Vector2(256, 1)
+
+[node name="SpikeTrap10" parent="Traps" instance=ExtResource("9_fj20l")]
+position = Vector2(240, -15)
+
+[node name="SpikeTrap11" parent="Traps" instance=ExtResource("9_fj20l")]
+position = Vector2(240, 17)
+
+[node name="SpikeTrap12" parent="Traps" instance=ExtResource("9_fj20l")]
+position = Vector2(240, 1)
+initial_delay = 4.5
+
+[node name="SpikeTrap13" parent="Traps" instance=ExtResource("9_fj20l")]
+position = Vector2(272, 1)
+initial_delay = 4.5
+
+[node name="SpikeTrap14" parent="Traps" instance=ExtResource("9_fj20l")]
+position = Vector2(272, -15)
+
+[node name="SpikeTrap15" parent="Traps" instance=ExtResource("9_fj20l")]
+position = Vector2(256, -15)
+initial_delay = 4.5
+
+[node name="SpikeTrap16" parent="Traps" instance=ExtResource("9_fj20l")]
+position = Vector2(256, 17)
+initial_delay = 4.5
+
+[node name="SpikeTrap17" parent="Traps" instance=ExtResource("9_fj20l")]
+position = Vector2(272, 17)
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -172,6 +227,10 @@ transition_id = "to_sewers_floor_2"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/ToFloor2"]
 position = Vector2(1440.75, 711)
 shape = SubResource("RectangleShape2D_6nd7v")
+
+[node name="Sign" parent="." instance=ExtResource("10_veyob")]
+position = Vector2(897, 730)
+start_dialogue = "start_sewer_floor_1"
 
 [connection signal="body_entered" from="Zones/ToSewers" to="Zones/ToSewers" method="_on_body_entered"]
 [connection signal="body_entered" from="Zones/ToFloor2" to="Zones/ToFloor2" method="_on_body_entered"]
