@@ -8,6 +8,7 @@ func _ready():
 	pass
 	
 func _on_body_entered(body: Node2D) -> void:
+	InventoryManager.remove_collectible("skeleton_key")
 	SaveGameManager.save_game()
 	if body.is_in_group("player") and not is_transitioning:
 		is_transitioning = true

@@ -102,6 +102,7 @@ func on_tool_selected(tool: DataTypes.Tools) -> void:
 
 func _on_max_damage_reached() -> void:
 	print("Player reached max damage! You pass out!")
+	InventoryManager.remove_collectible("skeleton_key")
 	await respawn()
 
 func fade_out() -> void:

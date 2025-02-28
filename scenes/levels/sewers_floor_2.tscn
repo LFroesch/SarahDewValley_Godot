@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://c7fwy8kchrxhd"]
+[gd_scene load_steps=20 format=4 uid="uid://c7fwy8kchrxhd"]
 
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_go36w"]
 [ext_resource type="Script" path="res://scenes/components/save_level_data_component.gd" id="2_j7hl5"]
@@ -10,6 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://e2f4sp0xrvir" path="res://scenes/characters/enemies/skeleton/skeleton_chief/skeleton_chief_spawner.tscn" id="8_e1gmj"]
 [ext_resource type="PackedScene" uid="uid://yv8lwo5wee0b" path="res://scenes/characters/enemies/goblins/goblin_chief/goblin_chief_spawner.tscn" id="8_ipklm"]
 [ext_resource type="PackedScene" uid="uid://k6r5p2e4wl38" path="res://scenes/objects/obstacles/spikes/floor_spikes/spike_trap.tscn" id="8_mhk8i"]
+[ext_resource type="PackedScene" uid="uid://btw0rmxgyeb3e" path="res://scenes/objects/obstacles/gate/horizontal_gate.tscn" id="10_hotlg"]
+[ext_resource type="PackedScene" uid="uid://bljktoacd5p5y" path="res://scenes/items/skeleton_key.tscn" id="11_2w2o5"]
+[ext_resource type="PackedScene" uid="uid://bqr7k12i3mp47" path="res://scenes/objects/obstacles/gate/vertical_gate.tscn" id="12_427lx"]
+[ext_resource type="PackedScene" uid="uid://bmgxchyiiok6u" path="res://scenes/objects/obstacles/pressure_plates/pressure_plate.tscn" id="13_p8l5v"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mh4dm"]
 vertices = PackedVector2Array(1201.87, 40, 1060.74, 40, 1059.26, -16.0625, 1201.12, -16.9297)
@@ -260,6 +264,28 @@ position = Vector2(1191, 967)
 
 [node name="SpikeTrap6" parent="Traps" instance=ExtResource("8_mhk8i")]
 position = Vector2(1176, 830)
+
+[node name="HorizontalGate" parent="Traps" instance=ExtResource("10_hotlg")]
+position = Vector2(1447, 927)
+
+[node name="HorizontalGate3" parent="Traps" instance=ExtResource("10_hotlg")]
+position = Vector2(1462, 927)
+
+[node name="HorizontalGate2" parent="Traps" instance=ExtResource("10_hotlg")]
+position = Vector2(1431, 927)
+
+[node name="SkeletonKey" parent="Traps" instance=ExtResource("11_2w2o5")]
+position = Vector2(1389, 887)
+
+[node name="VerticalGate" parent="Traps" instance=ExtResource("12_427lx")]
+position = Vector2(1348, 1103)
+
+[node name="VerticalGate2" parent="Traps" instance=ExtResource("12_427lx")]
+position = Vector2(1348, 1074)
+
+[node name="PressurePlate" parent="Traps" instance=ExtResource("13_p8l5v")]
+position = Vector2(1289, 1087)
+target_gates = Array[NodePath]([NodePath("../VerticalGate2"), NodePath("../VerticalGate")])
 
 [node name="Zones" type="Node2D" parent="."]
 

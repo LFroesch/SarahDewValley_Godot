@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://buterdf3flxyi"]
+
+[ext_resource type="Script" path="res://scenes/objects/obstacles/pressure_plates/pressure_plate.gd" id="1_v4hb5"]
+[ext_resource type="Texture2D" uid="uid://b28g013falxrg" path="res://assets/game/objects/Runes.png" id="2_egdcw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_420se"]
+atlas = ExtResource("2_egdcw")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odiax"]
+atlas = ExtResource("2_egdcw")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k6csj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_420se")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odiax")
+}],
+"loop": false,
+"name": &"pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k15cp"]
+size = Vector2(15.2727, 15)
+
+[node name="PressurePlate4" type="Node2D"]
+script = ExtResource("1_v4hb5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -7.5)
+scale = Vector2(1, 0.96875)
+sprite_frames = SubResource("SpriteFrames_k6csj")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="PlayerDetectionArea" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionArea"]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_k15cp")
+
+[node name="ReactivationTimer" type="Timer" parent="."]

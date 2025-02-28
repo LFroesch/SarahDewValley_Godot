@@ -10,8 +10,8 @@ This boat goes to the center island.
 This boat goes to the starter island / respawn area.
 => END
 ~ start_sewer_boat_n
-This boat goes to the sewer area in Brady Town.
+This boat goes to the sewer / market area in Brady Town.
 => END
 ~ start_sewer_boat_s
-This boat goes to the starter island / respawn area.
+This boat goes to the Farming area.
 => END

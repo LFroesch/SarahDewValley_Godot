@@ -120,16 +120,16 @@ transition_id = "to_sewers"
 position = Vector2(936, 808.25)
 shape = SubResource("RectangleShape2D_8wsfc")
 
-[node name="BoatToStarterIsland" type="Area2D" parent="Zones"]
+[node name="BoatToCropIsland" type="Area2D" parent="Zones"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_dsg8f")
-transition_id = "to_starter_island"
+transition_id = "to_crop_island"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/BoatToStarterIsland"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/BoatToCropIsland"]
 position = Vector2(1049, 841)
 shape = SubResource("RectangleShape2D_eehy6")
 
 [connection signal="body_entered" from="Zones/TransitionAreatoStarterZone" to="Zones/TransitionAreatoStarterZone" method="_on_body_entered"]
 [connection signal="body_entered" from="Zones/TransitionAreatoSewers" to="Zones/TransitionAreatoSewers" method="_on_body_entered"]
-[connection signal="body_entered" from="Zones/BoatToStarterIsland" to="Zones/BoatToStarterIsland" method="_on_body_entered"]
+[connection signal="body_entered" from="Zones/BoatToCropIsland" to="Zones/BoatToCropIsland" method="_on_body_entered"]
