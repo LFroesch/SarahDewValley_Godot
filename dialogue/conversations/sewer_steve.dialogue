@@ -5,7 +5,9 @@ else
 	=> talk_to_steve
 	
 ~ talk_to_steve
-Sewer Steve: [[Hi|Hello|Howdy]], welcome to the sewers!
+Sewer Steve: [[Hi|Hello|Howdy]], welcome to the sewers! To enter, run up to the fountain.
+Sewer Steve: If you want to exit, just use the ladder. To go deeper, find the door in the level.
+Sewer Steve: Want to do some quests? (Coming Soon)
 => END
 
 ~ turnin_for_my_friend_in_town

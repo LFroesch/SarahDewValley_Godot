@@ -1,3 +1,4 @@
+#LevelTransitionArea.gd
 extends Area2D
 
 @export var transition_id: String = "to_city"
@@ -7,6 +8,7 @@ func _ready():
 	pass
 	
 func _on_body_entered(body: Node2D) -> void:
+	SaveGameManager.save_game()
 	if body.is_in_group("player") and not is_transitioning:
 		is_transitioning = true
 		var transitions = SceneManager.level_transitions.get(SceneManager.current_level)

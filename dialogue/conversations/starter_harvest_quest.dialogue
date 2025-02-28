@@ -7,42 +7,42 @@ else
 	=> harvest_quests_start
 	
 ~ harvest_quests_start
-Quest Giver: [[Hi|Hello|Howdy]], would you like to start a farming quest?
-- Corn
+Harry: [[Hi|Hello|Howdy]], would you like to start a farming quest?
+- Corn [if !QuestManager.active_quests.has("harvest_corn")]
 	=> start_harvest_corn_quest
-- Tomato
+- Tomato [if !QuestManager.active_quests.has("harvest_tomato")]
 	=> start_harvest_tomato_quest
 - No thanks
 	=> END
 	
 ~ start_harvest_corn_quest
-Quest Giver: We need 10 corn for the village! Want to start this quest?
+Harry: We need 10 corn for the village! Want to start this quest?
 - Yes
-	Quest Giver: Excellent! Bring me back the 10 corn when you are finished.
+	Harry: Excellent! Bring me back the 10 corn when you are finished.
 	do GameDialogueManager.action_start_quest("harvest_corn")
 	=> harvest_quests_start
 - No
-	Quest Giver: Okay, come back if you change your mind.
+	Harry: Okay, come back if you change your mind.
 	=> END
 
 ~ start_harvest_tomato_quest
-Quest Giver: We need 10 tomatoes for the village! Want to start this quest?
+Harry: We need 10 tomatoes for the village! Want to start this quest?
 - Yes
-	Quest Giver: Excellent! Bring me back the 10 tomatoes when you are finished.
+	Harry: Excellent! Bring me back the 10 tomatoes when you are finished.
 	do GameDialogueManager.action_start_quest("harvest_tomato")
 	=> harvest_quests_start
 - No
-	Quest Giver: Okay, come back if you change your mind.
+	Harry: Okay, come back if you change your mind.
 	=> END
 
 ~ tomato_quest_ready_for_turnin
-Quest Giver: You've brought us 10 tomatoes! Thank you!
-Quest Giver: Here's your reward as promised.
+Harry: You've brought us 10 tomatoes! Thank you!
+Harry: Here's your reward as promised.
 do QuestManager.complete_quest("harvest_tomato")
-=> harvest_quests_start
+=> start_harvest_quest
 
 ~ corn_quest_ready_for_turnin
-Quest Giver: You've brought us 10 corn! Thank you!
-Quest Giver: Here's your reward as promised.
+Harry: You've brought us 10 corn! Thank you!
+Harry: Here's your reward as promised.
 do QuestManager.complete_quest("harvest_corn")
-=> harvest_quests_start
+=> start_harvest_quest

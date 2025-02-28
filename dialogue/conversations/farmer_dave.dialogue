@@ -1,0 +1,16 @@
+~ farmer_dave_entrance
+if QuestManager.ready_for_turnin_quests.has("farmer_dave")
+	=> turnin_for_farmer_dave
+else
+	=> talk_to_farmer_dave
+	
+~ talk_to_farmer_dave
+Farmer Dave: [[Hi|Hello|Howdy]], welcome to the farmlands!
+Farmer Dave: Its a whole wide open area for you to farm.
+Farmer Dave: If you talk to Harry the harvest Quest Giver to our right, you can get quests for farming!
+=> END
+
+~ turnin_for_farmer_dave
+Farmer Dave: Hey you found me! Here's your reward.
+do QuestManager.complete_quest("farmer_dave")
+=> talk_to_farmer_dave

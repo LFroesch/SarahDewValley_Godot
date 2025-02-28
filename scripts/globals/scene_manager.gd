@@ -1,3 +1,4 @@
+#SceneManager.gd
 extends Node
 
 var main_scene_path: String = "res://scenes/main_scene.tscn"
@@ -105,6 +106,9 @@ func load_level(level: String, spawn_position: Vector2 = Vector2.ZERO) -> void:
 		var player = get_tree().get_first_node_in_group("player")
 		if player and spawn_position != Vector2.ZERO:
 			player.global_position = spawn_position
+	await get_tree().process_frame
+	if level == "Level1":
+		SaveGameManager.load_game()
 
 func save_level_state() -> void:
 	var config = ConfigFile.new()

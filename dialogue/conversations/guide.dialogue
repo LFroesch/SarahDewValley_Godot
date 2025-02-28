@@ -1,47 +1,63 @@
 ~ start
-if ToolManager.has_farming_tools()
-	Guide: [[Hi|Hello|Howdy]], nice to see you again.
-	Guide: Is there anything I can help you with?
-	- Ask about Farming
-		Guide: You can till the ground with your hoe and then plant Corn & Tomatoes.
-		Guide: You then need to water it once, and they each grow over 4 days.
-	- Ask about Gathering
-		Guide: You can chop down trees and mine rocks for extra resources.
-		Guide: They are not currently used in this patch. More to come soon!
-	- Ask about Animals
-		Guide: You can feed the animals with the crates near their pastures.
-		Guide: Feeding them will give you Milk & Eggs (and make them happy)
-	- Ask about Combat
-		Guide: To fight monsters like Goblins, use your axe tool the same way you would chop a tree.
-		Guide: Or cast magic spells! Hotkeys can be found in Ask About Controls.
-		Guide: Magic abilities like those currently have a cooldown, but later youll use mana on them.
-		Guide: Keep your health above 0 by eating food and hit them enough times to kill them.
-		Guide: Monsters can drop different loot depending on their type!
-	- Ask about Controls
-		Guide: Escape takes you to main menu. WASD for character movement.
-		Guide: Tab swaps between Farming or Combat Tool Bars, Combat shows your cooldowns for moves.
-		Guide: Left Mouse Click to select tools, or eat food in your inventory.
-		Guide: Right Click with a tool will use it or attack with the axe in the direction you are facing.
-		Guide: P will quick save. E will interact with chests, like this guide. 
-		Guide: B will pull up your Inventory. Q will pull up your quest log.
-		Guide: CTRL+Right Click with the hoe will clear a tilled soil patch / crop patch.
-		Guide: Z will quick eat eggs for 15 health, X will quick eat milk for 20 health, if you have it.
-		Guide: F casts Fire Nova, an area of effect attack around the player. G casts fireball, a ranged cast attack. 
-		Guide: R casts Holy Nova, which heals you and deals a small amount of damage around the player.
-	- Ask about Objectives
-		Guide: You can farm crops and animal products to use as food.
-		Guide: Take your food into battle to fight enemies with spells and melee!
-		Guide: Get gold to purchase different farming seeds & various products
-		Guide: Quests are another way to get rewards, talk to npcs to find if they have quests to give you!
+if ToolManager.has_farming_tools() == false
+	=> still_need_seeds
+if !QuestManager.completed_quests.has("talk_to_larry")
+	=> quest_reminder
+elif QuestManager.completed_quests.has("talk_to_larry")
+	=> guide_options
 else
-	Guide: [[Hi|Hello|Howdy]], nice to meet you.
-	Guide: Welcome to SarahDewValley!
-	Guide: As you can see the cows and chickens are hungry.
-	Guide: You need to grow some crops to feed them!
-	Guide: Here are some seeds and tools to grow some crops.
-	- Take crop seeds
-		Player: Yeah I can grow crops!
-		do GameDialogueManager.action_give_crop_seeds()
-	- No, I don't want them
-		Player: No, I'm not ready to grow my farm yet.
+	=> still_need_seeds
 => END
+
+~ quest_reminder
+Jerry: Reminder, the Larry quest I gave you will familiarize you to the different locations in the game!
+Jerry: He's in the center island, southeast from us. You can also take the boat to our right.
+=> guide_options
+
+~ still_need_seeds
+Jerry: [[Hi|Hello|Howdy]], nice to meet you. Welcome to SarahDewValley!
+Jerry: As you can see the cows and chickens are hungry. You need to grow some crops to feed them!
+Jerry: Here are some seeds and tools to grow some crops. Also, I'm giving you a quest to talk with Larry.
+Jerry: He is in the center island, south east from here, you can also take the boat to our right.
+do GameDialogueManager.action_give_crop_seeds()
+do GameDialogueManager.action_start_quest("talk_to_larry")
+=> guide_options
+
+~ guide_options
+Jerry: Let me tell you about the controls / how to play this game.
+- Ask about Farming
+	Jerry: You can till the ground with your hoe and then plant Corn & Tomatoes.
+	Jerry: You then need to water it once, and they each grow over 4 days.
+	Jerry: You can feed the animals with the crates near their pastures.
+	Jerry: Feeding them will give you Milk & Eggs (and make them happy!)
+	=> guide_options
+- Ask about Gathering
+	Jerry: You can chop down trees and mine rocks for extra resources.
+	Jerry: They are not currently used in this patch. More to come soon!
+	=> guide_options
+- Ask about Combat
+	Jerry: To fight monsters like Goblins, use your axe tool the same way you would chop a tree.
+	Jerry: Or cast magic spells! Hotkeys can be found in Ask About Controls.
+	Jerry: Magic abilities like those currently have a cooldown, but later youll use mana on them.
+	Jerry: Keep your health above 0 by eating food and hit them enough times to kill them.
+	Jerry: Monsters can drop different loot depending on their type!
+	=> guide_options
+- Ask about Controls
+	Jerry: Escape takes you to main menu. WASD for character movement.
+	Jerry: Tab swaps between Farming or Combat Tool Bars, Combat shows your cooldowns for moves.
+	Jerry: Left Mouse Click to select tools, or eat food in your inventory.
+	Jerry: Right Click with a tool will use it or attack with the axe in the direction you are facing.
+	Jerry: P will quick save. E will interact with chests, like this guide. 
+	Jerry: B will pull up your Inventory. Q will pull up your quest log. C will pull up your stats.
+	Jerry: CTRL+Right Click with the hoe will clear a tilled soil patch / crop patch.
+	Jerry: Z will quick eat eggs for 15 health, X will quick eat milk for 20 health, if you have it.
+	Jerry: F casts Fire Nova, an area of effect attack around the player. G casts fireball, a ranged cast attack. 
+	Jerry: R casts Holy Nova, which heals you and deals a small amount of damage around the player.
+	=> guide_options
+- Ask about Objectives
+	Jerry: You can farm crops and animal products to use as food.
+	Jerry: Take your food into battle to fight enemies with spells and melee!
+	Jerry: Get gold to purchase different farming seeds & various products
+	Jerry: Quests are another way to get rewards, talk to npcs to find if they have quests to give you!
+	Jerry: If you haven't talked to Larry yet, make sure to go find him in the center island.
+	=> guide_options

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://c7fwy8kchrxhd"]
+[gd_scene load_steps=16 format=4 uid="uid://c7fwy8kchrxhd"]
 
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_go36w"]
 [ext_resource type="Script" path="res://scenes/components/save_level_data_component.gd" id="2_j7hl5"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://0jray3ndncg3" path="res://scenes/points/spawn_point.tscn" id="6_bgf6s"]
 [ext_resource type="PackedScene" uid="uid://bc3r3htvo5h4c" path="res://scenes/characters/enemies/goblins/goblin_camp.tscn" id="7_ll38e"]
 [ext_resource type="PackedScene" uid="uid://e2f4sp0xrvir" path="res://scenes/characters/enemies/skeleton/skeleton_chief/skeleton_chief_spawner.tscn" id="8_e1gmj"]
+[ext_resource type="PackedScene" uid="uid://yv8lwo5wee0b" path="res://scenes/characters/enemies/goblins/goblin_chief/goblin_chief_spawner.tscn" id="8_ipklm"]
 [ext_resource type="PackedScene" uid="uid://k6r5p2e4wl38" path="res://scenes/objects/obstacles/spikes/floor_spikes/spike_trap.tscn" id="8_mhk8i"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mh4dm"]
@@ -26,6 +27,12 @@ source_geometry_mode = 2
 vertices = PackedVector2Array(1230.93, 60.7891, 1100, 58.1875, 1100, -72, 1230.06, -72)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(1090, 68, 1090, -82, 1240, -82, 1241, 71)])
+source_geometry_mode = 2
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_dn70w"]
+vertices = PackedVector2Array(1283.92, -63.0703, 1283.07, 49.9219, 1035.78, 48.0703, 1033.23, -64.9219)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1026, 58, 1023, -75, 1294, -73, 1293, 60)])
 source_geometry_mode = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4v836"]
@@ -84,13 +91,13 @@ one_shot = true
 max_goblins = 6
 
 [node name="SpawnPoint" parent="Enemies/GoblinCamp2" instance=ExtResource("6_bgf6s")]
-position = Vector2(1215, 1122)
+position = Vector2(1086, 1047)
 
 [node name="SpawnPoint2" parent="Enemies/GoblinCamp2" instance=ExtResource("6_bgf6s")]
-position = Vector2(1310, 1110)
+position = Vector2(1193, 1041)
 
 [node name="SpawnPoint3" parent="Enemies/GoblinCamp2" instance=ExtResource("6_bgf6s")]
-position = Vector2(1251, 1064)
+position = Vector2(1297, 1050)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Enemies/GoblinCamp2"]
 position = Vector2(-72, 964)
@@ -115,6 +122,22 @@ position = Vector2(1408, 775)
 
 [node name="SpawnPoint3" parent="Enemies/SkeletonChiefSpawner" instance=ExtResource("6_bgf6s")]
 position = Vector2(1473, 823)
+
+[node name="GoblinChiefSpawner" parent="Enemies" instance=ExtResource("8_ipklm")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Enemies/GoblinChiefSpawner"]
+position = Vector2(32, 1086)
+navigation_polygon = SubResource("NavigationPolygon_dn70w")
+navigation_layers = 16
+
+[node name="SpawnPoint" parent="Enemies/GoblinChiefSpawner" instance=ExtResource("6_bgf6s")]
+position = Vector2(1089, 1110)
+
+[node name="SpawnPoint2" parent="Enemies/GoblinChiefSpawner" instance=ExtResource("6_bgf6s")]
+position = Vector2(1192, 1117)
+
+[node name="SpawnPoint3" parent="Enemies/GoblinChiefSpawner" instance=ExtResource("6_bgf6s")]
+position = Vector2(1294, 1112)
 
 [node name="Traps" type="Node2D" parent="."]
 

@@ -15,6 +15,7 @@ var quest_kill_counts: Dictionary = {}
 var quest_completion_counts: Dictionary = {}
 
 var quests: Dictionary = {
+	#(Tutorial) First Kill Quest Skeleton Chief
 	"banesword": {
 		"title": "The Giant Skeleton",
 		"description": "Defeat Banesword the giant skeleton south of town.",
@@ -31,7 +32,24 @@ var quests: Dictionary = {
 		},
 		"requires_turnin": true,
 		"repeatable": true
-	},
+	}, #Goblin Chief Kill Quest
+	"ruknash_the_terrible": {
+		"title": "Ruknash the Terrible",
+		"description": "Defeat Ruknash the Terrible, north east of town.",
+		"objectives": {
+			"kill_enemy": {
+				"enemy_type": "goblin_chief",
+				"count": 1,
+				"current": 0
+			}
+		},
+		"rewards": {
+			"experience": 200,
+			"gold": 50
+		},
+		"requires_turnin": true,
+		"repeatable": true
+	}, #Goblin Kill Quest
 	"goblin_encroachment": {
 		"title": "Goblin Encroachment",
 		"description": "Defeat 20 goblins in the world or the sewers.",
@@ -48,7 +66,7 @@ var quests: Dictionary = {
 		},
 		"requires_turnin": true,
 		"repeatable": true
-	},
+	}, #Skeleton Kill Quest
 	"skeleton_encroachment": {
 		"title": "Skeleton Encroachment",
 		"description": "Defeat 20 skeletons in the world or the sewers.",
@@ -65,7 +83,7 @@ var quests: Dictionary = {
 		},
 		"requires_turnin": true,
 		"repeatable": true
-	},
+	}, #(Tutorial) Talk to Steve
 	"my_friend_in_town": {
 		"title": "My Friend In Town",
 		"description": "Go to Brady Town and talk to my friend by the fountain.",
@@ -81,7 +99,39 @@ var quests: Dictionary = {
 		"turnin_npc": "steve",
 		"requires_turnin": true,
 		"repeatable": false
-	},
+	}, #(Tutorial) Talk to Farmer Dave
+	"farmer_dave": {
+		"title": "Farmer Dave",
+		"description": "Go southeast and find Farmer Dave.",
+		"objectives": {
+			"talk_to": {
+				"target": "farmer_dave"
+			}
+		},
+		"rewards": {
+			"experience": 100,
+			"gold": 10
+		},
+		"turnin_npc": "farmer_dave",
+		"requires_turnin": true,
+		"repeatable": false
+	}, #(Tutorial) Talk to Larry
+	"talk_to_larry": {
+		"title": "Talk to Larry",
+		"description": "Go to the middle island and find Larry, he's southeast from spawn.",
+		"objectives": {
+			"talk_to": {
+				"target": "larry"
+			}
+		},
+		"rewards": {
+			"experience": 100,
+			"gold": 10
+		},
+		"turnin_npc": "larry",
+		"requires_turnin": true,
+		"repeatable": false
+	}, #HarvestCorn
 		"harvest_corn": {
 		"title": "Corn Harvest",
 		"description": "Plant and Harvest 10 corn.",
@@ -101,7 +151,7 @@ var quests: Dictionary = {
 		},
 		"requires_turnin": true,
 		"repeatable": true
-	},
+	}, #HarvestTomato
 		"harvest_tomato": {
 		"title": "Tomato Harvest",
 		"description": "Plant and Harvest 10 tomato.",
@@ -131,18 +181,15 @@ func _ready() -> void:
 
 func start_quest(quest_id: String) -> void:
 	if not quests.has(quest_id):
-		printerr("Attempted to start nonexistent quest: ", quest_id)
 		return
 	
 	if completed_quests.has(quest_id):
 		var quest = quests[quest_id]
 		
 		if not quest.has("repeatable") or not quest.repeatable:
-			print("Quest already completed and not repeatable: ", quest_id)
 			return
 	
 	if ready_for_turnin_quests.has(quest_id):
-		print("Quest ready for turnin: ", quest_id)
 		return
 	
 	if completed_quests.has(quest_id):
@@ -160,7 +207,6 @@ func start_quest(quest_id: String) -> void:
 			quest_kill_counts[quest_id][enemy_type] = 0
 			objective.current = 0
 	
-	print("Started quest: ", quests[quest_id].title)
 	quest_started.emit(quest_id)
 	save_quest_data()
 
@@ -181,9 +227,6 @@ func record_quest_kill(enemy_type: String) -> void:
 				
 				quest_kill_counts[quest_id][enemy_type] += 1
 				objective.current = quest_kill_counts[quest_id][enemy_type]
-				
-				print("Quest kill recorded: %s for quest %s, count: %d/%d" % 
-					  [enemy_type, quest_id, objective.current, objective.count])
 				
 				var progress = float(objective.current) / float(objective.count)
 				quest_updated.emit(quest_id, progress)
@@ -250,7 +293,6 @@ func mark_quest_ready_for_turnin(quest_id: String) -> void:
 	
 	if not ready_for_turnin_quests.has(quest_id):
 		ready_for_turnin_quests.append(quest_id)
-		print("Quest objectives completed: ", quest.title)
 		quest_objectives_completed.emit(quest_id)
 		save_quest_data()
 
@@ -259,6 +301,15 @@ func complete_quest(quest_id: String) -> void:
 		return
 	
 	var quest = active_quests.get(quest_id, quests.get(quest_id))
+	
+	for objective_key in quest.objectives:
+		var objective = quest.objectives[objective_key]
+		if objective_key == "collect_item":
+			var item_type = objective.item_type
+			var count_to_remove = objective.count
+			
+			for i in count_to_remove:
+				InventoryManager.remove_collectible(item_type)
 	
 	if not quest_completion_counts.has(quest_id):
 		quest_completion_counts[quest_id] = 0
@@ -302,8 +353,6 @@ func complete_quest(quest_id: String) -> void:
 		current_quest = ""
 
 	quest_kill_counts.erase(quest_id)
-	
-	print("Completed quest: ", quest.title)
 	quest_completed.emit(quest_id)
 	save_quest_data()
 
@@ -387,7 +436,6 @@ func save_quest_data() -> void:
 
 func load_quest_data() -> void:
 	if not FileAccess.file_exists(save_data_path):
-		print("No quest save data found. Starting freshsh.")
 		return
 	
 	var save_resource = ResourceLoader.load(save_data_path)
@@ -423,8 +471,6 @@ func reset_quests() -> void:
 	ready_for_turnin_quests = []
 	quest_kill_counts = {}
 	quest_completion_counts = {}
-	
-	print("All quest data has been reset")
 	
 	# Delete the save file if it exists
 	if FileAccess.file_exists(save_data_path):

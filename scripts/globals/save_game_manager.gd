@@ -1,3 +1,4 @@
+#SaveGameManager.gd
 extends Node
 
 var allow_save_game: bool

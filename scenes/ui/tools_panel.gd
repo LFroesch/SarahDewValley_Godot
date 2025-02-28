@@ -13,7 +13,7 @@ extends PanelContainer
 @onready var holy_nova_timer_label: Label = null
 
 var player: Player = null
-var is_combat_mode: bool = true  # Start in combat mode by default
+var is_combat_mode: bool = false
 
 func _ready() -> void:
 	ToolManager.enable_tool.connect(on_enable_tool_button)

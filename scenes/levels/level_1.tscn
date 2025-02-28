@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://6aaf7agcl7se"]
+[gd_scene load_steps=43 format=4 uid="uid://6aaf7agcl7se"]
 
 [ext_resource type="TileSet" uid="uid://bmlpnsyieusmk" path="res://tilesets/game_tile_set.tres" id="1_2ojy1"]
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_ludhu"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bowtbua0rig86" path="res://scenes/characters/interactable_characters/guide/guide.tscn" id="5_o4b8e"]
 [ext_resource type="Script" path="res://scenes/components/crops_cursor_component.gd" id="5_vwmls"]
 [ext_resource type="PackedScene" uid="uid://djketpxhxd8qe" path="res://scenes/characters/animals/cow/cow.tscn" id="6_ai8wf"]
+[ext_resource type="PackedScene" uid="uid://cqt1kijsjt63k" path="res://scenes/characters/interactable_characters/quests/talk_to_friends/farmer_dave.tscn" id="6_ul2hw"]
 [ext_resource type="PackedScene" uid="uid://cksuucjl74u7n" path="res://scenes/characters/animals/cow/baby_cow.tscn" id="7_4rlpg"]
 [ext_resource type="PackedScene" uid="uid://cgxf0v4bcen23" path="res://scenes/characters/interactable_characters/quests/starter_island/starter_quests.tscn" id="10_d2pac"]
 [ext_resource type="PackedScene" uid="uid://f3es2c3cbna7" path="res://scenes/characters/animals/brady/brady.tscn" id="10_udajt"]
@@ -19,11 +20,12 @@
 [ext_resource type="PackedScene" uid="uid://dhmo50rvq72w2" path="res://scenes/characters/interactable_characters/quests/harvest_crops_quests/harvest_crops_quests.tscn" id="14_0pb2a"]
 [ext_resource type="PackedScene" uid="uid://bc3r3htvo5h4c" path="res://scenes/characters/enemies/goblins/goblin_camp.tscn" id="15_6grri"]
 [ext_resource type="PackedScene" uid="uid://0jray3ndncg3" path="res://scenes/points/spawn_point.tscn" id="15_hs7bb"]
-[ext_resource type="PackedScene" uid="uid://dimy5fwmsi8ht" path="res://scenes/characters/interactable_characters/quests/talk_to_steve/talk_to_steve.tscn" id="15_mscah"]
+[ext_resource type="PackedScene" uid="uid://dimy5fwmsi8ht" path="res://scenes/characters/interactable_characters/quests/talk_to_friends/talk_to_steve.tscn" id="15_mscah"]
 [ext_resource type="PackedScene" uid="uid://e2f4sp0xrvir" path="res://scenes/characters/enemies/skeleton/skeleton_chief/skeleton_chief_spawner.tscn" id="16_23cy2"]
 [ext_resource type="PackedScene" uid="uid://b5q4e3xg0ck85" path="res://scenes/characters/enemies/skeleton/skeleton_warrior/skeleton_camp.tscn" id="16_i0diq"]
 [ext_resource type="PackedScene" uid="uid://dcq44nd1tybfl" path="res://scenes/objects/chest/chicken_chest.tscn" id="16_vxhf0"]
 [ext_resource type="Script" path="res://scenes/levels/level_transitions/LevelTransitionArea.gd" id="21_8jo7l"]
+[ext_resource type="PackedScene" uid="uid://yv8lwo5wee0b" path="res://scenes/characters/enemies/goblins/goblin_chief/goblin_chief_spawner.tscn" id="21_elfxi"]
 [ext_resource type="PackedScene" uid="uid://ddbh5oc61wqd0" path="res://scenes/objects/healing_crystal/healing_crystal.tscn" id="21_o8vma"]
 [ext_resource type="PackedScene" uid="uid://cx7i8n4vctneg" path="res://scenes/characters/interactable_characters/sign/sign.tscn" id="26_f2pks"]
 
@@ -57,16 +59,28 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(431, 467, 304, 465, 303, 607, 432, 607)])
 source_geometry_mode = 2
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_dlil0"]
+vertices = PackedVector2Array(1283.97, 240, 1193.48, 241.547, 1213.79, 222.242, 1259.24, 213.148, 1257.98, 169.172, 1255.14, 148.758, 1301.61, 164.789, 1438.3, 53.8594, 1449.8, 107.758, 1422.02, 109.563, 1348.86, 72.8984, 1355.67, 138.992, 1411.12, 204.352, 1356, 222.391, 1356, 240.867, 1407.8, 220.32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(11, 10, 9, 12), PackedInt32Array(13, 14, 0, 3, 6, 11), PackedInt32Array(3, 4, 6), PackedInt32Array(13, 11, 12, 15)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1168, 252, 1209, 213, 1249, 205, 1248, 170, 1243, 134, 1301, 154, 1345, 133, 1338, 65, 1446, 42, 1462, 117, 1431, 119, 1421, 206, 1416, 230, 1366, 232, 1366, 251, 1284, 250)])
+source_geometry_mode = 2
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_c5e07"]
+vertices = PackedVector2Array(1406.94, 215.141, 1427.65, 224.344, 1426.48, 247.133, 1374.81, 247.906, 1362.95, 226.742, 1321.94, 97.9922, 1323.98, 79, 1355.72, 79, 1357.42, 101.992, 1321.95, 98, 1322.36, 173.32, 1319.76, 119.883, 1368.24, 108.297, 1361.87, 158.359, 1336.19, 201.961, 1370.25, 200.242, 1406.94, 215.133, 1303.08, 152.359)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 9), PackedInt32Array(10, 11, 9, 8, 12, 13, 14), PackedInt32Array(15, 16, 0, 4, 14), PackedInt32Array(13, 15, 14), PackedInt32Array(10, 17, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1314, 179, 1291, 154, 1310, 117, 1312, 97, 1315, 69, 1365, 69, 1367, 96, 1379, 103, 1372, 158, 1379, 193, 1411, 206, 1438, 218, 1436, 257, 1369, 258, 1355, 233, 1328, 208)])
+source_geometry_mode = 2
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_x8wv2"]
+vertices = PackedVector2Array(1406.59, 16.4688, 1465.15, -0.617188, 1503.35, -8.40625, 1501.93, 2.9375, 1482.7, 51.3125, 1400.78, 73.7031, 1428.9, 324.078, 1467.37, 333.43, 1474.18, 352.82, 1441.77, 354.813, 1404.52, 329.68, 1301.9, 189.344, 1273.51, 179.461, 1280.99, 166, 1295.72, 160.281, 1321.56, 166.891, 1320.09, 150.25, 1376.4, 168.172, 1312.06, 98.6484, 1313, 87.8203, 1363.34, 97.0469, 1468.95, 123.852, 1469.78, 163.797, 1415.8, 162.813, 1390.51, 95.6875, 1506.98, 47.5703, 1393.58, 293.867, 1417.01, 225.703, 1368.23, 275.508, 1381.91, 242.18, 1384.07, 192.688, 1478.19, 104.328, 1434.57, -12.2969)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 8, 9, 10), PackedInt32Array(11, 12, 13, 14, 15), PackedInt32Array(15, 14, 16, 17), PackedInt32Array(16, 18, 19, 20, 17), PackedInt32Array(21, 22, 23, 24, 5), PackedInt32Array(3, 25, 4), PackedInt32Array(6, 10, 26, 27), PackedInt32Array(27, 26, 28, 29), PackedInt32Array(27, 29, 30, 23), PackedInt32Array(24, 23, 30, 17, 20), PackedInt32Array(31, 21, 5, 4), PackedInt32Array(32, 1, 0)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1274, 158, 1292, 151, 1309, 144, 1302, 99, 1304, 76, 1364, 87, 1384, 86, 1391, 71, 1397, 12, 1432, -24, 1466, -11, 1515, -21, 1512, 3, 1518, 56, 1492, 60, 1488, 107, 1479, 126, 1480, 174, 1426, 173, 1427, 225, 1438, 316, 1475, 325, 1488, 362, 1439, 365, 1396, 336, 1385, 300, 1356, 279, 1372, 240, 1374, 194, 1369, 178, 1326, 177, 1305, 201, 1259, 185)])
+source_geometry_mode = 2
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_iywel"]
 vertices = PackedVector2Array(1363.8, 184.5, 1384.29, 217.891, 1284.92, 229.578, 1168.65, 138.5, 1081.77, 50.7109, 1198.43, -46.3438, 1265.29, 1.92969, 1324, 62, 1372.28, 62, 1291.95, 11.5313, 1324, 20.5625)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(0, 2, 3, 4, 5, 6, 7), PackedInt32Array(7, 8, 0), PackedInt32Array(7, 6, 9), PackedInt32Array(7, 9, 10)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(1067, 50, 1198, -59, 1270, -7, 1295, 2, 1334, 13, 1334, 52, 1383, 52, 1374, 182, 1401, 226, 1282, 240, 1162, 146)])
-source_geometry_mode = 2
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_dlil0"]
-vertices = PackedVector2Array(1283.98, 240, 1199.15, 241.461, 1306.17, 162.602, 1352.26, 29.8984, 1438.4, 29.1172, 1411.78, 115.203, 1355.17, 139.227, 1361.14, 240.969, 1424.48, 203.156, 1409.82, 221.68)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(7, 0, 2, 6, 5, 8, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1168, 252, 1301, 154, 1345, 133, 1342, 20, 1452, 19, 1422, 116, 1435, 206, 1416, 230, 1363, 251, 1284, 250)])
 source_geometry_mode = 2
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_o5q5f"]
@@ -79,12 +93,6 @@ source_geometry_mode = 2
 vertices = PackedVector2Array(1115.12, 115.273, 1101.3, 20.3281, 1120.83, -25.2266, 1161.25, -15.1328, 1169.25, 141, 1275.14, 141, 1330.99, 2.82813, 1317.23, 102.828, 1378.52, 88.9766, 1377.44, 16.7734, 1400.28, 42.1406, 1401.72, 61.6406)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 4, 3, 6, 7), PackedInt32Array(8, 7, 6, 9, 10, 11)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(1106, 122, 1091, 19, 1115, -37, 1163, -25, 1333, -7, 1383, 8, 1410, 38, 1412, 65, 1384, 98, 1322, 112, 1279, 151, 1167, 151)])
-source_geometry_mode = 2
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_c5e07"]
-vertices = PackedVector2Array(1370.25, 200.242, 1403.58, 213.773, 1415.19, 238.742, 1372.2, 238.063, 1336.28, 202.141, 1361.87, 158.359, 1322.94, 174.523, 1321.82, 99.2734, 1329.01, 79.8438, 1355.73, 79.2188, 1357.42, 101.992, 1319.88, 118.688, 1368.24, 108.297, 1311.6, 152.719)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 0, 4, 6), PackedInt32Array(7, 8, 9, 10, 11), PackedInt32Array(12, 5, 6, 13, 11, 10)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1314, 179, 1301, 154, 1310, 117, 1312, 97, 1322, 70, 1365, 69, 1367, 96, 1379, 103, 1372, 158, 1379, 193, 1411, 206, 1431, 249, 1368, 248, 1328, 208)])
 source_geometry_mode = 2
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_871c1"]
@@ -157,7 +165,7 @@ tile_set = ExtResource("1_2ojy1")
 
 [node name="Objects" type="TileMapLayer" parent="GameTileMap" groups=["navigation_polygon_source_geometry_group"]]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAUABAABgAAAAAABAAWAA4ABgAAAAAABQATAA0ABgAAAAAABgAZAA8ABgAAAAAABwAaABAABgAAAAAABwAbAA8ABgAAAAAABwAdAA4ABgAAAAAABwAdAAwABgAAAAAABwAdAA0ABgAAAAAABwAPABwADAADAAAAAAAOABwADAACAAMAAAANABwADAACAAMAAAAMABwADAACAAMAAAALABwADAACAAMAAAAKABwADAACAAMAAAAJABwADAACAAMAAAAIABwADAACAAMAAAAHABwADAACAAMAAAAGABwADAACAAMAAAAFABwADAABAAAAAAAFACMADAABAAIAAAAFACIADAAAAAEAAAAFACEADAAAAAEAAAAFACAADAAAAAEAAAAFAB8ADAAAAAEAAAAFAB4ADAAAAAEAAAAFAB0ADAAAAAEAAAAIACMADAACAAMAAAAHACMADAACAAMAAAAGACMADAACAAMAAAAJACMADAADAAMAAAAPACMADAADAAIAAAAPACIADAAAAAEAAAAPACEADAAAAAEAAAAPACAADAAAAAEAAAAPAB8ADAAAAAEAAAAPAB4ADAAAAAEAAAAPAB0ADAAAAAEAAAAOACMADAACAAMAAAANACMADAACAAMAAAAMACMADAABAAMAAAAbABwADAADAAAAAAAaABwADAACAAMAAAAZABwADAACAAMAAAAYABwADAACAAMAAAAXABwADAACAAMAAAAWABwADAACAAMAAAAVABwADAACAAMAAAAUABwADAACAAMAAAATABwADAACAAMAAAASABwADAABAAAAAAASACIADAAAAAIAAAASACEADAAAAAEAAAASACAADAAAAAEAAAASAB8ADAAAAAEAAAASAB4ADAAAAAEAAAASAB0ADAAAAAEAAAAbACYADAADAAIAAAAbACUADAAAAAEAAAAbACQADAAAAAEAAAAbACMADAAAAAEAAAAbACIADAAAAAEAAAAbACEADAAAAAEAAAAbACAADAAAAAEAAAAbAB8ADAAAAAEAAAAbAB4ADAAAAAEAAAAbAB0ADAAAAAEAAAAaACYADAACAAMAAAAZACYADAACAAMAAAAYACYADAACAAMAAAAXACYADAACAAMAAAAWACYADAACAAMAAAAVACYADAACAAMAAAAUACYADAACAAMAAAATACYADAACAAMAAAASACYADAABAAIAAAASACUADAAAAAAAAABDAAYADAAAAAEAAABDAAUADAAAAAEAAABDAAQADAAAAAEAAABDAAMADAAAAAEAAABDAAIADAAAAAEAAABDAAEADAAAAAEAAABDAAAADAABAAAAAABRAAAADAACAAMAAABQAAAADAACAAMAAABPAAAADAACAAMAAABOAAAADAACAAMAAABNAAAADAACAAMAAABMAAAADAACAAMAAABLAAAADAACAAMAAABKAAAADAACAAMAAABJAAAADAACAAMAAABIAAAADAACAAAAAABHAAAADAACAAMAAABGAAAADAACAAMAAABFAAAADAACAAMAAABEAAAADAACAAMAAABSAAcADAADAAIAAABSAAYADAAAAAEAAABSAAUADAAAAAEAAABSAAQADAAAAAEAAABSAAMADAAAAAEAAABSAAIADAAAAAEAAABSAAEADAAAAAEAAABSAAAADAADAAAAAABRAAcADAACAAMAAABQAAcADAACAAMAAABPAAcADAACAAMAAABOAAcADAACAAMAAABNAAcADAABAAMAAABKAAcADAADAAMAAABJAAcADAACAAMAAABIAAcADAACAAMAAABHAAcADAACAAMAAABGAAcADAACAAMAAABFAAcADAACAAMAAABEAAcADAACAAMAAABDAAcADAABAAIAAAAcABMABgAAAAAABQAsABUABgAAAAAABQAEAAoABgAAAAAABQAgABEABgAAAAAABgA+ABEABgAAAAAABgArABQABgAAAAAABAAtABYABgAAAAAABAAuABYABgAAAAAABAAqAAYABgAAAAAABQAFACYABgAAAAAABQAGACcABgAAAAAABAAFACQABgAAAAAABwAHACYABgAAAAAABwAtABQABgAAAAAABwADAAsABgAAAAAABwAFAAoABgAAAAAABwBAABAABgAAAAAABwA/ABEABgAAAAAABwArAAcABgAAAAAABwAsAAYABgAAAAAABwBIAAEADAAAAAEAAABIAAIADAAAAAEAAABIAAMADAAAAAIAAAAEADwABgAAAAAABAAQAD4ABgAAAAAABAARAD0ABgAAAAAABAAeAEsABgAAAAAABAAbAE4ABgAAAAAABAAZAE4ABgAAAAAABAAeADsABgAAAAAABAAhADsABgAAAAAABAAZADgABgAAAAAABAAYADUABgAAAAAABAAbADIABgAAAAAABAANADkABgAAAAAABAAQADcABgAAAAAABAAHADkABgAAAAAABAAGAD0ABgAAAAAABgAOADcABgAAAAAABgAZADMABgAAAAAABgAgADoABgAAAAAABgAeAEQABgAAAAAABgAaAE0ABgAAAAAABgAdAE0ABgAAAAAABQAgAEMABgAAAAAABQAhAD0ABgAAAAAABQAiADwABgAAAAAABQAgADwABgAAAAAABQAdAD0ABgAAAAAABQAeADwABgAAAAAABQAgAD0ABgAAAAAABAAfAD4ABgAAAAAABAAdAD4ABgAAAAAABAAfADsABgAAAAAABAAeAD8ABgAAAAAABgAfAD0ABgAAAAAABwAgAD4ABgAAAAAABwAfAD8ABgAAAAAABwAhAD4ABgAAAAAABwAiAD8ABgAAAAAABwAcAD8ABgAAAAAABwAbAD0ABgAAAAAABwAcADwABgAAAAAABwAdADsABgAAAAAABwAdADkABgAAAAAABwAiADkABgAAAAAABwAjADoABgAAAAAABwAkADkABgAAAAAABwAcAEUABgAAAAAABwAcAEQABgAAAAAABwAbAEQABgAAAAAABwAcAEoABgAAAAAABwAbAEwABgAAAAAABwAXAEoABgAAAAAABwAYAEwABgAAAAAABwAHAD4ABgAAAAAABwAIAD0ABgAAAAAABwAGAD8ABgAAAAAABwAGADkABgAAAAAABwAFADoABgAAAAAABwAMADYABgAAAAAABwAMADgABgAAAAAABwAOADoABgAAAAAABwAPADkABgAAAAAABwAOADkABgAAAAAABwAWADIABgAAAAAABwAXADIABgAAAAAABwAXADMABgAAAAAABwAcADIABgAAAAAABwAeADIABgAAAAAABwAdADEABgAAAAAABwAmADYABgAAAAAABwATAD4ABgAAAAAABwATAD8ABgAAAAAABwAUAD4ABgAAAAAABwAUADsABgAAAAAABwAUADwABgAAAAAABwATADwABgAAAAAABwAKAC8ABgAAAAAABQAMAC4ABgAAAAAABgAMAC8ABgAAAAAABwAAADUABgAAAAAABQAAADYABgAAAAAABwABAD0ABgAAAAAABwABADwABgAAAAAABgALAE0ABgAAAAAABgAJAEsABgAAAAAABQAIAEoABgAAAAAABQAHAEkABgAAAAAABAAGAEgABgAAAAAABAAGAEkABgAAAAAABAAFAEgABgAAAAAABAAHAEgABgAAAAAABwAKAEoABgAAAAAABwALAEsABgAAAAAABwAJAEkABgAAAAAABwAMAE0ABgAAAAAABwAMAE4ABgAAAAAABwALAE4ABgAAAAAABwAMAE8ABgAAAAAABwBJAAwABgAAAAAABgBPABcABgAAAAAABQBQABgABgAAAAAABQBKAA0ABgAAAAAABQBPABAABgAAAAAABQBQABEABgAAAAAABQBRABkABgAAAAAABABSABkABgAAAAAABABQABIABgAAAAAABABRABIABgAAAAAABABXAAEABgAAAAAABABZAAEABgAAAAAABgBYAAIABgAAAAAABQBTAAMABgAAAAAABwBUAAIABgAAAAAABwBWAAEABgAAAAAABwBLAAwABgAAAAAABwBMAAsABgAAAAAABwBNAAwABgAAAAAABwBRAA8ABgAAAAAABwBRABYABgAAAAAABwBUABoABgAAAAAABwBWABQABgAAAAAABwBWABUABgAAAAAABwBZAAsABgAAAAAABwBaAAwABgAAAAAABwBZAA0ABgAAAAAABwBbAAMABgAAAAAABwBTAAsABgAAAAAABwARAAcABgAAAAAABAAXAAQABgAAAAAABAAXAAgABgAAAAAABAARAAQABgAAAAAABQAVAAcABgAAAAAABQAUAAQABgAAAAAABgAZAAQABgAAAAAABgASAAkABgAAAAAABwATAAcABgAAAAAABwASAAUABgAAAAAABwAZAAgABgAAAAAABwAYAAYABgAAAAAABwBFADgADAABAAIAAABGADgADAADAAAAAABGADkADAABAAIAAABHADkADAADAAAAAABEADcADAABAAIAAABFADcADAADAAAAAABEADYADAADAAAAAABDADYADAACAAMAAABCADYADAACAAMAAABBADYADAACAAMAAABAADYADAACAAMAAAA/ADYADAACAAMAAAA+ADYADAACAAMAAAA9ADYADAACAAMAAAA8ADYADAACAAMAAAA7ADYADAACAAMAAAA6ADYADAACAAMAAAA5ADYADAACAAMAAAA4ADYADAACAAMAAAA3ADYADAACAAMAAAA2ADYADAACAAMAAAA1ADYADAABAAAAAAA1ADcADAADAAIAAAA0ADcADAABAAAAAAAzADgADAABAAAAAAAzADkADAADAAIAAAAyADkADAABAAAAAAAyADoADAAAAAEAAAAyADsADAADAAIAAAAxADsADAACAAMAAAAwADsADAACAAMAAAAvADsADAACAAMAAAAuADsADAABAAMAAAA0ADgADAADAAIAAAAuAD8ADAABAAMAAAAvAD8ADAACAAMAAAAwAD8ADAACAAMAAAAxAD8ADAACAAMAAAAyAD8ADAADAAAAAAAyAEAADAAAAAEAAAAyAEEADAABAAIAAAAzAEEADAADAAAAAAAzAEIADAABAAIAAAA0AEIADAADAAAAAAA0AEMADAABAAIAAAA1AEMADAADAAAAAAA1AEQADAABAAIAAAA2AEQADAACAAMAAAA3AEQADAACAAMAAAA4AEQADAADAAAAAAA4AEUADAAAAAEAAAA4AEYADAAAAAEAAAA4AEcADAAAAAEAAAA4AEgADAAAAAEAAAA4AEkADAABAAIAAAA5AEkADAADAAAAAAA5AEoADAAAAAEAAAA5AEsADAAAAAEAAAA5AEwADAABAAIAAAA6AEwADAADAAAAAAA6AE0ADAAAAAEAAAA6AE4ADAABAAIAAAA7AE4ADAADAAAAAAA7AE8ADAABAAIAAAA8AE8ADAADAAAAAAA8AFAADAABAAIAAAA9AFAADAACAAMAAAA+AFAADAACAAMAAAA/AFAADAACAAMAAABAAFAADAADAAAAAABAAFEADAABAAIAAABBAFEADAACAAMAAABCAFEADAACAAMAAABDAFEADAACAAMAAABEAFEADAADAAIAAABEAFAADAABAAAAAABFAFAADAACAAMAAABGAFAADAADAAIAAABGAE8ADAAAAAEAAABGAE4ADAAAAAEAAABGAE0ADAAAAAEAAABGAEwADAAAAAEAAABGAEsADAABAAAAAABHAEsADAADAAIAAABHAEoADAAAAAEAAABHAEkADAAAAAEAAABHAEgADAAAAAEAAABHAEcADAAAAAEAAABHAEYADAAAAAEAAABHAEUADAAAAAEAAABHAEQADAAAAAEAAABHAEMADAAAAAEAAABHAEIADAAAAAEAAABHAEEADAAAAAEAAABHAEAADAAAAAEAAABHAD8ADAAAAAEAAABHAD4ADAAAAAEAAABHAD0ADAAAAAEAAABHADwADAAAAAEAAABHADsADAAAAAEAAABHADoADAAAAAEAAAA=")
+tile_map_data = PackedByteArray("AAAUABAABgAAAAAABAAWAA4ABgAAAAAABQATAA0ABgAAAAAABgAZAA8ABgAAAAAABwAaABAABgAAAAAABwAbAA8ABgAAAAAABwAdAA4ABgAAAAAABwAdAAwABgAAAAAABwAdAA0ABgAAAAAABwAPABwADAADAAAAAAAOABwADAACAAMAAAANABwADAACAAMAAAAMABwADAACAAMAAAALABwADAACAAMAAAAKABwADAACAAMAAAAJABwADAACAAMAAAAIABwADAACAAMAAAAHABwADAACAAMAAAAGABwADAACAAMAAAAFABwADAABAAAAAAAFACMADAABAAIAAAAFACIADAAAAAEAAAAFACEADAAAAAEAAAAFACAADAAAAAEAAAAFAB8ADAAAAAEAAAAFAB4ADAAAAAEAAAAFAB0ADAAAAAEAAAAIACMADAACAAMAAAAHACMADAACAAMAAAAGACMADAACAAMAAAAJACMADAADAAMAAAAPACMADAADAAIAAAAPACIADAAAAAEAAAAPACEADAAAAAEAAAAPACAADAAAAAEAAAAPAB8ADAAAAAEAAAAPAB4ADAAAAAEAAAAPAB0ADAAAAAEAAAAOACMADAACAAMAAAANACMADAACAAMAAAAMACMADAABAAMAAAAbABwADAADAAAAAAAaABwADAACAAMAAAAZABwADAACAAMAAAAYABwADAACAAMAAAAXABwADAACAAMAAAAWABwADAACAAMAAAAVABwADAACAAMAAAAUABwADAACAAMAAAATABwADAACAAMAAAASABwADAABAAAAAAASACIADAAAAAIAAAASACEADAAAAAEAAAASACAADAAAAAEAAAASAB8ADAAAAAEAAAASAB4ADAAAAAEAAAASAB0ADAAAAAEAAAAbACYADAADAAIAAAAbACUADAAAAAEAAAAbACQADAAAAAEAAAAbACMADAAAAAEAAAAbACIADAAAAAEAAAAbACEADAAAAAEAAAAbACAADAAAAAEAAAAbAB8ADAAAAAEAAAAbAB4ADAAAAAEAAAAbAB0ADAAAAAEAAAAaACYADAACAAMAAAAZACYADAACAAMAAAAYACYADAACAAMAAAAXACYADAACAAMAAAAWACYADAACAAMAAAAVACYADAACAAMAAAAUACYADAACAAMAAAATACYADAACAAMAAAASACYADAABAAIAAAASACUADAAAAAAAAABDAAYADAAAAAEAAABDAAUADAAAAAEAAABDAAQADAAAAAEAAABDAAMADAAAAAEAAABDAAIADAAAAAEAAABDAAEADAAAAAEAAABDAAAADAABAAAAAABRAAAADAACAAMAAABQAAAADAACAAMAAABPAAAADAACAAMAAABOAAAADAACAAMAAABNAAAADAACAAMAAABMAAAADAACAAMAAABLAAAADAACAAMAAABKAAAADAACAAMAAABJAAAADAACAAMAAABIAAAADAACAAAAAABHAAAADAACAAMAAABGAAAADAACAAMAAABFAAAADAACAAMAAABEAAAADAACAAMAAABSAAcADAADAAIAAABSAAYADAAAAAEAAABSAAUADAAAAAEAAABSAAQADAAAAAEAAABSAAMADAAAAAEAAABSAAIADAAAAAEAAABSAAEADAAAAAEAAABSAAAADAADAAAAAABRAAcADAACAAMAAABQAAcADAACAAMAAABPAAcADAACAAMAAABOAAcADAACAAMAAABNAAcADAABAAMAAABKAAcADAADAAMAAABJAAcADAACAAMAAABIAAcADAACAAMAAABHAAcADAACAAMAAABGAAcADAACAAMAAABFAAcADAACAAMAAABEAAcADAACAAMAAABDAAcADAABAAIAAAAcABMABgAAAAAABQAsABUABgAAAAAABQAEAAoABgAAAAAABQAgABEABgAAAAAABgA+ABEABgAAAAAABgArABQABgAAAAAABAAtABYABgAAAAAABAAuABYABgAAAAAABAAqAAYABgAAAAAABQAFACYABgAAAAAABQAGACcABgAAAAAABAAFACQABgAAAAAABwAHACYABgAAAAAABwAtABQABgAAAAAABwADAAsABgAAAAAABwAFAAoABgAAAAAABwBAABAABgAAAAAABwA/ABEABgAAAAAABwArAAcABgAAAAAABwAsAAYABgAAAAAABwBIAAEADAAAAAEAAABIAAIADAAAAAEAAABIAAMADAAAAAIAAAAEADwABgAAAAAABAAQAD4ABgAAAAAABAARAD0ABgAAAAAABAAeAEsABgAAAAAABAAbAE4ABgAAAAAABAAZAE4ABgAAAAAABAAeADsABgAAAAAABAAhADsABgAAAAAABAAZADgABgAAAAAABAAYADUABgAAAAAABAAbADIABgAAAAAABAANADkABgAAAAAABAAQADcABgAAAAAABAAHADkABgAAAAAABAAGAD0ABgAAAAAABgAOADcABgAAAAAABgAZADMABgAAAAAABgAgADoABgAAAAAABgAeAEQABgAAAAAABgAaAE0ABgAAAAAABgAdAE0ABgAAAAAABQAgAEMABgAAAAAABQAhAD0ABgAAAAAABQAiADwABgAAAAAABQAgADwABgAAAAAABQAdAD0ABgAAAAAABQAeADwABgAAAAAABQAgAD0ABgAAAAAABAAfAD4ABgAAAAAABAAdAD4ABgAAAAAABAAfADsABgAAAAAABAAeAD8ABgAAAAAABgAfAD0ABgAAAAAABwAgAD4ABgAAAAAABwAfAD8ABgAAAAAABwAhAD4ABgAAAAAABwAiAD8ABgAAAAAABwAcAD8ABgAAAAAABwAbAD0ABgAAAAAABwAcADwABgAAAAAABwAdADsABgAAAAAABwAdADkABgAAAAAABwAiADkABgAAAAAABwAjADoABgAAAAAABwAkADkABgAAAAAABwAcAEUABgAAAAAABwAcAEQABgAAAAAABwAbAEQABgAAAAAABwAcAEoABgAAAAAABwAbAEwABgAAAAAABwAXAEoABgAAAAAABwAYAEwABgAAAAAABwAHAD4ABgAAAAAABwAIAD0ABgAAAAAABwAGAD8ABgAAAAAABwAGADkABgAAAAAABwAFADoABgAAAAAABwAMADYABgAAAAAABwAMADgABgAAAAAABwAOADoABgAAAAAABwAPADkABgAAAAAABwAOADkABgAAAAAABwAWADIABgAAAAAABwAXADIABgAAAAAABwAXADMABgAAAAAABwAcADIABgAAAAAABwAeADIABgAAAAAABwAdADEABgAAAAAABwAmADYABgAAAAAABwATAD4ABgAAAAAABwATAD8ABgAAAAAABwAUAD4ABgAAAAAABwAUADsABgAAAAAABwAUADwABgAAAAAABwATADwABgAAAAAABwAKAC8ABgAAAAAABQAMAC4ABgAAAAAABgAMAC8ABgAAAAAABwAAADUABgAAAAAABQAAADYABgAAAAAABwABAD0ABgAAAAAABwABADwABgAAAAAABgALAE0ABgAAAAAABgAJAEsABgAAAAAABQAIAEoABgAAAAAABQAHAEkABgAAAAAABAAGAEgABgAAAAAABAAGAEkABgAAAAAABAAFAEgABgAAAAAABAAHAEgABgAAAAAABwAKAEoABgAAAAAABwALAEsABgAAAAAABwAJAEkABgAAAAAABwAMAE0ABgAAAAAABwAMAE4ABgAAAAAABwALAE4ABgAAAAAABwAMAE8ABgAAAAAABwBJAAwABgAAAAAABgBPABcABgAAAAAABQBQABgABgAAAAAABQBKAA0ABgAAAAAABQBPABAABgAAAAAABQBQABEABgAAAAAABQBRABkABgAAAAAABABSABkABgAAAAAABABQABIABgAAAAAABABRABIABgAAAAAABABXAAEABgAAAAAABABZAAEABgAAAAAABgBYAAIABgAAAAAABQBTAAMABgAAAAAABwBUAAIABgAAAAAABwBWAAEABgAAAAAABwBLAAwABgAAAAAABwBMAAsABgAAAAAABwBNAAwABgAAAAAABwBRABYABgAAAAAABwBUABoABgAAAAAABwBWABQABgAAAAAABwBWABUABgAAAAAABwBZAAsABgAAAAAABwBaAAwABgAAAAAABwBZAA0ABgAAAAAABwBbAAMABgAAAAAABwARAAcABgAAAAAABAAXAAQABgAAAAAABAAXAAgABgAAAAAABAARAAQABgAAAAAABQAVAAcABgAAAAAABQAUAAQABgAAAAAABgAZAAQABgAAAAAABgASAAkABgAAAAAABwATAAcABgAAAAAABwASAAUABgAAAAAABwAZAAgABgAAAAAABwAYAAYABgAAAAAABwBFADgADAABAAIAAABGADgADAADAAAAAABGADkADAABAAIAAABHADkADAADAAAAAABEADcADAABAAIAAABFADcADAADAAAAAABEADYADAADAAAAAABDADYADAACAAMAAABCADYADAACAAMAAABBADYADAACAAMAAABAADYADAACAAMAAAA/ADYADAACAAMAAAA+ADYADAACAAMAAAA9ADYADAACAAMAAAA8ADYADAACAAMAAAA7ADYADAACAAMAAAA6ADYADAACAAMAAAA5ADYADAACAAMAAAA4ADYADAACAAMAAAA3ADYADAACAAMAAAA2ADYADAACAAMAAAA1ADYADAABAAAAAAA1ADcADAADAAIAAAA0ADcADAABAAAAAAAzADgADAABAAAAAAAzADkADAADAAIAAAAyADkADAABAAAAAAAyADoADAAAAAEAAAAyADsADAADAAIAAAAxADsADAACAAMAAAAwADsADAACAAMAAAAvADsADAACAAMAAAAuADsADAABAAMAAAA0ADgADAADAAIAAAAuAD8ADAABAAMAAAAvAD8ADAACAAMAAAAwAD8ADAACAAMAAAAxAD8ADAACAAMAAAAyAD8ADAADAAAAAAAyAEAADAAAAAEAAAAyAEEADAABAAIAAAAzAEEADAADAAAAAAAzAEIADAABAAIAAAA0AEIADAADAAAAAAA0AEMADAABAAIAAAA1AEMADAADAAAAAAA1AEQADAABAAIAAAA2AEQADAACAAMAAAA3AEQADAACAAMAAAA4AEQADAADAAAAAAA4AEUADAAAAAEAAAA4AEYADAAAAAEAAAA4AEcADAAAAAEAAAA4AEgADAAAAAEAAAA4AEkADAABAAIAAAA5AEkADAADAAAAAAA5AEoADAAAAAEAAAA5AEsADAAAAAEAAAA5AEwADAABAAIAAAA6AEwADAADAAAAAAA6AE0ADAAAAAEAAAA6AE4ADAABAAIAAAA7AE4ADAADAAAAAAA7AE8ADAABAAIAAAA8AE8ADAADAAAAAAA8AFAADAABAAIAAAA9AFAADAACAAMAAAA+AFAADAACAAMAAAA/AFAADAACAAMAAABAAFAADAADAAAAAABAAFEADAABAAIAAABBAFEADAACAAMAAABCAFEADAACAAMAAABDAFEADAACAAMAAABEAFEADAADAAIAAABEAFAADAABAAAAAABFAFAADAACAAMAAABGAFAADAADAAIAAABGAE8ADAAAAAEAAABGAE4ADAAAAAEAAABGAE0ADAAAAAEAAABGAEwADAAAAAEAAABGAEsADAABAAAAAABHAEsADAADAAIAAABHAEoADAAAAAEAAABHAEkADAAAAAEAAABHAEgADAAAAAEAAABHAEcADAAAAAEAAABHAEYADAAAAAEAAABHAEUADAAAAAEAAABHAEQADAAAAAEAAABHAEMADAAAAAEAAABHAEIADAAAAAEAAABHAEEADAAAAAEAAABHAEAADAAAAAEAAABHAD8ADAAAAAEAAABHAD4ADAAAAAEAAABHAD0ADAAAAAEAAABHADwADAAAAAEAAABHADsADAAAAAEAAABHADoADAAAAAEAAAA=")
 tile_set = ExtResource("1_2ojy1")
 
 [node name="TilledSoil" type="TileMapLayer" parent="GameTileMap"]
@@ -181,17 +189,20 @@ tilled_soil_tilemap_layer = NodePath("../../GameTileMap/TilledSoil")
 
 [node name="FriendlyNPCs" type="Node2D" parent="."]
 
-[node name="CombatQuestGiver" parent="FriendlyNPCs" instance=ExtResource("10_d2pac")]
+[node name="Gary(Combat)" parent="FriendlyNPCs" instance=ExtResource("10_d2pac")]
 position = Vector2(293, 681)
 
 [node name="Guide" parent="FriendlyNPCs" instance=ExtResource("5_o4b8e")]
-position = Vector2(307, 264)
+position = Vector2(239, 222)
 
-[node name="CropHarvestQuestGiver" parent="FriendlyNPCs" instance=ExtResource("14_0pb2a")]
-position = Vector2(224, 229)
+[node name="Harry(Harvest)" parent="FriendlyNPCs" instance=ExtResource("14_0pb2a")]
+position = Vector2(829, 943)
 
-[node name="TalktoSteveQuestGiver" parent="FriendlyNPCs" instance=ExtResource("15_mscah")]
-position = Vector2(572, 663)
+[node name="Larry(Tutorial)" parent="FriendlyNPCs" instance=ExtResource("15_mscah")]
+position = Vector2(574, 667)
+
+[node name="FarmerDave" parent="FriendlyNPCs" instance=ExtResource("6_ul2hw")]
+position = Vector2(764, 964)
 
 [node name="Animals" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -308,6 +319,60 @@ position = Vector2(400, 585)
 
 [node name="Enemies" type="Node2D" parent="."]
 
+[node name="NorthTopGobSpawn" parent="Enemies" instance=ExtResource("15_6grri")]
+
+[node name="SpawnPoint" parent="Enemies/NorthTopGobSpawn" instance=ExtResource("15_hs7bb")]
+position = Vector2(1402, 53)
+
+[node name="SpawnPoint2" parent="Enemies/NorthTopGobSpawn" instance=ExtResource("15_hs7bb")]
+position = Vector2(1374, 218)
+
+[node name="SpawnPoint3" parent="Enemies/NorthTopGobSpawn" instance=ExtResource("15_hs7bb")]
+position = Vector2(1367, 119)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Enemies/NorthTopGobSpawn"]
+navigation_polygon = SubResource("NavigationPolygon_dlil0")
+navigation_layers = 4
+
+[node name="RespawnTimer" type="Timer" parent="Enemies/NorthTopGobSpawn"]
+one_shot = true
+
+[node name="NorthBottomGobSpawn" parent="Enemies" instance=ExtResource("15_6grri")]
+
+[node name="SpawnPoint" parent="Enemies/NorthBottomGobSpawn" instance=ExtResource("15_hs7bb")]
+position = Vector2(1371, 403)
+
+[node name="SpawnPoint2" parent="Enemies/NorthBottomGobSpawn" instance=ExtResource("15_hs7bb")]
+position = Vector2(1341, 346)
+
+[node name="SpawnPoint3" parent="Enemies/NorthBottomGobSpawn" instance=ExtResource("15_hs7bb")]
+position = Vector2(1347, 297)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Enemies/NorthBottomGobSpawn"]
+position = Vector2(5, 178)
+navigation_polygon = SubResource("NavigationPolygon_c5e07")
+navigation_layers = 4
+
+[node name="RespawnTimer" type="Timer" parent="Enemies/NorthBottomGobSpawn"]
+one_shot = true
+
+[node name="GoblinChiefSpawner" parent="Enemies" instance=ExtResource("21_elfxi")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Enemies/GoblinChiefSpawner"]
+visible = false
+position = Vector2(-59, 58)
+navigation_polygon = SubResource("NavigationPolygon_x8wv2")
+navigation_layers = 16
+
+[node name="SpawnPoint3" parent="Enemies/GoblinChiefSpawner" instance=ExtResource("15_hs7bb")]
+position = Vector2(1375, 197)
+
+[node name="SpawnPoint2" parent="Enemies/GoblinChiefSpawner" instance=ExtResource("15_hs7bb")]
+position = Vector2(1386, 148)
+
+[node name="SpawnPoint" parent="Enemies/GoblinChiefSpawner" instance=ExtResource("15_hs7bb")]
+position = Vector2(1320, 197)
+
 [node name="SkeletonChiefSpawner" parent="Enemies" instance=ExtResource("16_23cy2")]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Enemies/SkeletonChiefSpawner"]
@@ -324,98 +389,61 @@ position = Vector2(193, 983)
 [node name="SpawnPoint3" parent="Enemies/SkeletonChiefSpawner" instance=ExtResource("15_hs7bb")]
 position = Vector2(276, 1146)
 
-[node name="GoblinCamp" parent="Enemies" instance=ExtResource("15_6grri")]
+[node name="SouthTopGobSpawn" parent="Enemies" instance=ExtResource("15_6grri")]
 
-[node name="SpawnPoint" parent="Enemies/GoblinCamp" instance=ExtResource("15_hs7bb")]
-position = Vector2(1402, 53)
-
-[node name="SpawnPoint2" parent="Enemies/GoblinCamp" instance=ExtResource("15_hs7bb")]
-position = Vector2(1374, 218)
-
-[node name="SpawnPoint3" parent="Enemies/GoblinCamp" instance=ExtResource("15_hs7bb")]
-position = Vector2(1367, 119)
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Enemies/GoblinCamp"]
-navigation_polygon = SubResource("NavigationPolygon_dlil0")
-navigation_layers = 4
-
-[node name="RespawnTimer" type="Timer" parent="Enemies/GoblinCamp"]
-one_shot = true
-
-[node name="GoblinCamp3" parent="Enemies" instance=ExtResource("15_6grri")]
-
-[node name="SpawnPoint" parent="Enemies/GoblinCamp3" instance=ExtResource("15_hs7bb")]
+[node name="SpawnPoint" parent="Enemies/SouthTopGobSpawn" instance=ExtResource("15_hs7bb")]
 position = Vector2(151, 804)
 
-[node name="SpawnPoint2" parent="Enemies/GoblinCamp3" instance=ExtResource("15_hs7bb")]
+[node name="SpawnPoint2" parent="Enemies/SouthTopGobSpawn" instance=ExtResource("15_hs7bb")]
 position = Vector2(84, 765)
 
-[node name="SpawnPoint3" parent="Enemies/GoblinCamp3" instance=ExtResource("15_hs7bb")]
+[node name="SpawnPoint3" parent="Enemies/SouthTopGobSpawn" instance=ExtResource("15_hs7bb")]
 position = Vector2(53, 855)
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Enemies/GoblinCamp3"]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Enemies/SouthTopGobSpawn"]
 position = Vector2(-1088, 798)
 navigation_polygon = SubResource("NavigationPolygon_o5q5f")
 navigation_layers = 4
 
-[node name="RespawnTimer" type="Timer" parent="Enemies/GoblinCamp3"]
+[node name="RespawnTimer" type="Timer" parent="Enemies/SouthTopGobSpawn"]
 one_shot = true
 
-[node name="GoblinCamp4" parent="Enemies" instance=ExtResource("15_6grri")]
+[node name="SouthBottomGobSpawn" parent="Enemies" instance=ExtResource("15_6grri")]
 
-[node name="SpawnPoint" parent="Enemies/GoblinCamp4" instance=ExtResource("15_hs7bb")]
+[node name="SpawnPoint" parent="Enemies/SouthBottomGobSpawn" instance=ExtResource("15_hs7bb")]
 position = Vector2(775, 1218)
 
-[node name="SpawnPoint2" parent="Enemies/GoblinCamp4" instance=ExtResource("15_hs7bb")]
+[node name="SpawnPoint2" parent="Enemies/SouthBottomGobSpawn" instance=ExtResource("15_hs7bb")]
 position = Vector2(645, 1281)
 
-[node name="SpawnPoint3" parent="Enemies/GoblinCamp4" instance=ExtResource("15_hs7bb")]
+[node name="SpawnPoint3" parent="Enemies/SouthBottomGobSpawn" instance=ExtResource("15_hs7bb")]
 position = Vector2(666, 1184)
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Enemies/GoblinCamp4"]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Enemies/SouthBottomGobSpawn"]
 position = Vector2(-595, 1163)
 navigation_polygon = SubResource("NavigationPolygon_frb4y")
 navigation_layers = 4
 
-[node name="RespawnTimer" type="Timer" parent="Enemies/GoblinCamp4"]
+[node name="RespawnTimer" type="Timer" parent="Enemies/SouthBottomGobSpawn"]
 one_shot = true
 
-[node name="GoblinCamp2" parent="Enemies" instance=ExtResource("15_6grri")]
+[node name="SouthSkeleSpawn" parent="Enemies" instance=ExtResource("16_i0diq")]
 
-[node name="SpawnPoint" parent="Enemies/GoblinCamp2" instance=ExtResource("15_hs7bb")]
-position = Vector2(1371, 403)
-
-[node name="SpawnPoint2" parent="Enemies/GoblinCamp2" instance=ExtResource("15_hs7bb")]
-position = Vector2(1341, 346)
-
-[node name="SpawnPoint3" parent="Enemies/GoblinCamp2" instance=ExtResource("15_hs7bb")]
-position = Vector2(1347, 297)
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Enemies/GoblinCamp2"]
-position = Vector2(5, 178)
-navigation_polygon = SubResource("NavigationPolygon_c5e07")
-navigation_layers = 4
-
-[node name="RespawnTimer" type="Timer" parent="Enemies/GoblinCamp2"]
-one_shot = true
-
-[node name="SkeletonCamp" parent="Enemies" instance=ExtResource("16_i0diq")]
-
-[node name="SpawnPoint" parent="Enemies/SkeletonCamp" instance=ExtResource("15_hs7bb")]
+[node name="SpawnPoint" parent="Enemies/SouthSkeleSpawn" instance=ExtResource("15_hs7bb")]
 position = Vector2(126, 1076)
 
-[node name="SpawnPoint2" parent="Enemies/SkeletonCamp" instance=ExtResource("15_hs7bb")]
+[node name="SpawnPoint2" parent="Enemies/SouthSkeleSpawn" instance=ExtResource("15_hs7bb")]
 position = Vector2(177, 1139)
 
-[node name="SpawnPoint3" parent="Enemies/SkeletonCamp" instance=ExtResource("15_hs7bb")]
+[node name="SpawnPoint3" parent="Enemies/SouthSkeleSpawn" instance=ExtResource("15_hs7bb")]
 position = Vector2(238, 1208)
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Enemies/SkeletonCamp"]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Enemies/SouthSkeleSpawn"]
 position = Vector2(-1012, 1015)
 navigation_polygon = SubResource("NavigationPolygon_871c1")
 navigation_layers = 8
 
-[node name="RespawnTimer" type="Timer" parent="Enemies/SkeletonCamp"]
+[node name="RespawnTimer" type="Timer" parent="Enemies/SouthSkeleSpawn"]
 one_shot = true
 
 [node name="Chests" type="Node2D" parent="."]
@@ -433,7 +461,7 @@ dialogue_start_command = "start_chicken_pasture_box"
 position = Vector2(-11, -4)
 
 [node name="Sign2" parent="Chests" instance=ExtResource("26_f2pks")]
-position = Vector2(92, -22)
+position = Vector2(91, -18)
 start_dialogue = "start_center_boat_n"
 
 [node name="Sign4" parent="Chests" instance=ExtResource("26_f2pks")]
@@ -441,7 +469,7 @@ position = Vector2(333, 194)
 start_dialogue = "start_center_boat_s"
 
 [node name="Sign3" parent="Chests" instance=ExtResource("26_f2pks")]
-position = Vector2(-138, 24)
+position = Vector2(-143, 35)
 start_dialogue = "start_sewer_boat_n"
 
 [node name="Zones" type="Node2D" parent="."]

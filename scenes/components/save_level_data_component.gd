@@ -1,3 +1,4 @@
+#SaveLevelDataComponent.gd
 class_name SaveLevelDataComponent
 extends Node
 

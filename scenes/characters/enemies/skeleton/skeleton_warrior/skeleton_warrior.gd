@@ -137,7 +137,7 @@ func take_damage(amount: float):
 		for loot in drops:
 			var offset = get_random_position(used_positions)
 			used_positions.append(offset)
-			loot.global_position = global_position + Vector2(0, 16) + offset
+			loot.global_position = global_position + offset
 			get_parent().call_deferred("add_child", loot)
 		died.emit()
 		animated_sprite.stop()

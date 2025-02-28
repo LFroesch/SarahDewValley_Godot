@@ -1,23 +1,43 @@
 ~ start_talk_to_quest
-if QuestManager.active_quests.has("my_friend_in_town")
+if QuestManager.active_quests.has("talk_to_larry")
+	=> talk_to_larry_turn_in
+elif QuestManager.active_quests.has("my_friend_in_town") or QuestManager.active_quests.has("farmer_dave")
 	=> talk_to_steve_in_progress
-elif !QuestManager.completed_quests.has("my_friend_in_town")
-	=> start
-else
+elif QuestManager.completed_quests.has("my_friend_in_town") and QuestManager.completed_quests.has("farmer_dave")
 	=> already_completed
+else
+	=> start
 
 ~ start
-Quest Giver: [[Hi|Hello|Howdy]], I've got a quest for you!
-Quest Giver: Go talk to my friend Steve to the East in Brady Town.
-Quest Giver: He will tell you about the sewers!
-- Yeah, sure
-	do GameDialogueManager.action_start_quest("my_friend_in_town")
-- No thanks.
+Larry: [[Hi|Hello|Howdy]], I've got some tasks for you!
+Larry: You're new around here so to get you settled in, go talk to some of my friends!
+Larry: Go talk to my friend Steve to the East in Brady Town. He will tell you about the sewers!
+Larry: Also go talk to Farmer Dave southeast of here, cross the bridge south and then head east.
+Larry: If you haven't yet, there are some combat quests to the West from another Quest Giver.
+Larry: I also want to tell you about the healing crystals, there is one right by us, if you stand next to it, you will heal.
+do GameDialogueManager.action_start_quest("my_friend_in_town")
+do GameDialogueManager.action_start_quest("farmer_dave")
 => END
 
 ~ talk_to_steve_in_progress
-Quest Giver: You need to head East to Brady Town to find Steve!
-=> END
+if QuestManager.active_quests.has("my_friend_in_town") and QuestManager.active_quests.has("farmer_dave")
+	Larry: You need to head East to Brady Town to find Steve!
+	Larry: You need to head southeast of here to find Farmer Dave!
+	=> END
+if QuestManager.active_quests.has("my_friend_in_town")
+	Larry: You need to head East to Brady Town to find Steve!
+	=> END
+if QuestManager.active_quests.has("farmer_dave")
+	Larry: You need to head southeast of here to find Farmer Dave!
+	=> END
+
+~ talk_to_larry_turn_in
+Larry: Thanks for coming to talk to me! Here's your reward, now let me see what other quests I've got for you.
+do QuestManager.complete_quest("talk_to_larry")
+=> start_talk_to_quest
 
 ~ already_completed
-Quest Giver: I'm glad you talked to Steve, thats all I've got for now!
+Larry: I'm glad you talked to Steve and Farmer Dave, thats all I've got for now!
+Larry: As a reminder, there are some combat quests to the west from Gary, another Quest Giver. Or back with Steve!
+Larry: Also the healing crystal next to us can heal you if you stand next to it.
+=> END

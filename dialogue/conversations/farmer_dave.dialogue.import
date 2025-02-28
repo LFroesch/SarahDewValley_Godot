@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://t38qnue23yo"
+path="res://.godot/imported/farmer_dave.dialogue-7f8d333fdadf564964ce480b08711857.tres"
+
+[deps]
+
+source_file="res://dialogue/conversations/farmer_dave.dialogue"
+dest_files=["res://.godot/imported/farmer_dave.dialogue-7f8d333fdadf564964ce480b08711857.tres"]
+
+[params]
+
+defaults=true
