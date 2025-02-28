@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://c7fwy8kchrxhd"]
+[gd_scene load_steps=21 format=4 uid="uid://c7fwy8kchrxhd"]
 
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_go36w"]
 [ext_resource type="Script" path="res://scenes/components/save_level_data_component.gd" id="2_j7hl5"]
@@ -41,6 +41,9 @@ source_geometry_mode = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4v836"]
 size = Vector2(13, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnlwo"]
+size = Vector2(29.5, 26)
 
 [node name="SewersFloor2" type="Node2D"]
 y_sort_enabled = true
@@ -289,14 +292,25 @@ target_gates = Array[NodePath]([NodePath("../VerticalGate2"), NodePath("../Verti
 
 [node name="Zones" type="Node2D" parent="."]
 
-[node name="TransitionAreatoSewers" type="Area2D" parent="Zones"]
+[node name="ToSewers" type="Area2D" parent="Zones"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_66f52")
 transition_id = "to_sewers"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/TransitionAreatoSewers"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/ToSewers"]
 position = Vector2(1513, 710)
 shape = SubResource("RectangleShape2D_4v836")
 
-[connection signal="body_entered" from="Zones/TransitionAreatoSewers" to="Zones/TransitionAreatoSewers" method="_on_body_entered"]
+[node name="ToFloor3" type="Area2D" parent="Zones/ToSewers"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_66f52")
+transition_id = "to_sewers_floor_3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/ToSewers/ToFloor3"]
+position = Vector2(1504, 966)
+shape = SubResource("RectangleShape2D_vnlwo")
+
+[connection signal="body_entered" from="Zones/ToSewers" to="Zones/ToSewers" method="_on_body_entered"]
+[connection signal="body_entered" from="Zones/ToSewers/ToFloor3" to="Zones/ToSewers/ToFloor3" method="_on_body_entered"]

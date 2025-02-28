@@ -13,7 +13,7 @@ func _ready():
 	unlock_check_area.body_entered.connect(_on_unlock_check_area_body_entered)
 
 func has_required_key(player):
-	if InventoryManager.inventory.has(required_key):
+	if required_key in InventoryManager.inventory and InventoryManager.inventory[required_key] > 0:
 		return true
 	return false
 

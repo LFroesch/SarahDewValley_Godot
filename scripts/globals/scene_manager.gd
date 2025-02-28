@@ -15,7 +15,10 @@ var level_scenes : Dictionary = {
 	"brady_city" : "res://scenes/levels/brady_city.tscn",
 	"the_sewers" : "res://scenes/levels/the_sewers.tscn",
 	"the_sewers_floor_1" : "res://scenes/levels/sewers_floor_1.tscn",
-	"the_sewers_floor_2" : "res://scenes/levels/sewers_floor_2.tscn"
+	"the_sewers_floor_2" : "res://scenes/levels/sewers_floor_2.tscn",
+	"the_sewers_floor_3" : "res://scenes/levels/sewers_floor_3.tscn",
+	"the_sewers_floor_4" : "res://scenes/levels/sewers_floor_4.tscn",
+	"the_sewers_floor_5" : "res://scenes/levels/sewers_floor_5.tscn",
 }
 
 var level_transitions : Dictionary = {
@@ -73,6 +76,36 @@ var level_transitions : Dictionary = {
 		}
 	},
 	"the_sewers_floor_2": {
+		"to_sewers": {
+			"target_level": "the_sewers",
+			"entry_point": Vector2(940, 875)
+		},
+		"to_sewers_floor_3": {
+			"target_level": "the_sewers_floor_3",
+			"entry_point": Vector2(865, 730)
+		}
+	},
+	"the_sewers_floor_3": {
+		"to_sewers": {
+			"target_level": "the_sewers",
+			"entry_point": Vector2(940, 875)
+		},
+		"to_sewers_floor_4": {
+			"target_level": "the_sewers_floor_4",
+			"entry_point": Vector2(865, 730)
+		}
+	},
+	"the_sewers_floor_4": {
+		"to_sewers": {
+			"target_level": "the_sewers",
+			"entry_point": Vector2(940, 875)
+		},
+		"to_sewers_floor_5": {
+			"target_level": "the_sewers_floor_5",
+			"entry_point": Vector2(865, 730)
+		}
+	},
+	"the_sewers_floor_5": {
 		"to_sewers": {
 			"target_level": "the_sewers",
 			"entry_point": Vector2(940, 875)

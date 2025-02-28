@@ -153,25 +153,25 @@ position = Vector2(1473, 823)
 
 [node name="Zones" type="Node2D" parent="."]
 
-[node name="TransitionAreatoSewers" type="Area2D" parent="Zones"]
+[node name="ToSewers" type="Area2D" parent="Zones"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_76kn5")
 transition_id = "to_sewers"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/TransitionAreatoSewers"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/ToSewers"]
 position = Vector2(1000, 712)
 shape = SubResource("RectangleShape2D_4v836")
 
-[node name="TransitionAreatoSewersFloor2" type="Area2D" parent="Zones"]
+[node name="ToFloor2" type="Area2D" parent="Zones"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_76kn5")
 transition_id = "to_sewers_floor_2"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/TransitionAreatoSewersFloor2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/ToFloor2"]
 position = Vector2(1440.75, 711)
 shape = SubResource("RectangleShape2D_6nd7v")
 
-[connection signal="body_entered" from="Zones/TransitionAreatoSewers" to="Zones/TransitionAreatoSewers" method="_on_body_entered"]
-[connection signal="body_entered" from="Zones/TransitionAreatoSewersFloor2" to="Zones/TransitionAreatoSewersFloor2" method="_on_body_entered"]
+[connection signal="body_entered" from="Zones/ToSewers" to="Zones/ToSewers" method="_on_body_entered"]
+[connection signal="body_entered" from="Zones/ToFloor2" to="Zones/ToFloor2" method="_on_body_entered"]

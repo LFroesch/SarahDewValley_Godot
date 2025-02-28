@@ -1,21 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2e08nh3yxyv8"]
+[gd_scene load_steps=7 format=3 uid="uid://cfjtqarvmqsot"]
 
-[ext_resource type="Script" path="res://scenes/objects/obstacles/pressure_plates/pressure_plate.gd" id="1_1oc0i"]
-[ext_resource type="Texture2D" uid="uid://b28g013falxrg" path="res://assets/game/objects/Runes.png" id="2_3trmg"]
+[ext_resource type="Script" path="res://scenes/objects/obstacles/pressure_plates/pressure_plate.gd" id="1_ogrb6"]
+[ext_resource type="Texture2D" uid="uid://b28g013falxrg" path="res://assets/game/objects/Runes.png" id="2_0odfd"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gbjh3"]
-atlas = ExtResource("2_3trmg")
-region = Rect2(96, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_nndi4"]
+atlas = ExtResource("2_0odfd")
+region = Rect2(96, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_etosa"]
-atlas = ExtResource("2_3trmg")
-region = Rect2(112, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbn3u"]
+atlas = ExtResource("2_0odfd")
+region = Rect2(112, 16, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_u46w1"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_c76qo"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gbjh3")
+"texture": SubResource("AtlasTexture_nndi4")
 }],
 "loop": false,
 "name": &"idle",
@@ -23,7 +23,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_etosa")
+"texture": SubResource("AtlasTexture_bbn3u")
 }],
 "loop": false,
 "name": &"pressed",
@@ -34,13 +34,13 @@ animations = [{
 size = Vector2(15.2727, 15)
 
 [node name="PressurePlate7" type="Node2D"]
-script = ExtResource("1_1oc0i")
+script = ExtResource("1_ogrb6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7.5)
 scale = Vector2(1, 0.96875)
-sprite_frames = SubResource("SpriteFrames_u46w1")
-animation = &"idle"
+sprite_frames = SubResource("SpriteFrames_c76qo")
+animation = &"pressed"
 autoplay = "idle"
 
 [node name="PlayerDetectionArea" type="Area2D" parent="."]
