@@ -8,14 +8,20 @@ else
 Sewer Steve: [[Hi|Hello|Howdy]], I'm Sewer Steve! welcome to the sewers! To enter, run up to the fountain.
 Sewer Steve: If you want to exit, just use the ladder. To go deeper, find the door in the level.
 Sewer Steve: I've got some quests if you'd like!
-- Ask about his brother, Sam.
-	do GameDialogueManager.action_start_quest("talk_to_sam_level_5")
-	Sewer Steve: My brother Sam is down every 5 floors, go meet up with him!
-	=> END
+- Sure!
+	- Sewer Sam
+		do GameDialogueManager.action_start_quest("talk_to_sam_level_5")
+		Sewer Steve: My brother Sam is down every 5 floors, go meet up with him!
+		=> END
+	- Skeleton Farming
+	- Goblin Farming
+	- Big Goblin Farming
+	- Big Skeleton Farming
 - No thanks, I'm gonna farm.
 	=> END
 
 ~ turnin_for_my_friend_in_town
 Sewer Steve: Hey you found me! Here's your reward.
+Reward: {{QuestManager.quests["my_friend_in_town"].rewards.experience}} exp | {{QuestManager.quests["my_friend_in_town"].rewards.gold}} coins.
 do QuestManager.complete_quest("my_friend_in_town")
 => talk_to_steve

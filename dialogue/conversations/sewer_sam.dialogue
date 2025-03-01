@@ -12,6 +12,7 @@ Sewer Steve: But keep going! Lets see how far you can make it! (Coming Soon)
 
 ~ turnin_for_talk_to_sam_level_5
 Sewer Steve: Hey you found me! Here's your reward.
+Reward: {{QuestManager.quests["talk_to_sam_level_5"].rewards.experience}} exp | {{QuestManager.quests["talk_to_sam_level_5"].rewards.gold}} coins.
 do QuestManager.complete_quest("talk_to_sam_level_5")
 Sewer Steve: If you want to go again, talk to Sewer Steve on the surface, hit the ladders.
-=> talk_to_sam
+=> END

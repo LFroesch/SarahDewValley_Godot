@@ -16,33 +16,23 @@ Harry: [[Hi|Hello|Howdy]], would you like to start a farming quest?
 	=> END
 	
 ~ start_harvest_corn_quest
-Harry: We need 10 corn for the village! Want to start this quest?
-- Yes
-	Harry: Excellent! Bring me back the 10 corn when you are finished.
-	do GameDialogueManager.action_start_quest("harvest_corn")
-	=> harvest_quests_start
-- No
-	Harry: Okay, come back if you change your mind.
-	=> END
+Harry: We need 10 corn for the village! Bring me back 10 corn when you are finished.
+do GameDialogueManager.action_start_quest("harvest_corn")
+=> harvest_quests_start
 
 ~ start_harvest_tomato_quest
-Harry: We need 10 tomatoes for the village! Want to start this quest?
-- Yes
-	Harry: Excellent! Bring me back the 10 tomatoes when you are finished.
-	do GameDialogueManager.action_start_quest("harvest_tomato")
-	=> harvest_quests_start
-- No
-	Harry: Okay, come back if you change your mind.
-	=> END
+Harry: We need 10 tomatoes for the village! Bring me back 10 tomatoes when you are finished.
+do GameDialogueManager.action_start_quest("harvest_tomato")
+=> harvest_quests_start
 
 ~ tomato_quest_ready_for_turnin
-Harry: You've brought us 10 tomatoes! Thank you!
-Harry: Here's your reward as promised.
+Harry: You've brought us 10 tomatoes! Thank you! Here's your reward as promised.
+Reward: {{QuestManager.quests["harvest_tomato"].rewards.experience}} exp | {{QuestManager.quests["harvest_tomato"].rewards.gold}} coins.
 do QuestManager.complete_quest("harvest_tomato")
 => start_harvest_quest
 
 ~ corn_quest_ready_for_turnin
-Harry: You've brought us 10 corn! Thank you!
-Harry: Here's your reward as promised.
+Harry: You've brought us 10 corn! Thank you! Here's your reward as promised.
+Reward: {{QuestManager.quests["harvest_corn"].rewards.experience}} exp | {{QuestManager.quests["harvest_corn"].rewards.gold}} coins.
 do QuestManager.complete_quest("harvest_corn")
 => start_harvest_quest

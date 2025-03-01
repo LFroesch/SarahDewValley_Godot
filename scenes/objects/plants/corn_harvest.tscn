@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqs3fibgc11xv"]
+[gd_scene load_steps=6 format=3 uid="uid://dqs3fibgc11xv"]
 
 [ext_resource type="Texture2D" uid="uid://bml203j78utq3" path="res://assets/game/objects/items/farming_plants_items.png" id="1_7tial"]
 [ext_resource type="PackedScene" uid="uid://bxhjxqi72fxxc" path="res://scenes/components/collectible_component.tscn" id="2_v4eom"]
+[ext_resource type="PackedScene" uid="uid://b3x8aqy6p6nyb" path="res://scenes/components/harvest_save_component.tscn" id="3_7bpm8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_otaaa"]
 atlas = ExtResource("1_7tial")
@@ -20,3 +21,5 @@ collectible_name = "corn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleComponent"]
 shape = SubResource("CircleShape2D_2rp82")
+
+[node name="HarvestSaveComponent" parent="." instance=ExtResource("3_7bpm8")]

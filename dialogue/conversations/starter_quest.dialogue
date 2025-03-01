@@ -32,72 +32,50 @@ Gary: What kind of work are you looking for today?
 	=> goblin_quest_start
 - I'd like to help with the skeleton issue. [if !QuestManager.active_quests.has("skeleton_encroachment") and !QuestManager.ready_for_turnin_quests.has("skeleton_encroachment")]
 	=> skeleton_quest_start
+- I'm on the quests, where are they again?
+	=> location_help
 - Just passing by, no work for me right now.
     Gary: Alright then. Come back when you're ready for more work!
     => END
 
-~ banesword_in_progress
-Gary: Have you defeated Banesword yet? He's still terrorizing the area south of town.
-Gary: Please hurry and take care of that skeleton!
-=> END
-
 ~ banesword_ready_for_turnin
 Gary: You've defeated Banesword! Well done, adventurer!
 Gary: Here's your reward as promised.
+Reward: {{QuestManager.quests["banesword"].rewards.experience}} exp | {{QuestManager.quests["banesword"].rewards.gold}} coins.
 do QuestManager.complete_quest("banesword")
 => check_quest_status
 
 ~ banesword_repeatable
 Gary: Those skeletons just don't stay dead, do they?
-Gary: Looks like Banesword has returned. Can you defeat him again?
-- Yes, I'll handle it.
-	Gary: Excellent! Same deal as before - defeat him and come back for your reward.
-	do GameDialogueManager.action_start_quest("banesword")
-	=> END
-- Not right now.
-	Gary: Let me know if you change your mind.
-	=> offer_available_quests
+Gary: Looks like Banesword has returned. You know what to do.
+do GameDialogueManager.action_start_quest("banesword")
+=> END
 
 ~ ruknash_quest_start
 Gary: The local farmers have said Ruknash will come in, pick up a cow in each hand and walk out.
 Gary: Its terrible! Oh, that must be how he got the name..
 Gary: They need someone to take care of him, he's up north east of here.
-
-- I'll take care of Ruknash.
-	Gary: Splendid! Return when you've smited him down.
-	do GameDialogueManager.action_start_quest("ruknash_the_terrible")
-	=> END
-- I'll think about it.
-	Gary: Fair enough. The offer stands when you're ready.
-	=> offer_available_quests
+do GameDialogueManager.action_start_quest("ruknash_the_terrible")
+=> END
 
 ~ goblin_quest_start
 Gary: The local farmers have reported goblin raids on their livestock.
-Gary: We need someone to thin their numbers - kill 20 goblins and I'll make it worth your while.
+Gary: We need someone to thin their numbers - kill 20 goblins and I'll make it worth your while!
 Gary: They can be found in the wild or in the sewers beneath the town.
-
-- I'll take care of the goblins.
-	Gary: Excellent! Return when you've culled their numbers.
-	do GameDialogueManager.action_start_quest("goblin_encroachment")
-	=> END
-- I'll think about it.
-	Gary: Fair enough. The offer stands when you're ready.
-	=> offer_available_quests
-
-~ goblin_quest_in_progress
-Gary: How's the goblin hunt going? We need to thin out their numbers - 20 of them should do it.
-Gary: Check the wilderness or the sewers if you're having trouble finding them.
+do GameDialogueManager.action_start_quest("goblin_encroachment")
 => END
 
 ~ ruknash_ready_for_turnin
 Gary: Aha! I heard him fall from here! The town rejoices.
 Gary: Here's your reward as promised.
+Reward: {{QuestManager.quests["ruknash_the_terrible"].rewards.experience}} exp | {{QuestManager.quests["ruknash_the_terrible"].rewards.gold}} coins.
 do QuestManager.complete_quest("ruknash_the_terrible")
 => check_quest_status
 
 ~ goblin_quest_ready_for_turnin
 Gary: You've dealt with those goblins admirably! The farmers will be relieved.
 Gary: Here's your payment as agreed.
+Reward: {{QuestManager.quests["goblin_encroachment"].rewards.experience}} exp | {{QuestManager.quests["goblin_encroachment"].rewards.gold}} coins.
 do QuestManager.complete_quest("goblin_encroachment")
 => check_quest_status
 
@@ -105,22 +83,17 @@ do QuestManager.complete_quest("goblin_encroachment")
 Gary: We've had increasing reports of skeletal warriors roaming the countryside.
 Gary: I need someone to eliminate at least 20 of them to keep travelers safe.
 Gary: They're most common near graveyards and in the sewers.
-
-- I'll deal with the skeletons.
-	Gary: Thank you! Return when you've put them back in the ground.
-	do GameDialogueManager.action_start_quest("skeleton_encroachment")
-	=> END
-- I'll pass for now.
-	Gary: I understand. The task will be here when you're ready.
-	=> offer_available_quests
-
-~ skeleton_quest_in_progress
-Gary: How's the skeleton hunting? Remember, we need at least 20 of them eliminated.
-Gary: They're typically found near graveyards or in the sewers beneath town.
+do GameDialogueManager.action_start_quest("skeleton_encroachment")
 => END
 
 ~ skeleton_quest_ready_for_turnin
 Gary: You've put those skeletons back where they belong! The roads are safer thanks to you.
 Gary: Here's your reward as promised.
+Reward: {{QuestManager.quests["skeleton_encroachment"].rewards.experience}} exp | {{QuestManager.quests["skeleton_encroachment"].rewards.gold}} coins.
 do QuestManager.complete_quest("skeleton_encroachment")
 => check_quest_status
+
+~ location_help
+Gary: Banesword the Giant Skeleton is to the south, Ruknash is up north east.
+Gary: There are goblins all over and skeleton warriors are to the south.
+Gary: You can also find all of them in the Sewers.

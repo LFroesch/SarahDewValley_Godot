@@ -12,5 +12,6 @@ Farmer Dave: If you talk to Harry the harvest Quest Giver to our right, you can 
 
 ~ turnin_for_farmer_dave
 Farmer Dave: Hey you found me! Here's your reward.
+Reward: {{QuestManager.quests["farmer_dave"].rewards.experience}} exp | {{QuestManager.quests["farmer_dave"].rewards.gold}} coins.
 do QuestManager.complete_quest("farmer_dave")
 => talk_to_farmer_dave

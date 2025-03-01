@@ -32,7 +32,8 @@ if QuestManager.active_quests.has("farmer_dave")
 	=> END
 
 ~ talk_to_larry_turn_in
-Larry: Thanks for coming to talk to me! Here's your reward, now let me see what other quests I've got for you.
+Larry: Thanks for coming to talk to me! Here's your reward.
+Reward: {{QuestManager.quests["talk_to_larry"].rewards.experience}} exp | {{QuestManager.quests["talk_to_larry"].rewards.gold}} coins.
 do QuestManager.complete_quest("talk_to_larry")
 => start_talk_to_quest
 

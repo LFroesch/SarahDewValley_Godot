@@ -10,21 +10,19 @@ else
 => END
 
 ~ quest_reminder
-Jerry: Reminder, the Larry quest I gave you will familiarize you to the different locations in the game!
+Jerry: The Larry quest I gave you will familiarize you to the different locations in the game!
 Jerry: He's in the center island, southeast from us. You can also take the boat to our right.
 => guide_options
 
 ~ still_need_seeds
 Jerry: [[Hi|Hello|Howdy]], nice to meet you. Welcome to SarahDewValley!
-Jerry: As you can see the cows and chickens are hungry. You need to grow some crops to feed them!
 Jerry: Here are some seeds and tools to grow some crops. Also, I'm giving you a quest to talk with Larry.
-Jerry: He is in the center island, south east from here, you can also take the boat to our right.
 do GameDialogueManager.action_give_crop_seeds()
 do GameDialogueManager.action_start_quest("talk_to_larry")
-=> guide_options
+=> quest_reminder
 
 ~ guide_options
-Jerry: Let me tell you about the controls / how to play this game.
+Jerry: Now, Let me tell you about the controls / how to play this game.
 - Ask about Farming
 	Jerry: You can till the ground with your hoe and then plant Corn & Tomatoes.
 	Jerry: You then need to water it once, and they each grow over 4 days.
@@ -49,6 +47,8 @@ Jerry: Let me tell you about the controls / how to play this game.
 	Jerry: Right Click with a tool will use it or attack with the axe in the direction you are facing.
 	Jerry: P will quick save. E will interact with chests, like this guide. 
 	Jerry: B will pull up your Inventory. Q will pull up your quest log. C will pull up your stats.
+	Jerry: N will pull up your talent menu, you get 1 talent point per level and can advance your abilities
+	Jerry: By pressing the + sign, and reset your talents and get your points back with the reset button
 	Jerry: CTRL+Right Click with the hoe will clear a tilled soil patch / crop patch.
 	Jerry: Z will quick eat eggs for 15 health, X will quick eat milk for 20 health, if you have it.
 	Jerry: F casts Fire Nova, an area of effect attack around the player. G casts fireball, a ranged cast attack. 
@@ -57,6 +57,7 @@ Jerry: Let me tell you about the controls / how to play this game.
 - Ask about Objectives
 	Jerry: You can farm crops and animal products to use as food.
 	Jerry: Take your food into battle to fight enemies with spells and melee!
+	Jerry: Level up and try different talent builds!
 	Jerry: Get gold to purchase different farming seeds & various products
 	Jerry: Quests are another way to get rewards, talk to npcs to find if they have quests to give you!
 	Jerry: If you haven't talked to Larry yet, make sure to go find him in the center island.

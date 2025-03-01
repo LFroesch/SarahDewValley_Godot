@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcra8th58gda2"]
+[gd_scene load_steps=6 format=3 uid="uid://bcra8th58gda2"]
 
 [ext_resource type="Texture2D" uid="uid://bml203j78utq3" path="res://assets/game/objects/items/farming_plants_items.png" id="1_aidrc"]
 [ext_resource type="PackedScene" uid="uid://bxhjxqi72fxxc" path="res://scenes/components/collectible_component.tscn" id="2_1213k"]
+[ext_resource type="PackedScene" uid="uid://b3x8aqy6p6nyb" path="res://scenes/components/harvest_save_component.tscn" id="3_whfu5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bjl8u"]
 atlas = ExtResource("1_aidrc")
@@ -21,3 +22,5 @@ collectible_name = "tomato"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectibleComponent"]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_jjsi7")
+
+[node name="HarvestSaveComponent" parent="." instance=ExtResource("3_whfu5")]
