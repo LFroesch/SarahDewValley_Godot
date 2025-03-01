@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bwue1xbougqyo"]
+[gd_scene load_steps=16 format=4 uid="uid://bwue1xbougqyo"]
 
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_v4v0u"]
 [ext_resource type="Script" path="res://scenes/components/save_level_data_component.gd" id="2_37wj8"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://brqm5c22r3jqq" path="res://scenes/characters/interactable_characters/quests/talk_to_friends/steve.tscn" id="6_xpp4k"]
 [ext_resource type="PackedScene" uid="uid://c2t85jyokis16" path="res://scenes/characters/interactable_characters/tomato_and_corn_buyer/tomato_and_corn_buyer.tscn" id="7_18w1h"]
 [ext_resource type="PackedScene" uid="uid://f3es2c3cbna7" path="res://scenes/characters/animals/brady/brady.tscn" id="9_m61o1"]
+[ext_resource type="PackedScene" uid="uid://cgxf0v4bcen23" path="res://scenes/characters/interactable_characters/quests/starter_island/starter_quests.tscn" id="10_pkqm0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_kejat"]
 vertices = PackedVector2Array(902.148, 884, 846.781, 883.141, 846.258, 859.563, 902, 867.531, 986.891, 884, 903.273, 772, 900.758, 738.828, 1011.12, 737.148, 971, 772, 1011.88, 798, 1005.07, 798, 971, 844.148, 996.672, 872.148, 1070.54, 864.961, 1071.47, 883.102, 902, 843.141)
@@ -47,6 +48,7 @@ tile_map_data = PackedByteArray("AAAvACoAAQACAAIAAAAvACkAAQAFAAEAAAAvACgAAQABAAE
 tile_set = ExtResource("3_uwgx8")
 
 [node name="StarterZoneSideDeco" type="TileMapLayer" parent="GameTileMap"]
+y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAsACYABgAAAAAABgAtACIABgAAAAAABQAuACsABgAAAAAABQArADEABgAAAAAABQAqADQABgAAAAAABQAnADUABgAAAAAABQApAC8ABgAAAAAABQAqAC4ABgAAAAAABQAqACwABgAAAAAABQAqACsABgAAAAAABQArACsABgAAAAAABQApACgABgAAAAAABQAoACgABgAAAAAABQAmACYABgAAAAAABQAmAC8ABgAAAAAABQAiADMABgAAAAAABQAiADEABgAAAAAABQAjADAABgAAAAAABQAmACsABgAAAAAABQAnACsABgAAAAAABQAnACoABgAAAAAABQAoACcABgAAAAAABQAqACQABgAAAAAABQAnACEABgAAAAAABQAkACMABgAAAAAABQAnACMABgAAAAAABQAqACAABgAAAAAABQAqAB8ABgAAAAAABQArAB4ABgAAAAAABQArAB0ABgAAAAAABQAtACgABgAAAAAABQAoADAABgAAAAAABQAlADIABgAAAAAABQAlADMABgAAAAAABQAlADYABgAAAAAABQAlADcABgAAAAAABQAqADgABgAAAAAABQAnADMABgAAAAAABAApADEABgAAAAAABAArAC8ABgAAAAAABAAtAC0ABgAAAAAABAAsACwABgAAAAAABAAsACsABgAAAAAABAAsACoABgAAAAAABAAsACkABgAAAAAABAArACkABgAAAAAABAArACgABgAAAAAABAArACcABgAAAAAABAAqACcABgAAAAAABAAtACUABgAAAAAABAAuACUABgAAAAAABAAuACYABgAAAAAABAAuACoABgAAAAAABAAnAC0ABgAAAAAABAAnACwABgAAAAAABAAmACwABgAAAAAABAAlACwABgAAAAAABAAkACwABgAAAAAABAAkAC0ABgAAAAAABAAhAC4ABgAAAAAABAAhAC8ABgAAAAAABAAhADAABgAAAAAABAAgADAABgAAAAAABAAkACkABgAAAAAABAAkACgABgAAAAAABAAkACcABgAAAAAABAAjACcABgAAAAAABAAjACUABgAAAAAABAAiACQABgAAAAAABAAjAB8ABgAAAAAABAAkAB8ABgAAAAAABAAlAB8ABgAAAAAABAAlAB4ABgAAAAAABAAnAB0ABgAAAAAABAAoAB0ABgAAAAAABAArADYABgAAAAAABgAoADcABgAAAAAABgAsADIABgAAAAAABgAsAC0ABgAAAAAABgAtACoABgAAAAAABgAvACcABgAAAAAABgAtACcABgAAAAAABgAqACkABgAAAAAABgAoACUABgAAAAAABgArACMABgAAAAAABgAoACYABgAAAAAABgApACYABgAAAAAABgAoACsABgAAAAAABgApAC0ABgAAAAAABgAnAC8ABgAAAAAABgAnADEABgAAAAAABgAoADIABgAAAAAABgApADMABgAAAAAABgAmADUABgAAAAAABgAkAC8ABgAAAAAABgAjACoABgAAAAAABgAmACgABgAAAAAABgAlACQABgAAAAAABgAsACAABgAAAAAABgAoACEABgAAAAAABgAlACEABgAAAAAABgAiACMABgAAAAAABgAtACMABgAAAAAABgApACIABgAAAAAABgAqABwABgAAAAAABgApAB0ABgAAAAAABgAnAB4ABgAAAAAABgAtAB0ABgAAAAAABgAsADYABgAAAAAABgAsADkABgAAAAAABgArADoABgAAAAAABgAsAD8ABgAAAAAABgApADsABgAAAAAABgAsADwABgAAAAAABQArAD0ABgAAAAAABQAqAD0ABgAAAAAABQAqADsABgAAAAAABAArADsABgAAAAAABAAtADoABgAAAAAABAAtADYABgAAAAAABAAsADMABgAAAAAABAAtADMABgAAAAAABAAoADgABgAAAAAABAApADcABgAAAAAABAAqADYABgAAAAAABAApADQABgAAAAAABAAoADQABgAAAAAABAAqADAABgAAAAAABAAtAC8ABgAAAAAABQAtADAABgAAAAAABAAuADAABgAAAAAABAAuAC0ABgAAAAAABAAuACMABgAAAAAABAAtACAABgAAAAAABAApAB4ABgAAAAAABAAsABoABgAAAAAABAAtABkABgAAAAAABAAqABkABgAAAAAABAAtABoABgAAAAAABAArABkABgAAAAAABAA=")
 tile_set = ExtResource("3_uwgx8")
 
@@ -74,13 +76,13 @@ tile_set = ExtResource("3_uwgx8")
 [node name="FriendlyNPCs" type="Node2D" parent="."]
 
 [node name="TalkToSteve" parent="FriendlyNPCs" instance=ExtResource("6_xpp4k")]
-position = Vector2(944, 735)
+position = Vector2(937, 737)
 
 [node name="MilkAndEggSeller" parent="FriendlyNPCs" instance=ExtResource("5_8x71x")]
 position = Vector2(1020, 790)
 
 [node name="StoneAndLogBuyer" parent="FriendlyNPCs" instance=ExtResource("6_ucnmq")]
-position = Vector2(853, 761)
+position = Vector2(853, 774)
 
 [node name="TomatoAndCornBuyer" parent="FriendlyNPCs" instance=ExtResource("7_18w1h")]
 position = Vector2(1019, 754)
@@ -89,14 +91,17 @@ position = Vector2(1019, 754)
 position = Vector2(1018, 852)
 start_dialogue = "start_sewer_boat_s"
 
-[node name="Node2D" type="Node2D" parent="FriendlyNPCs"]
+[node name="Brady" type="Node2D" parent="FriendlyNPCs"]
 
-[node name="Brady" parent="FriendlyNPCs/Node2D" instance=ExtResource("9_m61o1")]
+[node name="Brady" parent="FriendlyNPCs/Brady" instance=ExtResource("9_m61o1")]
 position = Vector2(927, 870)
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="FriendlyNPCs/Node2D"]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="FriendlyNPCs/Brady"]
 navigation_polygon = SubResource("NavigationPolygon_kejat")
 navigation_layers = 32
+
+[node name="Gary(Combat)" parent="FriendlyNPCs" instance=ExtResource("10_pkqm0")]
+position = Vector2(908, 659)
 
 [node name="Zones" type="Node2D" parent="."]
 

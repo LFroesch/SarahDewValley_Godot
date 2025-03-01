@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://6aaf7agcl7se"]
+[gd_scene load_steps=42 format=4 uid="uid://6aaf7agcl7se"]
 
 [ext_resource type="TileSet" uid="uid://bmlpnsyieusmk" path="res://tilesets/game_tile_set.tres" id="1_2ojy1"]
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_ludhu"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://djketpxhxd8qe" path="res://scenes/characters/animals/cow/cow.tscn" id="6_ai8wf"]
 [ext_resource type="PackedScene" uid="uid://cqt1kijsjt63k" path="res://scenes/characters/interactable_characters/quests/talk_to_friends/farmer_dave.tscn" id="6_ul2hw"]
 [ext_resource type="PackedScene" uid="uid://cksuucjl74u7n" path="res://scenes/characters/animals/cow/baby_cow.tscn" id="7_4rlpg"]
-[ext_resource type="PackedScene" uid="uid://cgxf0v4bcen23" path="res://scenes/characters/interactable_characters/quests/starter_island/starter_quests.tscn" id="10_d2pac"]
 [ext_resource type="PackedScene" uid="uid://f3es2c3cbna7" path="res://scenes/characters/animals/brady/brady.tscn" id="10_udajt"]
 [ext_resource type="PackedScene" uid="uid://dx4wh0fbqvl68" path="res://scenes/objects/chest/cow_chest.tscn" id="10_udbt5"]
 [ext_resource type="PackedScene" uid="uid://dhmo50rvq72w2" path="res://scenes/characters/interactable_characters/quests/harvest_crops_quests/harvest_crops_quests.tscn" id="14_0pb2a"]
@@ -188,9 +187,6 @@ tilled_soil_tilemap_layer = NodePath("../../GameTileMap/TilledSoil")
 [node name="CropFields" type="Node2D" parent="Crops"]
 
 [node name="FriendlyNPCs" type="Node2D" parent="."]
-
-[node name="Gary(Combat)" parent="FriendlyNPCs" instance=ExtResource("10_d2pac")]
-position = Vector2(293, 681)
 
 [node name="Guide" parent="FriendlyNPCs" instance=ExtResource("5_o4b8e")]
 position = Vector2(239, 222)

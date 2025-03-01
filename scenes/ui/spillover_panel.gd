@@ -2,7 +2,7 @@
 extends PanelContainer
 
 @onready var grid_container = $MarginContainer/VBoxContainer/GridContainer
-var main_inventory_items = ["log", "egg", "milk", "stone", "corn", "tomato", "coin"]
+var main_inventory_items = ["egg", "milk", "corn", "tomato", "coin"]
 
 func _ready() -> void:
 	visible = false

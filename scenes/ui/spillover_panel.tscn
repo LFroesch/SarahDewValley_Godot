@@ -36,3 +36,4 @@ text = "Inventory:"
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+columns = 4

@@ -77,6 +77,7 @@ text = "0
 "
 
 [node name="Logs" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(26, 32)
 layout_mode = 2
 theme_type_variation = &"InventoryItemPanel"
@@ -96,6 +97,7 @@ text = "0
 "
 
 [node name="Stone" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(26, 32)
 layout_mode = 2
 theme_type_variation = &"InventoryItemPanel"

@@ -46,7 +46,7 @@ func save_inventory() -> void:
 	var result = ResourceSaver.save(save_resource, save_data_path)
 
 func reset_inventory() -> void:
-	var main_inventory_items = ["log", "egg", "milk", "stone", "corn", "tomato", "coin"]
+	var main_inventory_items = ["egg", "milk", "corn", "tomato", "coin"]
 	var items_to_remove = []
 	for collectible_name in inventory:
 		if collectible_name in main_inventory_items:
@@ -70,7 +70,7 @@ func load_inventory() -> void:
 		inventory_changed.emit()
 
 func remove_collectible(collectible_name: String) -> void:
-	var main_inventory_items = ["log", "egg", "milk", "stone", "corn", "tomato", "coin"]
+	var main_inventory_items = ["egg", "milk", "corn", "tomato", "coin"]
 	
 	# Only proceed if the item exists in inventory
 	if collectible_name in inventory:

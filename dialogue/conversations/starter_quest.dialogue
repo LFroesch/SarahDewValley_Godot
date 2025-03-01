@@ -1,6 +1,8 @@
 # Enhanced dialogue file with multiple quest options - compatible with Dialogue Manager addon
 ~ check_quest_status
-if QuestManager.ready_for_turnin_quests.has("banesword")
+if QuestManager.ready_for_turnin_quests.has("my_friend_gary")
+	=> gary_turn_in
+elif QuestManager.ready_for_turnin_quests.has("banesword")
 	=> banesword_ready_for_turnin
 elif QuestManager.ready_for_turnin_quests.has("goblin_encroachment")
 	=> goblin_quest_ready_for_turnin
@@ -13,9 +15,16 @@ elif QuestManager.quest_completion_counts.has("banesword")
 else
 	=> intro_quest_start
 
+~ gary_turn_in
+Gary: You've found me!
+Gary: Here's your reward as promised.
+Reward: {{QuestManager.quests["my_friend_gary"].rewards.experience}} exp | {{QuestManager.quests["my_friend_gary"].rewards.gold}} coins.
+do QuestManager.complete_quest("my_friend_gary")
+=> intro_quest_start
+
 ~ intro_quest_start
 Gary: [[Hi|Hello|Howdy]], I'm Gary, a Combat Quest Giver!
-Gary: For your first quest, you simply need to kill Banesword, the gigantic skeleton south of here.
+Gary: For your first combat quest, you simply need to kill Banesword, the gigantic skeleton south west of town.
 Gary: Return to me once you've killed him!
 do GameDialogueManager.action_start_quest("banesword")
 => END
@@ -54,14 +63,14 @@ do GameDialogueManager.action_start_quest("banesword")
 ~ ruknash_quest_start
 Gary: The local farmers have said Ruknash will come in, pick up a cow in each hand and walk out.
 Gary: Its terrible! Oh, that must be how he got the name..
-Gary: They need someone to take care of him, he's up north east of here.
+Gary: They need someone to take care of him, he's up north east of town.
 do GameDialogueManager.action_start_quest("ruknash_the_terrible")
 => END
 
 ~ goblin_quest_start
 Gary: The local farmers have reported goblin raids on their livestock.
 Gary: We need someone to thin their numbers - kill 20 goblins and I'll make it worth your while!
-Gary: They can be found in the wild or in the sewers beneath the town.
+Gary: They can be found in the wild or in the sewers beneath the town fountain.
 do GameDialogueManager.action_start_quest("goblin_encroachment")
 => END
 
@@ -82,7 +91,7 @@ do QuestManager.complete_quest("goblin_encroachment")
 ~ skeleton_quest_start
 Gary: We've had increasing reports of skeletal warriors roaming the countryside.
 Gary: I need someone to eliminate at least 20 of them to keep travelers safe.
-Gary: They're most common near graveyards and in the sewers.
+Gary: You can find them south near Banesword and in the sewers beneath the town fountain.
 do GameDialogueManager.action_start_quest("skeleton_encroachment")
 => END
 
@@ -94,6 +103,6 @@ do QuestManager.complete_quest("skeleton_encroachment")
 => check_quest_status
 
 ~ location_help
-Gary: Banesword the Giant Skeleton is to the south, Ruknash is up north east.
-Gary: There are goblins all over and skeleton warriors are to the south.
+Gary: Banesword the Giant Skeleton is to the southwest, Ruknash is up northeast.
+Gary: There are goblins near both, and skeleton warriors near Banesword.
 Gary: You can also find all of them in the Sewers.

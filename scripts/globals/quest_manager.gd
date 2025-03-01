@@ -115,6 +115,22 @@ var quests: Dictionary = {
 		"turnin_npc": "farmer_dave",
 		"requires_turnin": true,
 		"repeatable": false
+	}, #(Tutorial) Talk to Gary
+	"my_friend_gary": {
+		"title": "My Friend Gary",
+		"description": "Go into town and find Gary.",
+		"objectives": {
+			"talk_to": {
+				"target": "gary"
+			}
+		},
+		"rewards": {
+			"experience": 200,
+			"gold": 10
+		},
+		"turnin_npc": "gary",
+		"requires_turnin": true,
+		"repeatable": false
 	}, #(Tutorial) Talk to Larry
 	"talk_to_larry": {
 		"title": "Talk to Larry",

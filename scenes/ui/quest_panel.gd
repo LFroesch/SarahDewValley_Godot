@@ -39,7 +39,7 @@ func update_quest_display() -> void:
 			quest_info.append({
 				"id": quest_id,
 				"title": QuestManager.quests[quest_id].title,
-				"status": "Return to Quest Giver"
+				"status": "Ready to Hand In"
 			})
 			processed_quest_ids.append(quest_id)
 	
@@ -76,7 +76,7 @@ func update_quest_display() -> void:
 	if quest_info.is_empty():
 		var empty_label = Label.new()
 		empty_label.text = "No Active Quests"
-		empty_label.add_theme_font_size_override("font_size", 16)
+		empty_label.add_theme_font_size_override("font_size", 18)
 		quest_container.add_child(empty_label)
 		return
 	
@@ -86,7 +86,7 @@ func update_quest_display() -> void:
 		label.text = "• %s\n     (%s)" % [quest.title, quest.status]
 		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		label.add_theme_font_size_override("font_size", 16)
+		label.add_theme_font_size_override("font_size", 18)
 		
 		quest_container.add_child(label)
 		quest_labels[quest.id] = label

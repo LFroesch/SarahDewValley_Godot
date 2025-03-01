@@ -17,6 +17,8 @@ func _ready() -> void:
 func on_interactable_activated() -> void:
 	interactable_label_component.show()
 	in_range = true
+	var npc_id = "gary"
+	QuestManager.record_npc_interaction(npc_id)
 	
 func on_interactable_deactivated() -> void:
 	interactable_label_component.hide()
