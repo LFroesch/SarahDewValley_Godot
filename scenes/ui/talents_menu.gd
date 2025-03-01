@@ -41,7 +41,7 @@ func _ready() -> void:
 	StatisticsManager.talent_point_added.connect(_on_talent_point_added)
 	StatisticsManager.talent_spent.connect(_on_talent_spent)
 	StatisticsManager.talents_reset.connect(_on_talents_reset)
-	StatisticsManager.add_talent_points(1)
+	#StatisticsManager.add_talent_points(10)
 	initialize_ui_values()
 	player_finder_timer = Timer.new()
 	player_finder_timer.wait_time = 0.5
