@@ -51,10 +51,13 @@ func _ready() -> void:
 	add_child(shoot_timer)
 
 func cast_heal() -> void:
-	var heal_amount: float = 20.0
-	heal(heal_amount)
 	var heal = heal_scene.instantiate()
 	add_child(heal)
+	var talent_level = 0
+	if StatisticsManager and StatisticsManager.stats.has("talents"):
+		talent_level = StatisticsManager.stats.talents.get("heal", 0)
+	var heal_amount = 20.0 + (talent_level * 10.0)
+	heal(heal_amount)
 	can_cast_heal = false
 	heal_timer.start()
 

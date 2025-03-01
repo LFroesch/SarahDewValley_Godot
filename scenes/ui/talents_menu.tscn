@@ -1,0 +1,218 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0ghe0namwqau"]
+
+[ext_resource type="Theme" uid="uid://d12h0sdtb6bla" path="res://scenes/ui/game_ui_theme.tres" id="1_jfv67"]
+[ext_resource type="Script" path="res://scenes/ui/talents_menu.gd" id="2_ssdsk"]
+[ext_resource type="FontFile" uid="uid://4ecdbshuphhv" path="res://assets/ui/fonts/pixelFont-7-8x14-sproutLands.ttf" id="3_eell6"]
+
+[node name="TalentsMenu" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -163.0
+offset_right = 200.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_jfv67")
+theme_type_variation = &"DarkWoodPanel"
+script = ExtResource("2_ssdsk")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_eell6")
+theme_override_font_sizes/font_size = 18
+text = "Talents"
+horizontal_alignment = 1
+
+[node name="AvailablePointsLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_eell6")
+theme_override_font_sizes/font_size = 18
+text = "Available Talent Points: 0"
+horizontal_alignment = 1
+
+[node name="HealthRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="IncrementButton" type="Button" parent="MarginContainer/VBoxContainer/HealthRow"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_eell6")
+theme_override_font_sizes/font_size = 18
+text = "+"
+
+[node name="Counter" type="Label" parent="MarginContainer/VBoxContainer/HealthRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_eell6")
+theme_override_font_sizes/font_size = 18
+text = "Points: 0"
+
+[node name="Value" type="Label" parent="MarginContainer/VBoxContainer/HealthRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_eell6")
+theme_override_font_sizes/font_size = 18
+text = "Health: 100"
+horizontal_alignment = 2
+
+[node name="SpeedRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="IncrementButton" type="Button" parent="MarginContainer/VBoxContainer/SpeedRow"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_eell6")
+theme_override_font_sizes/font_size = 18
+text = "+"
+
+[node name="Counter" type="Label" parent="MarginContainer/VBoxContainer/SpeedRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_eell6")
+theme_override_font_sizes/font_size = 18
+text = "Points: 0"
+
+[node name="Value" type="Label" parent="MarginContainer/VBoxContainer/SpeedRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_eell6")
+theme_override_font_sizes/font_size = 18
+text = "Speed: 100"
+horizontal_alignment = 2
+
+[node name="FireballRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="IncrementButton" type="Button" parent="MarginContainer/VBoxContainer/FireballRow"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_eell6")
+theme_override_font_sizes/font_size = 18
+text = "+"
+
+[node name="Counter" type="Label" parent="MarginContainer/VBoxContainer/FireballRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_eell6")
+theme_override_font_sizes/font_size = 18
+text = "Points: 0"
+
+[node name="Value" type="Label" parent="MarginContainer/VBoxContainer/FireballRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_eell6")
+theme_override_font_sizes/font_size = 18
+text = "Fireball: 32.5 dmg
+"
+horizontal_alignment = 2
+
+[node name="FireNovaRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="IncrementButton" type="Button" parent="MarginContainer/VBoxContainer/FireNovaRow"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_eell6")
+theme_override_font_sizes/font_size = 18
+text = "+"
+
+[node name="Counter" type="Label" parent="MarginContainer/VBoxContainer/FireNovaRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_eell6")
+theme_override_font_sizes/font_size = 18
+text = "Points: 0"
+
+[node name="Value" type="Label" parent="MarginContainer/VBoxContainer/FireNovaRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_eell6")
+theme_override_font_sizes/font_size = 18
+text = "Fire Nova: 37.5 dmg"
+horizontal_alignment = 2
+
+[node name="HealRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="IncrementButton" type="Button" parent="MarginContainer/VBoxContainer/HealRow"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_eell6")
+theme_override_font_sizes/font_size = 18
+text = "+"
+
+[node name="Counter" type="Label" parent="MarginContainer/VBoxContainer/HealRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_eell6")
+theme_override_font_sizes/font_size = 18
+text = "Points: 0"
+
+[node name="Value" type="Label" parent="MarginContainer/VBoxContainer/HealRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_eell6")
+theme_override_font_sizes/font_size = 18
+text = "Heal: 20.0 hp"
+horizontal_alignment = 2
+
+[node name="MeleeRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="IncrementButton" type="Button" parent="MarginContainer/VBoxContainer/MeleeRow"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_eell6")
+theme_override_font_sizes/font_size = 18
+text = "+"
+
+[node name="Counter" type="Label" parent="MarginContainer/VBoxContainer/MeleeRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_eell6")
+theme_override_font_sizes/font_size = 18
+text = "Points: 0"
+
+[node name="Value" type="Label" parent="MarginContainer/VBoxContainer/MeleeRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_eell6")
+theme_override_font_sizes/font_size = 18
+text = "Melee: 10.0 dmg"
+horizontal_alignment = 2
+
+[node name="ResetButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_eell6")
+theme_override_font_sizes/font_size = 18
+text = "Reset Talents"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HealthRow/IncrementButton" to="." method="_on_health_increment_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SpeedRow/IncrementButton" to="." method="_on_speed_increment_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/FireballRow/IncrementButton" to="." method="_on_fireball_increment_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/FireNovaRow/IncrementButton" to="." method="_on_fire_nova_increment_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HealRow/IncrementButton" to="." method="_on_heal_increment_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MeleeRow/IncrementButton" to="." method="_on_melee_increment_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]

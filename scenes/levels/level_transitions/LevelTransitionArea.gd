@@ -27,7 +27,11 @@ func _on_body_entered(body: Node2D) -> void:
 					body.global_position = target_point
 					
 				var player = get_tree().get_first_node_in_group("player")
+				SaveGameManager.save_game()
 				if player:
 					await player.fade_in()
-				await get_tree().create_timer(0.5).timeout
+				await get_tree().process_frame
+				await get_tree().create_timer(1.0).timeout
+				
 				is_transitioning = false
+				

@@ -2,13 +2,22 @@ extends NodeState
 
 @export var player: Player
 @export var animated_sprite_2d: AnimatedSprite2D
-@export var speed: int = 48
+@export var base_speed: int = 48
+var cached_talent_level: int = -1
+var speed: int = 48
 
 func _on_process(_delta : float) -> void:
 	pass
 
-
 func _on_physics_process(_delta : float) -> void:
+	var current_talent_level = 0
+	if StatisticsManager and StatisticsManager.stats.has("talents"):
+		current_talent_level = StatisticsManager.stats.talents.get("speed", 0)
+	
+	# Update speed if talent level changed
+	if current_talent_level != cached_talent_level:
+		cached_talent_level = current_talent_level
+		speed = base_speed + (current_talent_level * 8) 
 	var direction: Vector2 = GameInputEvents.movement_input()
 	
 	if direction == Vector2.UP:
