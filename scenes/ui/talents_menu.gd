@@ -9,7 +9,7 @@ const FIREBALL_DAMAGE_PER_LEVEL: float = 5.0
 const FIRE_NOVA_DAMAGE_PER_LEVEL: float = 7.0
 const HEAL_AMOUNT_PER_LEVEL: float = 10.0
 const MELEE_DAMAGE_PER_LEVEL: float = 5.0
-
+const MAX_TALENT_POINTS: int = 10
 @onready var available_points_label: Label = $MarginContainer/VBoxContainer/AvailablePointsLabel
 @onready var health_counter: Label = $MarginContainer/VBoxContainer/HealthRow/Counter
 @onready var health_value: Label = $MarginContainer/VBoxContainer/HealthRow/Value
@@ -41,7 +41,7 @@ func _ready() -> void:
 	StatisticsManager.talent_point_added.connect(_on_talent_point_added)
 	StatisticsManager.talent_spent.connect(_on_talent_spent)
 	StatisticsManager.talents_reset.connect(_on_talents_reset)
-	#StatisticsManager.add_talent_points(10)
+	#StatisticsManager.add_talent_points(20)
 	initialize_ui_values()
 	player_finder_timer = Timer.new()
 	player_finder_timer.wait_time = 0.5
@@ -150,39 +150,45 @@ func get_melee_damage(level: int) -> float:
 	return base_damage + (level * MELEE_DAMAGE_PER_LEVEL)
 
 func _on_health_increment_pressed() -> void:
-	if StatisticsManager.get_available_talent_points() > 0:
-		var new_level = StatisticsManager.get_talent_level("health") + 1
+	var current_level = StatisticsManager.get_talent_level("health")
+	if StatisticsManager.get_available_talent_points() > 0 and current_level < MAX_TALENT_POINTS:
+		var new_level = current_level + 1
 		StatisticsManager.update_talent("health", new_level)
 		player.max_health += HEALTH_PER_LEVEL
 		update_ui()
 
 func _on_speed_increment_pressed() -> void:
-	if StatisticsManager.get_available_talent_points() > 0:
-		var new_level = StatisticsManager.get_talent_level("speed") + 1
+	var current_level = StatisticsManager.get_talent_level("speed")
+	if StatisticsManager.get_available_talent_points() > 0 and current_level < MAX_TALENT_POINTS:
+		var new_level = current_level + 1
 		StatisticsManager.update_talent("speed", new_level)
 		update_ui()
 
 func _on_fireball_increment_pressed() -> void:
-	if StatisticsManager.get_available_talent_points() > 0:
-		var new_level = StatisticsManager.get_talent_level("fireball") + 1
+	var current_level = StatisticsManager.get_talent_level("fireball")
+	if StatisticsManager.get_available_talent_points() > 0 and current_level < MAX_TALENT_POINTS:
+		var new_level = current_level + 1
 		StatisticsManager.update_talent("fireball", new_level)
 		update_ui()
 
 func _on_fire_nova_increment_pressed() -> void:
-	if StatisticsManager.get_available_talent_points() > 0:
-		var new_level = StatisticsManager.get_talent_level("fire_nova") + 1
+	var current_level = StatisticsManager.get_talent_level("fire_nova")
+	if StatisticsManager.get_available_talent_points() > 0 and current_level < MAX_TALENT_POINTS:
+		var new_level = current_level + 1
 		StatisticsManager.update_talent("fire_nova", new_level)
 		update_ui()
 
 func _on_heal_increment_pressed() -> void:
-	if StatisticsManager.get_available_talent_points() > 0:
-		var new_level = StatisticsManager.get_talent_level("heal") + 1
+	var current_level = StatisticsManager.get_talent_level("heal")
+	if StatisticsManager.get_available_talent_points() > 0 and current_level < MAX_TALENT_POINTS:
+		var new_level = current_level + 1
 		StatisticsManager.update_talent("heal", new_level)
 		update_ui()
 
 func _on_melee_increment_pressed() -> void:
-	if StatisticsManager.get_available_talent_points() > 0:
-		var new_level = StatisticsManager.get_talent_level("melee") + 1
+	var current_level = StatisticsManager.get_talent_level("melee")
+	if StatisticsManager.get_available_talent_points() > 0 and current_level < MAX_TALENT_POINTS:
+		var new_level = current_level + 1
 		StatisticsManager.update_talent("melee", new_level)
 		update_ui()
 

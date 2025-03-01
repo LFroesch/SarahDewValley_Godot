@@ -27,7 +27,7 @@ var quests: Dictionary = {
 			}
 		},
 		"rewards": {
-			"experience": 200,
+			"experience": 500,
 			"gold": 50
 		},
 		"requires_turnin": true,
@@ -44,7 +44,7 @@ var quests: Dictionary = {
 			}
 		},
 		"rewards": {
-			"experience": 200,
+			"experience": 500,
 			"gold": 50
 		},
 		"requires_turnin": true,
@@ -61,7 +61,7 @@ var quests: Dictionary = {
 			}
 		},
 		"rewards": {
-			"experience": 200,
+			"experience": 500,
 			"gold": 50
 		},
 		"requires_turnin": true,
@@ -78,7 +78,7 @@ var quests: Dictionary = {
 			}
 		},
 		"rewards": {
-			"experience": 200,
+			"experience": 500,
 			"gold": 50
 		},
 		"requires_turnin": true,
@@ -93,7 +93,7 @@ var quests: Dictionary = {
 			}
 		},
 		"rewards": {
-			"experience": 100,
+			"experience": 200,
 			"gold": 10
 		},
 		"turnin_npc": "steve",
@@ -109,7 +109,7 @@ var quests: Dictionary = {
 			}
 		},
 		"rewards": {
-			"experience": 100,
+			"experience": 200,
 			"gold": 10
 		},
 		"turnin_npc": "farmer_dave",
@@ -125,7 +125,7 @@ var quests: Dictionary = {
 			}
 		},
 		"rewards": {
-			"experience": 100,
+			"experience": 200,
 			"gold": 10
 		},
 		"turnin_npc": "larry",
@@ -141,7 +141,7 @@ var quests: Dictionary = {
 			}
 		},
 		"rewards": {
-			"experience": 500,
+			"experience": 1000,
 			"gold": 100
 		},
 		"turnin_npc": "sam",

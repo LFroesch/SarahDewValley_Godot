@@ -161,5 +161,5 @@ func take_damage(amount: float):
 
 func _on_death_animation_finished():
 	StatisticsManager.record_kill("goblin_chief")
-	StatisticsManager.add_experience(100)
+	StatisticsManager.add_experience(200)
 	queue_free()

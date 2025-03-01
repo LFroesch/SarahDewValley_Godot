@@ -7,10 +7,10 @@ else
 ~ talk_to_steve
 Sewer Steve: [[Hi|Hello|Howdy]], I'm Sewer Steve! welcome to the sewers! To enter, run up to the fountain.
 Sewer Steve: If you want to exit, just use the ladder. To go deeper, find the door in the level.
-Sewer Steve: My brother Sewer Sam is down every 5 floors, want to go meet him?
-- Yes, I'll meet up with Sam!
+Sewer Steve: I've got some quests if you'd like!
+- Ask about his brother, Sam.
 	do GameDialogueManager.action_start_quest("talk_to_sam_level_5")
-	Sewer Steve: Perfect, good luck!
+	Sewer Steve: My brother Sam is down every 5 floors, go meet up with him!
 	=> END
 - No thanks, I'm gonna farm.
 	=> END
