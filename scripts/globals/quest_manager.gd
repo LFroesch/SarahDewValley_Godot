@@ -405,6 +405,9 @@ func can_repeat_quest(quest_id: String) -> bool:
 	return true
 
 func get_quest_progress(quest_id: String) -> float:
+	# You can still keep this method for other parts of your code
+	# that might need a simple progress percentage
+	
 	if is_quest_ready_for_turnin(quest_id):
 		return 1.0
 		
@@ -412,21 +415,24 @@ func get_quest_progress(quest_id: String) -> float:
 		return 0.0
 		
 	var quest = active_quests[quest_id]
-	var total_objectives = quest.objectives.size()
-	var completed_objectives = 0
+	var total_objectives = 0
+	var completed_objective_points = 0.0
 	
 	for objective_key in quest.objectives:
 		var objective = quest.objectives[objective_key]
+		total_objectives += 1
 		
 		if objective_key == "talk_to":
-			completed_objectives += 0
+			# Talk quests are binary - either complete or not
+			completed_objective_points += 0  # Not complete by default
+			
 		elif objective.has("current") and objective.has("count"):
 			var progress = float(objective.current) / float(objective.count)
-			completed_objectives += progress
-		else:
-			completed_objectives += 0
-	
-	return completed_objectives / total_objectives
+			completed_objective_points += progress
+		
+	if total_objectives > 0:
+		return completed_objective_points / total_objectives
+	return 0.0
 
 func save_quest_data() -> void:
 	var save_resource = Resource.new()

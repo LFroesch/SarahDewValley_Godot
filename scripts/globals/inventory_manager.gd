@@ -72,10 +72,8 @@ func load_inventory() -> void:
 func remove_collectible(collectible_name: String) -> void:
 	var main_inventory_items = ["log", "egg", "milk", "stone", "corn", "tomato", "coin"]
 	
-	inventory.get_or_add(collectible_name)
-	if inventory[collectible_name] == null:
-		inventory[collectible_name] = 0
-	else:
+	# Only proceed if the item exists in inventory
+	if collectible_name in inventory:
 		if inventory[collectible_name] > 0:
 			inventory[collectible_name] -= 1
 			# If it's not a main item and count reaches 0, remove it completely
