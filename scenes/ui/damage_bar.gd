@@ -1,4 +1,3 @@
-# DamageBar.gd
 extends Node2D
 
 @onready var progress_bar = $ProgressBar
@@ -9,15 +8,23 @@ func _ready() -> void:
 	player = get_parent() as Player
 	if player:
 		setup_bar()
+		update_bar_visibility()
 
 func setup_bar() -> void:
 	progress_bar.max_value = player.max_health
 	progress_bar.value = player.current_health
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if player:
 		progress_bar.value = player.current_health
 		position = Vector2(-10, 2)
+		update_bar_visibility()
+
+func update_bar_visibility() -> void:
+	if player.current_health < player.max_health:
+		show()
+	else:
+		hide()
 
 func show_bar() -> void:
 	show()
