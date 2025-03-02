@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://by5vwy7gadpkt"]
+
+[ext_resource type="Theme" uid="uid://d12h0sdtb6bla" path="res://scenes/ui/game_ui_theme.tres" id="1_nqgk0"]
+[ext_resource type="Script" path="res://scenes/ui/level_up_panel.gd" id="2_ukrhh"]
+
+[node name="LevelUpPanel" type="PanelContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -58.5
+offset_right = 58.5
+offset_bottom = 51.0
+grow_horizontal = 2
+theme = ExtResource("1_nqgk0")
+theme_type_variation = &"DarkWoodPanel"
+script = ExtResource("2_ukrhh")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Level Up!"

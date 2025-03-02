@@ -66,7 +66,8 @@ func _on_heal_cooldown_timeout() -> void:
 	
 func heal(amount: float) -> void: #Dedicated for the heal ability
 	current_health = min(current_health + amount, max_health)
-
+	HitSplatManager.spawn_damage_number(global_position, amount, DamageNumber.Type.HEALING)
+	
 func cast_fire_nova() -> void:
 	var nova = fire_nova_scene.instantiate()
 	add_child(nova)
@@ -127,8 +128,10 @@ func respawn() -> void:
 	
 func _on_hurt(amount: float) -> void:
 	current_health -= amount
+	HitSplatManager.spawn_damage_number(global_position, amount, DamageNumber.Type.DAMAGE_TO_PLAYER)
 	if current_health <= 0:
 		_on_max_damage_reached()
 
 func _on_health_recovered(amount: int) -> void:
 	current_health = min(current_health + amount, max_health)	
+	HitSplatManager.spawn_damage_number(global_position, amount, DamageNumber.Type.HEALING)

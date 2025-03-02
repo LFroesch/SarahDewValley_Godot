@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scenes/ui/stats_panel.gd" id="2_yhpaa"]
 
 [node name="StatsPanel" type="PanelContainer"]
+custom_minimum_size = Vector2(300, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

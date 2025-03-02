@@ -118,6 +118,7 @@ func add_experience(amount: int) -> void:
 	stats.experience.current += amount
 	stats.experience.total_gained += amount
 	experience_gained.emit(amount)
+	HitSplatManager.spawn_xp_number(amount)
 	
 	# Check for level ups
 	while true:

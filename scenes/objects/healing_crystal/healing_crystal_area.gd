@@ -24,3 +24,4 @@ func _on_heal_timer_timeout() -> void:
 			player_in_range.current_health + heal_amount, 
 			player_in_range.max_health
 		)
+		HitSplatManager.spawn_damage_number(global_position, heal_amount, DamageNumber.Type.HEALING)

@@ -40,8 +40,7 @@ func create_item_display(item_name: String, quantity: int) -> Control:
 	var label = Label.new()
 	label.text = str(quantity)
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	var font = load("res://assets/ui/fonts/zx_palm_variation.tres")
-	label.add_theme_font_override("font", font)
+	label.add_theme_font_size_override("font_size", 18)
 	
 	container.add_child(label)
 	return container

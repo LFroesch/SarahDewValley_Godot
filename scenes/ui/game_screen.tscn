@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://335kuu1ed1xx"]
+[gd_scene load_steps=12 format=3 uid="uid://335kuu1ed1xx"]
 
 [ext_resource type="Theme" uid="uid://d12h0sdtb6bla" path="res://scenes/ui/game_ui_theme.tres" id="1_3oi1c"]
 [ext_resource type="Script" path="res://scenes/ui/game_screen.gd" id="1_nevtp"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://206d3x7l2hf" path="res://scenes/ui/stats_panel.tscn" id="8_ja1bm"]
 [ext_resource type="PackedScene" uid="uid://dkvgnrhjhcjjq" path="res://scenes/ui/quest_panel.tscn" id="9_as3ov"]
 [ext_resource type="PackedScene" uid="uid://d0ghe0namwqau" path="res://scenes/ui/talents_menu.tscn" id="10_c5fmx"]
+[ext_resource type="PackedScene" uid="uid://by5vwy7gadpkt" path="res://scenes/ui/level_up_panel.tscn" id="11_0oqip"]
 
 [node name="GameScreen" type="CanvasLayer"]
 script = ExtResource("1_nevtp")
@@ -61,3 +62,5 @@ size_flags_stretch_ratio = 0.0
 [node name="QuestPanel" parent="." instance=ExtResource("9_as3ov")]
 
 [node name="TalentsMenu" parent="." instance=ExtResource("10_c5fmx")]
+
+[node name="LevelUpPanel" parent="." instance=ExtResource("11_0oqip")]

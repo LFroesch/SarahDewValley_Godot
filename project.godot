@@ -29,6 +29,7 @@ SceneManager="*res://scripts/globals/scene_manager.gd"
 SpawnManager="*res://scripts/globals/spawn_manager.gd"
 StatisticsManager="*res://scripts/globals/statistics_manager.gd"
 QuestManager="*res://scripts/globals/quest_manager.gd"
+HitSplatManager="*res://scripts/globals/hit_splat_manager.gd"
 
 [debug]
 

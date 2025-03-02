@@ -97,7 +97,7 @@ navigation_layers = 8
 one_shot = true
 
 [node name="GoblinCamp2" parent="Enemies" instance=ExtResource("7_ll38e")]
-max_goblins = 6
+max_goblins = 4
 
 [node name="SpawnPoint" parent="Enemies/GoblinCamp2" instance=ExtResource("6_bgf6s")]
 position = Vector2(1086, 1047)
