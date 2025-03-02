@@ -134,9 +134,10 @@ func add_experience(amount: int) -> void:
 		
 		if stats.experience.current >= xp_needed:
 			# Level up
-			stats.experience.level += 1
 			stats.experience.current -= xp_needed
+			stats.experience.level += 1
 			level_up.emit(stats.experience.level)
+			experience_gained.emit(0)
 			# Award a talent point on level up
 			add_talent_points(1)
 		else:

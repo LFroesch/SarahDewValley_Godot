@@ -1,5 +1,4 @@
 extends Control
-
 # XP Bar styling
 @export var background_color: Color = Color("#8b7156")
 @export var border_color: Color = Color("#664c33")
@@ -8,27 +7,27 @@ extends Control
 @export var tick_color: Color = Color("#332519")
 @export var level_indicator_color: Color = Color("#7c6241")
 @export var level_text_color: Color = Color("#ffffff")
-
 # XP values
 @export var current_xp: int = 0
 @export var max_xp: int = 100
 @export var current_level: int = 1
 @export var tick_count: int = 4
-
 # References
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var level_label: Label = $LevelLabel
 @onready var background: Panel = $Background
 @onready var ticks_container: Control = $ProgressBar/Ticks
 @onready var level_panel: Panel = $LevelPanel
+# Add a flag to track level up state
+var just_leveled_up: bool = false
 
 func _ready():
 	# Connect to statistics manager signals
-	StatisticsManager.experience_gained.connect(_on_experience_gained)
-	StatisticsManager.level_up.connect(_on_level_up)
-	
-	# Initialize values from StatisticsManager
 	if StatisticsManager:
+		StatisticsManager.experience_gained.connect(_on_experience_gained)
+		StatisticsManager.level_up.connect(_on_level_up)
+		
+		# Initialize values from StatisticsManager
 		current_xp = StatisticsManager.get_current_xp()
 		max_xp = StatisticsManager.get_xp_for_next_level()
 		current_level = StatisticsManager.get_current_level()
@@ -48,18 +47,24 @@ func adjust_tick_positions():
 		var tick = ticks[i]
 		var position_percent = float(i + 1) / (ticks.size() + 1)
 		tick.position.x = bar_width * position_percent - tick.size.x / 2
-		
+
+# Every frame check, specifically handling the level up transition
 func _process(_delta):
-	if StatisticsManager:
-		var new_xp = StatisticsManager.get_current_xp()
-		var new_max_xp = StatisticsManager.get_xp_for_next_level()
-		var new_level = StatisticsManager.get_current_level()
+	if just_leveled_up:
+		# If we just leveled up, force the progress bar to 0
+		progress_bar.value = 0
+		progress_bar.max_value = StatisticsManager.get_xp_for_next_level()
+		level_label.text = str(StatisticsManager.get_current_level())
+		just_leveled_up = false
+	elif StatisticsManager:
+		var stored_level = current_level
+		var actual_level = StatisticsManager.get_current_level()
 		
-		# Only update if values have changed
-		if new_xp != current_xp || new_max_xp != max_xp || new_level != current_level:
-			current_xp = new_xp
-			max_xp = new_max_xp
-			current_level = new_level
+		# If we detect a level mismatch, force an update
+		if stored_level != actual_level:
+			current_level = actual_level
+			current_xp = StatisticsManager.get_current_xp()
+			max_xp = StatisticsManager.get_xp_for_next_level()
 			update_xp_display()
 
 func apply_styling():
@@ -100,16 +105,34 @@ func update_xp_display():
 	level_label.text = str(current_level)
 
 func _on_experience_gained(_amount: int):
-	var tween = create_tween()
-	tween.tween_property(progress_bar, "value", current_xp, 0.5).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	if not just_leveled_up:
+		current_xp = StatisticsManager.get_current_xp()
+		var tween = create_tween()
+		tween.tween_property(progress_bar, "value", current_xp, 0.5).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 
 func _on_level_up(new_level: int):
-	current_level = new_level
+	print("LEVEL UP HANDLER: Level " + str(new_level))
+	print("Current XP: " + str(StatisticsManager.get_current_xp()))
+	print("Max XP: " + str(StatisticsManager.get_xp_for_next_level()))
 	
-	# Create a level-up flash effect
+	# Cancel any existing tweens on the progress bar
+	var existing_tweens = get_tree().get_nodes_in_group("tweening")
+	for tween in existing_tweens:
+		if tween.is_valid() and tween.has_method("kill"):
+			tween.kill()
+	
+	# Force update with latest values
+	progress_bar.max_value = StatisticsManager.get_xp_for_next_level()
+	# Explicitly set to zero first, then to the actual value
+	progress_bar.value = 0
+	await get_tree().process_frame
+	progress_bar.value = StatisticsManager.get_current_xp()
+	level_label.text = str(new_level)
+	
+	# Force redraw
+	progress_bar.queue_redraw()
+	
+	# Flash effect for level only
 	var tween = create_tween()
 	tween.tween_property(level_label, "modulate", Color(1.5, 1.5, 1.5), 0.2)
 	tween.tween_property(level_label, "modulate", Color(1, 1, 1), 0.3)
-	
-	# Update the display
-	update_xp_display()
