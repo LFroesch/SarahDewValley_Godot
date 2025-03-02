@@ -54,15 +54,17 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(40, 0)
+custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 
 [node name="XPBar" parent="MarginContainer/HBoxContainer" instance=ExtResource("5_nnkpt")]
 layout_mode = 2
-size_flags_horizontal = 0
 size_flags_vertical = 8
 
 [node name="SpilloverPanel" parent="." instance=ExtResource("7_krd5t")]
