@@ -317,7 +317,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_back",
-"speed": 3.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -328,7 +328,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_front",
-"speed": 3.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -339,7 +339,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_left",
-"speed": 3.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -350,7 +350,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_right",
-"speed": 3.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -414,7 +414,7 @@ script = ExtResource("1_hqsp1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_mt0pj")
-animation = &"walk_right"
+animation = &"walk_back"
 autoplay = "idle_front"
 offset = Vector2(0, -5)
 

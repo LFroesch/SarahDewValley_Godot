@@ -111,10 +111,6 @@ func _on_experience_gained(_amount: int):
 		tween.tween_property(progress_bar, "value", current_xp, 0.5).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 
 func _on_level_up(new_level: int):
-	print("LEVEL UP HANDLER: Level " + str(new_level))
-	print("Current XP: " + str(StatisticsManager.get_current_xp()))
-	print("Max XP: " + str(StatisticsManager.get_xp_for_next_level()))
-	
 	# Cancel any existing tweens on the progress bar
 	var existing_tweens = get_tree().get_nodes_in_group("tweening")
 	for tween in existing_tweens:
