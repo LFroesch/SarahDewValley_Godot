@@ -19,6 +19,7 @@ var level_scenes : Dictionary = {
 	"the_sewers_floor_3" : "res://scenes/levels/sewers_floor_3.tscn",
 	"the_sewers_floor_4" : "res://scenes/levels/sewers_floor_4.tscn",
 	"the_sewers_floor_5" : "res://scenes/levels/sewers_floor_5.tscn",
+	"brady_city_mayor_house" : "res://scenes/levels/brady_city_mayor_house.tscn"
 }
 
 var level_transitions : Dictionary = {
@@ -53,7 +54,17 @@ var level_transitions : Dictionary = {
 		"to_crop_island": {
 			"target_level": "Level1",
 			"entry_point": Vector2(900, 900)
+		},
+		"to_mayor_house": {
+			"target_level": "brady_city_mayor_house",
+			"entry_point": Vector2(1830, 660)
 		}
+	},
+	"brady_city_mayor_house": {
+		"to_brady_city": {
+			"target_level": "brady_city",
+			"entry_point": Vector2(1175, 875)
+		},
 	},
 	"the_sewers": {
 		"to_city": {

@@ -40,16 +40,26 @@ func add_crop() -> void:
 	if distance < 40.0:
 		var has_tilled_soil = tilled_soil_tilemap_layer.get_cell_source_id(cell_position) != -1
 		if has_tilled_soil:
-			if ToolManager.selected_tool == DataTypes.Tools.PlantCorn:
-				var corn_instance = corn_plant_scene.instantiate() as Node2D
-				corn_instance.global_position = local_cell_position
-				corn_instance.name = "Corn_" + str(Time.get_unix_time_from_system())
-				get_parent().find_child("CropFields").add_child(corn_instance)
-			if ToolManager.selected_tool == DataTypes.Tools.PlantTomato:
-				var tomato_instance = tomato_plant_scene.instantiate() as Node2D
-				tomato_instance.global_position = local_cell_position
-				tomato_instance.name = "Tomato_" + str(Time.get_unix_time_from_system())
-				get_parent().find_child("CropFields").add_child(tomato_instance)
+			# Check if a crop already exists at this position
+			var crop_exists = false
+			var crop_nodes = get_parent().find_child("CropFields").get_children()
+			
+			for node: Node2D in crop_nodes:
+				if node.global_position.distance_to(local_cell_position) < 1.0:  # Small threshold to account for floating point precision
+					crop_exists = true
+					break
+			
+			if not crop_exists:
+				if ToolManager.selected_tool == DataTypes.Tools.PlantCorn:
+					var corn_instance = corn_plant_scene.instantiate() as Node2D
+					corn_instance.global_position = local_cell_position
+					corn_instance.name = "Corn_" + str(Time.get_unix_time_from_system())
+					get_parent().find_child("CropFields").add_child(corn_instance)
+				if ToolManager.selected_tool == DataTypes.Tools.PlantTomato:
+					var tomato_instance = tomato_plant_scene.instantiate() as Node2D
+					tomato_instance.global_position = local_cell_position
+					tomato_instance.name = "Tomato_" + str(Time.get_unix_time_from_system())
+					get_parent().find_child("CropFields").add_child(tomato_instance)
 			
 func remove_crop() -> void:
 	var crop_nodes = get_parent().find_child("CropFields").get_children()

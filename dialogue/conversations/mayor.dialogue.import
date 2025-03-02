@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://c3fudiyn0cejc"
+path="res://.godot/imported/mayor.dialogue-24693ec20fe05956ddc4eaf1abd967be.tres"
+
+[deps]
+
+source_file="res://dialogue/conversations/mayor.dialogue"
+dest_files=["res://.godot/imported/mayor.dialogue-24693ec20fe05956ddc4eaf1abd967be.tres"]
+
+[params]
+
+defaults=true

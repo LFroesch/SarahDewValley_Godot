@@ -32,7 +32,9 @@ do GameDialogueManager.action_start_quest("banesword")
 ~ offer_available_quests
 Gary: Welcome back, adventurer! I have several tasks that need handling.
 Gary: What kind of work are you looking for today?
+=> available_quests
 
+~ available_quests
 - I heard Banesword is back? [if QuestManager.can_repeat_quest("banesword")]
 	=> banesword_repeatable
 - What's this I hear about a.. big.. goblin? [if !QuestManager.active_quests.has("ruknash_the_terrible") and !QuestManager.ready_for_turnin_quests.has("ruknash_the_terrible")]
@@ -58,21 +60,21 @@ do QuestManager.complete_quest("banesword")
 Gary: Those skeletons just don't stay dead, do they?
 Gary: Looks like Banesword has returned. You know what to do.
 do GameDialogueManager.action_start_quest("banesword")
-=> END
+=> available_quests
 
 ~ ruknash_quest_start
 Gary: The local farmers have said Ruknash will come in, pick up a cow in each hand and walk out.
 Gary: Its terrible! Oh, that must be how he got the name..
 Gary: They need someone to take care of him, he's up north east of town.
 do GameDialogueManager.action_start_quest("ruknash_the_terrible")
-=> END
+=> available_quests
 
 ~ goblin_quest_start
 Gary: The local farmers have reported goblin raids on their livestock.
 Gary: We need someone to thin their numbers - kill 20 goblins and I'll make it worth your while!
 Gary: They can be found in the wild or in the sewers beneath the town fountain.
 do GameDialogueManager.action_start_quest("goblin_encroachment")
-=> END
+=> available_quests
 
 ~ ruknash_ready_for_turnin
 Gary: Aha! I heard him fall from here! The town rejoices.
@@ -93,7 +95,7 @@ Gary: We've had increasing reports of skeletal warriors roaming the countryside.
 Gary: I need someone to eliminate at least 20 of them to keep travelers safe.
 Gary: You can find them south near Banesword and in the sewers beneath the town fountain.
 do GameDialogueManager.action_start_quest("skeleton_encroachment")
-=> END
+=> available_quests
 
 ~ skeleton_quest_ready_for_turnin
 Gary: You've put those skeletons back where they belong! The roads are safer thanks to you.

@@ -13,6 +13,7 @@ var level_display_names: Dictionary = {
 	"Level1": "Starter Islands",
 	"Level2": "How tf did u get here",
 	"brady_city": "Brady Town",
+	"brady_city_mayor_house" : "Brady Town Mayor House",
 	"the_sewers": "The Sewers",
 	"the_sewers_floor_1": "Sewers Floor 1",
 	"the_sewers_floor_2": "Sewers Floor 2",
@@ -113,6 +114,12 @@ func record_kill(enemy_type: String) -> void:
 	if QuestManager:
 		QuestManager.record_quest_kill(enemy_type)
 	save_statistics()
+
+func buy_experience() -> void:
+	if InventoryManager.inventory.has("coin") and InventoryManager.inventory["coin"] >= 100:
+		add_experience(1000)
+		for i in range(100):
+			InventoryManager.remove_collectible("coin")
 
 func add_experience(amount: int) -> void:
 	stats.experience.current += amount

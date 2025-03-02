@@ -132,6 +132,22 @@ var quests: Dictionary = {
 		"requires_turnin": true,
 		"repeatable": false
 	}, #(Tutorial) Talk to Larry
+	"talk_to_mayor": {
+		"title": "Talk to the Mayor",
+		"description": "Go to Brady Town and find the mayor's house and speak to the mayor.",
+		"objectives": {
+			"talk_to": {
+				"target": "mayor"
+			}
+		},
+		"rewards": {
+			"experience": 200,
+			"gold": 10
+		},
+		"turnin_npc": "mayor",
+		"requires_turnin": true,
+		"repeatable": false	
+	}, #(Tutorial) Talk to Larry
 	"talk_to_larry": {
 		"title": "Talk to Larry",
 		"description": "Go to the middle island and find Larry, he's southeast from spawn.",

@@ -84,6 +84,8 @@ func _unhandled_input(event):
 		cast_fire_nova()
 	if event.is_action_pressed("cast_heal") and can_cast_heal:
 		cast_heal()
+	if event.is_action_pressed("respawn"):
+		respawn()
 		
 func shoot_fireball():
 	if not can_shoot:

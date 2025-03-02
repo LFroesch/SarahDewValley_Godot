@@ -1,0 +1,21 @@
+~ mayor_entrance
+if QuestManager.ready_for_turnin_quests.has("talk_to_mayor")
+	=> turnin_for_talk_to_mayor
+else
+	=> talk_to_mayor
+	
+~ talk_to_mayor
+Mayor: [[Hi|Hello|Howdy]], I'm the Mayor!
+Mayor: Would you like to make a donation to the uhh town? You will be compensated with experience!
+- Yes (100 coins)
+	Mayor: Thank you for your valued donation! Surely I will use it on expanding the city!
+	do StatisticsManager.buy_experience()
+	=> END
+- No
+	=> END
+
+~ turnin_for_talk_to_mayor
+Mayor: Hey you found me! Here's your reward.
+Reward: {{QuestManager.quests["talk_to_mayor"].rewards.experience}} exp | {{QuestManager.quests["talk_to_mayor"].rewards.gold}} coins.
+do QuestManager.complete_quest("talk_to_mayor")
+=> END

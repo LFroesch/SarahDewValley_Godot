@@ -14,10 +14,11 @@ Larry: You're new around here so to get you settled in, go talk to some of my fr
 Larry: Go talk to my friend Steve to the East in Brady Town. He will tell you about the sewers!
 Larry: Also go talk to Farmer Dave southeast of here, cross the bridge south and then head east.
 Larry: There are also combat quests in Brady Town, find Gary!
-Larry: I also want to tell you about the healing crystals, there is one right by us, if you stand next to it, you will heal.
+Larry: Also talk to the mayor in Brady Town (he's in his house) to find out about *ahem* donations.
 do GameDialogueManager.action_start_quest("my_friend_gary")
 do GameDialogueManager.action_start_quest("my_friend_in_town")
 do GameDialogueManager.action_start_quest("farmer_dave")
+do GameDialogueManager.action_start_quest("talk_to_mayor")
 => END
 
 ~ talk_to_steve_in_progress
