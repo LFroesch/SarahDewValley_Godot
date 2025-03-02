@@ -1,7 +1,20 @@
 #GameManager.gd
 extends Node
 var game_menu_screen = preload("res://scenes/ui/game_menu_screen.tscn")
+var respawn_needed = false
+var allow_unstuck = false
 
+func set_respawn_needed(value: bool) -> void:
+	respawn_needed = value
+
+func _process(delta: float) -> void:
+	# Check if respawn is needed and game is active
+	if respawn_needed and !get_tree().paused:
+		respawn_needed = false
+		var player = get_tree().get_first_node_in_group("player")
+		if player and player.has_method("respawn"):
+			player.respawn()
+			
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("game_menu"):
 		show_game_menu_screen()
@@ -16,6 +29,7 @@ func start_game() -> void:
 	await get_tree().process_frame
 	SaveGameManager.load_game()
 	SaveGameManager.allow_save_game = true
+	GameManager.allow_unstuck = true
 
 func continue_game() -> void:
 	var saved_level = SceneManager.load_level_state()

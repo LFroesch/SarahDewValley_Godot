@@ -3,11 +3,15 @@ extends CanvasLayer
 
 @onready var save_game_button: Button = $MarginContainer/VBoxContainer/SaveGameButton
 @onready var confirmation_dialog: ConfirmationDialog = $ConfirmationDialog
+@onready var unstuck_button: Button = $MarginContainer/VBoxContainer/UnstuckButton
+
 
 func _ready() -> void:
 	save_game_button.disabled = !SaveGameManager.allow_save_game
 	save_game_button.focus_mode = SaveGameManager.allow_save_game if Control.FOCUS_ALL else Control.FOCUS_NONE
-	
+	unstuck_button.disabled = !GameManager.allow_unstuck
+	unstuck_button.focus_mode = GameManager.allow_unstuck if Control.FOCUS_ALL else Control.FOCUS_NONE
+
 	confirmation_dialog.dialog_text = "Are you sure you want to delete your save file? You will restart the game. This action cannot be undone."
 	confirmation_dialog.get_ok_button().text = "Delete"
 	confirmation_dialog.get_cancel_button().text = "Cancel"
@@ -56,3 +60,9 @@ func _on_confirmation_dialog_confirmed() -> void:
 	QuestManager.reset_quests()
 	StatisticsManager.reset_statistics()
 	StatisticsManager.update_ui_after_reset()
+
+func _on_unstuck_button_pressed() -> void:
+	# Create a flag or signal to indicate respawn is needed
+	if GameManager.has_method("set_respawn_needed"):
+		GameManager.set_respawn_needed(true)
+	queue_free()

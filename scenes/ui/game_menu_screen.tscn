@@ -54,6 +54,13 @@ layout_mode = 2
 theme_type_variation = &"GameMenuButton"
 text = "Save"
 
+[node name="UnstuckButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 29)
+layout_mode = 2
+theme_type_variation = &"GameMenuButton"
+text = "Unstuck
+"
+
 [node name="ExitGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(100, 29)
 layout_mode = 2
@@ -83,6 +90,7 @@ dialog_autowrap = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/SaveGameButton" to="." method="_on_save_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/UnstuckButton" to="." method="_on_unstuck_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ExitGameButton" to="." method="_on_exit_game_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/UpdateGameButton" to="." method="_on_update_game_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/DeleteSaveButton" to="." method="_on_delete_save_button_pressed"]

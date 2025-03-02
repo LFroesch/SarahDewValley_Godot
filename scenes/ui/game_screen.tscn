@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://335kuu1ed1xx"]
+[gd_scene load_steps=13 format=3 uid="uid://335kuu1ed1xx"]
 
 [ext_resource type="Theme" uid="uid://d12h0sdtb6bla" path="res://scenes/ui/game_ui_theme.tres" id="1_3oi1c"]
 [ext_resource type="Script" path="res://scenes/ui/game_screen.gd" id="1_nevtp"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b5ks16sn12ttk" path="res://scenes/ui/emotes_panel.tscn" id="2_iif8i"]
 [ext_resource type="PackedScene" uid="uid://c7ocfo210s7xk" path="res://scenes/ui/inventory_panel.tscn" id="3_x6pj4"]
 [ext_resource type="PackedScene" uid="uid://coxr3chgyg0lq" path="res://scenes/ui/day_and_night_panel.tscn" id="4_j2k7u"]
+[ext_resource type="PackedScene" uid="uid://ct0jtlf1gt0tf" path="res://scenes/ui/xp_bar.tscn" id="5_nnkpt"]
 [ext_resource type="PackedScene" uid="uid://bqmsjte4blffe" path="res://scenes/ui/spillover_panel.tscn" id="7_krd5t"]
 [ext_resource type="PackedScene" uid="uid://206d3x7l2hf" path="res://scenes/ui/stats_panel.tscn" id="8_ja1bm"]
 [ext_resource type="PackedScene" uid="uid://dkvgnrhjhcjjq" path="res://scenes/ui/quest_panel.tscn" id="9_as3ov"]
@@ -42,15 +43,27 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
+[node name="DayAndNightPanel" parent="MarginContainer" instance=ExtResource("4_j2k7u")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
 [node name="Tools Panel" parent="MarginContainer" instance=ExtResource("2_6i2tu")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
-[node name="DayAndNightPanel" parent="MarginContainer" instance=ExtResource("4_j2k7u")]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="XPBar" parent="MarginContainer/HBoxContainer" instance=ExtResource("5_nnkpt")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
 
 [node name="SpilloverPanel" parent="." instance=ExtResource("7_krd5t")]
 
