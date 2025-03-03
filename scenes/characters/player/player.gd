@@ -31,6 +31,7 @@ func _ready() -> void:
 	ToolManager.tool_selected.connect(on_tool_selected)
 	InventoryManager.health_recovered.connect(_on_health_recovered)
 	hurt_component.hurt.connect(_on_hurt)
+	StatisticsManager.level_up.connect(_on_level_up)
 	await get_tree().process_frame
 	if fade_overlay:
 		fade_overlay.color = Color(0, 0, 0, 0)
@@ -137,3 +138,6 @@ func _on_hurt(amount: float) -> void:
 func _on_health_recovered(amount: int) -> void:
 	current_health = min(current_health + amount, max_health)	
 	HitSplatManager.spawn_damage_number(global_position, amount, DamageNumber.Type.HEALING)
+
+func _on_level_up(new_level):
+	current_health = max_health

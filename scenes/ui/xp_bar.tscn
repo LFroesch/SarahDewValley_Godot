@@ -48,11 +48,12 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [node name="XPBar" type="Control"]
-custom_minimum_size = Vector2(150, 20)
+custom_minimum_size = Vector2(150, 30)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 100.0
-offset_bottom = 20.0
+offset_top = -3.0
+offset_right = 150.0
+offset_bottom = 27.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource("2_fghij")
@@ -103,9 +104,9 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 46.0
-offset_top = -3.0
+offset_top = -8.0
 offset_right = 48.0
-offset_bottom = 7.0
+offset_bottom = 12.0
 grow_vertical = 2
 color = Color(0.2, 0.145098, 0.0980392, 1)
 
@@ -115,9 +116,9 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 74.0
-offset_top = -3.0
+offset_top = -8.0
 offset_right = 76.0
-offset_bottom = 7.0
+offset_bottom = 12.0
 grow_vertical = 2
 color = Color(0.2, 0.145098, 0.0980392, 1)
 
@@ -127,27 +128,28 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 22.0
-offset_top = -3.0
+offset_top = -8.0
 offset_right = 24.0
-offset_bottom = 7.0
+offset_bottom = 12.0
 grow_vertical = 2
 color = Color(0.2, 0.145098, 0.0980392, 1)
 
 [node name="LevelPanel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = -14.0
-offset_right = 21.0
-offset_bottom = 21.0
-scale = Vector2(0.4, 0.4)
+offset_left = -25.0
+offset_top = 2.0
+offset_right = 10.0
+offset_bottom = 23.0
+scale = Vector2(0.7, 0.7)
 theme_override_styles/panel = SubResource("StyleBoxFlat_level")
 
 [node name="LevelLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = -13.0
-offset_top = 1.0
-offset_right = 17.0
-offset_bottom = 16.0
-scale = Vector2(0.4, 0.4)
+offset_left = -23.0
+offset_top = 4.0
+offset_right = 7.0
+offset_bottom = 19.0
+scale = Vector2(0.7, 0.7)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.2, 0.145098, 0.0980392, 1)
 theme_override_constants/outline_size = 1

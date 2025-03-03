@@ -53,20 +53,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-
-[node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-
-[node name="XPBar" parent="MarginContainer/HBoxContainer" instance=ExtResource("5_nnkpt")]
-layout_mode = 2
-size_flags_vertical = 8
-
 [node name="SpilloverPanel" parent="." instance=ExtResource("7_krd5t")]
 
 [node name="StatsPanel" parent="." instance=ExtResource("8_ja1bm")]
@@ -79,3 +65,20 @@ size_flags_stretch_ratio = 0.0
 [node name="TalentsMenu" parent="." instance=ExtResource("10_c5fmx")]
 
 [node name="LevelUpPanel" parent="." instance=ExtResource("11_0oqip")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(200, 0)
+offset_left = 10.0
+offset_top = 335.0
+offset_right = 210.0
+offset_bottom = 365.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="XPBar" parent="HBoxContainer" instance=ExtResource("5_nnkpt")]
+layout_mode = 2
+size_flags_vertical = 8

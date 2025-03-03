@@ -6,6 +6,19 @@ var save_data_path: String = "user://game_data/inventory_data.tres"
 
 signal inventory_changed
 
+# items / values
+
+var item_descriptions = {
+	"log" : "a big wooden log",
+	"stone" : "a decent sized rock"
+}
+
+var coin_values = {
+	"log" : 3,
+	"stone" : 5,
+	"healing_potion" : 25,
+}
+
 var food_healing_values = {
 	"egg": 15,
 	"milk": 20,

@@ -151,6 +151,7 @@ func level_up_character() -> void:
 	stats.experience.current -= xp_to_next_level[stats.experience.level - 1]
 	level_up.emit(stats.experience.level)
 	add_talent_points(1)
+	
 
 func get_kill_count(enemy_type: String = "") -> int:
 	if enemy_type.is_empty():
