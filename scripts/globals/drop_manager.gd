@@ -14,11 +14,14 @@ const DROP_TABLES = {
 		{"item": "res://scenes/objects/coin.tscn", "weight": 20, "min_count": 15, "max_count": 20},
 		{"item": "res://scenes/objects/coin.tscn", "weight": 50, "min_count": 10, "max_count": 20},
 		{"item": "res://scenes/objects/milk.tscn", "weight": 30, "min_count": 2, "max_count": 3}
-	],
-	# Add more predefined tables as needed
+	]
+	#"quest_enemy": [
+		#{"item": Father's Special Sword weight: 10 count 1
+		#{"item": The Magic Pot weight: 10 count 1
+		#{"item": Beans tm weight: 10 count 1
+		#{"item": idfk weight: 10 count 1
+	#]
 }
-
-# Configuration constants
 const DEFAULT_MIN_DISTANCE = 7.0
 const DEFAULT_SCATTER_RADIUS = {
 	"common_enemy": 20.0,
