@@ -30,6 +30,8 @@ func _input(event: InputEvent) -> void:
 		if visible:
 			update_ui()
 			_find_player()
+	elif event.is_action_pressed("cheat_talent"):
+		StatisticsManager.add_talent_points(1)
 
 var has_initialized: bool = false
 var player_finder_timer: Timer

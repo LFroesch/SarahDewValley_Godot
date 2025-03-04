@@ -10,7 +10,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func save_game() -> void:
 	if not allow_save_game:
 		return
-		
+	DayAndNightCycleManager.game_speed = 5
 	DayAndNightCycleManager.save_time_state()
 	InventoryManager.save_inventory()
 	ToolManager.save_tools()
