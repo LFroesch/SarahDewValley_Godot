@@ -60,6 +60,39 @@ func _on_confirmation_dialog_confirmed() -> void:
 	QuestManager.reset_quests()
 	StatisticsManager.reset_statistics()
 	StatisticsManager.update_ui_after_reset()
+	
+	if DungeonRunManager:
+		# Reset the run state
+		DungeonRunManager.is_run_active = false
+		DungeonRunManager.run_start_time = 0
+		DungeonRunManager.current_sewer_level = 0
+		
+		# Reset temporary variables
+		DungeonRunManager.temp_final_score = 0
+		DungeonRunManager.temp_rewards_tier = ""
+		DungeonRunManager.temp_rewards_coins = 0
+		DungeonRunManager.temp_rewards_exp = 0
+		
+		# Reset run stats
+		DungeonRunManager.run_stats = {
+			"time_elapsed": 0,
+			"kills": {
+				"total": 0,
+				"by_enemy_type": {},
+			},
+			"damage_dealt": 0,
+			"damage_taken": 0,
+			"healing_done": 0,
+			"coins_collected": 0,
+			"highest_level_reached": 0,
+			"deaths": 0,
+			"potions_used": 0,
+			"boss_kills": 0
+		}
+		
+		# Save the reset data
+		DungeonRunManager.save_run_data()
+		print("DungeonRunManager data reset")
 
 func _on_unstuck_button_pressed() -> void:
 	# Create a flag or signal to indicate respawn is needed

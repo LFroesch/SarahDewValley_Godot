@@ -1,6 +1,7 @@
 #player.gd
 class_name Player
 extends CharacterBody2D
+signal health_changed(current: float, maximum: float)
 
 @onready var hit_component: HitComponent = $HitComponent
 @export var current_tool: DataTypes.Tools = DataTypes.Tools.None
@@ -50,6 +51,7 @@ func _ready() -> void:
 	shoot_timer.one_shot = true
 	shoot_timer.timeout.connect(_on_shoot_timer_timeout)
 	add_child(shoot_timer)
+	emit_signal("health_changed", current_health, max_health)
 
 func cast_heal() -> void:
 	var heal = heal_scene.instantiate()
@@ -68,7 +70,8 @@ func _on_heal_cooldown_timeout() -> void:
 func heal(amount: float) -> void: #Dedicated for the heal ability
 	current_health = min(current_health + amount, max_health)
 	HitSplatManager.spawn_damage_number(global_position, amount, DamageNumber.Type.HEALING)
-	
+	DungeonRunManager.record_healing_taken(amount)
+
 func cast_fire_nova() -> void:
 	var nova = fire_nova_scene.instantiate()
 	add_child(nova)
@@ -123,6 +126,7 @@ func fade_in() -> void:
 	await tween.finished
 
 func respawn() -> void:
+	DungeonRunManager.record_death()
 	await fade_out()
 	await get_tree().create_timer(1.0).timeout
 	current_health = max_health
@@ -132,12 +136,14 @@ func respawn() -> void:
 func _on_hurt(amount: float) -> void:
 	current_health -= amount
 	HitSplatManager.spawn_damage_number(global_position, amount, DamageNumber.Type.DAMAGE_TO_PLAYER)
+	DungeonRunManager.record_damage_taken(amount)
 	if current_health <= 0:
 		_on_max_damage_reached()
 
 func _on_health_recovered(amount: int) -> void:
 	current_health = min(current_health + amount, max_health)	
 	HitSplatManager.spawn_damage_number(global_position, amount, DamageNumber.Type.HEALING)
+	DungeonRunManager.record_healing_taken(amount)
 
 func _on_level_up(new_level):
 	current_health = max_health

@@ -155,6 +155,8 @@ func _on_health_increment_pressed() -> void:
 		var new_level = current_level + 1
 		StatisticsManager.update_talent("health", new_level)
 		player.max_health += HEALTH_PER_LEVEL
+		player.current_health = player.max_health
+		player.emit_signal("health_changed", player.current_health, player.max_health)
 		update_ui()
 
 func _on_speed_increment_pressed() -> void:
@@ -206,12 +208,17 @@ func apply_all_talents() -> void:
 	
 	# Apply health bonus
 	player.max_health = 100.0 + (health_level * HEALTH_PER_LEVEL)
+	player.emit_signal("health_changed", player.current_health, player.max_health)
+
 	
 func _on_reset_button_pressed() -> void:
 	StatisticsManager.reset_talents()
 	
 	# Reset player stats to base values
 	player.max_health = 100.0
+	player.current_health = min(player.current_health, player.max_health)
+	player.emit_signal("health_changed", player.current_health, player.max_health)
+
 	update_ui()
 
 # Signal Handlers

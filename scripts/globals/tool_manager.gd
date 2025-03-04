@@ -23,7 +23,6 @@ func save_tools() -> void:
 	var save_data = ToolSaveData.new()
 	save_data.enabled_tools = enabled_tools
 	var result = ResourceSaver.save(save_data, save_data_path)
-	print("Tools save result: ", result)
 
 func load_tools() -> void:
 	if not FileAccess.file_exists(save_data_path):

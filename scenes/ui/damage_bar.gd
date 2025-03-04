@@ -7,6 +7,7 @@ func _ready() -> void:
 	await get_tree().process_frame
 	player = get_parent() as Player
 	if player:
+		player.health_changed.connect(_on_player_health_changed)
 		setup_bar()
 		update_bar_visibility()
 
@@ -31,3 +32,7 @@ func show_bar() -> void:
 
 func hide_bar() -> void:
 	hide()
+
+func _on_player_health_changed(current: float, maximum: float) -> void:
+	progress_bar.max_value = maximum
+	progress_bar.value = current

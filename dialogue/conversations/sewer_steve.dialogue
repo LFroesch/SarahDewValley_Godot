@@ -1,3 +1,5 @@
+# sewer_steve_dialogue.gd
+
 ~ steve_entrance
 if QuestManager.ready_for_turnin_quests.has("my_friend_in_town")
 	=> turnin_for_my_friend_in_town
@@ -5,20 +7,65 @@ else
 	=> talk_to_steve
 	
 ~ talk_to_steve
-Sewer Steve: [[Hi|Hello|Howdy]], I'm Sewer Steve! welcome to the sewers! To enter, run up to the fountain.
+Sewer Steve: [[Hi|Hello|Howdy]], I'm Sewer Steve! Welcome to the sewers! To enter, run up to the fountain.
 Sewer Steve: If you want to exit, just use the ladder. To go deeper, find the door in the level.
-Sewer Steve: I've got some quests if you'd like!
-- Sure!
-	- Sewer Sam
-		do GameDialogueManager.action_start_quest("talk_to_sam_level_5")
-		Sewer Steve: My brother Sam is down every 5 floors, go meet up with him!
-		=> END
-	- Skeleton Farming
-	- Goblin Farming
-	- Big Goblin Farming
-	- Big Skeleton Farming
-- No thanks, I'm gonna farm.
+
+# Check if a run is active
+if DungeonRunManager.is_run_active
+	Sewer Steve: I see you have an active sewer run in progress!
+	=> run_options
+else
+	Sewer Steve: I've got some quests and sewer run options if you'd like!
+	=> main_options
+
+~ main_options
+- Quest: Sewer Sam
+	do GameDialogueManager.action_start_quest("talk_to_sam_level_5")
+	Sewer Steve: My brother Sam is down every 5 floors, go meet up with him!
 	=> END
+- Start a Sewer Run
+	do GameDialogueManager.action_start_sewer_run()
+	Sewer Steve: Get Ready, Get Set, Go! Make your way down to level 4 and find my brother Sam to complete the run!
+	=> END
+- View Historical Bests
+	=> show_historical_bests
+- Never mind
+	=> END
+
+~ run_options
+- Check Run Status
+	=> check_run_status
+- Cancel Current Run
+	Sewer Steve: Are you sure you want to cancel your current sewer run? All progress will be lost.
+	- Yes, cancel it
+		do DungeonRunManager.end_run(false)
+		Sewer Steve: Run canceled. Come back when you're ready to try again!
+		=> END
+	- No, keep it active
+		Sewer Steve: Alright, your run is still active. Good luck down there!
+		=> END
+- View Historical Bests
+	=> show_historical_bests
+- Never mind
+	=> END
+
+~ check_run_status
+Sewer Steve: Let me check how you're doing with your current run...
+Sewer Steve: You've been running for {{DungeonRunManager.run_stats.time_elapsed}} seconds.
+Sewer Steve: Highest sewer level reached: {{DungeonRunManager.run_stats.highest_level_reached}}
+Sewer Steve: Total kills: {{DungeonRunManager.run_stats.kills.total}}
+Sewer Steve: Remember, you need to reach level 4 and talk to Sam to complete your run!
+=> END
+
+~ show_historical_bests
+Sewer Steve: Here are your best sewer run achievements:
+Sewer Steve: Best score ever: {{DungeonRunManager.historical_best_stats.best_score}}
+Sewer Steve: Fastest completion time: {{DungeonRunManager.formatted_best_time}}
+Sewer Steve: Highest reward tier achieved: {{DungeonRunManager.formatted_highest_tier}}
+Sewer Steve: Completion rate: {{DungeonRunManager.formatted_completion_rate}}
+Sewer Steve: Most kills in a single run: {{DungeonRunManager.historical_best_stats.most_kills}}
+Sewer Steve: Think you can beat your records?
+=> talk_to_steve
 
 ~ turnin_for_my_friend_in_town
 Sewer Steve: Hey you found me! Here's your reward.

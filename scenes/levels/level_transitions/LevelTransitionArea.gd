@@ -8,7 +8,7 @@ func _ready():
 	pass
 	
 func _on_body_entered(body: Node2D) -> void:
-	InventoryManager.remove_collectible("skeleton_key")
+	#InventoryManager.remove_collectible("skeleton_key")
 	SaveGameManager.save_game()
 	if body.is_in_group("player") and not is_transitioning:
 		is_transitioning = true
@@ -23,6 +23,10 @@ func _on_body_entered(body: Node2D) -> void:
 				
 				if target_level != SceneManager.current_level:
 					SceneManager.load_level(target_level, target_point)
+					if target_level.begins_with("the_sewers_floor_"):
+						print("Transitioning to sewer level: " + target_level)
+						if DungeonRunManager:
+							DungeonRunManager.update_current_level(target_level)
 				else:
 					body.global_position = target_point
 					

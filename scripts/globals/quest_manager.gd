@@ -304,7 +304,7 @@ func record_npc_interaction(npc_id: String) -> void:
 		for objective_key in quest.objectives:
 			var objective = quest.objectives[objective_key]
 			if objective_key == "talk_to" and objective.target == npc_id:
-				print("Talked to NPC: %s for quest %s" % [npc_id, quest_id])
+				#print("Talked to NPC: %s for quest %s" % [npc_id, quest_id])
 				quest_updated.emit(quest_id, 1.0)
 				mark_quest_ready_for_turnin(quest_id)
 	

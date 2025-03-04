@@ -40,7 +40,7 @@ func attack_player(player):
 		var mitigated = randi_range(1, 5)
 		var total_damage = int(damage * crit - mitigated)
 		player.get_node("HurtComponent").hurt.emit(total_damage)
-		print("Player takes ", total_damage, " damage | Damage: ", damage, " | Crit %: ", crit, " | Mitigated: ", mitigated)
+		#print("Player takes ", total_damage, " damage | Damage: ", damage, " | Crit %: ", crit, " | Mitigated: ", mitigated)
 	can_deal_damage = false
 	damage_timer.start()
 

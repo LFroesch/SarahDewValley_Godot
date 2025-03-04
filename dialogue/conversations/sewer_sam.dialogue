@@ -1,18 +1,47 @@
+# sewer_sam_dialogue.gd
+
 ~ sewer_sam_entrance
+# First check for quest turnin
 if QuestManager.ready_for_turnin_quests.has("talk_to_sam_level_5")
 	=> turnin_for_talk_to_sam_level_5
+# Then check for run completion
+elif DungeonRunManager.is_run_active and DungeonRunManager.can_complete_run().can_complete
+	do DungeonRunManager.prepare_completion_data()
+	=> sewer_sam_completion
+# Regular dialogue if neither of the above
 else
 	=> talk_to_sam
-	
+
+~ sewer_sam_completion
+Sewer Sam: Wow, you made it through all 4 levels! That's impressive!
+Sewer Sam: Your final score is {{DungeonRunManager.temp_final_score}}!
+
+if DungeonRunManager.temp_rewards_tier == "platinum"
+	Sewer Sam: INCREDIBLE! You've earned the PLATINUM reward!
+elif DungeonRunManager.temp_rewards_tier == "gold"
+	Sewer Sam: Amazing! You've earned the GOLD reward!
+elif DungeonRunManager.temp_rewards_tier == "silver"
+	Sewer Sam: Well done! You've earned the SILVER reward!
+elif DungeonRunManager.temp_rewards_tier == "bronze"
+	Sewer Sam: Good job! You've earned the BRONZE reward!
+else
+	Sewer Sam: You completed the run, but try to do better next time!
+
+Sewer Sam: You earned {{DungeonRunManager.temp_rewards_coins}} coins and {{DungeonRunManager.temp_rewards_exp}} experience!
+Sewer Sam: Come back and try again anytime for better rewards!
+do GameDialogueManager.action_complete_sewer_run()
+# Give player choices to end the dialogue in different ways
+=> END
+
 ~ talk_to_sam
-Sewer Steve: [[Hi|Hello|Howdy]], I'm Sewer Sam, Sewer Steve's brother.
-Sewer Steve: Good job making it this far, if you want to head back up, hit the ladders.
-Sewer Steve: But keep going! Lets see how far you can make it! (Coming Soon)
+Sewer Sam: [[Hi|Hello|Howdy]], I'm Sewer Sam, Sewer Steve's brother.
+Sewer Sam: Good job making it this far, if you want to head back up, hit the ladders.
+Sewer Sam: But keep going! Let's see how far you can make it! (Coming Soon)
 => END
 
 ~ turnin_for_talk_to_sam_level_5
-Sewer Steve: Hey you found me! Here's your reward.
+Sewer Sam: Hey you found me! Here's your reward.
 Reward: {{QuestManager.quests["talk_to_sam_level_5"].rewards.experience}} exp | {{QuestManager.quests["talk_to_sam_level_5"].rewards.gold}} coins.
 do QuestManager.complete_quest("talk_to_sam_level_5")
-Sewer Steve: If you want to go again, talk to Sewer Steve on the surface, hit the ladders.
+Sewer Sam: If you want to go again, talk to Sewer Steve on the surface, hit the ladders.
 => END

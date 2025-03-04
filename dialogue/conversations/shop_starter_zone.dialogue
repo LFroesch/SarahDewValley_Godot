@@ -1,25 +1,61 @@
 ~ start_milk_and_egg_seller
 Vendor: [[Hi|Hello|Howdy]], welcome to my food shop!
-- Eggs - 3g per
-	Vendor: One fresh laid egg coming right up, that'll be 3 gold please.
+- Buy
+	=> buy_milk_and_eggs
+- Sell
+	=> sell_milk_and_eggs
+~ buy_milk_and_eggs
+- Buy 1x Egg (8 Coins)
+	Vendor: One fresh laid egg coming right up, that'll be 8 coins please.
 	do GameDialogueManager.action_buy_egg(1)
-- Milk - 5g per
-	Vendor: Mmm a jar of cold milk, that'll be 5 gold please.
-	do GameDialogueManager.action_buy_milk(1)
-- 5x Egg - 3g per (15g)
-	Vendor: Five fresh laid eggs coming right up, that'll be 15 gold please.
+	=> buy_milk_and_eggs
+- Buy 5x Egg (40 Coins)
+	Vendor: Five fresh laid eggs coming right up, that'll be 40 coins please.
 	do GameDialogueManager.action_buy_egg(5)
-- 5x Milk - 5g per (25g)
-	Vendor: Mmm five jars of cold milk, that'll be 25 gold please.
-	do GameDialogueManager.action_buy_milk(5)
-- 10x Egg - 3g per (30g)
-	Vendor: Ten fresh laid eggs coming right up, that'll be 30 gold please.
+	=> buy_milk_and_eggs
+- Buy 10x Egg (80 Coins)
+	Vendor: Ten fresh laid eggs coming right up, that'll be 80 coins please.
 	do GameDialogueManager.action_buy_egg(10)
-- 10x Milk - 5g per (50g)
-	Vendor: Mmm ten jars of cold milk, that'll be 50 gold please.
+	=> buy_milk_and_eggs
+- Buy 1x Milk (10 Coins)
+	Vendor: Mmm a jar of cold milk, that'll be 10 gold please.
+	do GameDialogueManager.action_buy_milk(1)
+	=> buy_milk_and_eggs
+- Buy 5x Milk (50 Coins)
+	Vendor: Mmm five jars of cold milk, that'll be 50 gold please.
+	do GameDialogueManager.action_buy_milk(5)
+	=> buy_milk_and_eggs
+- Buy 10x Milk (100 Coins)
+	Vendor: Mmm ten jars of cold milk, that'll be 100 gold please.
 	do GameDialogueManager.action_buy_milk(10)
+	=> buy_milk_and_eggs
 - No Thanks => END
-=> END
+~ sell_milk_and_eggs
+- Sell 1x Egg (4 Coins)
+	Vendor: I'll buy your eggs 4 coins each!
+	do GameDialogueManager.action_sell_egg(1)
+	=> sell_milk_and_eggs
+- Sell 5x Egg (20 Coins)
+	Vendor: I'll buy your eggs 4 coins each!
+	do GameDialogueManager.action_sell_egg(5)
+	=> sell_milk_and_eggs
+- Sell 10x Egg (40 Coins)
+	Vendor: I'll buy your eggs 4 coins each!
+	do GameDialogueManager.action_sell_egg(10)
+	=> sell_milk_and_eggs
+- Sell 1x Milk (5 Coins)
+	Vendor: I'll buy your milk 5 coins each!
+	do GameDialogueManager.action_sell_milk(1)
+	=> sell_milk_and_eggs
+- Sell 5x Milk (25 Coins)
+	Vendor: I'll buy your milk 5 coins each!
+	do GameDialogueManager.action_sell_milk(5)
+	=> sell_milk_and_eggs
+- Sell 10x Milk (50 Coins)
+	Vendor: I'll buy your milk 5 coins each!
+	do GameDialogueManager.action_sell_milk(10)
+	=> sell_milk_and_eggs
+- No Thanks => END
 
 ~ start_stone_and_log_buyer
 Vendor: [[Hi|Hello|Howdy]], I'd love to buy your logs and stone!

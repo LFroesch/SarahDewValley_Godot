@@ -78,11 +78,11 @@ tile_set = ExtResource("3_uwgx8")
 
 [node name="FriendlyNPCs" type="Node2D" parent="."]
 
-[node name="TalkToSteve" parent="FriendlyNPCs" instance=ExtResource("6_xpp4k")]
+[node name="Steve" parent="FriendlyNPCs" instance=ExtResource("6_xpp4k")]
 position = Vector2(937, 737)
 
 [node name="MilkAndEggSeller" parent="FriendlyNPCs" instance=ExtResource("5_8x71x")]
-position = Vector2(1020, 790)
+position = Vector2(1018, 794)
 
 [node name="StoneAndLogBuyer" parent="FriendlyNPCs" instance=ExtResource("6_ucnmq")]
 position = Vector2(853, 774)

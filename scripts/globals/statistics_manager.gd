@@ -41,6 +41,14 @@ var stats: Dictionary = {
 		"fire_nova": 0,
 		"heal": 0,
 		"melee": 0
+	},
+	"stats" : {
+		"deaths" : 0,
+		"damage_done" : 0,
+		"damage_taken" : 0,
+		"healing_done" : 0,
+		"quests_completed" : 0,
+		"coins_collected" : 0
 	}
 }
 

@@ -33,7 +33,6 @@ func save_game() -> void:
 	save_node_data()
 	
 	var result: int = ResourceSaver.save(game_data_resource, save_game_data_path + level_save_file_name)
-	print("Save result: ", result)
 	
 func load_game() -> void:
 	

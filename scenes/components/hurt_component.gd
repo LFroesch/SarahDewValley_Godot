@@ -19,18 +19,22 @@ func _on_area_entered(area: Area2D) -> void:
 				var random_damage = int(crit_modifier * randi_range(hit_component.enemy_damage_min, hit_component.enemy_damage_max))
 				var total_damage = random_damage + (talent_level * 10.0)
 				HitSplatManager.spawn_damage_number(global_position, total_damage, DamageNumber.Type.DAMAGE_TO_ENEMY)
+				DungeonRunManager.record_damage_dealt(total_damage)
 				hurt.emit(total_damage)
 			else:
 				hurt.emit(hit_component.hit_damage)
 	if area.get("is_fireball") and is_enemy:
 		HitSplatManager.spawn_damage_number(global_position, area.damage, DamageNumber.Type.DAMAGE_TO_ENEMY)
+		DungeonRunManager.record_damage_dealt(area.damage)
 		hurt.emit(area.damage)
 		
 	if area.get("is_fire_nova") and is_enemy:
 		HitSplatManager.spawn_damage_number(global_position, area.damage, DamageNumber.Type.DAMAGE_TO_ENEMY)
+		DungeonRunManager.record_damage_dealt(area.damage)
 		hurt.emit(area.damage)
 	
 	if area.get("is_holy_nova") and is_enemy:
 		HitSplatManager.spawn_damage_number(global_position, area.damage, DamageNumber.Type.DAMAGE_TO_ENEMY)
+		DungeonRunManager.record_damage_dealt(area.damage)
 		hurt.emit(area.damage)
 		

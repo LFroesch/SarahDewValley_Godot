@@ -66,7 +66,6 @@ func save_time_state() -> void:
 	var save_resource = Resource.new()
 	save_resource.set_meta("time_data", time_data)
 	var result = ResourceSaver.save(save_resource, save_data_path)
-	print("Time save result: ", result)
 
 func load_time_state() -> void:
 	if not FileAccess.file_exists(save_data_path):
