@@ -24,9 +24,11 @@ func _ready():
 		Type.HEALING:
 			label.add_theme_color_override("font_color", Color(0.2, 1, 0.2)) # Green
 		Type.EXP:
-			label.add_theme_color_override("font_color", Color(118.8/255.0, 38.0/255.0, 255.0/255.0)) #PURPLE
+			label.add_theme_color_override("font_color", Color(132.0/255.0, 3.0/255.0, 252.0/255.0)) #PURPLE
 	if type == Type.HEALING:
 		label.text = "+" + str(amount)
+	elif type == Type.DAMAGE_TO_PLAYER:
+		label.text = "-" + str(amount)
 	else:
 		label.text = str(amount)
 

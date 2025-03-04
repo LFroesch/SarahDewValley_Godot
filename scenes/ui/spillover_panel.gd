@@ -150,11 +150,3 @@ func _get_item_tooltip_text(item_name: String) -> String:
 		tooltip_text += "\n- Value: " + str(value)
 	
 	return tooltip_text
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("show_spillover"):
-		visible = !visible
-		if visible:
-			update_spillover_display()
-		else:
-			_hide_simple_tooltip()

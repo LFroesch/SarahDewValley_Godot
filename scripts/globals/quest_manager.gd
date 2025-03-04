@@ -18,7 +18,7 @@ var quests: Dictionary = {
 	#(Tutorial) First Kill Quest Skeleton Chief
 	"banesword": {
 		"title": "The Giant Skeleton",
-		"description": "Defeat Banesword the giant skeleton south of town.",
+		"description": "Defeat Banesword the giant skeleton southwest of town or in the sewers.",
 		"objectives": {
 			"kill_enemy": {
 				"enemy_type": "skeleton_chief",
@@ -35,7 +35,7 @@ var quests: Dictionary = {
 	}, #Goblin Chief Kill Quest
 	"ruknash_the_terrible": {
 		"title": "Ruknash the Terrible",
-		"description": "Defeat Ruknash the Terrible, north east of town.",
+		"description": "Defeat Ruknash the Terrible, northeast of town or in the sewers.",
 		"objectives": {
 			"kill_enemy": {
 				"enemy_type": "goblin_chief",
@@ -85,8 +85,8 @@ var quests: Dictionary = {
 		"repeatable": true
 	}, #(Tutorial) Talk to Steve
 	"my_friend_in_town": {
-		"title": "My Friend In Town",
-		"description": "Go to Brady Town and talk to my friend by the fountain.",
+		"title": "My Friend Steve",
+		"description": "Go to Brady Town and talk to my friend Steve by the fountain.",
 		"objectives": {
 			"talk_to": {
 				"target": "steve"
@@ -102,7 +102,7 @@ var quests: Dictionary = {
 	}, #(Tutorial) Talk to Farmer Dave
 	"farmer_dave": {
 		"title": "Farmer Dave",
-		"description": "Go southeast and find Farmer Dave.",
+		"description": "Go southeast of Brady Town and find Farmer Dave.",
 		"objectives": {
 			"talk_to": {
 				"target": "farmer_dave"
@@ -118,7 +118,7 @@ var quests: Dictionary = {
 	}, #(Tutorial) Talk to Gary
 	"my_friend_gary": {
 		"title": "My Friend Gary",
-		"description": "Go into town and find Gary.",
+		"description": "Go to Brady Town and find Gary.",
 		"objectives": {
 			"talk_to": {
 				"target": "gary"
@@ -134,7 +134,7 @@ var quests: Dictionary = {
 	}, #(Tutorial) Talk to Larry
 	"talk_to_mayor": {
 		"title": "Talk to the Mayor",
-		"description": "Go to Brady Town and find the mayor's house and speak to the mayor.",
+		"description": "Go to Brady Town, find the Mayor's House and speak with the Mayor",
 		"objectives": {
 			"talk_to": {
 				"target": "mayor"
@@ -150,7 +150,7 @@ var quests: Dictionary = {
 	}, #(Tutorial) Talk to Larry
 	"talk_to_larry": {
 		"title": "Talk to Larry",
-		"description": "Go to the middle island and find Larry, he's southeast from spawn.",
+		"description": "Go to the middle island and find Larry, he is southeast from spawn.",
 		"objectives": {
 			"talk_to": {
 				"target": "larry"
@@ -166,7 +166,7 @@ var quests: Dictionary = {
 	}, #First Sewer Quest
 	"talk_to_sam_level_5": {
 		"title": "Talk to Sewer Sam",
-		"description": "Find your way to level 5 in the sewers and talk to Sewer Sam.",
+		"description": "Fight your way to level 5 in the sewers and talk to Sewer Sam.",
 		"objectives": {
 			"talk_to": {
 				"target": "sam"
@@ -513,8 +513,6 @@ func load_quest_data() -> void:
 		
 		if data.has("quest_completion_counts"):
 			quest_completion_counts = data.quest_completion_counts
-			
-		print("Quest data loaded successfully")
 	else:
 		printerr("Failed to load quest data: Invalid or corrupted save file")
 

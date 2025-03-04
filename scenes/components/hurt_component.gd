@@ -17,7 +17,7 @@ func _on_area_entered(area: Area2D) -> void:
 			if is_enemy:
 				var crit_modifier = randi_range(1.0, 1.8)
 				var random_damage = int(crit_modifier * randi_range(hit_component.enemy_damage_min, hit_component.enemy_damage_max))
-				var total_damage = random_damage + (talent_level * 5.0)
+				var total_damage = random_damage + (talent_level * 10.0)
 				HitSplatManager.spawn_damage_number(global_position, total_damage, DamageNumber.Type.DAMAGE_TO_ENEMY)
 				hurt.emit(total_damage)
 			else:

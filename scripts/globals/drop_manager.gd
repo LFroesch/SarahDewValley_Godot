@@ -3,17 +3,17 @@ extends Node
 # Predefined drop tables for different enemy types
 const DROP_TABLES = {
 	"common_enemy": [
-		{"item": "res://scenes/objects/egg.tscn", "weight": 40, "min_count": 1, "max_count": 2},
+		{"item": "res://scenes/objects/egg.tscn", "weight": 20, "count": 1},
 		{"item": "res://scenes/objects/coin.tscn", "weight": 100, "min_count": 1, "max_count": 2},
 		{"item": "res://scenes/objects/coin.tscn", "weight": 10, "min_count": 3, "max_count": 5},
-		{"item": "res://scenes/objects/milk.tscn", "weight": 20, "count": 1}
+		{"item": "res://scenes/objects/milk.tscn", "weight": 10, "count": 1}
 	],
 	"boss_enemy": [
-		{"item": "res://scenes/objects/egg.tscn", "weight": 70, "min_count": 3, "max_count": 5},
+		{"item": "res://scenes/objects/egg.tscn", "weight": 70, "min_count": 2, "max_count": 3},
 		{"item": "res://scenes/objects/coin.tscn", "weight": 100, "min_count": 5, "max_count": 10},
 		{"item": "res://scenes/objects/coin.tscn", "weight": 20, "min_count": 15, "max_count": 20},
 		{"item": "res://scenes/objects/coin.tscn", "weight": 50, "min_count": 10, "max_count": 20},
-		{"item": "res://scenes/objects/milk.tscn", "weight": 30, "min_count": 2, "max_count": 3}
+		{"item": "res://scenes/objects/milk.tscn", "weight": 30, "min_count": 1, "max_count": 2}
 	]
 	#"quest_enemy": [
 		#{"item": Father's Special Sword weight: 10 count 1
@@ -28,7 +28,7 @@ const DEFAULT_SCATTER_RADIUS = {
 	"boss_enemy": 50.0
 }
 const DEFAULT_DROP_CHANCE = {
-	"common_enemy": 80,
+	"common_enemy": 100,
 	"boss_enemy": 100
 }
 
@@ -39,13 +39,12 @@ func drop(position: Vector2, table_name: String = "common_enemy", custom_table: 
 	
 	# Get configuration values based on enemy type
 	var scatter_radius = DEFAULT_SCATTER_RADIUS.get(table_name, 20.0)
-	var drop_chance = DEFAULT_DROP_CHANCE.get(table_name, 80)
+	var drop_chance = DEFAULT_DROP_CHANCE.get(table_name, 100)
 	
-	# Random check if drops should happen at all (useful for common enemies)
+	# Check if drops happen at all [Not in use]
 	var drop_roll = randi_range(1, 100)
 	if drop_roll > drop_chance:
 		return
-	
 	# Select the drops
 	var drops = select_drops(drop_table)
 	
@@ -75,7 +74,6 @@ func select_drops(drop_table: Array) -> Array:
 				count = randi_range(drop.min_count, drop.max_count)
 			elif "count" in drop:
 				count = drop.count
-			
 			for i in count:
 				drops.append(drop.item)
 	return drops

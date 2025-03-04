@@ -33,6 +33,9 @@ layout_mode = 2
 [node name="QuestTitleLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2

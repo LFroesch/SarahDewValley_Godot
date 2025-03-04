@@ -39,7 +39,9 @@ func update_quest_display() -> void:
 			quest_info.append({
 				"id": quest_id,
 				"title": QuestManager.quests[quest_id].title,
-				"status": "Ready to Hand In"
+				"description": QuestManager.quests[quest_id].description,
+				"status": "Ready to Hand In",
+				"rewards": QuestManager.quests[quest_id].rewards
 			})
 			processed_quest_ids.append(quest_id)
 	
@@ -69,7 +71,9 @@ func update_quest_display() -> void:
 			quest_info.append({
 				"id": quest_id,
 				"title": quest.title,
-				"status": status_text
+				"description": quest.description,
+				"status": status_text,
+				"rewards": quest.rewards
 			})
 			processed_quest_ids.append(quest_id)
 	
@@ -82,16 +86,62 @@ func update_quest_display() -> void:
 	
 	for i in range(quest_info.size()):
 		var quest = quest_info[i]
-		var label = Label.new()
-		label.text = "- %s\n     (%s)" % [quest.title, quest.status]
-		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		label.add_theme_font_size_override("font_size", 18)
+		var quest_box = VBoxContainer.new()
+		quest_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		
-		quest_container.add_child(label)
-		quest_labels[quest.id] = label
+		# Create title and status label
+		var title_label = Label.new()
+		title_label.text = "- %s (%s)" % [quest.title, quest.status]
+		title_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		title_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		title_label.add_theme_font_size_override("font_size", 18)
+		quest_box.add_child(title_label)
+		
+		# Create description label
+		var desc_label = Label.new()
+		desc_label.text = "%s" % quest.description
+		desc_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		desc_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		desc_label.add_theme_font_size_override("font_size", 12)
+		desc_label.add_theme_color_override("font_color", Color(0.8, 0.8, 0.8, 0.9)) # Slightly faded text for description
+		quest_box.add_child(desc_label)
+		
+		# Add rewards section
+		var rewards = quest.rewards
+		var rewards_label = Label.new()
+		rewards_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		rewards_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		rewards_label.add_theme_font_size_override("font_size", 12)
+		
+		var rewards_text = "Rewards: "
+		var rewards_parts = []
+		
+		if rewards.has("experience"):
+			rewards_parts.append("%d XP" % rewards.experience)
+		
+		if rewards.has("gold"):
+			rewards_parts.append("%d Coins" % rewards.gold)
+		
+		if rewards.has("items"):
+			var items_text = []
+			for item in rewards.items:
+				var item_name = item.item_id.capitalize()
+				items_text.append("%dx %s" % [item.count, item_name])
+			if items_text.size() > 0:
+				rewards_parts.append(" + ".join(items_text))
+		rewards_label.text = rewards_text + " + ".join(rewards_parts)
+		rewards_label.add_theme_color_override("font_color", Color(0.9, 0.7, 0.2, 1.0))
+		quest_box.add_child(rewards_label)
+		
+		# Add a small margin between quests
+		if i < quest_info.size() - 1:
+			var spacer = Control.new()
+			spacer.custom_minimum_size = Vector2(0, 10)
+			quest_box.add_child(spacer)
+		
+		quest_container.add_child(quest_box)
+		quest_labels[quest.id] = title_label
 
-# Fixed method names
 func _on_quest_changed(_quest_id: String) -> void:
 	if visible:
 		update_quest_display()
