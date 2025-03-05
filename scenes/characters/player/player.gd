@@ -90,7 +90,12 @@ func _unhandled_input(event):
 		cast_heal()
 	if event.is_action_pressed("respawn"):
 		respawn()
+	if event.is_action_pressed("cheat_talent"):
+		cheat_talent()
 		
+func cheat_talent():
+	StatisticsManager.add_talent_points(1)		
+
 func shoot_fireball():
 	if not can_shoot:
 		return

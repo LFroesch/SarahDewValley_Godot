@@ -354,8 +354,8 @@ func determine_rewards(score: int) -> Dictionary:
 	}
 	
 	# Base rewards
-	rewards.coins = int(score * 0.5)
-	rewards.experience = int(score * 0.8)
+	rewards.coins = int(score * 0.1)
+	rewards.experience = int(score * 0.5)
 	
 	# Tier-based rewards
 	if score >= REWARD_THRESHOLDS.platinum:
@@ -632,3 +632,46 @@ func prepare_completion_data() -> void:
 	print("- Highest level: ", run_stats.highest_level_reached)
 	print("- Deaths: ", run_stats.deaths)
 	print("- Time elapsed: ", run_stats.time_elapsed)
+
+
+func reset_data() -> void:
+	# Reset the run state
+	is_run_active = false
+	run_start_time = 0
+	current_sewer_level = 0
+	
+	# Reset temporary variables
+	temp_final_score = 0
+	temp_rewards_tier = ""
+	temp_rewards_coins = 0
+	temp_rewards_exp = 0
+	
+	# Reset run stats
+	run_stats = {
+		"time_elapsed": 0,
+		"kills": {
+			"total": 0,
+			"by_enemy_type": {},
+		},
+		"damage_dealt": 0,
+		"damage_taken": 0,
+		"healing_done": 0,
+		"coins_collected": 0,
+		"highest_level_reached": 0,
+		"deaths": 0,
+		"potions_used": 0,
+		"boss_kills": 0
+	}
+	
+	# Reset total runs counters
+	total_runs_attempted = 0
+	total_runs_completed = 0
+	
+	# Also reset the completion rate in historical stats
+	historical_best_stats.completion_rate = 0.0
+	historical_best_stats.runs_completed = 0
+	
+	# Save the reset data
+	save_run_data()
+	save_historical_data()
+	print("DungeonRunManager data reset")

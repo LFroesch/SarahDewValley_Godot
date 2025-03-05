@@ -25,13 +25,20 @@ else
 	=> END
 - Start a Sewer Run
 	do GameDialogueManager.action_start_sewer_run()
-	Sewer Steve: Get Ready, Get Set, Go! Make your way down to level 4 and find my brother Sam to complete the run!
+	Sewer Steve: Get Ready, Get Set, Go! Make your way down to level 5 and find my brother Sam to complete the run!
 	=> END
 - View Historical Bests
-	=> show_historical_bests
+	if DungeonRunManager.total_runs_completed <= 0
+		=> no_completed_runs
+	else
+		=> show_historical_bests
 - Never mind
 	=> END
-
+~ no_completed_runs
+Sewer Steve: You haven't completed any sewer runs yet!
+Sewer Steve: Start a run and make it to level 5 to set your first record.
+Sewer Steve: I'm sure you'll do great. Good luck!
+=> talk_to_steve
 ~ run_options
 - Check Run Status
 	=> check_run_status
@@ -54,7 +61,7 @@ Sewer Steve: Let me check how you're doing with your current run...
 Sewer Steve: You've been running for {{DungeonRunManager.run_stats.time_elapsed}} seconds.
 Sewer Steve: Highest sewer level reached: {{DungeonRunManager.run_stats.highest_level_reached}}
 Sewer Steve: Total kills: {{DungeonRunManager.run_stats.kills.total}}
-Sewer Steve: Remember, you need to reach level 4 and talk to Sam to complete your run!
+Sewer Steve: Remember, you need to reach level 5 and talk to Sam to complete your run!
 => END
 
 ~ show_historical_bests
@@ -62,8 +69,8 @@ Sewer Steve: Here are your best sewer run achievements:
 Sewer Steve: Best score ever: {{DungeonRunManager.historical_best_stats.best_score}}
 Sewer Steve: Fastest completion time: {{DungeonRunManager.formatted_best_time}}
 Sewer Steve: Highest reward tier achieved: {{DungeonRunManager.formatted_highest_tier}}
-Sewer Steve: Completion rate: {{DungeonRunManager.formatted_completion_rate}}
 Sewer Steve: Most kills in a single run: {{DungeonRunManager.historical_best_stats.most_kills}}
+Sewer Steve: Total Runs: {{DungeonRunManager.total_runs_completed}}
 Sewer Steve: Think you can beat your records?
 => talk_to_steve
 
