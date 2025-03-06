@@ -1,5 +1,4 @@
 # sewer_steve_dialogue.gd
-
 ~ steve_entrance
 if QuestManager.ready_for_turnin_quests.has("my_friend_in_town")
 	=> turnin_for_my_friend_in_town
@@ -15,18 +14,20 @@ if DungeonRunManager.is_run_active
 	Sewer Steve: I see you have an active sewer run in progress!
 	=> run_options
 else
-	Sewer Steve: I've got some quests and sewer run options if you'd like!
+	Sewer Steve: I've got some Sewer Run options if you'd like!
 	=> main_options
 
 ~ main_options
-- Quest: Sewer Sam
-	do GameDialogueManager.action_start_quest("talk_to_sam_level_5")
-	Sewer Steve: My brother Sam is down every 5 floors, go meet up with him!
-	=> END
-- Start a Sewer Run
+- Sewer Run: Start a Run
 	do GameDialogueManager.action_start_sewer_run()
-	Sewer Steve: Get Ready, Get Set, Go! Make your way down to level 5 and find my brother Sam to complete the run!
+	do GameDialogueManager.action_start_quest("talk_to_sam_level_5")
+	Sewer Steve: Get Ready, Get Set, Go! Make your way down to level 5 and talk to my brother Sam to complete the run!
 	=> END
+- What's a Sewer Run?
+	Sewer Steve: A sewer run is when you talk to me and select Start a Run, then you race to the bottom of the Sewers!
+	Sewer Steve: You get points based on your damage done, taken & healed. You also get points for speed!
+	Sewer Steve: To finish, meet up with my brother at the bottom!
+	=> main_options
 - View Historical Bests
 	if DungeonRunManager.total_runs_completed <= 0
 		=> no_completed_runs
@@ -34,6 +35,7 @@ else
 		=> show_historical_bests
 - Never mind
 	=> END
+
 ~ no_completed_runs
 Sewer Steve: You haven't completed any sewer runs yet!
 Sewer Steve: Start a run and make it to level 5 to set your first record.

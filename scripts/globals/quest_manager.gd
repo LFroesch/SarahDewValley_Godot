@@ -173,8 +173,8 @@ var quests: Dictionary = {
 			}
 		},
 		"rewards": {
-			"experience": 1000,
-			"gold": 100
+			"experience": 500,
+			"gold": 50
 		},
 		"turnin_npc": "sam",
 		"requires_turnin": true,

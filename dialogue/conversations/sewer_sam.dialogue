@@ -1,5 +1,4 @@
 # sewer_sam_dialogue.gd
-
 ~ sewer_sam_entrance
 # First check for quest turnin
 if QuestManager.ready_for_turnin_quests.has("talk_to_sam_level_5")
@@ -30,7 +29,6 @@ else
 Sewer Sam: You earned {{DungeonRunManager.temp_rewards_coins}} coins and {{DungeonRunManager.temp_rewards_exp}} experience!
 Sewer Sam: Come back and try again anytime for better rewards!
 do GameDialogueManager.action_complete_sewer_run()
-# Give player choices to end the dialogue in different ways
 => END
 
 ~ talk_to_sam

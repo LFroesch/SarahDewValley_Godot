@@ -359,23 +359,23 @@ func determine_rewards(score: int) -> Dictionary:
 	
 	# Tier-based rewards
 	if score >= REWARD_THRESHOLDS.platinum:
-		rewards.coins += 500
-		rewards.experience += 1000
+		rewards.coins += 200
+		rewards.experience += 500
 		rewards.items.append("healing_potion")
 		rewards.items.append("healing_potion")
 		rewards.tier = "platinum"
 	elif score >= REWARD_THRESHOLDS.gold:
-		rewards.coins += 300
-		rewards.experience += 700
+		rewards.coins += 150
+		rewards.experience += 300
 		rewards.items.append("healing_potion")
 		rewards.tier = "gold"
 	elif score >= REWARD_THRESHOLDS.silver:
-		rewards.coins += 200
-		rewards.experience += 500
+		rewards.coins += 100
+		rewards.experience += 200
 		rewards.tier = "silver"
 	elif score >= REWARD_THRESHOLDS.bronze:
-		rewards.coins += 100
-		rewards.experience += 300
+		rewards.coins += 50
+		rewards.experience += 100
 		rewards.tier = "bronze"
 	else:
 		rewards.tier = "none"
