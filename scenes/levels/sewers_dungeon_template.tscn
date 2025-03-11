@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=4 uid="uid://csjm7x4sxqn6w"]
 
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_2reig"]
-[ext_resource type="Script" path="res://scenes/components/save_level_data_component.gd" id="2_uf5gg"]
+[ext_resource type="Script" uid="uid://goiugh8721lk" path="res://scenes/components/save_level_data_component.gd" id="2_uf5gg"]
 [ext_resource type="TileSet" uid="uid://bmlpnsyieusmk" path="res://tilesets/game_tile_set.tres" id="3_by107"]
-[ext_resource type="Script" path="res://scenes/levels/level_transitions/LevelTransitionArea.gd" id="4_ycynr"]
+[ext_resource type="Script" uid="uid://kcesla5ki5b0" path="res://scenes/levels/level_transitions/LevelTransitionArea.gd" id="4_ycynr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4v836"]
 size = Vector2(13, 25)

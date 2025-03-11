@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://ddbh5oc61wqd0"]
 
 [ext_resource type="Texture2D" uid="uid://bc6t77u8172lf" path="res://assets/game/objects/ground_objects/Crystal.png" id="1_dgn4m"]
-[ext_resource type="Script" path="res://scenes/objects/healing_crystal/healing_crystal_area.gd" id="2_irbk2"]
+[ext_resource type="Script" uid="uid://c6t1e06xgslns" path="res://scenes/objects/healing_crystal/healing_crystal_area.gd" id="2_irbk2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvtmi"]
 atlas = ExtResource("1_dgn4m")

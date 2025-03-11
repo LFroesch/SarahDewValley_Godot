@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://c2t85jyokis16"]
 
-[ext_resource type="Script" path="res://scenes/characters/interactable_characters/tomato_and_corn_buyer/tomato_and_corn_buyer.gd" id="1_ybmk7"]
-[ext_resource type="Shader" path="res://scenes/characters/interactable_characters/tomato_and_corn_buyer/tomato_and_corn_buyer.gdshader" id="2_ls4mx"]
+[ext_resource type="Script" uid="uid://pb418o6h2wya" path="res://scenes/characters/interactable_characters/tomato_and_corn_buyer/tomato_and_corn_buyer.gd" id="1_ybmk7"]
+[ext_resource type="Shader" uid="uid://d1ikn1k106y4f" path="res://scenes/characters/interactable_characters/tomato_and_corn_buyer/tomato_and_corn_buyer.gdshader" id="2_ls4mx"]
 [ext_resource type="Texture2D" uid="uid://dsww2cl3aemdf" path="res://assets/game/characters/Human_Merchant.png" id="3_1gnfq"]
 [ext_resource type="PackedScene" uid="uid://ou413sd7e4wr" path="res://scenes/components/interactable_component.tscn" id="4_cd014"]
 [ext_resource type="PackedScene" uid="uid://df1xd2ip40rk7" path="res://scenes/components/interactable_label_component.tscn" id="5_47uhw"]

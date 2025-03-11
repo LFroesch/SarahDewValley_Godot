@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cjmdovc3xbrw6"]
 
-[ext_resource type="Script" path="res://scenes/objects/projectiles/heal/heal.gd" id="1_t4g7n"]
+[ext_resource type="Script" uid="uid://6my5moh35vaw" path="res://scenes/objects/projectiles/heal/heal.gd" id="1_t4g7n"]
 [ext_resource type="Texture2D" uid="uid://fk3gxrt22tjf" path="res://assets/game/objects/Priest-Attack_effect.png" id="2_twl84"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w1jru"]

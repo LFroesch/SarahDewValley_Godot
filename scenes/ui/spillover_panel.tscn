@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bqmsjte4blffe"]
 
 [ext_resource type="Theme" uid="uid://d12h0sdtb6bla" path="res://scenes/ui/game_ui_theme.tres" id="1_x8gip"]
-[ext_resource type="Script" path="res://scenes/ui/spillover_panel.gd" id="2_086qx"]
+[ext_resource type="Script" uid="uid://u6ihny2ftj5y" path="res://scenes/ui/spillover_panel.gd" id="2_086qx"]
 
 [node name="SpilloverPanel" type="PanelContainer"]
 anchors_preset = 8

@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dys1y527eipiw"]
 
-[ext_resource type="Script" path="res://scenes/characters/interactable_characters/stone_and_log_buyer/stone_and_log_buyer.gd" id="1_y0hh2"]
-[ext_resource type="Shader" path="res://scenes/characters/interactable_characters/stone_and_log_buyer/stone_and_log_buyer.gdshader" id="2_e8omv"]
+[ext_resource type="Script" uid="uid://brd67glvmq8iq" path="res://scenes/characters/interactable_characters/stone_and_log_buyer/stone_and_log_buyer.gd" id="1_y0hh2"]
+[ext_resource type="Shader" uid="uid://cmg0sy8hl7qli" path="res://scenes/characters/interactable_characters/stone_and_log_buyer/stone_and_log_buyer.gdshader" id="2_e8omv"]
 [ext_resource type="Texture2D" uid="uid://dsww2cl3aemdf" path="res://assets/game/characters/Human_Merchant.png" id="2_rs5xc"]
 [ext_resource type="PackedScene" uid="uid://ou413sd7e4wr" path="res://scenes/components/interactable_component.tscn" id="3_pxvym"]
 [ext_resource type="PackedScene" uid="uid://df1xd2ip40rk7" path="res://scenes/components/interactable_label_component.tscn" id="4_xq1q1"]

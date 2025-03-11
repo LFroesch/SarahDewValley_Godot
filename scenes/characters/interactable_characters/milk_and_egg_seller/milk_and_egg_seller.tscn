@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://djkj5hhph4fws"]
 
-[ext_resource type="Script" path="res://scenes/characters/interactable_characters/milk_and_egg_seller/milk_and_egg_seller.gd" id="1_2n50h"]
+[ext_resource type="Script" uid="uid://besac758vydra" path="res://scenes/characters/interactable_characters/milk_and_egg_seller/milk_and_egg_seller.gd" id="1_2n50h"]
 [ext_resource type="Texture2D" uid="uid://dsww2cl3aemdf" path="res://assets/game/characters/Human_Merchant.png" id="2_73d11"]
 [ext_resource type="PackedScene" uid="uid://ou413sd7e4wr" path="res://scenes/components/interactable_component.tscn" id="3_dpx2a"]
 [ext_resource type="PackedScene" uid="uid://df1xd2ip40rk7" path="res://scenes/components/interactable_label_component.tscn" id="4_uh678"]

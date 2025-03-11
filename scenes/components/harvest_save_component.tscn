@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b3x8aqy6p6nyb"]
 
-[ext_resource type="Script" path="res://scenes/components/harvest_save_component.gd" id="1_th8fx"]
+[ext_resource type="Script" uid="uid://312jtxmjkoyc" path="res://scenes/components/harvest_save_component.gd" id="1_th8fx"]
 
 [node name="HarvestSaveComponent" type="Node"]
 script = ExtResource("1_th8fx")

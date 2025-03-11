@@ -1,15 +1,15 @@
 [gd_scene load_steps=47 format=3 uid="uid://ba2f28uq5u7eg"]
 
-[ext_resource type="Script" path="res://scenes/characters/enemies/skeleton/skeleton_chief/skeleton_chief.gd" id="1_4b40w"]
+[ext_resource type="Script" uid="uid://d0mjar83b8mkf" path="res://scenes/characters/enemies/skeleton/skeleton_chief/skeleton_chief.gd" id="1_4b40w"]
 [ext_resource type="PackedScene" uid="uid://cfa3kum8dxcon" path="res://scenes/components/hurt_component.tscn" id="2_pfwah"]
-[ext_resource type="Shader" path="res://scenes/characters/enemies/goblins/goblin_barbarian.gdshader" id="3_0p7fm"]
+[ext_resource type="Shader" uid="uid://dmui77oj7l6jw" path="res://scenes/characters/enemies/goblins/goblin_barbarian.gdshader" id="3_0p7fm"]
 [ext_resource type="Texture2D" uid="uid://biagctb6bhuej" path="res://assets/game/characters/enemies/skeleton_chief/SkeletonChiefSpriteSheet.png" id="4_kkkaj"]
-[ext_resource type="Script" path="res://scripts/state_machine/node_state_machine.gd" id="5_m0n4x"]
-[ext_resource type="Script" path="res://scenes/characters/npc_states/idle_state.gd" id="6_un4oo"]
-[ext_resource type="Script" path="res://scenes/characters/npc_states/walk_state.gd" id="7_qouyx"]
-[ext_resource type="Script" path="res://scenes/characters/npc_states/attack_state.gd" id="8_8thgv"]
+[ext_resource type="Script" uid="uid://bw6hpqy0biojd" path="res://scripts/state_machine/node_state_machine.gd" id="5_m0n4x"]
+[ext_resource type="Script" uid="uid://736sn4l4re4r" path="res://scenes/characters/npc_states/idle_state.gd" id="6_un4oo"]
+[ext_resource type="Script" uid="uid://b8yldbc1dpx0g" path="res://scenes/characters/npc_states/walk_state.gd" id="7_qouyx"]
+[ext_resource type="Script" uid="uid://bjvims33ufwos" path="res://scenes/characters/npc_states/attack_state.gd" id="8_8thgv"]
 [ext_resource type="PackedScene" uid="uid://1pvpl5tevcxw" path="res://scenes/ui/boss_damage_bar.tscn" id="9_gfpav"]
-[ext_resource type="Script" path="res://scenes/characters/npc_states/pursue_state.gd" id="9_s4bbb"]
+[ext_resource type="Script" uid="uid://cosf3gqntjlhm" path="res://scenes/characters/npc_states/pursue_state.gd" id="9_s4bbb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vnh7"]
 size = Vector2(23, 35)

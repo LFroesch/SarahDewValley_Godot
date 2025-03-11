@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://8u32haifvhto"]
 
-[ext_resource type="Script" path="res://scenes/objects/plants/corn.gd" id="1_pnkrq"]
+[ext_resource type="Script" uid="uid://dfwadnvkd5ex2" path="res://scenes/objects/plants/corn.gd" id="1_pnkrq"]
 [ext_resource type="PackedScene" uid="uid://b3pkl0ckb6fb1" path="res://scenes/objects/plants/flowering_particles.tscn" id="1_xiu8c"]
 [ext_resource type="PackedScene" uid="uid://cfa3kum8dxcon" path="res://scenes/components/hurt_component.tscn" id="2_ttllr"]
 [ext_resource type="Texture2D" uid="uid://cltipf7rtxhpo" path="res://assets/game/objects/basic_plants.png" id="2_yfrrw"]

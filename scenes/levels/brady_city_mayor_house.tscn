@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=4 uid="uid://ccf6rv3vog7uo"]
 
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_xmxcp"]
-[ext_resource type="Script" path="res://scenes/components/save_level_data_component.gd" id="2_jja1v"]
+[ext_resource type="Script" uid="uid://goiugh8721lk" path="res://scenes/components/save_level_data_component.gd" id="2_jja1v"]
 [ext_resource type="TileSet" uid="uid://bmlpnsyieusmk" path="res://tilesets/game_tile_set.tres" id="3_kvr1p"]
 [ext_resource type="PackedScene" uid="uid://crc7d5fssaqls" path="res://scenes/characters/interactable_characters/quests/mayor/mayor.tscn" id="4_0gbym"]
-[ext_resource type="Script" path="res://scenes/levels/level_transitions/LevelTransitionArea.gd" id="11_py7yu"]
+[ext_resource type="Script" uid="uid://kcesla5ki5b0" path="res://scenes/levels/level_transitions/LevelTransitionArea.gd" id="11_py7yu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dvql"]
 size = Vector2(16, 23.25)

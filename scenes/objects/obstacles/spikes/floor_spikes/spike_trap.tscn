@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://k6r5p2e4wl38"]
 
-[ext_resource type="Script" path="res://scenes/objects/obstacles/spikes/floor_spikes/spike_trap.gd" id="1_ok6jp"]
+[ext_resource type="Script" uid="uid://tpfjdgkk0l3h" path="res://scenes/objects/obstacles/spikes/floor_spikes/spike_trap.gd" id="1_ok6jp"]
 [ext_resource type="Texture2D" uid="uid://bc1asoskj6vq5" path="res://assets/game/obstacles/Spike_trap.png" id="2_lkg2m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jljte"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cx7i8n4vctneg"]
 
-[ext_resource type="Script" path="res://scenes/characters/interactable_characters/sign/sign.gd" id="1_umlwx"]
-[ext_resource type="Shader" path="res://scenes/characters/interactable_characters/guide/replace_color.gdshader" id="2_lw3tf"]
+[ext_resource type="Script" uid="uid://bfqyl8vnbuw5l" path="res://scenes/characters/interactable_characters/sign/sign.gd" id="1_umlwx"]
+[ext_resource type="Shader" uid="uid://uylfv7k2k8rg" path="res://scenes/characters/interactable_characters/guide/replace_color.gdshader" id="2_lw3tf"]
 [ext_resource type="Texture2D" uid="uid://cskqtm05t52ko" path="res://assets/game/objects/signs_sides.png" id="3_mv47r"]
 [ext_resource type="PackedScene" uid="uid://ou413sd7e4wr" path="res://scenes/components/interactable_component.tscn" id="4_fqfj8"]
 [ext_resource type="PackedScene" uid="uid://df1xd2ip40rk7" path="res://scenes/components/interactable_label_component.tscn" id="5_181gp"]

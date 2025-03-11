@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://dxcgdlbpvkrb2"]
 
-[ext_resource type="Shader" path="res://scenes/objects/shake.gdshader" id="1_mebji"]
+[ext_resource type="Shader" uid="uid://yifw8mv2gln6" path="res://scenes/objects/shake.gdshader" id="1_mebji"]
 [ext_resource type="Texture2D" uid="uid://c1c0m4xm3k8e3" path="res://assets/game/objects/trees_stumps_bushes.png" id="1_s61n7"]
-[ext_resource type="Script" path="res://scenes/objects/trees/small_tree.gd" id="2_o3oqw"]
+[ext_resource type="Script" uid="uid://dd5j5jdt2fh4y" path="res://scenes/objects/trees/small_tree.gd" id="2_o3oqw"]
 [ext_resource type="PackedScene" uid="uid://cfa3kum8dxcon" path="res://scenes/components/hurt_component.tscn" id="3_e2346"]
 [ext_resource type="PackedScene" uid="uid://cst4l8iwvt63s" path="res://scenes/components/damage_component.tscn" id="4_ugui6"]
 

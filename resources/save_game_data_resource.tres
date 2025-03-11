@@ -1,7 +1,7 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bicuxkxxpm86v"]
+[gd_resource type="Resource" script_class="SaveGameDataResource" load_steps=3 format=3 uid="uid://bicuxkxxpm86v"]
 
-[ext_resource type="Script" path="res://resources/node_data_resource.gd" id="1_8aixn"]
-[ext_resource type="Script" path="res://resources/save_game_data_resource.gd" id="2_vttnq"]
+[ext_resource type="Script" uid="uid://b7agpq14op8nd" path="res://resources/node_data_resource.gd" id="1_8aixn"]
+[ext_resource type="Script" uid="uid://dttnubc4kuxp3" path="res://resources/save_game_data_resource.gd" id="2_vttnq"]
 
 [resource]
 script = ExtResource("2_vttnq")

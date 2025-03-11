@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=3 uid="uid://cksuucjl74u7n"]
 
-[ext_resource type="Script" path="res://scenes/characters/animals/cow/cow.gd" id="1_k4ipn"]
+[ext_resource type="Script" uid="uid://bacuhsem6tt81" path="res://scenes/characters/animals/cow/cow.gd" id="1_k4ipn"]
 [ext_resource type="Texture2D" uid="uid://csa5oo4vhe3h6" path="res://assets/game/animals/cow_baby/baby light cow animations sprites.png" id="2_lwtpc"]
-[ext_resource type="Script" path="res://scripts/state_machine/node_state_machine.gd" id="3_3qbx1"]
-[ext_resource type="Script" path="res://scenes/characters/npc_states/idle_state.gd" id="4_fxqdi"]
-[ext_resource type="Script" path="res://scenes/characters/npc_states/walk_state.gd" id="5_8sw6g"]
+[ext_resource type="Script" uid="uid://bw6hpqy0biojd" path="res://scripts/state_machine/node_state_machine.gd" id="3_3qbx1"]
+[ext_resource type="Script" uid="uid://736sn4l4re4r" path="res://scenes/characters/npc_states/idle_state.gd" id="4_fxqdi"]
+[ext_resource type="Script" uid="uid://b8yldbc1dpx0g" path="res://scenes/characters/npc_states/walk_state.gd" id="5_8sw6g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n0drn"]
 atlas = ExtResource("2_lwtpc")

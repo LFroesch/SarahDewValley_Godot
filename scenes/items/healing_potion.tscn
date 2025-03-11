@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ddwpftwv80x7r"]
 
 [ext_resource type="Texture2D" uid="uid://e142h1fwo8rs" path="res://assets/ui/basic_ui_sprites.png" id="1_dbwgr"]
-[ext_resource type="Script" path="res://scenes/items/healing_potion.gd" id="2_fjrw0"]
+[ext_resource type="Script" uid="uid://clwuiqbh5smvt" path="res://scenes/items/healing_potion.gd" id="2_fjrw0"]
 [ext_resource type="PackedScene" uid="uid://bxhjxqi72fxxc" path="res://scenes/components/collectible_component.tscn" id="3_nwlgl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wqag1"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cfjtqarvmqsot"]
 
-[ext_resource type="Script" path="res://scenes/objects/obstacles/pressure_plates/pressure_plate.gd" id="1_ogrb6"]
+[ext_resource type="Script" uid="uid://b1lehrdvjjvv8" path="res://scenes/objects/obstacles/pressure_plates/pressure_plate.gd" id="1_ogrb6"]
 [ext_resource type="Texture2D" uid="uid://b28g013falxrg" path="res://assets/game/objects/Runes.png" id="2_0odfd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nndi4"]

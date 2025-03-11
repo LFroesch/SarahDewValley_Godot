@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://f3es2c3cbna7"]
 
-[ext_resource type="Script" path="res://scenes/characters/animals/brady/brady.gd" id="1_ikj61"]
+[ext_resource type="Script" uid="uid://dqhrcfybdqiip" path="res://scenes/characters/animals/brady/brady.gd" id="1_ikj61"]
 [ext_resource type="Texture2D" uid="uid://c2apkxshn0cnl" path="res://assets/game/characters/brady_animation_sprites.png" id="2_lw5bt"]
-[ext_resource type="Script" path="res://scripts/state_machine/node_state_machine.gd" id="3_u6ydb"]
-[ext_resource type="Script" path="res://scenes/characters/npc_states/idle_state.gd" id="4_bl3kw"]
-[ext_resource type="Script" path="res://scenes/characters/npc_states/walk_state.gd" id="5_t66ra"]
+[ext_resource type="Script" uid="uid://bw6hpqy0biojd" path="res://scripts/state_machine/node_state_machine.gd" id="3_u6ydb"]
+[ext_resource type="Script" uid="uid://736sn4l4re4r" path="res://scenes/characters/npc_states/idle_state.gd" id="4_bl3kw"]
+[ext_resource type="Script" uid="uid://b8yldbc1dpx0g" path="res://scenes/characters/npc_states/walk_state.gd" id="5_t66ra"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m1gyp"]
 atlas = ExtResource("2_lw5bt")

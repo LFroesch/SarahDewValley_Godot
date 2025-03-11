@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bqr7k12i3mp47"]
 
-[ext_resource type="Script" path="res://scenes/objects/obstacles/gate/vertical_gate.gd" id="1_shse5"]
+[ext_resource type="Script" uid="uid://b5kk1qeo2l15b" path="res://scenes/objects/obstacles/gate/vertical_gate.gd" id="1_shse5"]
 [ext_resource type="Texture2D" uid="uid://purbnaa21qym" path="res://assets/game/obstacles/Gate_vertical.png" id="2_k22rq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s6ary"]

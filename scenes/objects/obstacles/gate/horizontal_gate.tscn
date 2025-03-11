@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://btw0rmxgyeb3e"]
 
-[ext_resource type="Script" path="res://scenes/objects/obstacles/gate/horizontal_gate.gd" id="1_b3wkf"]
+[ext_resource type="Script" uid="uid://dcwuflcfpfehb" path="res://scenes/objects/obstacles/gate/horizontal_gate.gd" id="1_b3wkf"]
 [ext_resource type="Texture2D" uid="uid://dqpdpq724ftkp" path="res://assets/game/obstacles/Gate_horizontal.png" id="2_hyaph"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0biid"]

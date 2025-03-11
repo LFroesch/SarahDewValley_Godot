@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://1pvpl5tevcxw"]
 
-[ext_resource type="Script" path="res://scenes/ui/boss_damage_bar.gd" id="1_v8bsk"]
+[ext_resource type="Script" uid="uid://dcxdov0hdr5qn" path="res://scenes/ui/boss_damage_bar.gd" id="1_v8bsk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3joqh"]
 bg_color = Color(0.968493, 0.000902861, 0.000495362, 1)

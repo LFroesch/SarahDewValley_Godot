@@ -1,15 +1,15 @@
 [gd_scene load_steps=30 format=3 uid="uid://ch3fyk2h3p4ag"]
 
-[ext_resource type="Script" path="res://scenes/characters/enemies/goblins/goblin_barbarian.gd" id="1_6yw35"]
+[ext_resource type="Script" uid="uid://c5sgsf772oiey" path="res://scenes/characters/enemies/goblins/goblin_barbarian.gd" id="1_6yw35"]
 [ext_resource type="Texture2D" uid="uid://68865m0gt0i2" path="res://assets/game/characters/Goblin_Barbarian.png" id="2_fdf2t"]
 [ext_resource type="PackedScene" uid="uid://cfa3kum8dxcon" path="res://scenes/components/hurt_component.tscn" id="2_gkl4o"]
-[ext_resource type="Shader" path="res://scenes/characters/enemies/goblins/goblin_barbarian.gdshader" id="2_hqlj8"]
-[ext_resource type="Script" path="res://scripts/state_machine/node_state_machine.gd" id="3_lisox"]
-[ext_resource type="Script" path="res://scenes/characters/npc_states/idle_state.gd" id="4_8rwgi"]
-[ext_resource type="Script" path="res://scenes/characters/npc_states/walk_state.gd" id="5_4gvjp"]
-[ext_resource type="Script" path="res://scenes/characters/npc_states/attack_state.gd" id="8_g043o"]
+[ext_resource type="Shader" uid="uid://dmui77oj7l6jw" path="res://scenes/characters/enemies/goblins/goblin_barbarian.gdshader" id="2_hqlj8"]
+[ext_resource type="Script" uid="uid://bw6hpqy0biojd" path="res://scripts/state_machine/node_state_machine.gd" id="3_lisox"]
+[ext_resource type="Script" uid="uid://736sn4l4re4r" path="res://scenes/characters/npc_states/idle_state.gd" id="4_8rwgi"]
+[ext_resource type="Script" uid="uid://b8yldbc1dpx0g" path="res://scenes/characters/npc_states/walk_state.gd" id="5_4gvjp"]
+[ext_resource type="Script" uid="uid://bjvims33ufwos" path="res://scenes/characters/npc_states/attack_state.gd" id="8_g043o"]
 [ext_resource type="PackedScene" uid="uid://7ovrta2wmxi4" path="res://scenes/ui/enemy_damage_bar.tscn" id="9_1og8x"]
-[ext_resource type="Script" path="res://scenes/characters/npc_states/pursue_state.gd" id="9_olp6h"]
+[ext_resource type="Script" uid="uid://cosf3gqntjlhm" path="res://scenes/characters/npc_states/pursue_state.gd" id="9_olp6h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vnh7"]
 size = Vector2(22, 22)

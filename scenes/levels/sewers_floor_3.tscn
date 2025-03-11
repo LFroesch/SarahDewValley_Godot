@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=4 uid="uid://c6qa68cetbt4c"]
 
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_2wljh"]
-[ext_resource type="Script" path="res://scenes/components/save_level_data_component.gd" id="2_j0xud"]
+[ext_resource type="Script" uid="uid://goiugh8721lk" path="res://scenes/components/save_level_data_component.gd" id="2_j0xud"]
 [ext_resource type="TileSet" uid="uid://bmlpnsyieusmk" path="res://tilesets/game_tile_set.tres" id="3_oneqf"]
 [ext_resource type="PackedScene" uid="uid://b5q4e3xg0ck85" path="res://scenes/characters/enemies/skeleton/skeleton_warrior/skeleton_camp.tscn" id="4_o5khf"]
 [ext_resource type="PackedScene" uid="uid://0jray3ndncg3" path="res://scenes/points/spawn_point.tscn" id="5_h8uyf"]
@@ -14,8 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://bljktoacd5p5y" path="res://scenes/items/skeleton_key.tscn" id="11_vx2pr"]
 [ext_resource type="PackedScene" uid="uid://bqr7k12i3mp47" path="res://scenes/objects/obstacles/gate/vertical_gate.tscn" id="12_oobdl"]
 [ext_resource type="PackedScene" uid="uid://cdlbowoel2ddg" path="res://scenes/objects/rocks/rock.tscn" id="13_bujhw"]
-[ext_resource type="Shader" path="res://scenes/objects/shake.gdshader" id="14_2smxp"]
-[ext_resource type="Script" path="res://scenes/levels/level_transitions/LevelTransitionArea.gd" id="14_6om08"]
+[ext_resource type="Shader" uid="uid://yifw8mv2gln6" path="res://scenes/objects/shake.gdshader" id="14_2smxp"]
+[ext_resource type="Script" uid="uid://kcesla5ki5b0" path="res://scenes/levels/level_transitions/LevelTransitionArea.gd" id="14_6om08"]
 [ext_resource type="PackedScene" uid="uid://cx7i8n4vctneg" path="res://scenes/characters/interactable_characters/sign/sign.tscn" id="17_vckn8"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mh4dm"]

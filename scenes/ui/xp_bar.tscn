@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://ct0jtlf1gt0tf"]
 
-[ext_resource type="Script" path="res://scenes/ui/xp_bar.gd" id="1_abcde"]
+[ext_resource type="Script" uid="uid://bukwkd0mtmeda" path="res://scenes/ui/xp_bar.gd" id="1_abcde"]
 [ext_resource type="Theme" uid="uid://d12h0sdtb6bla" path="res://scenes/ui/game_ui_theme.tres" id="2_fghij"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cback"]

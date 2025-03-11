@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://byxf2kou6e542"]
 
-[ext_resource type="Script" path="res://scenes/components/feed_component.gd" id="1_45x3f"]
+[ext_resource type="Script" uid="uid://m8ba7orr8myi" path="res://scenes/components/feed_component.gd" id="1_45x3f"]
 
 [node name="FeedComponent" type="Area2D"]
 collision_layer = 16

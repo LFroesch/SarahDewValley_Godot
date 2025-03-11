@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://cdlbowoel2ddg"]
 
-[ext_resource type="Shader" path="res://scenes/objects/shake.gdshader" id="1_1lfyg"]
+[ext_resource type="Shader" uid="uid://yifw8mv2gln6" path="res://scenes/objects/shake.gdshader" id="1_1lfyg"]
 [ext_resource type="Texture2D" uid="uid://c6r3su0ch3xmt" path="res://assets/game/objects/mushrooms_flowers_stones.png" id="1_ovou4"]
-[ext_resource type="Script" path="res://scenes/objects/rocks/rock.gd" id="2_gehcf"]
+[ext_resource type="Script" uid="uid://cj7e4rs34pyiv" path="res://scenes/objects/rocks/rock.gd" id="2_gehcf"]
 [ext_resource type="PackedScene" uid="uid://cfa3kum8dxcon" path="res://scenes/components/hurt_component.tscn" id="3_ec400"]
 [ext_resource type="PackedScene" uid="uid://cst4l8iwvt63s" path="res://scenes/components/damage_component.tscn" id="4_3ii02"]
 

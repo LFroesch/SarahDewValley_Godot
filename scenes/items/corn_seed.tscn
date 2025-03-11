@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://oe0muhr4vwrs"]
 
 [ext_resource type="Texture2D" uid="uid://cltipf7rtxhpo" path="res://assets/game/objects/basic_plants.png" id="1_f0fd3"]
-[ext_resource type="Script" path="res://scenes/items/corn_seed.gd" id="2_xoujj"]
+[ext_resource type="Script" uid="uid://ro8dcb7wm5hn" path="res://scenes/items/corn_seed.gd" id="2_xoujj"]
 [ext_resource type="PackedScene" uid="uid://bxhjxqi72fxxc" path="res://scenes/components/collectible_component.tscn" id="3_ap8et"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4e50q"]

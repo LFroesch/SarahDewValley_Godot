@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dkvgnrhjhcjjq"]
 
 [ext_resource type="Theme" uid="uid://d12h0sdtb6bla" path="res://scenes/ui/game_ui_theme.tres" id="1_pifwn"]
-[ext_resource type="Script" path="res://scenes/ui/quest_panel.gd" id="2_208qc"]
+[ext_resource type="Script" uid="uid://ydod1xgfmqy5" path="res://scenes/ui/quest_panel.gd" id="2_208qc"]
 
 [node name="QuestPanel" type="PanelContainer"]
 custom_minimum_size = Vector2(250, 80)

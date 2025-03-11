@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://dpxbe8pjvmcvn"]
 
-[ext_resource type="Script" path="res://dialogue/game_dialogue_balloon.gd" id="1_s5rf4"]
+[ext_resource type="Script" uid="uid://dderp84n7ar0l" path="res://dialogue/game_dialogue_balloon.gd" id="1_s5rf4"]
 [ext_resource type="Theme" uid="uid://dcul3sx7ukcpr" path="res://dialogue/dialogue_baloon_theme.tres" id="2_fryrq"]
-[ext_resource type="PackedScene" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_uurid"]
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_4b6tt"]
+[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_uurid"]
+[ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_4b6tt"]
 [ext_resource type="PackedScene" uid="uid://b5ks16sn12ttk" path="res://scenes/ui/emotes_panel.tscn" id="3_w53yr"]
 
 [node name="GameDialogueBalloon" type="CanvasLayer"]

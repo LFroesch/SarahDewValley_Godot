@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://tc2s744xdxs4" path="res://scenes/ui/game_menu_screen_background.tscn" id="1_lblk2"]
 [ext_resource type="Theme" uid="uid://d12h0sdtb6bla" path="res://scenes/ui/game_ui_theme.tres" id="1_mx5ww"]
-[ext_resource type="Script" path="res://scenes/ui/game_menu_screen.gd" id="1_pdasd"]
+[ext_resource type="Script" uid="uid://dq5uhpruwf2cf" path="res://scenes/ui/game_menu_screen.gd" id="1_pdasd"]
 [ext_resource type="PackedScene" uid="uid://dgpg5uxs34d0w" path="res://scenes/components/mouse_cursor_component.tscn" id="2_tbb8o"]
 [ext_resource type="Texture2D" uid="uid://h6kdcvx7wwf5" path="res://assets/ui/mouse_icon.png" id="3_m54i3"]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bljktoacd5p5y"]
 
 [ext_resource type="Texture2D" uid="uid://dkt88dp2qohpt" path="res://assets/game/objects/Silver key.png" id="1_vegp7"]
-[ext_resource type="Script" path="res://scenes/items/skeleton_key.gd" id="2_u72gs"]
+[ext_resource type="Script" uid="uid://dq6fynv8i0v58" path="res://scenes/items/skeleton_key.gd" id="2_u72gs"]
 [ext_resource type="PackedScene" uid="uid://bxhjxqi72fxxc" path="res://scenes/components/collectible_component.tscn" id="3_6m0mv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bdk80"]

@@ -74,21 +74,21 @@ func update_ability_displays() -> void:
 		fireball_timer_label.text = ""
 	else:
 		fireball_texture.modulate = Color(0.5, 0.5, 0.5, 1)
-		fireball_timer_label.text = str(ceil(player.shoot_timer.time_left))
+		fireball_timer_label.text = str(int(ceil(player.shoot_timer.time_left)))
 	
 	if player.can_cast_nova:
 		nova_texture.modulate = Color(1, 1, 1, 1)
 		nova_timer_label.text = ""
 	else:
 		nova_texture.modulate = Color(0.5, 0.5, 0.5, 1)
-		nova_timer_label.text = str(ceil(player.fire_nova_timer.time_left))
+		nova_timer_label.text = str(int(ceil(player.fire_nova_timer.time_left)))
 		
 	if player.can_cast_heal:
 		holy_nova_texture.modulate = Color(1,1,1,1)
 		holy_nova_timer_label.text = ""
 	else:
 		holy_nova_texture.modulate = Color(0.5, 0.5, 0.5, 1)
-		holy_nova_timer_label.text = str(ceil(player.heal_timer.time_left))
+		holy_nova_timer_label.text = str(int(ceil(player.heal_timer.time_left)))
 
 func _on_fireball_texture_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:

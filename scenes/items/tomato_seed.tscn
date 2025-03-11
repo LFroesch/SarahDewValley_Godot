@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://wxgn8v53cgkr"]
 
-[ext_resource type="Script" path="res://scenes/items/corn_seed.gd" id="2_xrcgq"]
+[ext_resource type="Script" uid="uid://ro8dcb7wm5hn" path="res://scenes/items/corn_seed.gd" id="2_xrcgq"]
 [ext_resource type="PackedScene" uid="uid://bxhjxqi72fxxc" path="res://scenes/components/collectible_component.tscn" id="3_xy0vp"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r28gi"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://7ovrta2wmxi4"]
 
-[ext_resource type="Script" path="res://scenes/ui/enemy_damage_bar.gd" id="1_42gvp"]
+[ext_resource type="Script" uid="uid://bd6pxu2kybd31" path="res://scenes/ui/enemy_damage_bar.gd" id="1_42gvp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3joqh"]
 bg_color = Color(0.968493, 0.000902861, 0.000495362, 1)

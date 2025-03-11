@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://duup04ep7nen2"]
 
-[ext_resource type="Script" path="res://scenes/objects/projectiles/fireball/fireball.gd" id="1_bbcrr"]
+[ext_resource type="Script" uid="uid://bxik23o8x6hok" path="res://scenes/objects/projectiles/fireball/fireball.gd" id="1_bbcrr"]
 [ext_resource type="Texture2D" uid="uid://dhmq3qs2jmqaj" path="res://assets/game/objects/Wizard-Attack02_Effect.png" id="2_f8xjt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m10e4"]

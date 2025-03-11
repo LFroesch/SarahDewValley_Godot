@@ -1,14 +1,14 @@
 [gd_scene load_steps=33 format=4 uid="uid://cv25ubs22cnsj"]
 
 [ext_resource type="PackedScene" uid="uid://c7o81eks67qwk" path="res://scenes/components/save_level_data_component.tscn" id="1_kalmg"]
-[ext_resource type="Script" path="res://scenes/components/save_level_data_component.gd" id="2_ibe8a"]
+[ext_resource type="Script" uid="uid://goiugh8721lk" path="res://scenes/components/save_level_data_component.gd" id="2_ibe8a"]
 [ext_resource type="TileSet" uid="uid://bmlpnsyieusmk" path="res://tilesets/game_tile_set.tres" id="3_xk5hr"]
 [ext_resource type="PackedScene" uid="uid://bf00334i0tqxh" path="res://scenes/components/save_data_component.tscn" id="4_0bj4r"]
 [ext_resource type="Resource" uid="uid://mx3pshmhd6ov" path="res://resources/tilemap_layer_resource.tres" id="5_p07tb"]
 [ext_resource type="PackedScene" uid="uid://8yxgmpjg3owe" path="res://scenes/components/field_cursor_component.tscn" id="6_m2cju"]
-[ext_resource type="Script" path="res://scenes/components/field_cursor_component.gd" id="7_54d1a"]
+[ext_resource type="Script" uid="uid://drsylvt41pyht" path="res://scenes/components/field_cursor_component.gd" id="7_54d1a"]
 [ext_resource type="PackedScene" uid="uid://yvgas7uk4jra" path="res://scenes/components/crops_cursor_component.tscn" id="8_qrbn6"]
-[ext_resource type="Script" path="res://scenes/components/crops_cursor_component.gd" id="9_bexx7"]
+[ext_resource type="Script" uid="uid://b8mxe0ydtkbg4" path="res://scenes/components/crops_cursor_component.gd" id="9_bexx7"]
 [ext_resource type="PackedScene" uid="uid://ccauubjygerd7" path="res://scenes/characters/animals/chicken/chicken.tscn" id="10_hwtho"]
 [ext_resource type="PackedScene" uid="uid://djketpxhxd8qe" path="res://scenes/characters/animals/cow/cow.tscn" id="11_lg21b"]
 [ext_resource type="PackedScene" uid="uid://cksuucjl74u7n" path="res://scenes/characters/animals/cow/baby_cow.tscn" id="12_t28mk"]
@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dx4wh0fbqvl68" path="res://scenes/objects/chest/cow_chest.tscn" id="17_7einn"]
 [ext_resource type="PackedScene" uid="uid://dcq44nd1tybfl" path="res://scenes/objects/chest/chicken_chest.tscn" id="18_ps8kq"]
 [ext_resource type="PackedScene" uid="uid://ddbh5oc61wqd0" path="res://scenes/objects/healing_crystal/healing_crystal.tscn" id="21_obf4l"]
-[ext_resource type="Script" path="res://scenes/levels/level_transitions/LevelTransitionArea.gd" id="22_ndgjk"]
+[ext_resource type="Script" uid="uid://kcesla5ki5b0" path="res://scenes/levels/level_transitions/LevelTransitionArea.gd" id="22_ndgjk"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_iy3c7"]
 vertices = PackedVector2Array(213.781, 199.781, 212.242, 271.383, 122.641, 257.602, 176.633, 198.992, 135.742, 196.844, 81.7109, 218.406, 112.961, 181.656, 86.7734, 187.32)

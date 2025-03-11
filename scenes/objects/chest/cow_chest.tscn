@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://dx4wh0fbqvl68"]
 
-[ext_resource type="Script" path="res://scenes/objects/chest/cow_chest.gd" id="1_otank"]
+[ext_resource type="Script" uid="uid://dvdno12vdi67d" path="res://scenes/objects/chest/cow_chest.gd" id="1_otank"]
 [ext_resource type="Texture2D" uid="uid://c37crt7rnjl4u" path="res://assets/game/tilesets/building_parts/chest.png" id="2_6w4uk"]
 [ext_resource type="PackedScene" uid="uid://bquhx8xcj0a26" path="res://scenes/objects/milk.tscn" id="2_44umx"]
 [ext_resource type="PackedScene" uid="uid://ou413sd7e4wr" path="res://scenes/components/interactable_component.tscn" id="3_1ixh2"]

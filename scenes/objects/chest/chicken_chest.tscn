@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://dcq44nd1tybfl"]
 
-[ext_resource type="Script" path="res://scenes/objects/chest/chicken_chest.gd" id="1_q1sbp"]
+[ext_resource type="Script" uid="uid://ccusrrwrn7edm" path="res://scenes/objects/chest/chicken_chest.gd" id="1_q1sbp"]
 [ext_resource type="PackedScene" uid="uid://bcxvdusoqeif8" path="res://scenes/objects/egg.tscn" id="2_8pglm"]
 [ext_resource type="Texture2D" uid="uid://c37crt7rnjl4u" path="res://assets/game/tilesets/building_parts/chest.png" id="2_on8dh"]
 [ext_resource type="PackedScene" uid="uid://ou413sd7e4wr" path="res://scenes/components/interactable_component.tscn" id="3_rk0vo"]

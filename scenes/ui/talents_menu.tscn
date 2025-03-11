@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0ghe0namwqau"]
 
 [ext_resource type="Theme" uid="uid://d12h0sdtb6bla" path="res://scenes/ui/game_ui_theme.tres" id="1_jfv67"]
-[ext_resource type="Script" path="res://scenes/ui/talents_menu.gd" id="2_ssdsk"]
+[ext_resource type="Script" uid="uid://cusp17dwci21i" path="res://scenes/ui/talents_menu.gd" id="2_ssdsk"]
 [ext_resource type="FontFile" uid="uid://4ecdbshuphhv" path="res://assets/ui/fonts/pixelFont-7-8x14-sproutLands.ttf" id="3_eell6"]
 
 [node name="TalentsMenu" type="PanelContainer"]

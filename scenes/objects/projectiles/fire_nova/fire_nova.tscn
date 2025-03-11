@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://dujgci2rdvhwy"]
 
-[ext_resource type="Script" path="res://scenes/objects/projectiles/fire_nova/fire_nova.gd" id="1_xk5t2"]
+[ext_resource type="Script" uid="uid://g4pylnbwu4uq" path="res://scenes/objects/projectiles/fire_nova/fire_nova.gd" id="1_xk5t2"]
 [ext_resource type="Texture2D" uid="uid://ctw0055krvy1i" path="res://assets/game/objects/01.png" id="3_x52fh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m10e4"]

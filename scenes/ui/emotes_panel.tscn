@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://b5ks16sn12ttk"]
 
 [ext_resource type="Theme" uid="uid://d12h0sdtb6bla" path="res://scenes/ui/game_ui_theme.tres" id="1_hjbw4"]
-[ext_resource type="Script" path="res://scenes/ui/emotes_panel.gd" id="2_hfmrh"]
+[ext_resource type="Script" uid="uid://biwd1mly246og" path="res://scenes/ui/emotes_panel.gd" id="2_hfmrh"]
 [ext_resource type="Texture2D" uid="uid://bkqv7ntyutdve" path="res://assets/ui/emotes.png" id="3_pg6o0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s7o68"]
