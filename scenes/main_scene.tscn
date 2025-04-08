@@ -26,5 +26,6 @@ y_sort_enabled = true
 position = Vector2(262, 271)
 
 [node name="Camera2D" type="Camera2D" parent="GameRoot/Player"]
+position_smoothing_speed = 60.0
 
 [node name="GameScreen" parent="." instance=ExtResource("2_x56g1")]

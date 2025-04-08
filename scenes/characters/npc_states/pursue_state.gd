@@ -40,7 +40,7 @@ func _on_physics_process(_delta: float) -> void:
 	
 	character.velocity = direction * pursuit_speed
 	animated_sprite_2d.flip_h = direction.x < 0
-	character.move_and_slide()
+	character.move_and_collide(character.velocity * _delta)
 
 func _on_enter() -> void:
 	if animated_sprite_2d:

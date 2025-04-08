@@ -53,6 +53,15 @@ func _ready() -> void:
 	add_child(shoot_timer)
 	emit_signal("health_changed", current_health, max_health)
 
+
+func _process(delta):
+	
+	# Make this toggleable or you have to press to use it or something, currently feels a little weird
+	# Get mouse position and update player_direction
+	var mouse_pos = get_global_mouse_position()
+	# Currently Disabled
+	#player_direction = GameInputEvents.update_mouse_direction(global_position, mouse_pos)
+
 func cast_heal() -> void:
 	var heal = heal_scene.instantiate()
 	add_child(heal)
