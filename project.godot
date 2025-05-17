@@ -22,7 +22,6 @@ ToolManager="*res://scripts/globals/tool_manager.gd"
 InventoryManager="*res://scripts/globals/inventory_manager.gd"
 DayAndNightCycleManager="*res://scripts/globals/day_and_night_cycle_manager.gd"
 SaveGameManager="*res://scripts/globals/save_game_manager.gd"
-DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 DungeonRunManager="*res://scripts/globals/run_manager.gd"
 GameDialogueManager="*res://scripts/globals/game_dialogue_manager.gd"
 GameManager="*res://scripts/globals/game_manager.gd"
@@ -32,6 +31,7 @@ StatisticsManager="*res://scripts/globals/statistics_manager.gd"
 QuestManager="*res://scripts/globals/quest_manager.gd"
 HitSplatManager="*res://scripts/globals/hit_splat_manager.gd"
 DropManager="*res://scripts/globals/drop_manager.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [debug]
 
